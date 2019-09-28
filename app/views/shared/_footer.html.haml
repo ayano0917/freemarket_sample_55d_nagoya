@@ -1,0 +1,70 @@
+%footer.main-footer
+  .main-footer__inner
+    .main-footer__inner__mercari
+      -#下記の要素別ファイルにしたほうが良さげ？ 
+      %h2.main-footer__inner__mercari__about メルカリについて
+      %ul.main-footer__inner__mercari__contents
+        %li.main-footer__inner__mercari__contents__company
+          = link_to '会社概要(運営会社)', '/' , class: 'main-footer__inner__mercari__contents__company__link'
+        %li.main-footer__inner__mercari__contents__recruit 
+          = link_to '採用情報', '/' , class: 'main-footer__inner__mercari__contents__recruit__link'
+        %li.main-footer__inner__mercari__contents__release
+          = link_to 'プレリリース', '/' , class: 'main-footer__inner__mercari__contents__release__link'
+        %li.main-footer__inner__mercari__contents__blog
+          = link_to '公式ブログ', '/' , class: 'main-footer__inner__mercari__contents__blog__link'
+        %li.main-footer__inner__mercari__contents__logo
+          = link_to 'メルカリロゴ利用ガイドライン', '/' , class: 'main-footer__inner__mercari__contents__logo__link'
+        = link_to 'https://twitter.com/mercari_jp', class: 'main-footer__inner__mercari__contents__twitter' do
+          = fa_icon "twitter", class: 'main-footer__inner__mercari__contents__twitter__logo'
+        = link_to 'https://www.facebook.com/mercarijp', class: 'main-footer__inner__mercari__contents__facebook' do
+          = fa_icon "facebook-official", class: 'main-footer__inner__mercari__contents__facebook__logo'
+      -# ここまで
+    .main-footer__inner__wrapper
+      %h2.main-footer__inner__wrapper__help ヘルプ&ガイド
+      %ul.main-footer__inner__wrapper__contents
+        %li.main-footer__inner__wrapper__contents__guide
+          = link_to 'メルカリガイド', '/' , class: 'main-footer__inner__wrapper__contents__guide__link'
+        %li.main-footer__inner__wrapper__contents__raku
+          = link_to 'らくらくメルカリ便', '/' , class: 'main-footer__inner__wrapper__contents__raku__link'
+        %li.main-footer__inner__wrapper__contents__yuu
+          = link_to 'ゆうゆうメルカリ便', '/' , class: 'main-footer__inner__wrapper__contents__yuu__link'
+        %li.main-footer__inner__wrapper__contents__big
+          = link_to '大型メルカリ便', '/' , class: 'main-footer__inner__wrapper__contents__big__link'
+        %li.main-footer__inner__wrapper__contents__car
+          = link_to '車体取引ガイド', '/' , class: 'main-footer__inner__wrapper__contents__car__link'
+        %li.main-footer__inner__wrapper__contents__relief
+          = link_to 'メルカリあんしん・あんぜん宣言！', '/' , class: 'main-footer__inner__wrapper__contents__relief__link'
+        %li.main-footer__inner__wrapper__contents__fake
+          = link_to '偽ブランド品撲滅への取り組み', '/' , class: 'main-footer__inner__wrapper__contents__relief__link'
+        %li.main-footer__inner__wrapper__contents__box
+          = link_to 'メルカリボックス', '/' , class: 'main-footer__inner__wrapper__contents__box__link'
+    .main-footer__inner__box3
+      %h2.main-footer__inner__box3__privacy プライバシーと利用規約
+      %ul.main-footer__inner__box3__right-contents
+        %li.main-footer__inner__box3__right-contents__1
+          = link_to 'プライバシーポリシー', '/' , class: 'main-footer__inner__box3__right-contents__1__link'
+        %li.main-footer__inner__box3__right-contents__2
+          = link_to 'メルカリ利用規約', '/' , class: 'main-footer__inner__wrapper__contents__raku__link'
+        %li.main-footer__inner__box3__right-contents__3
+          = link_to 'あんしんスマホサポート制度関する利用特約', '/' , class: 'main-footer__inner__wrapper__contents__yuu__link'
+        %li.main-footer__inner__box3__right-contents__4
+          = link_to 'コンプライアンスポリシー', '/' , class: 'main-footer__inner__wrapper__contents__big__link'
+      %ul.main-footer__inner__box3__left-contents
+        %li.main-footer__inner__box3__left-contents__1
+          = link_to '個人データの安全管理に係る基本方針', '/' , class: 'main-footer__inner__wrapper__contents__guide__link'
+        %li.main-footer__inner__box3__left-contents__2
+          = link_to '特定商取引に関する表記', '/' , class: 'main-footer__inner__wrapper__contents__raku__link'
+        %li.main-footer__inner__box3__left-contents__3
+          = link_to '資金決済法に基づく表示', '/' , class: 'main-footer__inner__wrapper__contents__yuu__link'
+        %li.main-footer__inner__box3__left-contents__4
+          = link_to '法令遵守と犯罪抑止の為に', '/' , class: 'main-footer__inner__wrapper__contents__big__link'
+    .main-footer__inner__box4
+      %h2.main-footer__inner__box4__country 国
+      %ul.main-footer__inner__box4__contents
+        %li.main-footer__inner__box4__contents__1
+          = link_to '日本', '/' , class: 'main-footer__inner__box4__contents__1__link'
+        %li.main-footer__inner__box4__contents__2
+          = link_to 'United States', '/' , class: 'main-footer__inner__box4__contents__2__link'
+  .main-footer__under-inner
+    = link_to image_tag('https://web-jp-assets.mercdn.net/_next/static/images/logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg', class: 'main-footer__under-inner__logo'), 'root_path'
+    %span.main-footer__under-inner__string © 2019 Mercari
