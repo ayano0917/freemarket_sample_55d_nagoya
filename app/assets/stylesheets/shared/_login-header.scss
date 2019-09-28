@@ -1,0 +1,180 @@
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1;
+  .main-header {
+    background-color: rgb(255,255, 255);
+    position: relative;
+    width: 1440px;
+    min-width: 768px;
+    &__inner {
+      width: 1020px;
+      min-width: 1068px;
+      margin: 0 auto;
+      padding: 8px 0 0;
+      &__top {
+        display: flex;
+        &__img {
+        align-items: center;
+        height: 40px;
+        -webkit-box-align: center;
+        margin-right: 45px;
+        }
+        &__form { 
+          width: 100%;
+          position: relative;
+          &__input {
+            background-color:rgb(245, 245, 245);
+            font-size: 16px;
+            height: 40px;
+            line-height: 1.4rem;
+            position: relative;
+            width: calc(1068px - 179px);
+            // 100%だとなぜか適用されない…
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(204, 204, 204);
+            border-radius: 4px;
+            padding: 0 50px 0 10px;
+            &__search {
+              height: 40px;
+              width: 40px;
+              &__icon {
+                position: absolute;
+                right: 220px;
+                top: 18px;
+                width: 0px;
+                margin-top: 2px;
+                height: 14px;
+                color: rgb(34, 34, 34);
+              }
+            }
+          }
+        }
+      }
+      &__nav {
+        display: flex;
+        margin-top: 8px;
+        &__search {
+          display: flex;
+          margin-left: -3px;
+          &__category {
+            height: 44px;
+            position: relative;
+            z-index: 3;
+            padding-right: 10px;
+            &__link {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              text-decoration: none;
+              color: #333;
+              &__icon {
+                color: rgb(234, 53, 45);
+                height: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+          &__brand {
+            height: 44px;
+            position: relative;
+            z-index: 3;
+            padding: 0px 10px;
+            &__link {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              text-decoration: none;
+              color: #333;
+              &__icon {
+                color: rgb(234, 53, 45);
+                height: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+        &__menu {
+          display: flex;
+          position: relative;
+          margin: 8px 0 0 auto;
+          &__like {
+            height: 44px;
+            position: relative;
+            color: #333;
+            padding: 0px 7px;
+            &__link {
+              text-decoration: none;
+              height: 32px;
+              font-size: 14px;
+              &__icon {
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 17px;
+                font-size: 20px;
+              }
+            }
+          }
+          &__notification {
+            height: 44px;
+            position: relative;
+            color: #333;
+            padding: 0px 7px;
+            &__link {
+              text-decoration: none;
+              height: 32px;
+              font-size: 14px;
+              &__icon {
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 17px;
+                font-size: 20px;
+              }
+            }
+          }
+          &__todo {
+            height: 44px;
+            position: relative;
+            color: #333;
+            padding: 0px 7px;
+            &__link {
+              text-decoration: none;
+              height: 32px;
+              font-size: 14px;
+              &__icon {
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 15px;
+                font-size: 20px;
+                border-radius: 50%;
+              }
+            }
+          }
+          &__mypage {
+            height: 44px;
+            position: relative;
+            color: #333;
+            padding: 0px 7px;
+            &__link {
+              text-decoration: none;
+              height: 32px;
+              font-size: 14px;
+              position: relative;
+              &__icon {
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                font-size: 20px;
+                width: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
