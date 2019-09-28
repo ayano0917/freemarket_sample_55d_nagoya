@@ -1,0 +1,53 @@
+.app-banner {
+  width: 1440px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background: url('mercari_footer.jpg');
+  &__contents {
+    position: relative;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    &__inner {
+      position: absolute;
+      height: 100%;
+      &__first-sentence {
+        font-weight: bold;
+        font-size: 24px;
+        color: rgb(255, 255, 255);
+        font-weight: 600px;
+        margin: 30px 0 15px 0;
+      }
+      &__second-sentence {
+        font-size: 35px;
+        color:  rgb(255, 255, 255);
+        margin-bottom: 20px;
+      }
+      &__icons {
+        display: flex;
+        &__mercari {
+          height: 68px;
+          width: 68px;
+          margin-right: 20px;
+        }
+        &__app-store {
+          height: 40px;
+          width: 144px;
+          margin: 15px 8px 0 0;
+        }
+        &__google-play {
+          height: 40px;
+          width: 144px;
+          margin-top: 15px;
+        }
+      }
+    &__phone-img {
+      width: 300px;
+      height: 100%;
+      position: absolute;
+      right: 0px;
+      }
+    }
+  }
+}
