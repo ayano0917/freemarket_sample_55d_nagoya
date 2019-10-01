@@ -1,12 +1,12 @@
-.top_page_contents_box {
+.top-page {
   min-height: 100vh;
   padding-bottom: 150px;
   background-color: #EFEFEF;
-  .top_page_trendy_box {
+  &__trendy-box {
     position: relative;
     width: 100%;
     height: 290px;
-    .top_page_trendy_article {
+    &__article {
       height: 390px;
       width: 680px;
       margin: 0 auto;
@@ -15,7 +15,7 @@
         height: 100%;
         width: 100%;
       }
-      .top_page_back_button {
+      &__back-button {
         font-size: 40px;
         color: white;
         position: absolute;
@@ -23,7 +23,7 @@
         left: 75px;
         filter:drop-shadow(5px 5px 5px #4e4e4e);
       }
-      .top_page_forward_button {
+      &__forward-button {
         font-size: 40px;
         color: white;
         position: absolute;
@@ -31,14 +31,14 @@
         right: 75px;
         filter:drop-shadow(5px 5px 5px #4e4e4e);
       }
-      .top_page_dot_left{
+      &__dot-left{
         font-size: 10px;
         color: white;
         position: absolute;
         top: 360px;
         left: 705px;
       }
-      .top_page_dot_right {
+      &__dot-right {
         font-size: 10px;
         color: white;
         position: absolute;
@@ -47,12 +47,12 @@
       }
     }
   }
-  .top_page_popular_categories {
+  .top-page__popular-categories {
     position: relative;
     top: 100px;
     height: 175px;
     background-color: white;
-    .top_page_heading_line {
+    .top-page__heading-line {
       width: 300px;
       margin: 0 auto;
       font-size: 25px;
@@ -63,12 +63,12 @@
       top: 50px;
       left: 50px;
     }
-    .top_page_menu {
+    .top-page__menu {
       display: flex;
       justify-content: center;
       position: relative;
       top: 70px;
-      .top_page_menu__item a {
+      &__item a {
         text-decoration: none;
         color: #313131;
         font-weight: bold;
@@ -81,17 +81,17 @@
       }
     }
   }
-  .top_page_new_items {
+  .top-page__new-items {/* ここから */
     position: relative;
     top: 100px;
     width: 100%;
     background-color: #EFEFEF;
     letter-spacing: 1px;
-    .top_page_category {
+    .top-page__category {
       width: 1000px;
       height: 650px;
       margin: 0 auto;
-      .top_page_category_new_items {
+      &__new-items {
         display: flex;
         justify-content: space-between;
         padding-top: 50px;
@@ -106,11 +106,11 @@
           vertical-align: baseline
         }
       }
-      .top_page_category_largebox {
+      .top-page__category__largebox {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        .top_page_category_box {
+        .top-page__category-box {
           position: relative;
           width: 185px;
           height: 250px;
@@ -125,7 +125,7 @@
               height: 100%;
               width: 100%;
             }
-              .top_page_price {
+              .top-page__price {
                 position: absolute;
                 left: 0px;
                 bottom: 40px;
@@ -136,8 +136,7 @@
                 background-color: rgba(50,50,52, 0.5);
                 color: white;
                 border-radius: 0px 30px 30px 0px;
-                .top_page_product_name {
-                  // font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+                .top-page__product-name {
                   font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
                   position: absolute;
                   top: 45px;
@@ -156,7 +155,7 @@
       }
     }
   }
-    .top_page_exhibit_button {
+    .top-page_exhibit_button {
       position: fixed;
       bottom: 30px; 
       right: 35px;

@@ -1,36 +1,36 @@
-.top_page_contents_box
-  .top_page_trendy_box
+.top-page
+  .top-page__trendy-box
     = link_to '#' do
-      .top_page_trendy_article
+      .top-page__trendy-box__article
         = image_tag('//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3296506464', width: '680px', height: '390px')
-        .top_page_back_button
+        .top-page__trendy-box__article__back-button
           ＜
-        .top_page_forward_button
+        .top-page__trendy-box__article__forward-button
           ＞
-        .top_page_dot_left
+        .top-page__trendy-box__article__dot-left
           ●
-        .top_page_dot_right
+        .top-page__trendy-box__article__dot-right
           ○
-  .top_page_popular_categories
-    .top_page_heading_line
+  .top-page__popular-categories
+    .top-page__heading-line
       人気のカテゴリー
-    %ul.top_page_menu
-      %li.top_page_menu__item
+    %ul.top-page__menu
+      %li.top-page__menu__item
         = link_to "レディース", '#'
-      %li.top_page_menu__item
+      %li.top-page__menu__item
         = link_to "メンズ", '#'
-      %li.top_page_menu__item
+      %li.top-page__menu__item
         = link_to "家電・スマホ・カメラ", '#'
-      %li.top_page_menu__item
+      %li.top-page__menu__item
         = link_to "おもちゃ・ホビー・グッズ", '#'
     
-  .top_page_new_items
-    .top_page_category
-      .top_page_category_new_items
+  .top-page__new-items
+    .top-page__category
+      .top-page__category__new-items
         レディース新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#' 
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -42,12 +42,12 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
       -# とりあえず部分テンプレートで出力をしたけどレディース、メンズ、とかに分ける必要がありそう。
-    .top_page_category
-      .top_page_category_new_items
+    .top-page__category
+      .top-page__category__new-items
         メンズ新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#' 
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -59,12 +59,12 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
 
-    .top_page_category
-      .top_page_category_new_items
+    .top-page__category
+      .top-page__category__new-items
         家電・スマホ・カメラ新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#'
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -76,12 +76,12 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
 
-    .top_page_category
-      .top_page_category_new_items
+    .top-page__category
+      .top-page__category__new-items
         おもちゃ・ホビー・グッズ新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#'
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -93,26 +93,26 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
       
-  .top_page_popular_categories
-    .top_page_heading_line
+  .top-page__popular-categories
+    .top-page__heading-line
       人気のブランド
-    %ul.top_page_menu
-      %li.top_page_menu__item
+    %ul.top-page__menu
+      %li.top-page__menu__item
         = link_to "シャネル", '#'
-      %li.top_page_menu__item
+      %li.top-page__menu__item
         = link_to "ルイヴィトン", '#'
-      %li.top_page_menu__item
+      %li.top-page__menu__item
         = link_to "シュプリーム", '#'
-      %li.top_page_menu__item
+      %li.top-page__menu__item
         = link_to "ナイキ", '#'
 
-  .top_page_new_items
-    .top_page_category
-      .top_page_category_new_items
+  .top-page__new-items
+    .top-page__category
+      .top-page__category__new-items
         シャネル新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#' 
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -124,12 +124,12 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
       -# とりあえず部分テンプレートで出力をしたけどレディース、メンズ、とかに分ける必要がありそう。
-    .top_page_category
-      .top_page_category_new_items
+    .top-page__category
+      .top-page__category__new-items
         ルイヴィトン新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#' 
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -141,12 +141,12 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
 
-    .top_page_category
-      .top_page_category_new_items
+    .top-page__category
+      .top-page__category__new-items
         シュプリーム新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#'
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -158,12 +158,12 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
 
-    .top_page_category
-      .top_page_category_new_items
+    .top-page__category
+      .top-page__category__new-items
         ナイキ新着アイテム
-        .top_page_category_new_items__more
+        .top-page__category__new-items__more
           = link_to "もっと見る ＞", '#'
-      .top_page_category_largebox
+      .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -175,9 +175,9 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
 
-  .top_page_exhibit_red_button
+  .top-page_exhibit_red_button
     = link_to '#' do
-      .top_page_exhibit_button
+      .top-page_exhibit_button
         %p 出品
         = fa_icon 'camera', class: 'exhibit'
       
