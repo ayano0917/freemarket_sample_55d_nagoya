@@ -1,0 +1,157 @@
+.main-footer {
+  background-color: rgb(34, 34, 34);
+  padding: 0 20px 10px;
+  color: rgb(255, 255, 255);
+  &__inner {
+    width: 1020px;
+    margin: 0 170px;
+    position: relative;
+    &__mercari {
+      width: auto;
+      padding-right: 40px;
+      margin-top: 18px;
+      vertical-align: top;
+      display: inline-block;
+      &__about {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
+      &__contents {
+        &__company , &__recruit , &__release , &__blog , &__logo {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          &__link {
+            color: rgb(255, 255, 255);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 12px;
+          }
+        }
+        &__twitter , &__facebook {
+          display: inline-block;
+          margin-top: 30px;
+          text-decoration: none;
+          &__logo {
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            width: 30px;
+            margin-right: 20px;
+            font-size: 2em;
+            color: white;
+          }
+        }
+      }
+    }
+    &__wrapper {
+      width: auto;
+      padding-right: 40px;
+      margin-top: 18px;
+      vertical-align: top;
+      display: inline-block;
+      &__help {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4em;
+        // ここはaboutと記述が同じなので共通化できるかも
+      }
+      &__contents {
+        &__guide , &__raku , &__yuu , &__big , &__car , &__relief , &__fake , &__box {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          &__link {
+            color: rgb(255, 255, 255);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    &__box3 {
+      width: 450px;
+      padding-right: 40px;
+      margin-top: 18px;
+      vertical-align: top;
+      display: inline-block;
+      &__privacy {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4em;
+        // ここはaboutと記述が同じなので共通化できるかも
+      }
+      &__right-contents {
+        padding-right: 10px;
+        display: inline-block;
+        width: 39%;
+        vertical-align: top;
+        &__1 , &__2 , &__3 , &__4 {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          &__link {
+            color: rgb(255, 255, 255);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 12px;
+          }
+        }
+      }
+      &__left-contents {
+        display: inline-block;
+        padding-left: 10px;
+        width: 40%;
+        vertical-align: top;
+        &__1 , &__2 , &__3 , &__4 {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          &__link {
+            color: rgb(255, 255, 255);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    &__box4 {
+      position: absolute;
+      width: auto;
+      padding-right:40px;
+      margin-top: 18px;
+      vertical-align: top;
+      display: inline-block;
+      &__country {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4em;
+        // ここはaboutと記述が同じなので共通化できるかも
+      }
+      &__contents {
+        &__1 , &__2 {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          width: 112px;
+          &__link {
+            color: rgb(255, 255, 255);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  &__under-inner {
+    width: 1020px;
+    margin: 30px auto 20px;
+    display: flex;
+    align-items: center;
+    &__string {
+      text-align: center;
+      padding-left: 15px;
+      width: 75%;
+      font-size: 12px;
+    }
+  }
+ }
