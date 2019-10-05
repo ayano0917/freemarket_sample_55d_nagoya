@@ -14,6 +14,10 @@
     }
   }
   &__search {
+    input:focus {
+      border-color: #1E90FF;
+      outline: none;
+    }
     .form__keyword {
       width: 850px;
       height: 36px;
@@ -50,7 +54,6 @@
         }
       }
       .header__category:hover a {
-        color: #4EC9FF;
       }
       .header__brand a {
         text-decoration: none;
@@ -61,7 +64,7 @@
         }
       }
       .header__brand:hover a {
-        color: #4EC9FF;
+        color: #1E90FF;
       }
     }
     &-user-function {
