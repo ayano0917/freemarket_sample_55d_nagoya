@@ -2,7 +2,7 @@
   %header.main-header
     .main-header__inner
       .main-header__inner__top
-        =link_to image_tag('https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', :width => '134', :height => '36', class: 'main-header__inner__top__img' ), 'root_path'
+        =link_to image_tag('https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', :width => '134', :height => '36', class: 'main-header__inner__top__img' ), '/'
         %form{:action => "/", :method => "post", :class => "mein-header__inner__top__form" }
           %input{:type => "search", :name => "keyword", :placeholder => "何かお探しですか?", :class => "main-header__inner__top__form__input"}
             =link_to '#', class: 'main-header__inner__top__form__input__search' do
@@ -15,7 +15,7 @@
               カテゴリーから探す
           .main-header__inner__nav__search__brand
             =link_to '#', class: 'main-header__inner__nav__search__brand__link' do
-              = fa_icon "tag", class: 'main-header__inner__nav__search__brand__link__icon'
+              %i.fa.fa-tag.main-header__inner__nav__search__brand__link__icon{"aria-hidden": "true"}
               ブランドから探す
         .main-header__inner__nav__menu
           .main-header__inner__nav__menu__like
