@@ -39,6 +39,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry-rails'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -55,3 +60,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'device'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end

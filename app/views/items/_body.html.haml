@@ -1,0 +1,200 @@
+.top-page
+  .top-page__trendy-box
+    = link_to '#', class: 'top-page__trendy-box' do
+      .top-page__trendy-box__article
+        = image_tag('//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3296506464', width: '680px', height: '390px', class: 'top-page__trendy-box__article')
+      .top-page__trendy-box__article2
+        .top-page__trendy-box__article2__contents
+          .top-page__trendy-box__article2__contents__first-sentence 
+            %p スマホで かんたん 
+            フリマアプリ
+          .top-page__trendy-box__article2__contents__second-sentence
+            %p メルカリはスマホカメラからすぐに出品できる
+            購入時も安心な独自システムのアプリです
+          .top-page__trendy-box__article2__contents__icons
+            .top-page__trendy-box__article2__contents__icons__app-store
+              = link_to '#' do
+                = image_tag('https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', width: '170', height: '50')
+            .top-page__trendy-box__article2__contents__icons__google-play
+              = link_to '#' do
+                = image_tag('https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', width: '170', height: '50')
+        .top-page__trendy-box__article2__contents__phone-img
+          = image_tag('https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png', width: '440', height: '390')
+          .top-page__trendy-box__article__back-button
+            ＜
+          .top-page__trendy-box__article__forward-button
+            ＞
+          .top-page__trendy-box__article__dot-left
+            ●
+          .top-page__trendy-box__article__dot-right
+            ○
+  .top-page__popular-categories
+    .top-page__heading-line
+      人気のカテゴリー
+    %ul.top-page__menu
+      %li.top-page__menu__item
+        = link_to "レディース", '#'
+      %li.top-page__menu__item
+        = link_to "メンズ", '#'
+      %li.top-page__menu__item
+        = link_to "家電・スマホ・カメラ", '#'
+      %li.top-page__menu__item
+        = link_to "おもちゃ・ホビー・グッズ", '#'
+    
+  .top-page__new-items
+    .top-page__category
+      .top-page__category__new-items
+        レディース新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#' 
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+      -# とりあえず部分テンプレートで出力をしたけどレディース、メンズ、とかに分ける必要がありそう。
+    .top-page__category
+      .top-page__category__new-items
+        メンズ新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#' 
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+
+    .top-page__category
+      .top-page__category__new-items
+        家電・スマホ・カメラ新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#'
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+
+    .top-page__category
+      .top-page__category__new-items
+        おもちゃ・ホビー・グッズ新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#'
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+      
+  .top-page__popular-categories
+    .top-page__heading-line
+      人気のブランド
+    %ul.top-page__menu
+      %li.top-page__menu__item
+        = link_to "シャネル", '#'
+      %li.top-page__menu__item
+        = link_to "ルイヴィトン", '#'
+      %li.top-page__menu__item
+        = link_to "シュプリーム", '#'
+      %li.top-page__menu__item
+        = link_to "ナイキ", '#'
+
+  .top-page__new-items
+    .top-page__category
+      .top-page__category__new-items
+        シャネル新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#' 
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+      -# とりあえず部分テンプレートで出力をしたけどレディース、メンズ、とかに分ける必要がありそう。
+    .top-page__category
+      .top-page__category__new-items
+        ルイヴィトン新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#' 
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+
+    .top-page__category
+      .top-page__category__new-items
+        シュプリーム新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#'
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+
+    .top-page__category
+      .top-page__category__new-items
+        ナイキ新着アイテム
+        .top-page__category__new-items__more
+          = link_to "もっと見る ＞", '#'
+      .top-page__category__largebox
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+        = render 'items/categorybox'
+
+  .top-page__exhibit_red-button
+    = link_to '#' do
+      .top-page__exhibit_button
+        %p 出品
+        = fa_icon 'camera', class: 'exhibit'
+      
