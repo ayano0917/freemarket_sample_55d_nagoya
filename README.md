@@ -26,11 +26,10 @@ has_ many :buyers, class_name: ‘Item’
 has_ many :sellers, class_name: ‘Item’
 
 ## credit_cardsテーブル
-|credit_card_number|integer|null: false, unique:true| 
-|security_code|integer|null: false|
-|month|integer|null: false|
-|year|integer|null: false|
-|user_id|references|null: false, index: true, foreign_key: true|
+//PAY.JPの使用を想定
+|user_id|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 belongs_to :user
 
