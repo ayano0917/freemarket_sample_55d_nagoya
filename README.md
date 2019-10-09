@@ -18,12 +18,12 @@
 |city|integer|null: false|
 |building|integer|null: false|
 ### Association
-has_one :credit_cards
-has_many :sns_credentials
-has_many :likes
-has_many :comments
-has_ many :buyers, class_name: ‘Item’ 
-has_ many :sellers, class_name: ‘Item’
+has_one :credit_cards, dependent: :destroy
+has_many :sns_credentials, dependent: :destroy
+has_many :likes, dependent: :destroy
+has_many :comments, dependent: :destroy
+has_ many :buyers, class_name: ‘Item’, dependent: :destroy
+has_ many :sellers, class_name: ‘Item’, dependent: :destroy
 
 ## credit_cardsテーブル
 //PAY.JPの使用を想定
@@ -77,9 +77,9 @@ belongs_to :buyer_id, class_name: “User”
 belongs_to :seller_id, class_name: “User”
 belongs_to :brand
 belongs_to :category
-has_many :comments
-has_many :images
-has_many :likes
+has_many :comments, dependent: :destroy
+has_many :images, dependent: :destroy
+has_many :likes, dependent: :destroy
 
 ## imagesテーブル
 |content|string|null: false|
