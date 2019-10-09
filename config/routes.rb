@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :items, only: [:index ,:show ,:new, :create, :edit] do
     resources :comments, only: [:index, :create]
   resources :credit_cards, only: [:new]
+  end
 end
