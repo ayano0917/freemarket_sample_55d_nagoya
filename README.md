@@ -12,11 +12,11 @@
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|phone_number|integer|null: false, unique:true|
-|zipcode|integer|null: false|
-|prefecture|integer|null: false|
-|city|integer|null: false|
-|building|integer|null: false|
+|phone_number|string|null: false, unique:true|
+|Postal_code|char(8)|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|building|string|null: false|
 ### Association
 has_one :credit_cards, dependent: :destroy
 has_many :sns_credentials, dependent: :destroy
@@ -60,13 +60,13 @@ belongs_to :user
 |name|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
-|condition|integer|null: false|
+|condition|string|null: false|
 |shipping_fee|integer|null: false|
-|shipping_from|integer|null: false|
-|shipping_area|integer|null: false|
-|days_before_shipping|integer|null: false|
-|shipping_method|integer|null: false|
-|trade_status|integer|null: false|
+|shipping_form|string|null: false|
+|shipping_area|string|null: false|
+|days_before_shipping|string|null: false|
+|shipping_method|string|null: false|
+|trade_status|string|null: false|
 |size|string||   //数字をテキストとして扱う
 |buyer_id|references|foreign_key:  { to_table: :users }|
 |seller_id|references|null: false, foreign_key: { to_table: :users }| 
@@ -101,7 +101,7 @@ has_many :child, class_name:”Category”, foreign_key: “parent_id”, depend
 has_many :items
 
 ## shipping_adressテーブル
-|Postal_code|integer|null: false|
+|Postal_code|char(8)|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |building|string|null: false|
