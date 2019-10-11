@@ -42,8 +42,10 @@
       display: flex;
       justify-content: flex-start;
       position: relative;
+      top: 10px;
+      left: 0px;
       margin-left: 200px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: bold;
       letter-spacing: 0.8px;
       .header__category a {
@@ -73,11 +75,11 @@
       display: flex;
       align-items: flex-start;
       position: absolute;
-      right: 215px;
-      top: 35px;
+      right: 204px;
+      top: 30px;
       font-size: 12px;
       .header__new-user {
-        padding: 0.5em 1em; /* 親要素がfont-size: 12px;（ボタンの大きさ）だからそこからの余白を考える。emという単位になる。 */
+        padding: 0.8em 1em; 
         margin: 2em 0;
         color: white;
         background-color: #E9352D;
@@ -86,7 +88,7 @@
         text-decoration: none;
       }
       .header__login-user {
-        padding: 0.5em 1em;
+        padding: 0.8em 1em;
         margin: 2em 0;
         color: #6091d3;
         background-color: #FFF;
