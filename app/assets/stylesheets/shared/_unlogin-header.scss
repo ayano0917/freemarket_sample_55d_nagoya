@@ -2,16 +2,20 @@
   background-color: white;
   height: 100px;
   width: 100%;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position:relative;
+  z-index:2;
   &__top {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8px;
+    padding-top: 10px;
   .header__logo a {
-      height: 37px;
-      width: 138px;
-      margin-right: 50px;
-      margin-left: 20px;
+    height: 36px;
+    width: 134px;
+    margin-right: 40px;
+    margin-left: 20px;
   }
   }
   &__search {
@@ -20,11 +24,11 @@
       outline: none;
     }
     .form__keyword {
-      width: 830px;
+      width: 838px;
       height: 36px;
       padding-left: 10px;
       background-color: #F5F5F5;
-      border-radius: 5px;
+      border-radius: 4px;
       border: solid 1px #DADADA;
       &-search{
         color: black;
@@ -37,19 +41,18 @@
   }
   .header__bottom {
     display: flex;
-    margin-top: 15px;
+    margin-top: 10px;
     &-search {
       display: flex;
       justify-content: flex-start;
       position: relative;
-      top: 10px;
+      top: 8px;
       left: 0px;
-      margin-left: 200px;
+      margin-left: 210px;
       font-size: 14px;
       font-weight: bold;
-      letter-spacing: 0.8px;
       .header__category a {
-        margin-right: 20px;
+        margin-right: 25px;
         text-decoration: none;
         color: black;
         .icon {
@@ -76,7 +79,7 @@
       align-items: flex-start;
       position: absolute;
       right: 204px;
-      top: 30px;
+      top: 35px;
       font-size: 12px;
       .header__new-user {
         padding: 0.8em 1em; 
