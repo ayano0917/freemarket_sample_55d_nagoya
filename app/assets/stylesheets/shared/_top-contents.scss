@@ -1,7 +1,7 @@
 .top-page {
   min-height: 100vh;
   padding-bottom: 180px;
-  background-color: #EFEFEF;
+  background-color: #EEEDEB;
   &__trendy-box {
     position: relative;
     width: 100%;
@@ -14,7 +14,7 @@
     }
     &__article { /*キャンプの画面*/
       height: 390px;
-      width: 680px;
+      width: 750px;
       margin: 0 auto;
       a {
         position: absolute;
@@ -193,6 +193,7 @@
                   width: 165px;
                   height: 45px;
                   font-size: 14px;
+                  line-height: 21px;
                   color: black;
                   display: -webkit-box;
                   -webkit-box-orient: vertical;
