@@ -1,0 +1,65 @@
+.purchase-confirmation-page
+  %header.purchase-confirmation-page__header
+    = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567', width: '185px', height: '49px' ), '/'
+  %main.purchase-confirmation-page__main
+    %h2.purchase-confirmation-page__main__title
+      購入内容の確認
+    .purchase-confirmation-page__main__item
+      .purchase-confirmation-page__main__item__inner
+        .purchase-confirmation-page__main__item__inner__box
+          .purchase-confirmation-page__main__item__inner__box__image
+            = image_tag('https://static.mercdn.net/thumb/photos/m86437090205_1.jpg?1570370167', width: '64px', height: '64px' )
+          .purchase-confirmation-page__main__item__inner__box__name
+            APCショルダーバッグ 長い文章をうっています。
+        .purchase-confirmation-page__main__item__inner__price
+          .purchase-confirmation-page__main__item__inner__price__cost
+            ¥1,300
+          .purchase-confirmation-page__main__item__inner__price__postage
+            送料込み
+        .purchase-confirmation-page__main__item__inner__point
+          .purchase-confirmation-page__main__item__inner__point__numbers
+            ポイントはありません
+        .purchase-confirmation-page__main__item__inner__payment-amount
+          .purchase-confirmation-page__main__item__inner__payment-amount__title
+            支払い金額
+          .purchase-confirmation-page__main__item__inner__payment-amount__number
+            ¥1,300
+        .purchase-confirmation-page__main__item__inner__purchase-button
+          = link_to '#' do
+            .purchase-confirmation-page__main__item__inner__purchase-button__text
+              購入する
+    .purchase-confirmation-page__main__address
+      .purchase-confirmation-page__main__address__shipping
+        %h3 配送先
+        .purchase-confirmation-page__main__address__postal-code
+          〒123-4567
+          %br 三重県松阪市鎌田町111-1
+        .purchase-confirmation-page__main__address__user-name
+          山田 花子
+        .purchase-confirmation-page__main__address__change
+          = link_to '変更する >', '#' 
+    .purchase-confirmation-page__main__payment
+      .purchase-confirmation-page__main__payment__way
+        %h3 支払い方法
+        .purchase-confirmation-page__main__payment__number
+          ************7777
+        .purchase-confirmation-page__main__payment__date
+          12 / 23
+        .purchase-confirmation-page__main__payment__logo
+          = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3761641567', width: '34px', height: '20px')
+        .purchase-confirmation-page__main__payment__change
+          = link_to '変更する >', '#' 
+  %footer.purchase-confirmation-page__footer
+    %nav
+      %ul.purchase-confirmation-page__footer__list
+        %li
+          = link_to 'プライバシーポリシー', '#'
+        %li
+          = link_to 'メルカリ利用規約', '#'
+        %li
+          = link_to '特定商取引に関する表記', '#'
+
+    .purchase-confirmation-page__footer__logo
+      = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567', width: '80px', height: '65px' ), '/'
+      %p
+        %small © 2019 Mercari
