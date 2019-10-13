@@ -11,7 +11,11 @@ Rails.application.routes.draw do
         get :complete
       end
     end
-  resources :items, only: [:new ,:index, :show]
+  resources :items, only: [:new ,:index, :show] do
+      member do
+        get :confirm
+      end
+  end
   resources :comments
   resources :credit_cards, only: [:new]
 end
