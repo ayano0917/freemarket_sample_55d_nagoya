@@ -1,6 +1,5 @@
 .purchase-confirmation-page
-  %header.purchase-confirmation-page__header
-    = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567', width: '185px', height: '49px' ), '/'
+  = render 'shared/exhibition-page-header'
   %main.purchase-confirmation-page__main
     %h2.purchase-confirmation-page__main__title
       購入内容の確認
@@ -49,17 +48,6 @@
           = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3761641567', width: '34px', height: '20px')
         .purchase-confirmation-page__main__payment__change
           = link_to '変更する >', '#' 
-  %footer.purchase-confirmation-page__footer
-    %nav
-      %ul.purchase-confirmation-page__footer__list
-        %li
-          = link_to 'プライバシーポリシー', '#'
-        %li
-          = link_to 'メルカリ利用規約', '#'
-        %li
-          = link_to '特定商取引に関する表記', '#'
 
-    .purchase-confirmation-page__footer__logo
-      = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567', width: '80px', height: '65px' ), '/'
-      %p
-        %small © 2019 Mercari
+  = render 'shared/exhibition-page-footer' 
+  
