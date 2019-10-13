@@ -1,9 +1,11 @@
 class CreditCardsController < ApplicationController
 
-  def new 
+  def create
+    #もしクレカ登録したら、show_creditcardのビューに飛ぶ
   end
 
-  def delete
+  def destroy
+    #削除したとき、show_creditcardのビューに飛ぶ
   end
 
 end

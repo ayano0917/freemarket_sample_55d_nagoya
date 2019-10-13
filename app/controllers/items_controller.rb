@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
 
-#仮置きのアクションです。必要に応じて編集お願いします。
-
-def index
+  def index
   end
 
   def show
@@ -11,11 +9,7 @@ def index
   def new
   end
 
-  def create
+  def confirm
   end
-
-  def edit
-  end
-
   
 end
