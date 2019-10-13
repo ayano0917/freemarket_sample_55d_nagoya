@@ -203,31 +203,5 @@
       }
     }
   }
-    .top-page__exhibit-button {
-      position: fixed;
-      bottom: 30px; 
-      right: 35px;
-      width: 50px;
-      height: 50px;
-      z-index: 10;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background-color: #E9352D;
-      color: white;
-      p {
-        margin-top: 30px;
-        margin-left: 58px;
-        font-size: 22px;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-      }
-      .exhibit {
-        margin-top: 9px;
-        margin-left: 50px;
-        font-size: 56px;
-      }
-    }
+  
 }
