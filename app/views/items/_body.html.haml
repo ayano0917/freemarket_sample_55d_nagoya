@@ -33,20 +33,20 @@
       人気のカテゴリー
     %ul.top-page__menu
       %li.top-page__menu__item
-        = link_to "レディース", '#'
+        = link_to 'レディース', '#'
       %li.top-page__menu__item
-        = link_to "メンズ", '#'
+        = link_to 'メンズ', '#'
       %li.top-page__menu__item
-        = link_to "家電・スマホ・カメラ", '#'
+        = link_to '家電・スマホ・カメラ', '#'
       %li.top-page__menu__item
-        = link_to "おもちゃ・ホビー・グッズ", '#'
+        = link_to 'おもちゃ・ホビー・グッズ', '#'
     
   .top-page__new-items
     .top-page__category
       .top-page__category__new-items
         レディース新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#' 
+          = link_to 'もっと見る ＞', '#' 
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -63,7 +63,7 @@
       .top-page__category__new-items
         メンズ新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#' 
+          = link_to 'もっと見る ＞', '#' 
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -80,7 +80,7 @@
       .top-page__category__new-items
         家電・スマホ・カメラ新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#'
+          = link_to 'もっと見る ＞', '#'
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -97,7 +97,7 @@
       .top-page__category__new-items
         おもちゃ・ホビー・グッズ新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#'
+          = link_to 'もっと見る ＞', '#'
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -115,20 +115,20 @@
       人気のブランド
     %ul.top-page__menu
       %li.top-page__menu__item
-        = link_to "シャネル", '#'
+        = link_to 'シャネル', '#'
       %li.top-page__menu__item
-        = link_to "ルイヴィトン", '#'
+        = link_to 'ルイヴィトン', '#'
       %li.top-page__menu__item
-        = link_to "シュプリーム", '#'
+        = link_to 'シュプリーム', '#'
       %li.top-page__menu__item
-        = link_to "ナイキ", '#'
+        = link_to 'ナイキ', '#'
 
   .top-page__new-items
     .top-page__category
       .top-page__category__new-items
         シャネル新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#' 
+          = link_to 'もっと見る ＞', '#' 
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -145,7 +145,7 @@
       .top-page__category__new-items
         ルイヴィトン新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#' 
+          = link_to 'もっと見る ＞', '#' 
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -162,7 +162,7 @@
       .top-page__category__new-items
         シュプリーム新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#'
+          = link_to 'もっと見る ＞', '#'
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -179,7 +179,7 @@
       .top-page__category__new-items
         ナイキ新着アイテム
         .top-page__category__new-items__more
-          = link_to "もっと見る ＞", '#'
+          = link_to 'もっと見る ＞', '#'
       .top-page__category__largebox
         = render 'items/categorybox'
         = render 'items/categorybox'
@@ -192,9 +192,5 @@
         = render 'items/categorybox'
         = render 'items/categorybox'
 
-  .top-page__exhibit_red-button
-    = link_to '#' do
-      .top-page__exhibit_button
-        %p 出品
-        = fa_icon 'camera', class: 'exhibit'
-      
+  = render 'shared/exhibition-button'
+  

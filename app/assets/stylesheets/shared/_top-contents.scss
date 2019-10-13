@@ -1,7 +1,7 @@
 .top-page {
   min-height: 100vh;
-  padding-bottom: 150px;
-  background-color: #EFEFEF;
+  padding-bottom: 180px;
+  background-color: #EEEDEB;
   &__trendy-box {
     position: relative;
     width: 100%;
@@ -14,7 +14,7 @@
     }
     &__article { /*キャンプの画面*/
       height: 390px;
-      width: 680px;
+      width: 750px;
       margin: 0 auto;
       a {
         position: absolute;
@@ -22,19 +22,19 @@
         width: 100%;
       }
       &__back-button {
-        font-size: 40px;
+        font-size: 37px;
         color: white;
         position: absolute;
-        top: 155px;
-        left: 75px;
+        top: 177px;
+        left: 57px;
         filter:drop-shadow(5px 5px 5px #4e4e4e);
       }
       &__forward-button {
-        font-size: 40px;
+        font-size: 37px;
         color: white;
         position: absolute;
-        top: 155px;
-        right: 75px;
+        top: 177px;
+        right: 57px;
         filter:drop-shadow(5px 5px 5px #4e4e4e);
       }
       &__dot-left{
@@ -83,7 +83,6 @@
           width: 270px;
           height: 50px;
           &__app-store  {
-           
           }
           &__google-play {
            margin-left: 10px;
@@ -95,11 +94,10 @@
     }
     }
   }
-  
   .top-page__popular-categories {
     position: relative;
     top: 100px;
-    height: 175px;
+    height: 170px;
     background-color: white;
     .top-page__heading-line {
       width: 300px;
@@ -109,14 +107,14 @@
       color: #313131;
       font-weight: bold;
       position: relative;
-      top: 50px;
+      top: 60px;
       left: 50px;
     }
     .top-page__menu {
       display: flex;
       justify-content: center;
       position: relative;
-      top: 70px;
+      top: 90px;
       &__item a {
         text-decoration: none;
         color: #313131;
@@ -181,18 +179,19 @@
                 display: inline-block;
                 padding: 0.2em 0.8em;
                 margin: 2em 0;
-                font-size: 15px;
+                font-size: 18px;
                 background-color: rgba(50,50,52, 0.5);
                 color: white;
                 border-radius: 0px 30px 30px 0px;
                 .top-page__product-name {
                   font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
                   position: absolute;
-                  top: 45px;
+                  top: 50px;
                   left: 10px;
                   width: 165px;
                   height: 45px;
                   font-size: 14px;
+                  line-height: 21px;
                   color: black;
                   display: -webkit-box;
                   -webkit-box-orient: vertical;
@@ -204,32 +203,5 @@
       }
     }
   }
-    .top-page__exhibit_button {
-      position: fixed;
-      bottom: 30px; 
-      right: 35px;
-      width: 50px;
-      height: 50px;
-      z-index: 10;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background-color: #E9352D;
-      color: white;
-      p {
-        margin-top: 26px;
-        margin-left: 58px;
-        font-size: 22px;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-      }
-      .exhibit {
-        margin-top: 6px;
-        margin-left: 50px;
-        font-size: 55px;
-      }
-    }
   
 }
