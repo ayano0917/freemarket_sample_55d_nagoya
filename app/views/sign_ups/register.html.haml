@@ -22,10 +22,16 @@
         %li.text5
           完了
           .dot5
-         
   %main.new-registration-page__main
     %h2.new-registration-page__main__title
       会員情報入力
+    .new-registration-page__main__input-field
+      .new-registration-page__main__box
+        %form 
+          %label{for: "nickname"} ニックネーム
+          %span.red-tag 必須
+        %input.enter-text{placeholder: "例)メルカリ太郎"}
+
 
 
   = render 'shared/exhibition-page-footer' 
