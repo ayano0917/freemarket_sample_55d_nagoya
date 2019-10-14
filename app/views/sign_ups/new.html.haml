@@ -1,0 +1,16 @@
+= render 'shared/exhibition-page-header'
+.main
+  %section.main__container
+    %h2.main__container__head 新規会員登録
+    .main__container__registration-form
+      .main__container__registration-form__contents
+        = link_to('/', class: 'main__container__registration-form__contents__btn') do
+          = fa_icon 'envelope-o', class: 'main__container__registration-form__contents__btn__icon'
+          メールアドレスで登録する
+        = link_to('/', class: 'main__container__registration-form__contents__btn2') do
+          = fa_icon 'facebook-official', class: 'main__container__registration-form__contents__btn2__icon'
+          Facebookで登録する
+        = link_to('/', class: 'main__container__registration-form__contents__btn3') do
+          = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: 'main__container__registration-form__contents__btn3__icon')
+          Googleで登録する
+= render 'shared/exhibition-page-footer'
