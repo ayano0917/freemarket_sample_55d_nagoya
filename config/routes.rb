@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :credit_cards, only: [:new]
+  resources :sign_ups, only: [:new, :create]
 end
