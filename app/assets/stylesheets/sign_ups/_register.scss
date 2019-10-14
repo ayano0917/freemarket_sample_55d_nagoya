@@ -1,0 +1,15 @@
+.new-registration-page {
+  background-color: #F5F5F5;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__header {
+    background-color: antiquewhite;
+    height: 128px;
+    width: 100vw;
+    text-align: center;
+    img {
+      margin-top: 35px;
+    }
+  }
+}
