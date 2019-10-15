@@ -125,14 +125,39 @@
     &__input-field {
       width: 700px;
       height: 1283px;
+      padding-top: 40px;
     }
       .new-registration-page__main__box {
         width: 343px;
         height: 851px;
         margin: 0 auto;
         background-color: antiquewhite;
+        &__form {
+         display: flex;
+         align-items: baseline;
+          &__title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 10px;
+          }
+          &__red-label {
+            width: 32px;
+            height: 19px;
+            background-color: #ea352d;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 19px;
+            border-radius: 3px;
+          }
+        }
         .enter-text {
-
+          margin-top: 8px;
+          width: 340px;
+          height: 48px;
+          border-radius: 3px;
+          border: solid 1px #DADADA;
         }
       }
   }

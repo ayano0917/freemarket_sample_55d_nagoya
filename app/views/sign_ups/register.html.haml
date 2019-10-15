@@ -27,10 +27,19 @@
       会員情報入力
     .new-registration-page__main__input-field
       .new-registration-page__main__box
-        %form 
-          %label{for: "nickname"} ニックネーム
-          %span.red-tag 必須
-        %input.enter-text{placeholder: "例)メルカリ太郎"}
+        .new-registration-page__main__box__form
+          .new-registration-page__main__box__form__title
+            ニックネーム
+          .new-registration-page__main__box__form__red-label
+            必須
+        %form
+          %input.enter-text{ placeholder: "例) メルカリ太郎"}
+        -# .new-registration-page__main__box__form__title
+        -#   メールアドレス
+        -#   .new-registration-page__main__box__form__red-label
+        -#     必須
+        -# %form
+        -#   %input.enter-text{ placeholder: "例) PC・携帯どちらでも可"}
 
 
 
