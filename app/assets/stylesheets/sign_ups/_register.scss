@@ -189,6 +189,20 @@
           line-height: 20px;
           }
         }
+      &__birthday {
+        margin-top: 5px;
+        .select-birthday {
+          width: 76px;
+          height: 48px;
+          background-color: white;
+        }
+        &__note {
+          margin-top: 10px;
+          color: #888888;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
       }
   }
 }
