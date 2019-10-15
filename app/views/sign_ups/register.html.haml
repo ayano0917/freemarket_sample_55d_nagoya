@@ -255,7 +255,9 @@
         .new-registration-page__main__box__birthday__note
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-           
+        %script{async: "", defer: "", src: "https://www.google.com/recaptcha/api.js"}
+        %form{action: "./verify.php", method: "POST"}
+          .g-recaptcha{"data-sitekey" => "6LfItL0UAAAAADbmj0JHEFPkR7y5EOwZFUI1Q6-c"}
 
 
   = render 'shared/exhibition-page-footer' 
