@@ -34,13 +34,28 @@
             必須
         %form
           %input.enter-text{ placeholder: "例) メルカリ太郎"}
-        -# .new-registration-page__main__box__form__title
-        -#   メールアドレス
-        -#   .new-registration-page__main__box__form__red-label
-        -#     必須
-        -# %form
-        -#   %input.enter-text{ placeholder: "例) PC・携帯どちらでも可"}
-
+        .new-registration-page__main__box__form
+          .new-registration-page__main__box__form__title
+            メールアドレス
+          .new-registration-page__main__box__form__red-label
+            必須
+        %form
+          %input.enter-text{ placeholder: "PC・携帯どちらでも可"}
+        .new-registration-page__main__box__form
+          .new-registration-page__main__box__form__title
+            パスワード
+          .new-registration-page__main__box__form__red-label
+            必須
+        %form
+          %input.enter-text{ placeholder: "7文字以上"}
+        .new-registration-page__main__box__form
+          .new-registration-page__main__box__form__title
+            パスワード(確認) 
+          .new-registration-page__main__box__form__red-label
+            必須
+        %form
+          %input.enter-text{ placeholder: "7文字以上"}
+       
 
 
   = render 'shared/exhibition-page-footer' 
