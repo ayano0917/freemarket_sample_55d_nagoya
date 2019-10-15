@@ -258,6 +258,14 @@
         %script{async: "", defer: "", src: "https://www.google.com/recaptcha/api.js"}
         %form{action: "./verify.php", method: "POST"}
           .g-recaptcha{"data-sitekey" => "6LfItL0UAAAAADbmj0JHEFPkR7y5EOwZFUI1Q6-c"}
+        .new-registration-page__main__box__terms
+          「次へ進む」のボタンを押すことにより、
+          = link_to '利用規約', '#'
+          に同意したものとみなします
+        .new-registration-page__main__box__next-button
+          = link_to '次へ進む', '#'
+        .new-registration-page__main__box__about-registration
+          = link_to '本人情報の登録について＞', '#'
 
 
   = render 'shared/exhibition-page-footer' 
