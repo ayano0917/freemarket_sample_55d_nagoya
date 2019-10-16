@@ -22,4 +22,24 @@
         %li.text5
           完了
           .dot5
- 
+  %main.authentication-page__main
+    %h2.authentication-page__main__title
+      電話番号の確認
+    .authentication-page__main__contents
+      .authentication-page__main__contents__phone
+        携帯電話の番号
+      %form
+        %input.enter-text{ placeholder: "携帯電話の番号を入力"}
+      %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+      .authentication-page__main__contents__send-button
+        = link_to '#' do
+          .authentication-page__main__contents__text
+            SMSを送信する
+      .authentication-page__main__contents__note
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      .authentication-page__main__contents__reason
+        = link_to '電話番号の確認が必要な理由＞', '#'
+
+
+
+  = render 'shared/exhibition-page-footer' 
