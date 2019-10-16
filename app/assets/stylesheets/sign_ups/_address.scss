@@ -37,7 +37,6 @@
         .text1 {
           @include text-content;
           color: #A4A4A4;
-          font-weight: bold;
         }
         .dot1 {
           @include dot-content;
@@ -54,8 +53,7 @@
         }
         .text2 {
           @include text-content;
-          color: #E9352D;
-          font-weight: bold;
+          color: #A4A4A4;
         }
         .dot2 {
           @include dot-content;
@@ -63,7 +61,7 @@
         }
         .line2 {
           height: 2px;
-          background-color: #CCCCCC;
+          background-color: #E9352D;
           width: 120px;
           border: none;
           position: absolute;
@@ -72,9 +70,12 @@
         }
         .text3 {
           @include text-content;
+          color: #E9352D;
+          font-weight: bold;
         }
         .dot3 {
           @include dot-content;
+          background-color: #E9352D;
         }
         .line3 {
           height: 2px;
