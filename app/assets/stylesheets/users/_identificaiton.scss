@@ -1,0 +1,105 @@
+@mixin icon {
+  font-weight: bold;
+  font-size: 1.7em;
+  vertical-align: bottom;
+}
+
+.wrapper {
+  margin: 40px auto 0;
+  width: 1020px;
+  height: 1292px;
+  &__contents {
+    float: right;
+    width: 700px;
+    &__container {
+      background: #fff;
+      &__head {
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        line-height: 1.4;
+        font-weight: bold;
+        color: #333;
+      }
+      &__inner {
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        &__top {
+          p {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 14px;
+          }
+          .text-right {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            text-align: right;
+            font-size: 14px;
+            &__link {
+              color: #0099e8;
+              text-decoration: none;
+              &__icon {
+                @include icon;
+              }
+            }
+          }
+        }
+        &__form {
+          margin: 35px 0 0 ;
+          label {
+            font-weight: 600;
+            display: inline-block;
+            font-size: 14px;
+          }
+          span {
+            background: #ccc;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          input {
+            width: 538px;
+            margin: 8px 0 0;
+            height: 28px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+        }
+        button {
+          margin: 40px 0 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+        }
+        &__bottom {
+          margin: 40px 0 0;
+          text-align: right;
+          .text-right {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 14px;
+            &__link {
+              color: #0099e8;
+              text-decoration: none;
+              &__icon {
+                @include icon;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
