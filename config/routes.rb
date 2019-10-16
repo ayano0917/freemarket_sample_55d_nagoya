@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :sign_ups, only: [:new, :create] do
       member do
         get :register
+        get :authentication
       end
   end
 end
