@@ -12,6 +12,11 @@ class SignUpsController < ApplicationController
     # 住所入力
   end
 
+  def pay
+    # 支払い方法入力
+    
+  end
+
   def new
   end
 

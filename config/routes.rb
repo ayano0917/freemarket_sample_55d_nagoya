@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         get :register
         get :authentication
         get :address
+        get :pay
       end
   end
 end
