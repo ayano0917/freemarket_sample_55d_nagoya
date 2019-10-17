@@ -1,0 +1,74 @@
+= render 'shared/login-header'
+.main-container
+  = render partial: "users/mypage-sidebar"
+  .main-container__chapter
+    .main-container__chapter__header
+      クレジットカード情報入力
+    .main-container__chapter__content
+      = form_tag class: "main-container__chapter__content__from", id: "add-card" do
+        .main-container__chapter__content__registration-number
+          %label.main-container__chapter__content__registration-number__label カード番号
+          %span.main-container__chapter__content__registration-number__require  必須
+          = text_field_tag "number", "", class: "main-container__chapter__content__registration-number__field", placeholder: "半角数字のみ" ,maxlength: "19", type: "text", id: "card_number"
+          %br
+          %ul.main-container__chapter__content__registration-number__card-list
+            %li.main-container__chapter__content__registration-number__card-list__first
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615", width: '49px', height: '20px')
+            %li.main-container__chapter__content__registration-number__card-list__second
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3466462615", width: '34px', height: '20px')
+            %li.main-container__chapter__content__registration-number__card-list__second
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3466462615", width: '30px', height: '20px')
+            %li.main-container__chapter__content__registration-number__card-list__second
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3466462615", width: '32px', height: '20px')
+            %li.main-container__chapter__content__registration-number__card-list__second
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3466462615", width: '21px', height: '20px')
+            %li.main-container__chapter__content__registration-number__card-list__second
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3466462615", width: '32px', height: '20px')
+            %li.main-container__chapter__content__registration-number__card-list__second
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3466462615", width: '32px', height: '20px')
+        .main-container__chapter__content__expiration-date
+          %label.main-container__chapter__content__expiration-date__label 有効期限
+          %span.main-container__chapter__content__expiration-date__require 必須
+          %br
+            .main-container__chapter__content__expiration-date__month
+              %select.main-container__chapter__content__expiration-date__month__select{name: "exp_month", type: "text"}
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              = fa_icon 'chevron-down', class: 'main-container__chapter__content__expiration-date__month__icon'
+              %span.main-container__chapter__content__expiration-date__month__span 月
+            .main-container__chapter__content__expiration-date__year
+              %select.main-container__chapter__content__expiration-date__month__select{name: "exp_year", type: "text"}
+                %option{value: "2019"}19
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+              = fa_icon 'chevron-down', class: 'main-container__chapter__content__expiration-date__month__icon'
+              %span.main-container__chapter__content__expiration-date__month__span 年
+        .main-container__chapter__content__security-code
+          %label.main-container__chapter__content__security-code__label セキュリティコード
+          %span.main-container__chapter__content__security-code__require  必須
+          = text_field_tag "cvc", "", class: "main-container__chapter__content__security-code__cvc", placeholder: "カード背面４行もしくは３行の番号", maxlength: "4", id: "cvc"
+          .main-container__chapter__content__security-code__seqcode
+            %span.main-container__chapter__content__security-code__seqcode__question ?
+            カード裏面の番号とは？
+        .main-container__chapter__content__submit
+          = submit_tag "追加する", class: "main-container__chapter__content__submit__token"
+= render 'shared/app-banner'
+= render 'shared/footer'

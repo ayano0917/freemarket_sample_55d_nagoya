@@ -1,0 +1,99 @@
+.main-container__chapter {
+    float: right;
+    background-color: #fff;
+    color: #333;
+    text-shadow: none;
+    width: 700px;
+    height: 562px;
+    box-sizing: border-box;
+      &__header {
+        margin: 0px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 24px;
+        padding: 9px 24px;
+        border-style: solid;
+        border-width: 0;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        width: 700px;
+        height: 47px;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+      &__content-before {
+        color: #333;
+        background: #fff;
+        margin: 0 auto;
+        padding: 64px;
+        &__section {
+          height: 16px;
+          width: 572px;
+          &__sub-header {
+            max-width: 320px;
+            height: 16px;
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: bold;
+          }
+              &__list {
+                font-size: 14px;
+              }
+        }
+        &__sub-content {
+          padding: 24px 0;
+          border-bottom: 1px solid #eee;
+          box-sizing: border-box;
+          &__credit-add {
+            height: 50px;
+            width: 320px;
+            margin-top: 16px;
+            background: #ea352d;
+            text-align: center;
+            font-weight: 600px;
+            color: #fff;
+            margin:0 auto;
+            font-size: 14px;
+            display: block;
+            text-decoration: none;
+              &__botton{
+                height: 50px;
+                width: 320px;
+                margin-top: 16px;
+                background: #ea352d;
+                text-align: center;
+                font-weight: 600px;
+                color: #fff;
+                margin:0 auto;
+                font-size: 14px;
+                display: block;
+                text-decoration: none;
+                  &__add {
+                      color:white;
+                  }
+                  &__icon {
+                  height: 14px;
+                  width: 17.5px;
+                  margin-right: 16px;
+                  }
+              }
+          }
+        }
+        &__method {
+          width: 572px;
+          height: 16.094px;
+          display: block;
+          margin: 40px 0 0;
+          text-align: right;
+            &__link {
+              color: #0099e8;
+              text-decoration: none;
+              font-size: 14px;
+                &__span {
+                  color: #0099e8;
+                  text-decoration: none;
+                }
+            }
+        }
+      }
+    } 
+  
