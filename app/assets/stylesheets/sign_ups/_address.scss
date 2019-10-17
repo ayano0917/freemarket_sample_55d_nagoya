@@ -14,7 +14,7 @@
 }
 
 
-.new-registration-page {
+.address-input-page {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: #F5F5F5;
   &__header {
@@ -36,8 +36,7 @@
         display: flex;
         .text1 {
           @include text-content;
-          color: #E9352D;
-          font-weight: bold;
+          color: #A4A4A4;
         }
         .dot1 {
           @include dot-content;
@@ -45,7 +44,7 @@
         }
         .line1 {
           height: 2px;
-          background-color: #CCCCCC;
+          background-color: #E9352D;
           width: 95px;
           border: none;
           position: absolute;
@@ -54,13 +53,15 @@
         }
         .text2 {
           @include text-content;
+          color: #A4A4A4;
         }
         .dot2 {
           @include dot-content;
+          background-color: #E9352D;
         }
         .line2 {
           height: 2px;
-          background-color: #CCCCCC;
+          background-color: #E9352D;
           width: 120px;
           border: none;
           position: absolute;
@@ -69,9 +70,12 @@
         }
         .text3 {
           @include text-content;
+          color: #E9352D;
+          font-weight: bold;
         }
         .dot3 {
           @include dot-content;
+          background-color: #E9352D;
         }
         .line3 {
           height: 2px;
@@ -116,7 +120,7 @@
       line-height: 1.5;
       padding: 32px;
       font-weight: bold;
-      color: #333;
+      color: #333333;
       margin: 0;
       border-bottom: solid;
       border-color: #F5F5F5;
@@ -124,10 +128,9 @@
     }
     &__input-field {
       width: 700px;
-      height: 1283px;
-      padding-top: 40px;
+      height: 1200px;
     }
-      .new-registration-page__main__box {
+      .address-input-page__main__box {
         width: 343px;
         height: 851px;
         margin: 0 auto;
@@ -136,17 +139,29 @@
           outline: none;
         }
         &__form {
-         display: flex;
-         align-items: baseline;
+        display: flex;
+        align-items: baseline;
           &__title {
             font-weight: bold;
             font-size: 14px;
             margin-right: 10px;
+            margin-top: 40px;
           }
           &__red-label {
             width: 32px;
             height: 19px;
             background-color: #ea352d;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 19px;
+            border-radius: 3px;
+          }
+          &__gray-label {
+            width: 32px;
+            height: 19px;
+            background-color: #bbb8b8;
             color: white;
             font-size: 12px;
             text-align: center;
@@ -161,93 +176,35 @@
           height: 48px;
           border-radius: 4px;
           border: solid 1px #DADADA;
-          margin-bottom: 27px;
           padding-left: 15px;
           font-size: 15px;
         }
-        .enter-text-name {
-          width: 150px;
-          height: 48px;
-          border-radius: 4px;
-          border: solid 1px #DADADA;
-          padding-left: 15px;
-          font-size: 16px;
-          margin-top: 3px;
-          margin-right: 2px;
-          margin-bottom: 30px;
-        }
-        &__identification {
-          font-size: 16px;
-          font-weight: bold;
+        .select-pref {
           margin-top: 6px;
-          color: #333333;
-          p {
-          font-size: 14px;
-          font-weight: normal;
-          margin-top: 9px;
-          margin-bottom: 32px;
-          line-height: 20px;
-          }
-        }
-      &__birthday {
-        margin-top: 5px;
-        .select-birthday {
-          width: 76px;
+          width: 343px;
           height: 48px;
           background-color: white;
+          border: solid 1px #DADADA;
         }
         select:focus {
           border-color: #1E90FF;
           outline: none;
         }
-        &__note {
-          margin-top: 10px;
-          margin-bottom: 50px;
-          color: #888888;
-          font-size: 14px;
-          line-height: 20px;
-        }
-      }
-      &__terms {
-        font-size: 14px;
-        margin-top: 30px;
-        color: #333333;
-        line-height: 18px;
-        a {
-          text-decoration: none;
-          color: #0099E8;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
-      }
-      &__next-button {
-        margin-top: 50px;
-        width: 343px;
-        height: 50px;
-        background-color: #EA352D;
-        color: white;
-        font-size: 14px;
-        text-align: center;
-        a {
-          position: relative;
-          top: 18px;
-          text-decoration: none;
+        &__next-button {
+          margin-top: 50px;
+          width: 343px;
+          height: 50px;
+          background-color: #EA352D;
           color: white;
-        }
-      }
-      &__about-registration {
-        text-align: right;
-        margin-top: 40px;
-        a {
-          text-decoration: none;
-          color: #0099E8;
           font-size: 14px;
-        }
-        a:hover {
-          text-decoration: underline;
+          text-align: center;
+          a {
+            position: relative;
+            top: 18px;
+            text-decoration: none;
+            color: white;
+          }
         }
       }
-    }
   }
 }

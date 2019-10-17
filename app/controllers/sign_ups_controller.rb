@@ -8,6 +8,10 @@ class SignUpsController < ApplicationController
     # 電話番号認証
   end
 
+  def address
+    # 住所入力
+  end
+
   def new
   end
 

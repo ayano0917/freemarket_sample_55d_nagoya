@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       member do
         get :register
         get :authentication
+        get :address
       end
   end
 end
