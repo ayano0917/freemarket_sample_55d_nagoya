@@ -128,7 +128,7 @@
     }
     &__input-field {
       width: 700px;
-      padding-top: 40px;
+      height: 1200px;
     }
       .address-input-page__main__box {
         width: 343px;
@@ -145,7 +145,7 @@
             font-weight: bold;
             font-size: 14px;
             margin-right: 10px;
-            margin-top: 30px;
+            margin-top: 40px;
           }
           &__red-label {
             width: 32px;
@@ -158,9 +158,17 @@
             line-height: 19px;
             border-radius: 3px;
           }
-        }
-        &__pref {
-          
+          &__gray-label {
+            width: 32px;
+            height: 19px;
+            background-color: gray;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 19px;
+            border-radius: 3px;
+          }
         }
         .enter-text {
           margin-top: 6px;
@@ -170,6 +178,32 @@
           border: solid 1px #DADADA;
           padding-left: 15px;
           font-size: 15px;
+        }
+        .select-pref {
+          margin-top: 6px;
+          width: 343px;
+          height: 48px;
+          background-color: white;
+          border: solid 1px #DADADA;
+        }
+        select:focus {
+          border-color: #1E90FF;
+          outline: none;
+        }
+        &__next-button {
+          margin-top: 50px;
+          width: 343px;
+          height: 50px;
+          background-color: #EA352D;
+          color: white;
+          font-size: 14px;
+          text-align: center;
+          a {
+            position: relative;
+            top: 18px;
+            text-decoration: none;
+            color: white;
+          }
         }
       }
   }
