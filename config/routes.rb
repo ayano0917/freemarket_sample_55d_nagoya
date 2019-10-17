@@ -10,14 +10,14 @@ Rails.application.routes.draw do
       collection do
         get :complete
       end
-    end
+  end
   resources :items, only: [:new ,:index, :show] do
       member do
         get :confirm
       end
   end
   resources :comments
-  resources :credit_cards, only: [:new]
+  resources :credit_cards, only: [:new, :index]
   resources :sign_ups, only: [:new, :create] do
       member do
         get :register

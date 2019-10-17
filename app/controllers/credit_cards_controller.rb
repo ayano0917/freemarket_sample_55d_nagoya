@@ -1,5 +1,11 @@
 class CreditCardsController < ApplicationController
 
+  def index
+  end
+
+  def new
+  end
+  
   def create
     #もしクレカ登録したら、show_creditcardのビューに飛ぶ
   end
