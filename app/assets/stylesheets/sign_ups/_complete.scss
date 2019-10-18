@@ -1,0 +1,115 @@
+@mixin text-content {
+  display: block;
+  color: #888888;
+  text-align: center;
+  font-size: 12px;
+  margin-right: 47px;
+}
+@mixin dot-content {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+
+.sign-up-completion-page {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: #F5F5F5;
+  &__header {
+    height: 128px;
+    width: 100vw;
+    display: flex;
+    position: relative;
+    img {
+      position: absolute;
+      top: 41px;
+      left: 346px;
+    }
+    &__process-bar {
+      height: 32px;
+      position: absolute;
+      top: 40px;
+      right: 315px;
+      &__inner {
+        display: flex;
+        .text1 {
+          @include text-content;
+          color: #A4A4A4;
+        }
+        .dot1 {
+          @include dot-content;
+          background-color: #E9352D;
+        }
+        .line1 {
+          height: 2px;
+          background-color: #E9352D;
+          width: 95px;
+          border: none;
+          position: absolute;
+          top: 20px;
+          left: 30px;
+        }
+        .text2 {
+          @include text-content;
+          color: #A4A4A4;
+        }
+        .dot2 {
+          @include dot-content;
+          background-color: #E9352D;
+        }
+        .line2 {
+          height: 2px;
+          background-color: #E9352D;
+          width: 120px;
+          border: none;
+          position: absolute;
+          top: 20px;
+          left: 136px;
+        }
+        .text3 {
+          @include text-content;
+        }
+        .dot3 {
+          @include dot-content;
+          background-color: #E9352D;
+        }
+        .line3 {
+          height: 2px;
+          background-color: #E9352D;
+          width: 112px;
+          border: none;
+          position: absolute;
+          top: 20px;
+          left: 268px;
+        }
+        .text4 {
+          @include text-content;
+        }
+        .dot4 {
+          @include dot-content;
+          background-color: #E9352D;
+        }
+        .line4 {
+          height: 2px;
+          background-color: #E9352D;
+          width: 78px;
+          border: none;
+          position: absolute;
+          top: 20px;
+          left: 393px;
+        }
+        .text5 {
+          @include text-content;
+          color: #E9352D;
+          font-weight: bold;
+        }
+        .dot5 {
+          @include dot-content;
+          background-color: #E9352D;
+        }
+      }
+    }
+  }
+}
