@@ -17,6 +17,10 @@ class SignUpsController < ApplicationController
     
   end
 
+  def complete
+    # 登録完了
+  end
+
   def new
   end
 
