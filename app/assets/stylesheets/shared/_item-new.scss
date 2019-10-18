@@ -1,0 +1,240 @@
+.display-main {
+  text-align: center;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  color: #333;
+  display: block;
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    &__single-head {
+      padding: 32px 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__information {
+      border-top: 1px solid #eee;
+      text-align: left;
+      &__upload-box {
+        width: 620px;
+        padding: 40px;
+        &__image {
+          font-weight: bold;
+          font-size: 16px;
+          &__require {
+            @include require;
+          }
+        }
+        &__max {
+          margin: 8px 0 0;
+          line-height: 1.5;
+        }
+        &__dropbox {
+          display: block;
+          width: 620px;
+          margin: 16px auto 0;
+          @include clearfix;
+          &__box {
+            float: right;
+            width: 620px;
+            position: relative;
+            min-height: 162px;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            font-size: 0;
+            text-align: center;
+            transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+            cursor: pointer;
+            margin-left: 2%;
+            &__file {
+            }
+            &__sentence {
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              right: 16px;
+              text-align: center;
+              font-size: 14px;
+              line-height: 1.5;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+              pointer-events: none;
+              white-space: pre-wrap;
+              word-wrap: break-word;
+            }
+          }
+        }
+      }
+      &__about {
+        padding: 40px;
+        border-top: 1px solid $separator;
+        &__group1 {
+          margin: 0;
+          &__label {
+            display: inline-block;
+            font-weight: 600;
+            &__require {
+              @include require;
+            }
+          }
+          &__name {
+            width: 586px;
+            margin: 8px 0 0;
+            height: 28px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+        }
+        &__group2 {
+          margin: 40px 0 0;
+          &__label {
+            display: inline-block;
+            font-weight: 600;
+            &__require {
+              @include require;
+            }
+          }
+          &__text {
+            margin: 8px 0 0;
+            display: block;
+            width: 598px;
+            max-width: 100%;
+            min-height: 104px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+        }
+      }
+      &__detail {
+        padding: 40px;
+        border-top: 1px solid $separator;
+        @include clearfix;
+        &__data {
+          float: left;
+          color: #888;
+          font-weight: bold;
+          font-size: 14px;
+        }
+        &__question {
+          color: #0099e8;
+          line-height: 14px;
+        }
+        &__box {
+          float: right;
+          width: 400px;
+          margin: 0;
+          &__group1 {
+            margin: 0;
+            @include pulldown;
+            }
+          &__group2 {
+            margin: 40px 0 0;
+            @include pulldown;
+          }
+          &__sell {
+            list-style: none;
+            &__price {
+              padding: 0 0 72px;
+              border: 0;
+              &__clear {
+                @include clearfix;
+                &__label {
+                  width: 40%;
+                  line-height: 48px;
+                  font-weight: 600;
+                  float: left;
+                  &__require {
+                    @include require;
+                  }
+                }
+                &__yen {
+                  width: 50%;
+                  text-align: right;
+                  float: left;
+                  &__box {
+                    display: inline-block;
+                    width: 80%;
+                    margin: 0 0 0 5%;
+                    &__input {
+                      margin: 0;
+                      text-align: right;
+                      width: 100%;
+                      height: 28px;
+                      padding: 10px 16px 8px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc;
+                      background: #fff;
+                      line-height: 1.5;
+                      font-size: 16px;
+                    }
+                  }
+                }
+              }
+            }
+            &__clear {
+              padding: 24px 0;
+              border-top: 1px solid #ccc;
+              @include clearfix;
+              &__sentence {
+                float: left;
+              }
+              &__fee {
+                float: right;
+              }
+              &__bold {
+                font-size: 16px;
+                font-weight: 600;
+                float: left;
+              }
+              &__gain {
+                font-size: 34px;
+                float: right;
+              }
+            }
+          }
+        }
+      }
+      &__display {
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &__points{
+          & p {    
+            line-height: 1.5;
+            & a {
+              color: #0099e8;
+              text-decoration: none;
+            }
+          }
+        }
+        &__btn {
+          margin: 40px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          @include btn;
+        }
+        &__return {
+          text-decoration: none;
+          width: 45%;
+          margin: 24px auto 0;
+          background: #aaa;
+          color: #fff;
+          @include btn;
+        }
+      }
+    }
+  }
+}
+
+
