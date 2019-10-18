@@ -25,6 +25,17 @@
   %main.sign-up-completion-page__main
     %h2.sign-up-completion-page__main__title
       会員登録完了
+    .sign-up-completion-page__main__input-field
+      .sign-up-completion-page__main__input-field__first-sentence
+        ありがとうございます。
+      .sign-up-completion-page__main__input-field__second-sentence
+        会員登録が完了しました。
+      .sign-up-completion-page__main__input-field__next-button
+        = link_to '#' do
+          .sign-up-completion-page__main__input-field__text
+            メルカリをはじめる
+
+
       
   = render 'shared/app-banner'
   = render 'shared/exhibition-page-footer'

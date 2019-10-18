@@ -129,13 +129,33 @@
       border-width: 0.5px;
     }
     &__input-field {
-      width: 700px;
-      height: 1200px;
-    }
-      .sign-up-completion-page__main__box {
-        width: 343px;
-        height: 300px;
-        margin: 0 auto;
+      width: 343px;
+      height: 200px;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 40px;
+      &__first-sentence {
+        margin-bottom: 10px;
+        font-size: 15px;
       }
+      &__second-sentence {
+        font-size: 15px;
+      }
+      &__next-button {
+        margin-top: 50px;
+        width: 343px;
+        height: 50px;
+        background-color: #EA352D;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        a {
+          position: relative;
+          top: 18px;
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
   }
 }
