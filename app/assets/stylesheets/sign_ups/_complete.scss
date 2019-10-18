@@ -112,4 +112,30 @@
       }
     }
   }
+  &__main {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    &__title {
+      text-align: center;
+      font-size: 22px;
+      line-height: 1.5;
+      padding: 32px;
+      font-weight: bold;
+      color: #333333;
+      margin: 0;
+      border-bottom: solid;
+      border-color: #F5F5F5;
+      border-width: 0.5px;
+    }
+    &__input-field {
+      width: 700px;
+      height: 1200px;
+    }
+      .sign-up-completion-page__main__box {
+        width: 343px;
+        height: 300px;
+        margin: 0 auto;
+      }
+  }
 }
