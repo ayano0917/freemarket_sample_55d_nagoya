@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         get :authentication
         get :address
         get :pay
+        get :complete
       end
   end
 end
