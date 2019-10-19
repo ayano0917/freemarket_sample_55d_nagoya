@@ -66,6 +66,7 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'payjp'
 gem 'active_hash'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn', '5.4.1'
