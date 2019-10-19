@@ -1,4 +1,6 @@
 @import "reset";
+@import "mixin/mixin";
+@import "variable/colors";
 @import "font-awesome";
 @import "shared/login-header";
 @import "shared/app-banner";
@@ -23,5 +25,7 @@
 @import "sign_ups/pay";
 @import "credit_cards/index.scss";
 @import "credit_cards/new.scss";
+@import "sign_ups/address";
+@import "shared/item-new";
 @import "sign_ups/complete";
 
