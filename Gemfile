@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -63,6 +64,8 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'payjp'
+gem ''
 
 group :production do
   gem 'unicorn', '5.4.1'
