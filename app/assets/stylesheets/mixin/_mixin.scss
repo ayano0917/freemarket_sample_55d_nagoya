@@ -1,0 +1,62 @@
+//必須表示
+@mixin require {
+  background: $require-red;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: $require-white;
+  font-size: 12px;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+@mixin clearfix {
+  &::after {
+      content: "";
+      display: block;
+      clear: both;
+  }
+}
+
+//プルダウン
+@mixin pulldown {
+  &__label {
+    font-weight: 600;
+  }
+  &__require {
+    @include require;
+  }
+  &__pulldown {
+    margin: 8px 0 0;
+    position: relative;
+    &__choices {
+      color: $pulldown-sentence;
+      background: $pulldown-back;
+      padding: 0 16px;
+      width: 100%;
+      height: 48px;
+      border: 1px solid $pulldown-frame;
+      font-size: 16px;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+    &__icon {
+    position: absolute;
+    right: 16px;
+    top: 31%;
+    color: $pulldown-icon;
+    font-family: "FontAwesome";                
+    }
+  }
+}
+
+@mixin btn {
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
