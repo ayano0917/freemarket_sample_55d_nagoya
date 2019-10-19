@@ -1,5 +1,3 @@
 class CreditCard < ApplicationRecord
-  def chage
-    create_tabel :do
-  end
+  belongs_to :user
 end
