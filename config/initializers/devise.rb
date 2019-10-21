@@ -5,7 +5,6 @@
 Devise.setup do |config|
   config.omniauth :google_oauth2,Rails.application.secrets.google_client_id,Rails.application.secrets.google_client_secret, redirect_uri: "http://localhost:3000/users/auth/google_oauth2/callback"
   config.omniauth :facebook,Rails.application.secrets.facebook_client_id,Rails.application.secrets.facebook_client_secret , callback_url: "http://localhost:3000/users/auth/facebook/callback", token_params: { parse: :json }
-
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
