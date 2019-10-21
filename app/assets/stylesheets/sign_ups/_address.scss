@@ -131,6 +131,7 @@
       height: 1200px;
     }
       .address-input-page__main__box {
+        position: relative;
         width: 343px;
         height: 851px;
         margin: 0 auto;
@@ -185,7 +186,20 @@
           height: 48px;
           background-color: white;
           border: solid 1px #DADADA;
+          padding-left: 10px;
+          cursor: pointer;
+          &__down {
+            position: absolute;
+            left: 310px;
+            top: 530px;
+            color: #9A9A9A;
+            pointer-events: none;
+            font-size: 18px;
+          }
         }
+        select {
+          -webkit-appearance: none;
+        }   
         select:focus {
           border-color: #1E90FF;
           outline: none;
