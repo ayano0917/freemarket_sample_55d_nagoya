@@ -16,7 +16,7 @@
 |Postal_code|char(8)|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|building|string|null: false|
+|building|string||
 ### Association
 has_one :credit_cards, dependent: :destroy
 has_many :sns_credentials, dependent: :destroy
