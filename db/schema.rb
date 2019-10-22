@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191019083107) do
-ActiveRecord::Schema.define(version: 20191019113653) do
+ActiveRecord::Schema.define(version: 20191020133451) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -37,9 +36,35 @@ ActiveRecord::Schema.define(version: 20191019113653) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "image",      limit: 65535, null: false
+    t.integer  "item_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
+  end
+
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "shipping_last_name",       null: false
+    t.string   "shipping_first_name",      null: false
+    t.string   "shipping_last_name_kana",  null: false
+    t.string   "shipping_first_name_kana", null: false
+    t.string   "Postal_code",              null: false
+    t.string   "city",                     null: false
+    t.string   "house_number",             null: false
+    t.string   "building"
+    t.string   "phone"
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_shipping_addresses_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id", using: :btree
   end
 
   create_table "sign_ups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,10 +90,30 @@ ActiveRecord::Schema.define(version: 20191019113653) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "nickname",                            null: false
+    t.string   "last_name",                           null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name_kana",                      null: false
+    t.string   "first_name_kana",                     null: false
+    t.integer  "birth_year",                          null: false
+    t.integer  "birth_month",                         null: false
+    t.integer  "birth_day",                           null: false
+    t.string   "phone",                               null: false
+    t.string   "image"
+    t.string   "profile"
+    t.integer  "sales_amount"
+    t.integer  "points"
+    t.string   "Postal_code"
+    t.string   "city"
+    t.string   "house_number"
+    t.string   "building"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "images", "items"
+  add_foreign_key "shipping_addresses", "items"
+  add_foreign_key "shipping_addresses", "users"
   add_foreign_key "sns_credentials", "users"
 end
