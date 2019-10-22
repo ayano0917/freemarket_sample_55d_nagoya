@@ -67,6 +67,7 @@ gem 'mini_magick'
 gem 'payjp'
 gem 'active_hash'
 gem 'kaminari'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
