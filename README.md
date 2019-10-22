@@ -76,12 +76,12 @@ belongs_to :user
 |------|----|-------|
 |name|string|null: false|
 |description|text|null: false|
-|condition_id|int|null: false|
-|shipping_fee_id|int|null: false| 
-|shipping_form_id|int|null: false|
-|prefecture_id|int|null: false| 
-|days_before_shipping_id|int|null: false|
-|size_id|int|
+|condition_id|references|null: false|
+|shipping_fee_id|references|null: false| 
+|shipping_form_id|references|null: false|
+|prefecture_id|references|null: false| 
+|days_before_shipping_id|references|null: false|
+|size_id|references|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
