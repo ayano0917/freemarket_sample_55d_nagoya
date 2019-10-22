@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191020133451) do
+ActiveRecord::Schema.define(version: 20191020200633) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -25,8 +25,13 @@ ActiveRecord::Schema.define(version: 20191020133451) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "content",    limit: 65535, null: false
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_comments_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,8 +50,27 @@ ActiveRecord::Schema.define(version: 20191020133451) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "name",                                               null: false
+    t.text     "description",          limit: 65535,                 null: false
+    t.integer  "condition",                                          null: false
+    t.integer  "shipping_fee",                                       null: false
+    t.integer  "shipping_form",                                      null: false
+    t.integer  "prefecture",                                         null: false
+    t.integer  "days_before_shipping",                               null: false
+    t.integer  "size"
+    t.string   "brand"
+    t.integer  "category_id",                                        null: false
+    t.integer  "price",                                              null: false
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
+    t.string   "status",                             default: "出品中", null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "shipping_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -111,8 +135,14 @@ ActiveRecord::Schema.define(version: 20191020133451) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "shipping_addresses", "items"
   add_foreign_key "shipping_addresses", "users"
   add_foreign_key "sns_credentials", "users"
