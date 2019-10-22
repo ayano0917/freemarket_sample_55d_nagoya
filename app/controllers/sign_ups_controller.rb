@@ -27,4 +27,30 @@ class SignUpsController < ApplicationController
   def create
   end
   
+  private
+
+  def sign_ups_user_params
+    params.require(:user).permit(
+      :nickname,
+      :email,
+      :password, 
+      :password_confirmation,
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :birth_year,
+      :birth_month,
+      :birth_day,
+      :phone,
+      :image,
+      :profile,
+      :sales_amount,
+      :points,
+      :Postal_code,
+      :city,
+      :house_number,
+      :building,
+      )
+  end
 end
