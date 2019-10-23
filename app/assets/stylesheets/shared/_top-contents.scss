@@ -1,3 +1,18 @@
+@mixin top-page-dot {
+  font-size: 10px;
+  color: white;
+  position: absolute;
+  top: 360px;
+}
+ 
+@mixin top-page-button {
+  font-size: 37px;
+  color: white;
+  position: absolute;
+  top: 177px;
+  filter:drop-shadow(5px 5px 5px #4e4e4e);
+}
+
 .top-page {
   min-height: 100vh;
   padding-bottom: 180px;
@@ -22,33 +37,20 @@
         width: 100%;
       }
       &__back-button {
-        font-size: 37px;
-        color: white;
-        position: absolute;
-        top: 177px;
+        @include top-page-button;
         left: 57px;
-        filter:drop-shadow(5px 5px 5px #4e4e4e);
+        
       }
       &__forward-button {
-        font-size: 37px;
-        color: white;
-        position: absolute;
-        top: 177px;
+        @include top-page-button;
         right: 57px;
-        filter:drop-shadow(5px 5px 5px #4e4e4e);
       }
       &__dot-left{
-        font-size: 10px;
-        color: white;
-        position: absolute;
-        top: 360px;
+        @include top-page-dot;
         left: 705px;
       }
       &__dot-right {
-        font-size: 10px;
-        color: white;
-        position: absolute;
-        top: 360px;
+        @include top-page-dot;
         right: 705px;
       }
     }
