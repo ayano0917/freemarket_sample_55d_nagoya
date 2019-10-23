@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :size
   belongs_to :brand
   belongs_to :category
-  belongs_to :buyer_id, class_name: “User”
-  belongs_to :seller_id, class_name: “User”
+  belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id'
+  belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -26,5 +26,5 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
 
-
+  end
 end
