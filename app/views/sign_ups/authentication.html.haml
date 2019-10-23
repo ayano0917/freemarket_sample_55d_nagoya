@@ -32,7 +32,7 @@
         %input.enter-text{ placeholder: "携帯電話の番号を入力"}
       %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
       .authentication-page__main__contents__send-button
-        = link_to '#' do
+        = link_to address_sign_up_path do
           .authentication-page__main__contents__text
             SMSを送信する
       .authentication-page__main__contents__note

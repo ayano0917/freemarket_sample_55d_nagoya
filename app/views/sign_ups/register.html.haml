@@ -202,6 +202,7 @@
             %option{value: "1902"} 1902
             %option{value: "1901"} 1901
             %option{value: "1900"} 1900
+          =fa_icon 'chevron-down', class: 'select-birthday__down'
           %span 年
           %select.select-birthday{name: "month"}
             %option{value: ""} --
@@ -218,6 +219,7 @@
             %option{value: "11"} 11
             %option{value: "12"} 12
           %span 月
+          =fa_icon 'chevron-down', class: 'select-birthday__down2'
           %select.select-birthday{name: "day"}
             %option{value: ""} --
             %option{value: "1"} 1
@@ -252,6 +254,7 @@
             %option{value: "30"} 30
             %option{value: "31"} 31
           %span 日
+          =fa_icon 'chevron-down', class: 'select-birthday__down3'
         .new-registration-page__main__box__birthday__note
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
@@ -263,7 +266,7 @@
           = link_to '利用規約', '#'
           に同意したものとみなします
         .new-registration-page__main__box__next-button
-          = link_to '#' do
+          = link_to authentication_sign_up_path do
             .new-registration-page__main__box__text
               次へ進む
         .new-registration-page__main__box__about-registration

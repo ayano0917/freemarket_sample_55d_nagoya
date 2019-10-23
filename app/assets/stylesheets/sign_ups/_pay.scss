@@ -172,31 +172,55 @@
           margin-top: 10px;
         }
         &__month {
+          position: relative;
           .select-month {
             margin-top: 6px;
             width: 120px;
             height: 48px;
+            padding-left: 10px;
             background-color: white;
             border: solid 1px #DADADA;
+            cursor: pointer;
+            &__down {
+              position: absolute;
+              left: 90px;
+              top: 20px;
+              color: #9A9A9A;
+              pointer-events: none;
+              font-size: 18px;
+            }
           }
+          
+          select {
+            -webkit-appearance: none;
+          }   
           select:focus {
             border-color: #1E90FF;
             outline: none;
           }
         }
-        &__year {
           .select-year {
             margin-top: 6px;
             width: 120px;
             height: 48px;
+            padding-left: 10px;
             background-color: white;
             border: solid 1px #DADADA;
+            cursor: pointer;
+            &__down {
+              position: absolute;
+              left: 230px;
+              top: 20px;
+              color: #9A9A9A;
+              pointer-events: none;
+              font-size: 18px;
+            }
           }
+          
           select:focus {
             border-color: #1E90FF;
             outline: none;
           }
-        }
         .payment-page__main__box__form__note {
           color: #0099e8;
           text-align: right;
