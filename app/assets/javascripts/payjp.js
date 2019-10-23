@@ -7,8 +7,15 @@ document.addEventListener(
         e.preventDefault();
         let card = {
           number: document.getElementById("card_number").value,
-          cvc: document.getElementById("cvc").value
-        }
+          cvc: document.getElementById("cvc").value,
+          exp_month: document.getElementById("exp_month").value,
+          exp_year: document.getElementById("exp_year").value
+        };  //入力されたデータを取得します。
+        Payjp.createToken(card, (status, response) => {
+          if (status === 200) {
+            $("#card_number").removeAttr()
+          }
+        })
       })
     }
   }
