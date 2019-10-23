@@ -37,10 +37,40 @@
       left: 0;
       right: 0;
       bottom: 0;
-      p {
-        font-size: 14px;
-        line-height: 90px;
-        text-align: center;
+      text-align: center;
+      color: $base-font;
+      font-size: 14px;
+      line-height: 90px;
+    }
+    &__btn {
+      position: absolute;
+      margin: 190px 49px 0 40px;
+      width: 85%;
+      height: 45px;
+      background-color: $item-sell-btn;
+      color: $item-sell-btn-font;
+      text-align: center;
+      line-height: 40px;
+      text-decoration: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 13px;
+    }
+    p {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 240px 0 0;
+      padding-top: 5px; 
+      text-align: center;
+      a {
+        font-size: 13px;
+        text-decoration: none;
+        color: #0099e8;
       }
     }
   }
