@@ -13,7 +13,13 @@ document.addEventListener(
         };  //入力されたデータを取得します。
         Payjp.createToken(card, (status, response) => {
           if (status === 200) {
-            $("#card_number").removeAttr()
+            $("#card_number").removeAttr("name");
+            $("#cvc").removeAttr("name");
+            $("#exp_month").removeAttr("name");
+            $("#exp_year").removeAttr("name");
+            $("#card_token").append(
+              $('<input type="hidden" name="payjp-token">')
+            );
           }
         })
       })
