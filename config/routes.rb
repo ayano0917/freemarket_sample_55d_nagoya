@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         get :complete
       end
   end
-  resources :items, only: [:new ,:index, :show] do
+  resources :items, only: [:new, :index, :show, :create] do
       member do
         get :confirm
       end
