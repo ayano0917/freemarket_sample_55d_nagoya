@@ -18,12 +18,16 @@ document.addEventListener(
             $("#exp_month").removeAttr("name");
             $("#exp_year").removeAttr("name");
             $("#card_token").append(
-              $('<input type="hidden" name="payjp-token">')
+              $('<input type="hidden" name="payjp-token">').val(response.id)
             );
+            document.inputForm.submit();
+            alert("登録が完了しました");
+          } else {
+            alert("カード情報が正しくありません。");
           }
-        })
-      })
+        });
+      });
     }
-  }
-
-)
+  },
+  false
+);

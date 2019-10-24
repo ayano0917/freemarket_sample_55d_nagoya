@@ -17,7 +17,13 @@ Rails.application.routes.draw do
       end
   end
   resources :comments
-  resources :credit_cards, only: [:new, :index, :show]
+  resources :credit_cards, only: [:new, :index] do 
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
   resources :sign_ups, only: [:new, :create] do
       member do
         get :register
