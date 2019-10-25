@@ -1,4 +1,4 @@
 class Brand < ApplicationRecord
   has_many :items, dependent: :destroy
-  validates :name, presnce: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end
