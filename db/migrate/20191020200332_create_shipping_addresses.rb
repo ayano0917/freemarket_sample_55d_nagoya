@@ -11,7 +11,6 @@ class CreateShippingAddresses < ActiveRecord::Migration[5.0]
       t.string :building
       t.string :phone
       t.references :user, foreign_key: true     
-      t.references :item, foreign_key: true 
       t.timestamps
     end
   end

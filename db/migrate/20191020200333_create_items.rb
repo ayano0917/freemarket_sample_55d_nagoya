@@ -15,6 +15,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer    :price,                null: false 
       t.references :buyer,                             foreign_key: {to_table: :users}
       t.references :seller,                            foreign_key: {to_table: :users}
+      t.references :shipping_address,                  foreign_key: true
       t.string     :status,               null: false, default: ""
       t.timestamps
     end

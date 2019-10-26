@@ -13,7 +13,15 @@ has_many :seller_items, class_name: 'Item', foreign_key: 'seller_id', dependent:
 has_one :shipping_address, dependent: :destroy
 
 
+validates :nickname, presence: true
+validates :email, presence: true, uniqueness: true
+validates :last_name, presence: true
+validates :first_name, presence: true
+validates :last_name_kana, presence: true
+validates :first_name_kana, presence: true
+validates :birth_year, presence: true
+validates :birth_month, presence: true
+validates :birth_day, presence: true
 validates :phone, presence: true, uniqueness: true
-
 
 end
