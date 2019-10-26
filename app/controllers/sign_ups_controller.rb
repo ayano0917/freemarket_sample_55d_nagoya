@@ -1,5 +1,8 @@
 class SignUpsController < ApplicationController
 
+  def new
+  end
+
   def register
     # 会員情報入力
   end
@@ -21,9 +24,6 @@ class SignUpsController < ApplicationController
     # 登録完了
   end
 
-  def new
-  end
-
   def create
   end
   
@@ -35,22 +35,24 @@ class SignUpsController < ApplicationController
       :email,
       :password, 
       :password_confirmation,
-      :last_name,
-      :first_name,
-      :last_name_kana,
-      :first_name_kana,
-      :birth_year,
-      :birth_month,
-      :birth_day,
       :phone,
-      :image,
-      :profile,
-      :sales_amount,
-      :points,
+      )
+  end
+
+  # メソッド名は適当です。
+  def shipping_address_user_params
+    params.require(:shipping).permit(
+      :shipping_last_name,
+      :shipping_first_name,
+      :shipping_last_name_kana,
+      :shipping_first_name_kana,
       :Postal_code,
+      :prefecture,
       :city,
       :house_number,
       :building,
-      )
+      :phone,
+    )
   end
+  
 end

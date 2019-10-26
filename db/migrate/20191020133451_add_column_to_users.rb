@@ -13,9 +13,5 @@ class AddColumnToUsers < ActiveRecord::Migration[5.0]
     add_column :users, :profile,        :string
     add_column :users, :sales_amount,   :integer
     add_column :users, :points,         :integer
-    add_column :users, :Postal_code,    :string
-    add_column :users, :city,           :string
-    add_column :users, :house_number,   :string
-    add_column :users, :building,       :string
   end
 end
