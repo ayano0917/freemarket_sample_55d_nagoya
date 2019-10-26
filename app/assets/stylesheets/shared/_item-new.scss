@@ -49,8 +49,6 @@
             transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
             cursor: pointer;
             margin-left: 2%;
-            &__file {
-            }
             &__sentence {
               position: absolute;
               top: 50%;
@@ -218,9 +216,9 @@
         }
         &__btn {
           margin: 40px 0 0;
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: $btn-font;
+          background: $item-sell-btn;
+          border: 1px solid $item-sell-btn;
+          color: $item-sell-btn-font;
           width: 100%;
           @include btn;
         }
@@ -229,7 +227,7 @@
           width: 45%;
           margin: 24px auto 0;
           background: #aaa;
-          color: $btn-font;
+          color: $item-sell-btn-font;
           @include btn;
         }
       }

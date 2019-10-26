@@ -1,4 +1,4 @@
-//必須表示
+//商品出品必須表示[ayano]
 @mixin require {
   background: $require-red;
   margin: 0 0 0 8px;
@@ -17,8 +17,7 @@
       clear: both;
   }
 }
-
-//プルダウン
+//商品出品画面プルダウン[ayano]
 @mixin pulldown {
   &__label {
     font-weight: 600;
@@ -49,7 +48,7 @@
     }
   }
 }
-
+//商品出品画面[ayano]
 @mixin btn {
   display: block;
   line-height: 48px;

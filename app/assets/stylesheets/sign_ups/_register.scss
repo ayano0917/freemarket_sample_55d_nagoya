@@ -190,12 +190,43 @@
           }
         }
       &__birthday {
+        position: relative;
         margin-top: 5px;
         .select-birthday {
           width: 76px;
           height: 48px;
-          background-color: white;
+          background-color: white; 
+          padding-left: 10px;
+          border-color: #DBDBDB;
+          cursor: pointer;
+          &__down {
+            position: absolute;
+            left: 50px;
+            top: 15px;
+            color: #9A9A9A;
+            pointer-events: none;
+            font-size: 18px;
+          }
+          &__down2 {
+            position: absolute;
+            left: 145px;
+            top: 15px;
+            color: #9A9A9A;
+            pointer-events: none;
+            font-size: 18px;
+          }
+          &__down3 {
+            position: absolute;
+            left: 245px;
+            top: 15px;
+            color: #9A9A9A;
+            pointer-events: none;
+            font-size: 18px;
+          }
         }
+        select {
+          -webkit-appearance: none;
+        }   
         select:focus {
           border-color: #1E90FF;
           outline: none;
@@ -207,7 +238,7 @@
           font-size: 14px;
           line-height: 20px;
         }
-      }
+      }     
       &__terms {
         font-size: 14px;
         margin-top: 30px;
