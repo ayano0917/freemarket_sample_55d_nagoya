@@ -127,10 +127,6 @@ ActiveRecord::Schema.define(version: 20191020200633) do
     t.string   "profile"
     t.integer  "sales_amount"
     t.integer  "points"
-    t.string   "Postal_code"
-    t.string   "city"
-    t.string   "house_number"
-    t.string   "building"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
