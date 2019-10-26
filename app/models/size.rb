@@ -1,4 +1,4 @@
-class Prefecture < ActiveHash::Base
+class Size < ActiveHash::Base
   self.data = [
       {id: 1, name: 'XXXS以下'}, {id: 2, name: 'XXS(SS)'}, {id: 3, name: 'S'},
       {id: 4, name: 'M'}, {id: 5, name: 'L'}, {id: 6, name: 'XL(LL)'},
