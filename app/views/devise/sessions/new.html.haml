@@ -1,17 +1,27 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+= render 'shared/exhibition-page-header'
+.main
+  .login-panel
+    .login-no-account
+      %p アカウントをお持ちでない方はこちら
+      = link_to '/' do
+        新規会員登録
+    .login-form-inner
+      = link_to('/', class: 'login-form-inner__btn1') do
+        = fa_icon 'facebook-official', class: 'login-form-inner__btn1__icon'
+        Facebookでログイン
+      = link_to('/', class: 'login-form-inner__btn2') do
+        = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: 'login-form-inner__btn2__icon') 
+        Googleでログイン
+    %form
+      .login-form-inner
+        .form-group1
+          %input{placeholder: "メールアドレス", class: "form-group1__text"}
+        .form-group2
+          %input{placeholder: "パスワード", class: "form-group2__text"}
+        .form-group3
+          .g-recapta
+            .style
+        = link_to('/', class: 'login-form-inner__btn') do
+          ログイン
+        = link_to 'パスワードをお忘れの方', '/', class: 'login-form-inner__link'
+= render 'shared/exhibition-page-footer'
