@@ -6,14 +6,13 @@
   &__header {
     height: 128px;
     text-align: center;
-    position: relative;
-    img {
-      position: absolute;
-      top: 41px;
-      left: 624px;
+    a {
+      display: inline-block;
       width: 185px;
       height: 49px;
-    }
+      line-height: 49px;
+      margin-top: 40px;
+      }
   }
   &__main {
     width: 700px;
