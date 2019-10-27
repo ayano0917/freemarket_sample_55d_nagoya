@@ -19,8 +19,9 @@
         .form-group2
           %input{placeholder: "パスワード", class: "form-group2__text"}
         .form-group3
-          .g-recapta
-            .style
+          %script{async: "", defer: "", src: "https://www.google.com/recaptcha/api.js"}
+          %form{action: "./verify.php", method: "POST"}
+            .g-recaptcha{"data-sitekey" => "6LfItL0UAAAAADbmj0JHEFPkR7y5EOwZFUI1Q6-c"}
         = link_to('/', class: 'login-form-inner__btn') do
           ログイン
         = link_to 'パスワードをお忘れの方', '/', class: 'login-form-inner__link'
