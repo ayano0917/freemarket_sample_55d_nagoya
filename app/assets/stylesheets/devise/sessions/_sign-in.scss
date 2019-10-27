@@ -1,0 +1,131 @@
+.main {
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: rgb(51, 51, 51);
+  .login-panel {
+    width: 456px;
+    margin: 0 auto;
+    background: #fff;
+    .login-no-account {
+      padding: 40px 64px;
+      text-align: center;
+      p {
+        font-size: 14px;
+      }
+      a {
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+    .login-form-inner {
+      padding: 32px 64px;
+      border-top: 1px solid #eee;
+      &__btn1 {
+        display: block;
+        background: #385185;
+        color: #fff;
+        position: relative;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        &__icon {
+          display: inline-block;
+          position: absolute;
+          top: 20%;
+          left: 16px;
+          font-size: 32px;
+          color: #fff;
+          background: #385185;
+        }
+      }
+      &__btn2 {
+        display: block;
+        margin: 16px 0 0;
+        background: #fff;
+        line-height: 48px;
+        width: 100%;
+        font-size: 14px;
+        border: #979797 solid 1px;
+        color: #333;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        &__icon {
+          display: inline-block;
+          position: absolute;
+          left: 3px;
+          font-size: 26px;
+          color: #fff;
+        }
+      }
+    }
+    form {
+      .login-form-inner {
+        padding: 24px 64px 32px;
+        border: 0;
+        .form-group1 {
+          margin: 0;
+          &__text {
+            width: 100%;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+        }
+        .form-group2 {
+          margin: 24px 0 0;
+          .form-group2 {
+            &__text {
+              width: 100%;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;  
+            }
+          }
+          .form-group3 {
+            .g-recapta {
+              .style {
+                width: 304px;
+                height: 78px;
+              }
+            }
+          }
+        }
+        &__btn {
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
+        &__link {
+          display: block;
+          margin: 40px 0 0;
+          color: #0099e8;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
