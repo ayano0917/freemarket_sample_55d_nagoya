@@ -1,6 +1,7 @@
 class SignUpsController < ApplicationController
 
   def new
+    # メアド・google・facebookでのログイン画面
   end
 
   def register

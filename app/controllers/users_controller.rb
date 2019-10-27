@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def show
@@ -10,9 +11,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def identification
+    # @user_address = UserAddress.find_by(user_id: current_user.id)
   end
 
   def logout
