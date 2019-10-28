@@ -10,7 +10,7 @@
           %p.display-main__container__information__upload-box__max 最大10枚までアップロードできます
           .display-main__container__information__upload-box__dropbox.cleafix
             .display-main__container__information__upload-box__dropbox__box
-              = f.file_field :image, {class: 'display-main__container__information__upload-box__dropbox__box__file', style: "display:none;"}
+              = f.file_field :image, {class: 'display-main__container__information__upload-box__dropbox__box__file', style: "display:none;", type: "file"}
               %pre.display-main__container__information__upload-box__dropbox__box__sentence 
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
@@ -127,6 +127,5 @@
               また、出品をもちまして
               =link_to "加盟店規約",'#'
               に同意したことになります。
-          %button.display-main__container__information__display__btn{type: 'submit', action: "/items/create", method: :post}
-            出品する
+          = f.submit "出品する", {class: 'display-main__container__information__display__btn'}
           =link_to "もどる", root_path, class: 'display-main__container__information__display__return'
