@@ -5,11 +5,23 @@ class SignUpsController < ApplicationController
   end
 
   def register
+    # 会員情報入力
     @user = User.new
   end
 
   def authentication
-    # 電話番号認証
+    # 電話番号入力
+    session[:nickname] = params[:user][:nickname]
+    session[:email] = params[:user][:email]
+    session[:password] = params[:user][:password]
+    session[:password_confirmation] = params[:user][:password_confirmation]
+    session[:first_name] = params[:user][:first_name]
+    session[:last_name] = params[:user][:last_name]
+    session[:first_name_kana] = params[:user][:first_name_kana]
+    session[:last_name_kana] = params[:user][:last_name_kana]
+    session[:birth_year] = params[:user][:birth_year]
+    session[:birth_month] = params[:user][:birth_month]
+    session[:birth_day] = params[:user][:birth_day]
   end
 
   def address
@@ -26,7 +38,7 @@ class SignUpsController < ApplicationController
   end
 
   def create
-    @user = User.new(
+    @user = User.create(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -38,8 +50,14 @@ class SignUpsController < ApplicationController
       birth_year: session[:birth_year], 
       birth_month: session[:birth_month], 
       birth_day: session[:birth_day], 
-      phone: user_params[:mobile_number]
+      phone: user_params[:phone]
     )
+
+    if @user.save
+      redirect_to controller: 'sign_ups', action: 'address'
+    else
+      redirect_to sign_ups_new_path, notice: '初めから入れ直してください'
+    end
   end
   
   private
