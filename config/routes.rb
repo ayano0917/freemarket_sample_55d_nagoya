@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
 
-  resources :users, only: [:new, :show, :update, :edit] do
+  resources :users, only: [:new, :create , :show, :update, :edit] do
     member do
       get :identification
     end

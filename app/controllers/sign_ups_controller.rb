@@ -5,7 +5,7 @@ class SignUpsController < ApplicationController
   end
 
   def register
-    # 会員情報入力
+    @user = User.new
   end
 
   def authentication
@@ -26,6 +26,20 @@ class SignUpsController < ApplicationController
   end
 
   def create
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name], 
+      first_name: session[:first_name], 
+      last_name_kana: session[:last_name_kana], 
+      first_name_kana: session[:first_name_kana],
+      birth_year: session[:birth_year], 
+      birth_month: session[:birth_month], 
+      birth_day: session[:birth_day], 
+      phone: user_params[:mobile_number]
+    )
   end
   
   private
