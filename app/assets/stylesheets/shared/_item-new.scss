@@ -1,5 +1,4 @@
 .display-main {
-  text-align: center;
   font-family: 'Source Sans Pro';
   font-size: 14px;
   color: $base-font;
@@ -14,6 +13,7 @@
       line-height: 1.5;
       text-align: center;
       font-weight: bold;
+      border-bottom: 1px solid #eee;
     }
     &__information {
       border-top: 1px solid #eee;
@@ -220,7 +220,7 @@
           border: 1px solid $item-sell-btn;
           color: $item-sell-btn-font;
           width: 100%;
-          @include btn;
+          @include item-new-btn;
         }
         &__return {
           text-decoration: none;
@@ -228,7 +228,7 @@
           margin: 24px auto 0;
           background: #aaa;
           color: $item-sell-btn-font;
-          @include btn;
+          @include item-new-btn;
         }
       }
     }

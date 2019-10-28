@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:new ,:index, :show] do
+  resources :items, only: [:new ,:index, :show, :create] do
     collection do
       get :confirm
     end
