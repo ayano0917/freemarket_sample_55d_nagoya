@@ -24,7 +24,7 @@
     %section.container
       %h2.single-head
         会員情報入力
-      = form_for(@user, url: authentication_sign_ups_path, html: {method: :get}) do |f|
+      = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get}) do |f|
         .single-content
           .form-group__top
             %label
@@ -49,7 +49,7 @@
               パスワード(確認)
             %span.absolute
               必須
-            = f.password_field :password, placeholder: "7文字以上", class: "input-default"
+            = f.password_field :password_confirmation, placeholder: "7文字以上", class: "input-default"
           .form-group
             %h3
               本人確認
@@ -80,7 +80,7 @@
             .birthday-select-wrap
               .birthday-select-wrap__year
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__year__btn'
-                = f.collection_select :birth_year, BirthYear.all, :id, :name,{include_blank:'--'},required:true, class: "birthday-select-wrap__year__btn__select"
+                = f.collection_select :birth_year_id, BirthYear.all, :id, :name,{include_blank:'--'},required:true, class: "birthday-select-wrap__year__btn__select"
               %span.birthday-select-wrap__font 年
               .birthday-select-wrap__month
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__month__btn'

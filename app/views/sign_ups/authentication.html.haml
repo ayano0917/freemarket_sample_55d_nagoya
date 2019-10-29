@@ -24,7 +24,7 @@
     %section.container
       %h2.single-head
         電話番号の確認
-      = form_for(@user, url: shipping_address_sign_ups_path, html: {method: :get}) do |f|
+      = form_for(@user, local: true, url: sign_ups_path, html: {method: :post}) do |f|
         .single-content
           .form-group
             %label

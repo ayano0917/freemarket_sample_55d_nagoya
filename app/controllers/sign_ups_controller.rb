@@ -11,18 +11,18 @@ class SignUpsController < ApplicationController
 
   def authentication
     # 電話番号入力
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name] = user_params[:last_name]
+    session[:first_name_kana] = user_params[:first_name_kana]
+    session[:last_name_kana] = user_params[:last_name_kana]
+    session[:birth_year_id] = user_params[:birth_year_id]
+    session[:birth_month] = user_params[:birth_month]
+    session[:birth_day] = user_params[:birth_day]
     @user = User.new
-    session[:nickname] = params[:user][:nickname]
-    session[:email] = params[:user][:email]
-    session[:password] = params[:user][:password]
-    session[:password_confirmation] = params[:user][:password_confirmation]
-    session[:first_name] = params[:user][:first_name]
-    session[:last_name] = params[:user][:last_name]
-    session[:first_name_kana] = params[:user][:first_name_kana]
-    session[:last_name_kana] = params[:user][:last_name_kana]
-    session[:birth_year] = params[:user][:birth_year]
-    session[:birth_month] = params[:user][:birth_month]
-    session[:birth_day] = params[:user][:birth_day]
   end
 
   def shipping_address
@@ -32,7 +32,7 @@ class SignUpsController < ApplicationController
 
   def pay
     # 支払い方法入力
-    
+    @credit_card = CreditCard.new
   end
 
 
@@ -41,7 +41,7 @@ class SignUpsController < ApplicationController
   end
 
   def create
-    @user = User.create(
+    @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -50,45 +50,40 @@ class SignUpsController < ApplicationController
       first_name: session[:first_name], 
       last_name_kana: session[:last_name_kana], 
       first_name_kana: session[:first_name_kana],
-      birth_year: session[:birth_year], 
+      birth_year_id: session[:birth_year_id], 
       birth_month: session[:birth_month], 
       birth_day: session[:birth_day], 
       phone: user_params[:phone]
     )
+  
+    if @user.save
+      redirect_to shipping_address_sign_ups_path
+    else
+      redirect_to authentication_sign_ups_path, notice: '初めから入れ直してください'
+    end
 
-    # if @user.save
-    #   redirect_to address_sign_ups_path
-    # else
-    #   redirect_to sign_ups_new_path, notice: '初めから入れ直してください'
-    # end
   end
   
   private
 
-  def sign_ups_user_params
+  def user_params
     params.require(:user).permit(
       :nickname,
       :email,
-      :password, 
+      :password,
       :password_confirmation,
+      :last_name, 
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :birth_year_id,
+      :birth_month,
+      :birth_day,
       :phone,
-      )
+      :image,
+      :profile,
+      :sales_amount,
+      :points
+    ) 
   end
-
-  # メソッド名は適当です。
-  def shipping_address_user_params
-    params.require(:shipping).permit(
-      :shipping_last_name,
-      :shipping_first_name,
-      :shipping_last_name_kana,
-      :shipping_first_name_kana,
-      :Postal_code,
-      :prefecture,
-      :city,
-      :house_number,
-      :building,
-      :phone,
-    )
-  end
-  
 end
