@@ -11,6 +11,7 @@ class SignUpsController < ApplicationController
 
   def authentication
     # 電話番号入力
+    @user = User.new
     session[:nickname] = params[:user][:nickname]
     session[:email] = params[:user][:email]
     session[:password] = params[:user][:password]
@@ -24,14 +25,16 @@ class SignUpsController < ApplicationController
     session[:birth_day] = params[:user][:birth_day]
   end
 
-  def address
-    # 住所入力
+  def shipping_address
+    # 配送先住所登録
+    @shipping_address = ShippingAddress.new
   end
 
   def pay
     # 支払い方法入力
     
   end
+
 
   def complete
     # 登録完了
@@ -53,11 +56,11 @@ class SignUpsController < ApplicationController
       phone: user_params[:phone]
     )
 
-    if @user.save
-      redirect_to controller: 'sign_ups', action: 'address'
-    else
-      redirect_to sign_ups_new_path, notice: '初めから入れ直してください'
-    end
+    # if @user.save
+    #   redirect_to address_sign_ups_path
+    # else
+    #   redirect_to sign_ups_new_path, notice: '初めから入れ直してください'
+    # end
   end
   
   private

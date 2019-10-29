@@ -63,75 +63,75 @@
       vertical-align: top;
       text-align: top;
       .clearfix {
-        .btn1-4 {
+        .btn1-3 {
           color: #888;
           @include progress-font;
-          .status1-4 {
+          .status1-3 {
             background: #ea352d;
             @include progress-btn;
           }
-          .status1-4::after {
+          .status1-3::after {
             background: #ea352d;
             @include progress-line-after;
           }
         }
-        .btn2-4 {
+        .btn2-3 {
           color: #888;
           @include progress-font;
-          .status2-4 {
+          .status2-3 {
             background: #ea352d;
             @include progress-btn;
           }
-          .status2-4::before {
+          .status2-3::before {
             background: #ea352d;
             @include progress-line-before;
           }
-          .status2-4::after {
+          .status2-3::after {
             @include progress-line-after;
             background: #ea352d;
           }
         }
-        .btn3-4 {
-          color: #888;
-          @include progress-font;
-          .status3-4 {
-            background: #ea352d;
-            @include progress-btn;
-          }
-          .status3-4::before {
-            @include progress-line-before;
-            background: #ea352d;
-          }
-          .status3-4::after {
-            @include progress-line-after;
-            background: #ea352d;
-          }
-        }
-        .btn4-4 {
+        .btn3-3 {
           font-weight: 600;
           color: #ea352d;
           @include progress-font;
-          .status4-4 {
+          .status3-3 {
             background: #ea352d;
             @include progress-btn;
           }
-          .status4-4::before {
+          .status3-3::before {
             @include progress-line-before;
             background: #ea352d;
           }
-          .status4-4::after {
+          .status3-3::after {
             @include progress-line-after;
             background: #ccc;
           }
         }
-        .btn5-4 {
+        .btn4-3 {
           color: #888;
           @include progress-font;
-          .status5-4 {
+          .status4-3 {
             background: #ccc;
             @include progress-btn;
           }
-          .status5-4::before {
+          .status4-3::before {
+            @include progress-line-before;
+            background: #ccc;
+          }
+          .status4-3::after {
+            @include progress-line-after;
+            background: #ccc;
+          }
+        }
+        .btn5-3 {
+          color: #888;
+          @include progress-font;
+          .status5-3 {
+            background: #ccc;
+            @include progress-btn;
+          }
+          .status5-3::before {
             @include progress-line-before;
             background: #ccc;
           }

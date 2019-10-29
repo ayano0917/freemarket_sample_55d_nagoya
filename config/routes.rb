@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     collection do
       get :register
       get :authentication
-      get :address
+      get :shipping_address
       get :pay
       get :complete
     end
