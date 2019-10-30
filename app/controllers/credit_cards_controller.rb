@@ -1,17 +1,20 @@
 class CreditCardsController < ApplicationController
 
+  # このindexアクションは仮で設置している
   def index
   end
 
   def new
-  end
-  
-  def create
-    #もしクレカ登録したら、show_creditcardのビューに飛ぶ
+    @credit_card = CreditCard.new
   end
 
+  def create
+  end
+
+  def show
+  end
+  
   def destroy
-    #削除したとき、show_creditcardのビューに飛ぶ
   end
 
 end
