@@ -11,8 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.new(item_params)
-    render action: :create
+    @item.new(item_params)
+    @item.save
   end
 
   def confirm

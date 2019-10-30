@@ -1,7 +1,7 @@
 .display-main
   %section.display-main__container
     .display-main__container__single-head 商品の情報を入力
-    = form_for "" do |f|
+    = form_for (@item) do |f|
       %form.display-main__container__information
         .display-main__container__information__upload-box
           %h3.display-main__container__information__upload-box__image
@@ -19,12 +19,12 @@
             %label.display-main__container__information__about__group1__label
               商品名
               %span.display-main__container__information__about__group1__label__require 必須
-            %input.display-main__container__information__about__group1__name{placeholder: "商品名 （必須 40文字まで）", value: ""}
+            = f.text_field :name, {class: 'display-main__container__information__about__group1__name',placeholder: "商品名 （必須 40文字まで）"}
           .display-main__container__information__about__group2
             %label.display-main__container__information__about__group2__label
               商品の説明
               %span.display-main__container__information__about__group2__label__require 必須
-            %textarea.display-main__container__information__about__group2__text{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+            = f.text_area :description, {class: 'display-main__container__information__about__group2__text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
         .display-main__container__information__detail.cleafix
           %h3.display-main__container__information__detail__data 商品の詳細
           .display-main__container__information__detail__box
@@ -66,28 +66,28 @@
                 配送料の負担
               %span.display-main__container__information__detail__box__group1__require 必須
               .display-main__container__information__detail__box__group1__pulldown
-                = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group1__pulldown__choices'}
+                = f.collection_select :shipping_fee, ShippingFee.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group1__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
             .display-main__container__information__detail__box__group2
               %label.display-main__container__information__detail__box__group2__label
                 配送の方法
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :shipping_form, ShippingForm.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
             .display-main__container__information__detail__box__group2
               %label.display-main__container__information__detail__box__group2__label
                 発送元の地域
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
             .display-main__container__information__detail__box__group2
               %label.display-main__container__information__detail__box__group2__label
                 発送までの日数
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :days_before_shipping, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
         .display-main__container__information__detail.cleafix
           %h3.display-main__container__information__detail__data 販売価格(300〜9,999,999)
@@ -103,7 +103,7 @@
                 .display-main__container__information__detail__box__sell__price__clear__yen
                   ¥
                   .display-main__container__information__detail__box__sell__price__clear__yen__box
-                    %input.display-main__container__information__detail__box__sell__price__clear__yen__box__input{placeholder: "例）300", value: ""}
+                    = f.text_field :price, { class: 'display-main__container__information__detail__box__sell__price__clear__yen__box__input',placeholder: "例）300"}
               %li.display-main__container__information__detail__box__sell__clear.clearfix
                 .display-main__container__information__detail__box__sell__clear__sentence
                   販売手数料 (10%)

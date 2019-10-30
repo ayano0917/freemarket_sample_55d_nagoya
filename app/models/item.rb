@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-
+  mount_uploader :image, ImageUploader
   belongs_to_active_hash :condition
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_form
@@ -16,8 +16,8 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :condition_id, presence: true
   validates :shipping_fee_id, presence: true
   validates :shipping_form_id, presence: true
