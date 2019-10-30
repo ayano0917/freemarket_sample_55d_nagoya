@@ -16,7 +16,20 @@
   transform: translate(0, -50%);
 }
 
-
+.sign-up {
+  height: 128px;
+  text-align: center;
+  &__content {
+    margin: 40px 0 0;
+    display: inline-block;
+    &--link {
+      width: 185px;
+      height:49px;
+      line-height: 49px;
+      margin: 0 8px 0 0;
+    }
+  }
+}
 .main {
   height: 440px;
   &__container {
