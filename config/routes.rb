@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_addresses, only: [:update]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
   resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
