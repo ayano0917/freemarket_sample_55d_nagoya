@@ -12,7 +12,11 @@ class ItemsController < ApplicationController
 
   def create
     @item.new(item_params)
-    @item.save
+    if @item.valid?
+      render :new
+    else @item.save
+      render :done
+    end
   end
 
   def confirm
