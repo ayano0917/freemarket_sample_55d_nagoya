@@ -17,21 +17,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:new ,:index, :show] do
+  resources :items, only: [:new ,:index, :show, :create] do
     collection do
       get :confirm
     end
   end
 
-  resources :comments
-  resources :credit_cards, only: [:new, :index, :show]
+  resources :comments, only: [:new, :create]
+  resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
+  resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
 
   resources :sign_ups, only: [:new, :create] do
     collection do
       get :register
       get :authentication
-      get :shipping_address
-      get :pay
       get :complete
     end
   end
