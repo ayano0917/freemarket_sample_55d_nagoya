@@ -25,11 +25,6 @@ class SignUpsController < ApplicationController
     @user = User.new
   end
 
-  def shipping_address
-    # 配送先住所登録
-    @shipping_address = ShippingAddress.new
-  end
-
   def pay
     # 支払い方法入力
     @credit_card = CreditCard.new
@@ -56,27 +51,9 @@ class SignUpsController < ApplicationController
       phone: user_params[:phone]
     )
     if @user.save
-      redirect_to shipping_address_sign_ups_path
+      redirect_to new_shipping_address_path
     else
-      render authentication_sign_ups_path
-    end
-    # 上記が会員情報・電話番号データ
-    @shipping_address = ShippingAddress.new(
-      shipping_last_name: shipping_address_params[:shipping_last_name],
-      shipping_first_name: shipping_address_params[:shipping_first_name],
-      shipping_last_name_kana: shipping_address_params[:shipping_last_name_kana],
-      shipping_first_name_kana: shipping_address_params[:shipping_first_name_kana],
-      postal_code: shipping_address_params[:postal_code],
-      prefecture: shipping_address_params[:prefecture],
-      city: shipping_address_params[:city],
-      house_number: shipping_address_params[:house_number],
-      building: shipping_address_params[:building],
-      phone: shipping_address_params[:phone],
-    )
-    if @shipping_address.save
-      redirect_to pay_sign_ups_path
-    else
-      render shipping_address_sign_ups_path
+      render authentication_sign_ups_path, notice: "入力に誤りがあります。"
     end
 
   end
@@ -104,18 +81,4 @@ class SignUpsController < ApplicationController
     ) 
   end
 
-  def shipping_address_params
-    params.require(:shipping_address).permit(
-      :shipping_last_name,
-      :shipping_first_name,
-      :shipping_last_name_kana,
-      :shipping_first_name_kana,
-      :postal_code,
-      :prefecture,
-      :city,
-      :house_number,
-      :building,
-      :phone
-    )
-  end
 end

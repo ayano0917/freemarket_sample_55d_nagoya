@@ -23,7 +23,7 @@
     %section.container
       %h2.single-head
         住所入力
-      = form_for(@shipping_address, url: sign_ups_path, html: {method: :post}) do |f|
+      = form_for(@shipping_address, url: shipping_addresses_path, html: {method: :post}) do |f|
         .single-content
           .form-group__top
             %label
