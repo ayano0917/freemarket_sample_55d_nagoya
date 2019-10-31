@@ -5,13 +5,13 @@
   .login-panel
     .login-no-account
       %p アカウントをお持ちでない方はこちら
-      = link_to '/' do
+      = link_to new_sign_up_path do
         新規会員登録
     .login-form-inner
-      = link_to('/', class: 'login-form-inner__btn1') do
+      = link_to(user_facebook_omniauth_authorize_path, class: 'login-form-inner__btn1') do
         = fa_icon 'facebook-official', class: 'login-form-inner__btn1__icon'
         Facebookでログイン
-      = link_to('/', class: 'login-form-inner__btn2') do
+      = link_to(user_google_oauth2_omniauth_authorize_path, class: 'login-form-inner__btn2') do
         = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: 'login-form-inner__btn2__icon') 
         Googleでログイン
     %form
