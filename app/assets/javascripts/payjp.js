@@ -13,7 +13,6 @@ $(document).on('turbolinks:load', function() {
         exp_year: $("#payment_expiration_date_2i").val(),
     };
     Payjp.createToken(card, function(s, response) {
-      console.log
       if (response.error) {
         alert('トークン作成エラー発生');
       }
