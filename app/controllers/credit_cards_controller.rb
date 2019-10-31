@@ -11,7 +11,7 @@ class CreditCardsController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 
     if params['payjp-token'].blank?
-      redirect_to action: "new" #id: current_user.id
+      redirect_to credit_cards_path #id: current_user.id まだカレントユーザーの実装をしていない為。
     else
       customer = Payjp::Customer.create(
         description: 'test',
@@ -27,7 +27,7 @@ class CreditCardsController < ApplicationController
       if @credit_card.save
         redirect_to complete_sign_ups_path
       else
-        redirect_to credit_cards_path #id:current_user.id
+        redirect_to credit_cards_path #id:current_user.idまだカレントユーザーの実装をしていない為。
       end
     end
   end
@@ -39,7 +39,7 @@ class CreditCardsController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "confirmation", id: currrent_user.id
+      redirect_to credit_cards_path
   end
 
   def show #マイページでクレジットカード情報入力完了後の画面
@@ -48,7 +48,7 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     else
-      redirect_to action: "confirmation", id: current_user.id
+      redirect_to credit_cards_path, #id: current_user.idまだカレントユーザーの実装をしていない為。
     end
   end
 
@@ -57,14 +57,14 @@ class CreditCardsController < ApplicationController
 
   def confirmation #マイページのクレジットカードを追加する画面
     card = current_user.credit_cards
-    redirect_to action: "show" if card.exists?
+    redirect_to credit_cards_path if card.exists?
   end
 
   
   private
 
   def set_card
-    # @credit_card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @credit_card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
     # もし存在していたらという記述
   end
 end
