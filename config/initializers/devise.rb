@@ -5,12 +5,14 @@
 Devise.setup do |config|
   config.omniauth :google_oauth2,
                   Rails.application.secrets.google_client_id,
-                  Rails.application.secrets.google_client_secret,
-                  provider_ignores_state: true,
-                  callback_url: 'https://localhost:3000/users/auth/facebook/callback', 'http://localhost:3000/users/auth/facebook/callback' 
+                  Rails.application.secrets.google_client_secret
   config.omniauth :facebook,
                   Rails.application.secrets.facebook_client_id,
-                  Rails.application.secrets.facebook_client_secret
+                  Rails.application.secrets.facebook_client_secret,
+                  provider_ignores_state: true,
+                  callback_url: 'https://localhost:3000/users/auth/facebook/callback'
+
+  # callback_url: "https://localhost:3000/users/auth/facebook/callback", "http://localhost:3000/users/auth/facebook/callback"
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
