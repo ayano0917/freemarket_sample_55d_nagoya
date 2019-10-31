@@ -64,7 +64,7 @@ class CreditCardsController < ApplicationController
   private
 
   def set_card
-    @credit_card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @credit_card = current_user.credit_cards.first if current_user.credit_cards.present?
     # もし存在していたらという記述
   end
 end
