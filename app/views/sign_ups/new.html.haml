@@ -1,10 +1,12 @@
-= render 'shared/exhibition-page-header'
+%header.sign-up
+  %h1.sign-up__content
+    = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567', class: 'sign-up__content--link'), root_path
 .main
   %section.main__container
     %h2.main__container__head 新規会員登録
     .main__container__registration-form
       .main__container__registration-form__contents
-        = link_to('/', class: 'main__container__registration-form__contents__btn') do
+        = link_to('/sign_ups/register', class: 'main__container__registration-form__contents__btn') do
           = fa_icon 'envelope-o', class: 'main__container__registration-form__contents__btn__icon'
           メールアドレスで登録する
         = link_to('/', class: 'main__container__registration-form__contents__btn2') do
@@ -13,4 +15,15 @@
         = link_to('/', class: 'main__container__registration-form__contents__btn3') do
           = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: 'main__container__registration-form__contents__btn3__icon')
           Googleで登録する
-= render 'shared/exhibition-page-footer'
+.footer-contents
+  .footer-contents__nav
+    %ul.footer-contents__nav__list
+      %li.footer-contents__nav__list--link1
+        = link_to('プライバシーポリシー', '#', class: 'footer-contents__nav__list--link1')
+      %li.footer-contents__nav__list--link2
+        = link_to('メルカリ利用規約', '#', class: 'footer-contents__nav__list--link2')
+      %li.footer-contents__nav__list--link3
+        = link_to('特定商取引に関する表記', '#', class: 'footer-contents__nav__list--link3')
+    = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567', class: 'footer-contents__nav--link4', alt: 'mercari'), root_path
+    %p.footer-contents__nav__content
+      %small.footer-contents__nav__content--font © 2019 Mercari

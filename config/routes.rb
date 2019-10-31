@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
 
-  resources :users, only: [:new, :show, :update, :edit] do
+  resources :users, only: [:new, :create , :show, :update, :edit] do
     member do
       get :identification
     end
@@ -17,21 +17,21 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:new ,:index, :show] do
+  resources :items, only: [:new ,:index, :show, :create] do
     collection do
       get :confirm
     end
   end
 
-  resources :comments
-  resources :credit_cards, only: [:new, :index, :show]
+  resources :user_addresses, only: [:update]
+  resources :comments, only: [:new, :create]
+  resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
+  resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
 
   resources :sign_ups, only: [:new, :create] do
     collection do
       get :register
       get :authentication
-      get :address
-      get :pay
       get :complete
     end
   end
