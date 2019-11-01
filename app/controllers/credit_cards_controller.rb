@@ -73,6 +73,24 @@ class CreditCardsController < ApplicationController
     
   end
 
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(
+        card:  params['payjp-token'],
+        metadata: {user_id: current_user.id}
+      )
+      @card = CreditCard.new(user_id: current_user.id,customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to action: "show"
+      else
+        redirect_to action: "pay"
+      end
+    end
+  end
+
   def confirmation #マイページのクレジットカードを追加する画面
     card = current_user.credit_cards
     redirect_to credit_cards_path if card.exists?

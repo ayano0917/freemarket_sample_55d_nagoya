@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     collection do
       get :confirmation
       get :edit
+      post :pay
     end
   end
   resources :sign_ups, only: [:new, :create] do
