@@ -57,6 +57,7 @@ class CreditCardsController < ApplicationController
   end
 
   def edit #マイページクレジットカード情報入力画面
+    
   end
 
   def confirmation #マイページのクレジットカードを追加する画面

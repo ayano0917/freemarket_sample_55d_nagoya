@@ -30,8 +30,12 @@ Rails.application.routes.draw do
   resources :user_addresses, only: [:update]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
-  resources :credit_cards, only: [:index, :new, :create, :show, :destroy, :edit]
-
+  resources :credit_cards, only: [:index, :new, :create, :show, :destroy] do
+    collection do
+      get :confirmation
+      get :edit
+    end
+  end
   resources :sign_ups, only: [:new, :create] do
     collection do
       get :register
