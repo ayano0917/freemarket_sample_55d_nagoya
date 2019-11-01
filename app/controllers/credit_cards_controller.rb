@@ -48,7 +48,7 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     else
-      redirect_to credit_cards_path, #id: current_user.idまだカレントユーザーの実装をしていない為。
+      redirect_to credit_cards_path#id: current_user.idまだカレントユーザーの実装をしていない為。
     end
   end
 
@@ -64,7 +64,7 @@ class CreditCardsController < ApplicationController
   private
 
   def set_card
-    @credit_card = current_user.credit_cards.first if current_user.credit_cards.present?
+    # @credit_card = current_user.credit_cards.first if current_user.credit_cards.present?
     # もし存在していたらという記述
   end
 end
