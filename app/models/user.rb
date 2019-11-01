@@ -14,18 +14,7 @@ class User < ApplicationRecord
     else
       user = User.where(email: auth.info.email).first
       if user.present?
-        SnsCredential.create(
-          uid: uid,
-          provider: provider,
-          user_id: user.id
-          )
-      else
-        user = User.create(
-          nickname: auth.info.name,
-          email:    auth.info.email,
-          password: Devise.friendly_token[0, 20],
-          telephone: "08000000000"
-          )
+        # 存在していたら？ということ。
         SnsCredential.create(
           uid: uid,
           provider: provider,
@@ -56,6 +45,5 @@ belongs_to_active_hash :birth_year
 # validates :birth_month, presence: true
 # validates :birth_day, presence: true
 # validates :phone, presence: true, uniqueness: true
-
 
 end
