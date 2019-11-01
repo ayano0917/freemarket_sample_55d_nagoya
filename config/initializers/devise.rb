@@ -9,7 +9,7 @@ Devise.setup do |config|
   config.omniauth :facebook,
                   Rails.application.secrets.facebook_client_id,
                   Rails.application.secrets.facebook_client_secret,
-                  callback_url: 'http://localhost:3000/users/auth/facebook/callback'
+                  callback_url: 'https://localhost:3000/users/auth/facebook/callback'
 
   # callback_url: "https://localhost:3000/users/auth/facebook/callback", "http://localhost:3000/users/auth/facebook/callback"
 
