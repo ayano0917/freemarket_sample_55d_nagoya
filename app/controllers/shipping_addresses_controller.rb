@@ -10,7 +10,7 @@ class ShippingAddressesController < ApplicationController
     if @shipping_address.save
       redirect_to new_credit_card_path
     else
-      render new_shipping_address_path, notice: "入力に誤りがあります。"
+      render new_shipping_address_path
     end
 
   end
@@ -33,7 +33,7 @@ class ShippingAddressesController < ApplicationController
       :shipping_last_name_kana,
       :shipping_first_name_kana,
       :postal_code,
-      :prefecture,
+      :prefecture_id,
       :city,
       :house_number,
       :building,

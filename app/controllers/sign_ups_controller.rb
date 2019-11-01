@@ -1,7 +1,8 @@
 class SignUpsController < ApplicationController
 
   def new
-    # メアド・google・facebookでのログイン画面
+    # もしユーザーがログインしていたらrootに戻る。
+    redirect_to :root if user_signed_in?
   end
 
   def register
