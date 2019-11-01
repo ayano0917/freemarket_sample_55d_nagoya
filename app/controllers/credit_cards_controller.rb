@@ -11,9 +11,7 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    binding.pry
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-
     if params['payjp-token'].blank?
       redirect_to credit_cards_path #id: current_user.id まだカレントユーザーの実装をしていない為。
     else
@@ -51,6 +49,21 @@ class CreditCardsController < ApplicationController
     if card.present?
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand      
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     else
       redirect_to credit_cards_path#id: current_user.idまだカレントユーザーの実装をしていない為。
     end
