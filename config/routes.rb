@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :user_addresses, only: [:update]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
-  resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
+  resources :credit_cards, only: [:index, :new, :create, :show, :destroy, :edit]
 
   resources :sign_ups, only: [:new, :create] do
     collection do

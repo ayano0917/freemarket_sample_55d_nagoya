@@ -2,12 +2,16 @@ class CreditCardsController < ApplicationController
   require "payjp"
   before_action :set_card
 
+  def index
+  end
+
   def new #sign-upのクレジットカード登録の画面
     @credit_card = CreditCard.new
     # redirect_to action: "new" if @credit_card.present?
   end
 
   def create
+    binding.pry
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 
     if params['payjp-token'].blank?
