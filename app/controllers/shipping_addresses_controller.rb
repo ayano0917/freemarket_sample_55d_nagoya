@@ -33,7 +33,7 @@ class ShippingAddressesController < ApplicationController
       :shipping_last_name_kana,
       :shipping_first_name_kana,
       :postal_code,
-      :prefecture,
+      :prefecture_id,
       :city,
       :house_number,
       :building,
