@@ -16,7 +16,7 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.create(
         description: 'test',
         email: current_user.email,
-        card: params['payjp-token'],
+        card: params['payjpToken'],
         metadata: {user_id: current_user.id}
       ) 
       @credit_card = CreditCard.new(

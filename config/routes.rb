@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:new ,:index, :show, :create] do
+  resources :items, only: [:new , :show, :create] do
     collection do
       get :confirm
     end
