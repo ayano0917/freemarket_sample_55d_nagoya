@@ -11,12 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item.new(item_params)
-    if @item.valid?
-      render :new
-    else @item.save
-      render :done
-    end
+    @item = Item.new(item_params)
+    @item.save!
+    redirect_to root_path 
   end
 
   def confirm
@@ -28,17 +25,17 @@ class ItemsController < ApplicationController
       :user_id,
       :name,
       :description,
-      :condition,
-      :shipping_fee,
-      :shipping_form,
-      :prefecture,
-      :days_before_shipping, 
-      :size,
+      :condition_id,
+      :shipping_fee_id,
+      :shipping_form_id,
+      :prefecture_id,
+      :days_before_shipping_id, 
+      :size_id,
       :brand,
-      :category,
+      # :category,
       :price,
-      :buyer,
-      :seller,
+      :buyer_id,
+      :seller_id,
       :shipping_address, 
       :status,
     )

@@ -1,7 +1,7 @@
 .display-main
   %section.display-main__container
     .display-main__container__single-head 商品の情報を入力
-    = form_for (@item) do |f|
+    = form_for(@item, url: items_path, html:{method: :post}) do |f|
       %form.display-main__container__information
         .display-main__container__information__upload-box
           %h3.display-main__container__information__upload-box__image
@@ -54,7 +54,7 @@
                 商品の状態
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :condition, Condition.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
         .display-main__container__information__detail.cleafix
           %h3.display-main__container__information__detail__data 配送について
@@ -66,28 +66,28 @@
                 配送料の負担
               %span.display-main__container__information__detail__box__group1__require 必須
               .display-main__container__information__detail__box__group1__pulldown
-                = f.collection_select :shipping_fee, ShippingFee.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group1__pulldown__choices'}
+                = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group1__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
             .display-main__container__information__detail__box__group2
               %label.display-main__container__information__detail__box__group2__label
                 配送の方法
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :shipping_form, ShippingForm.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
             .display-main__container__information__detail__box__group2
               %label.display-main__container__information__detail__box__group2__label
                 発送元の地域
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
             .display-main__container__information__detail__box__group2
               %label.display-main__container__information__detail__box__group2__label
                 発送までの日数
               %span.display-main__container__information__detail__box__group2__require 必須
               .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :days_before_shipping, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
+                = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
                 =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
         .display-main__container__information__detail.cleafix
           %h3.display-main__container__information__detail__data 販売価格(300〜9,999,999)

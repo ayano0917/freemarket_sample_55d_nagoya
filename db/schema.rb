@@ -50,29 +50,26 @@ ActiveRecord::Schema.define(version: 20191026093235) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.string   "name",                                            null: false
-    t.text     "description",          limit: 65535,              null: false
-    t.integer  "condition",                                       null: false
-    t.integer  "shipping_fee",                                    null: false
-    t.integer  "shipping_form",                                   null: false
-    t.integer  "prefecture",                                      null: false
-    t.integer  "days_before_shipping",                            null: false
-    t.integer  "size"
+    t.string   "name",                                  null: false
+    t.text     "description",             limit: 65535, null: false
+    t.integer  "condition_id"
+    t.integer  "shipping_fee_id"
+    t.integer  "shipping_form_id"
+    t.integer  "prefecture_id"
+    t.integer  "days_before_shipping_id"
+    t.integer  "size_id"
     t.string   "brand"
-    t.integer  "category_id",                                     null: false
-    t.integer  "price",                                           null: false
+    t.string   "category"
+    t.integer  "price"
     t.integer  "buyer_id"
     t.integer  "seller_id"
     t.integer  "shipping_address_id"
-    t.string   "status",                             default: "", null: false
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "status"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
     t.index ["shipping_address_id"], name: "index_items_on_shipping_address_id", using: :btree
-    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "shipping_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -149,11 +146,6 @@ ActiveRecord::Schema.define(version: 20191026093235) do
   add_foreign_key "comments", "users"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "shipping_addresses"
-  add_foreign_key "items", "users"
-  add_foreign_key "items", "users", column: "buyer_id"
-  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "shipping_addresses", "users"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "user_addresses", "users"
