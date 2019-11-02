@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+ 
 
   def new
     @credit_card = CreditCard.new
