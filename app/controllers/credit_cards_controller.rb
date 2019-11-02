@@ -4,7 +4,7 @@ class CreditCardsController < ApplicationController
 
   def new
     @credit_card = CreditCard.new
-    redirect_to action: "new" if @credit_card.present?
+    # redirect_to action: "new" if @credit_card.present?
   end
 
   def create
