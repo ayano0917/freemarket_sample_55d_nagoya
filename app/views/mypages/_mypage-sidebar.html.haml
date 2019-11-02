@@ -18,7 +18,7 @@
           いいね！一覧
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list__1__link__icon'
       %li.main-container__side-bar__nav__list__1
-        = link_to('root_path', class: 'main-container__side-bar__nav__list__1__link') do
+        = link_to(new_item_path(current_user), class: 'main-container__side-bar__nav__list__1__link') do
           出品する
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list__1__link__icon'
       %li.main-container__side-bar__nav__list__1
@@ -70,7 +70,7 @@
     %h3.main-container__side-bar__nav__title 設定
     %ul.main-container__side-bar__nav__list3
       %li.main-container__side-bar__nav__list3__1
-        = link_to('root_path', class: 'main-container__side-bar__nav__list3__1__link') do
+        = link_to(profile_user_mypage_path(current_user), class: 'main-container__side-bar__nav__list3__1__link') do
           プロフィール
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
@@ -86,7 +86,7 @@
           メール/パスワード
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
-        = link_to('root_path', class: 'main-container__side-bar__nav__list3__1__link') do
+        = link_to(personal_info_user_mypage_path(current_user), class: 'main-container__side-bar__nav__list3__1__link') do
           本人情報
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
@@ -94,6 +94,6 @@
           電話番号の確認
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
-        = link_to('root_path', class: 'main-container__side-bar__nav__list3__1__link') do
+        = link_to(logout_user_mypage_path(current_user), class: 'main-container__side-bar__nav__list3__1__link') do
           ログアウト
           = fa_icon 'angle-right', class: 'main-container__side-bar__nav__list3__1__link__icon'
