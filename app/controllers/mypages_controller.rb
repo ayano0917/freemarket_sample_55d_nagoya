@@ -30,6 +30,7 @@ class MypagesController < ApplicationController
   end
 
   def shipping_address
+  end
 
   def during_trade
   end

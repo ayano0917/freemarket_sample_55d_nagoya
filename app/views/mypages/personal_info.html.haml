@@ -1,0 +1,54 @@
+= render 'shared/login-header'
+.wrapper
+  = render 'mypages/mypage-sidebar2'
+  .wrapper__contents
+    %section.wrapper__contents__container
+      %h2.wrapper__contents__container__head 本人情報の登録
+      %form{action: '/', method: 'post' ,class: 'wrapper__contents__container__inner'}
+        .wrapper__contents__container__inner__top
+          %p
+            お客様の本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.text-right
+            = link_to('/',class: 'text-right__link') do
+              本人確認書類のアップロードについて
+              = fa_icon 'angle-right', class: 'text-right__link__icon'
+        .wrapper__contents__container__inner__form
+          %label お名前
+          %p 次郎丸
+        .wrapper__contents__container__inner__form
+          %label お名前カナ
+          %p ジロウマル
+        .wrapper__contents__container__inner__form
+          %label 生年月日
+          %p 1900/01/01
+        .wrapper__contents__container__inner__form
+          %label 郵便番号
+          %span 任意
+          %input{type: 'text', value: '', placeholder: '例)1234567'}
+        .wrapper__contents__container__inner__form
+          %label 都道府県
+          %span 任意
+          %input{type: 'text', value: '', placeholder: '--'}
+        .wrapper__contents__container__inner__form
+          %label 市区町村
+          %span 任意
+          %input{type: 'text', value: '', placeholder: '例)横浜市緑区'}
+        .wrapper__contents__container__inner__form
+          %label 番地
+          %span 任意
+          %input{type: 'text', value: '', placeholder: '例)青山1-1-1'}
+        .wrapper__contents__container__inner__form
+          %label 建物名
+          %span 任意
+          %input{type: 'text', value: '', placeholder: '例)柳ビル103'}
+        %button.btn-red 登録する
+        .wrapper__contents__container__inner__bottom
+          %p.text-right
+            = link_to('/',class: 'text-right__link') do
+              本人情報の登録について
+              = fa_icon 'angle-right', class: 'text-right__link__icon'
+= render 'shared/exhibition-button'
+= render 'shared/app-banner'
+= render 'shared/footer'
