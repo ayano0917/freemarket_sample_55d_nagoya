@@ -24,7 +24,7 @@
     %section.container
       %h2.single-head
         支払い方法
-      = form_tag('credit_cards_path', method: :post, id: 'charge-form') do
+      = form_tag(credit_cards_path, method: :post, id: 'charge-form') do
         .single-content
           .form-group__top
             %label
