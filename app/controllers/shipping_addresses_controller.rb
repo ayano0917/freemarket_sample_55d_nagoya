@@ -38,7 +38,7 @@ class ShippingAddressesController < ApplicationController
       :house_number,
       :building,
       :phone
-    )
+    ).merge(user_id: current_user.id)
   end
 
 end

@@ -14,15 +14,13 @@ class CreditCardsController < ApplicationController
       redirect_to new_credit_card_path #id: current_user.id まだカレントユーザーの実装をしていない為。
     else
       customer = Payjp::Customer.create(
-        # description: 'test',
-        # email: current_user.email,
         card: params['payjp-token'],
-        # metadata: {user_id: current_user.id}
+        metadata: {user_id: current_user.id}
       ) 
       @credit_card = CreditCard.new(
-        # user_id: current_user.id,
-        # customer_id: customer.id,
-        # card_id: customer.default_card,
+        user_id: current_user.id,
+        customer_id: customer.id,
+        card_id: customer.default_card,
       )
       if @credit_card.save
         redirect_to complete_sign_ups_path
@@ -52,7 +50,7 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def edit #マイページクレジットカード情報入力画面 
+  def edit #マイページクレジットカード情報入力画面
   end
 
   def confirmation #マイページのクレジットカードを追加する画面

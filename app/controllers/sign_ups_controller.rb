@@ -51,6 +51,7 @@ class SignUpsController < ApplicationController
       phone: user_params[:phone]
     )
     if @user.save
+      sign_in(@user)
       redirect_to new_shipping_address_path
     else
       render authentication_sign_ups_path, notice: "入力に誤りがあります。"
