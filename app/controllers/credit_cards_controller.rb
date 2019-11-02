@@ -3,7 +3,7 @@ class CreditCardsController < ApplicationController
  
 
   def new
-    @credit_card = CreditCard.new
+    # @credit_card = CreditCard.new
     # redirect_to action: "new" if @credit_card.present?
   end
 
@@ -32,6 +32,7 @@ class CreditCardsController < ApplicationController
   def destroy
     card = current_user.credit_cards.first
     if card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
