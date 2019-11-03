@@ -51,16 +51,16 @@ class MypagesController < ApplicationController
 
   def create_credit_card #クレジットカード顧客情報作成
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    if params['payjp-token'].blank?
+    if params['payjp-token_mypage'].blank?
       redirect_to action: "payment"
     else
       customer = Payjp::Customer.create(
-      card: params['payjp-token'],
+      card: params['payjp-token_mypage'],
       metadata: {user_id: current_user.id}
       )
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "credit_card_show"  #クレジットカード
+        redirect_to action: "credit_card_show"  #クレジットカード確認画面
       else
         redirect_to action: "payment"   #クレジットカード追加画面に戻る
       end

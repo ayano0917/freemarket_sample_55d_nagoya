@@ -17,9 +17,10 @@ $(document).on('turbolinks:load', function() {
           $("#exp_month").removeAttr("name");
           $("#exp_year").removeAttr("name");
           $("#card_token_mypage").append(
-            $('<input type="hidden" name="payjp-token">').val(response.id)
+            $('<input type="hidden" name="payjp-token_mypage">').val(response.id)
           );
           document.inputForm.submit();
+          
         } else {
           alert("カード情報が正しくありません。");
         }
