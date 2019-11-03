@@ -1,3 +1,32 @@
--# マイページの
--# クレジットカードを追加した後のビュー
--# 削除するボタン等があるように
+-# マイページのクレジットカードを追加した後のビュー 削除するボタン等があるように
+= render 'shared/login-header'
+.main-container
+  = render partial: "mypages/mypage-sidebar"
+  .main-container__chapter
+    .main-container__chapter__header
+      支払い方法
+    .main-container__chapter__content-before
+      %section.main-container__chapter__content-before__section
+        .main-container__chapter__content-before__section__sub-header
+          クレジットカード一覧
+        %ul.main-container__chapter__content-befoe__section__list
+          %li.main-container__chapter__content-befoe__section__list__card
+            .main-container__chapter__content-befoe__section__list__card__form
+              .main-container__chapter__content-befoe__section__list__card__from__image
+                = image_tag "credit_cards/#{@card_src}", width: '49', height: '20', alt: @card_brand, id: "card_image"
+              .main-container__chapter__content-befoe__section__list__card__form__number
+                = "**** **** ****" + @default_card_information.last4
+              .main-container__chapter__content-befoe__section__list__card__form__date
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year  = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+              = form_tag(delete_credit_cards_path, method: :post, id: 'charge-form', name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: ""}
+                %button.main-container__chapter__content-befoe__section__list__card__form__button
+                  削除する
+        .main-container__chapter__content-before__method
+          = link_to '#',class: 'main-container__chapter__content-before__method__link' do
+            %span.main-container__chapter__content-before__method__link__span 支払い方法について
+            = fa_icon'chevron-right'
+= render 'shared/app-banner'
+= render 'shared/footer'

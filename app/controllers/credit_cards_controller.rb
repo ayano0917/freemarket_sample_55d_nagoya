@@ -1,9 +1,11 @@
 class CreditCardsController < ApplicationController
   require "payjp"
 
+
   def new
-    @credit_card = CreditCard.new
-    redirect_to action: "new" if @credit_card.present?
+      @credit_card = CreditCard.new
+    # redirect_to action: "new" if @credit_card.present?
+    # FIXME 同じページをリダイレクトするので修正が必要
   end
 
   def create
@@ -28,14 +30,15 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def destroy
-    card = current_user.credit_cards.first
+  def delete
+    card = CreditCard.find_by(user_id: current_user.id)
     if card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
     end
-      redirect_to credit_cards_path
+      redirect_to payment_user_mypage_path(current_user)
   end
 
 end
