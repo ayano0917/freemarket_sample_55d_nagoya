@@ -9,7 +9,6 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    binding.pry
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     if params['payjp-token'].blank?
       redirect_to new_credit_card_path
