@@ -1,2 +1,2 @@
-,class SignUp < ApplicationRecord
+class SignUp < ApplicationRecord
 end
