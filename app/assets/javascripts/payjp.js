@@ -16,10 +16,11 @@ $(document).on('turbolinks:load', function() {
           $("#cvc").removeAttr("name");
           $("#exp_month").removeAttr("name");
           $("#exp_year").removeAttr("name");
-          $("#card_token_mypage").append(
+          $("#card_token").append(
             $('<input type="hidden" name="payjp-token">').val(response.id)
           );
           document.inputForm.submit();
+          alert("登録が完了しました"); //確認用
         } else {
           alert("カード情報が正しくありません。");
         }
