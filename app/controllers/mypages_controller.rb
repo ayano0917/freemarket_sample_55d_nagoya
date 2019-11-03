@@ -30,7 +30,7 @@ class MypagesController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-      @card_brand = @default_card_information.brand      
+      @card_brand = @default_card_information.brand  
       case @card_brand
       when "Visa"
         @card_src = "visa.svg"
@@ -45,23 +45,24 @@ class MypagesController < ApplicationController
       when "Discover"
         @card_src = "discover.svg"
       end
+      @card_src
     end
   end
 
   def create_credit_card #クレジットカード顧客情報作成
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to action: "payment"
     else
       customer = Payjp::Customer.create(
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       )
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "credit_card_show"  #クレジットカード
       else
-        redirect_to action: "credit_card_reg"   #クレジットカード入力画面に戻る
+        redirect_to action: "payment"   #クレジットカード追加画面に戻る
       end
     end
   end

@@ -37,7 +37,7 @@ class CreditCardsController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to payment_user_mypage_path
+      redirect_to payment_user_mypage_path(current_user)
   end
 
 end

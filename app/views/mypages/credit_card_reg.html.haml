@@ -6,7 +6,7 @@
     .main-container__chapter__header
       クレジットカード情報入力
     .main-container__chapter__content
-      = form_tag(pay_credit_cards_path, method: :post, class: "main-container__chapter__content__from", id: "add-card", name: "inputForm") do
+      = form_tag(create_credit_card_user_mypage_path, method: :post, class: "main-container__chapter__content__from", id: "add-card", name: "inputForm") do
         .main-container__chapter__content__registration-number
           %label.main-container__chapter__content__registration-number__label カード番号
           %span.main-container__chapter__content__registration-number__require  必須
@@ -66,11 +66,11 @@
           %label.main-container__chapter__content__security-code__label セキュリティコード
           %span.main-container__chapter__content__security-code__require  必須
           = text_field_tag "cvc", "", class: "main-container__chapter__content__security-code__cvc", placeholder: "カード背面４行もしくは３行の番号", maxlength: "4", id: "cvc"
-          #card_token
+          #card_token_mypage
           .main-container__chapter__content__security-code__seqcode
             %span.main-container__chapter__content__security-code__seqcode__question ?
             カード裏面の番号とは？
         .main-container__chapter__content__submit
-          = submit_tag "追加する", class: "main-container__chapter__content__submit__token", id: "token_submit"
+          = submit_tag "追加する", class: "main-container__chapter__content__submit__token", id: "token_submit_mypage"
 = render 'shared/app-banner'
 = render 'shared/footer'
