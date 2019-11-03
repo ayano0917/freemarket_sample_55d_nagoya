@@ -29,15 +29,15 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def destroy
-    card = current_user.credit_cards.first
+  def delete
+    card = CreditCard.where(user_id: current_user.id).first
     if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
     end
-      redirect_to credit_cards_path
+      redirect_to payment_user_mypage_path
   end
 
 end
