@@ -14,8 +14,8 @@ class MypagesController < ApplicationController
 
   # ここからクレジットカード関連
   def payment  #クレジットカード追加画面
-    card = CreditCard.where(user_id: current_user.id)
-    redirect_to action: "credit_card_show" if card.exists?
+    card = CreditCard.find_by(user_id: current_user.id)
+    redirect_to action: "credit_card_show" if card.present?
   end
 
   def credit_card_reg  #クレジットカード入力画面
@@ -23,7 +23,7 @@ class MypagesController < ApplicationController
   end
 
   def credit_card_show  #クレジットカード登録カード表示
-    card = CreditCard.where(user_id: current_user.id).first
+    card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "create_credit_card" 
     else
