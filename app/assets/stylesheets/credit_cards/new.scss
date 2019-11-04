@@ -214,6 +214,23 @@
           text-align: center;
         }
       }
+      &__card-image {
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 28px;
+        z-index: 1;
+        padding: 16px;
+        border-radius: 6px;
+        background: #eee;
+        color: #333;
+        line-height: 1.5;
+        text-align: center;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+      }
     }
     &__submit {
       text-align: center;
