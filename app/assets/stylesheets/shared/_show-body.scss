@@ -29,6 +29,10 @@
         div {
           width: 300px;
           height: 300px;
+          img.main-photo {
+            width: 300px;
+            height: 300px;
+          }    
         }
         .photo {
           filter: grayscale(80%);

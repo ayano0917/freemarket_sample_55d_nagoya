@@ -4,19 +4,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(id: params[:id])
-    @user = User.find(@item.seller_id)
+    @item = Item.find(1)
+    @user = User.find_by(id: @item.user_id)
     @category = Category.find(@item.category_id).name
-    @brand = @item.brand
-    @description = @item.description
-    @condition = @item.condition
-    @shipping_fee = @item.shipping_fee
-    @shipping_form = @item.shipping_form
-    @prefecture = @item.prefecture
-    @days_before_shipping = @item.days_before_shipping
-    @size = @item.size
-    @price = @item.price
-
+    @images = @item.images 
     # ユーザーの他の商品
     @items = Item.where.not(id: @item.id).limit(6).order("id ASC")
     @prices = @items.map{|item| item.price}    
@@ -34,19 +25,23 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(
+        :user_id,
         :name, 
         :description, 
-        :condition, 
-        :shipping_fee,
-        :shipping_form,
-        :prefecture, 
-        :days_before_shipping,
-        :size,
+        :condition_id, 
+        :shipping_fee_id,
+        :shipping_form_id,
+        :prefecture_id, 
+        :days_before_shipping_id,
+        :size_id,
         :brand,
-        :category_id,
+        :buyer_id,
+        :seller_id,
+        :category,
         :price,
-        :shipping_address_id,
-        :status
-      ).merge(seller_id: current_user.id)
+        :shipping_address,
+        :status,
+
+      )
   end
 end
