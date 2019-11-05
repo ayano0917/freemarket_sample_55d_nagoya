@@ -20,26 +20,31 @@
       margin: 16px auto 0;
       justify-content: space-between;
       &__left-box {
-        display: flex;
-        flex-wrap: wrap;
         min-width: 300px;
         max-width: 300px;
         min-height: 375px;
+        max-height: 420px;     
+        display: table;
         background: #fafafa;
         img.main-photo {
-          vertical-align:top;
+          display: block;
           object-fit: cover;
           width: 300px;
           height: 300px;
-        }         
-        .photo {
-          filter: grayscale(80%);
-          object-fit: cover;
-          width: 60px;
-          height: 60px;     
         }
-        .photo:hover {
-          filter: grayscale(0%);
+        .photo {
+          display: flex;
+          flex-wrap: wrap;
+          img.sub-photo {
+            display: block;
+            filter: grayscale(60%);
+            object-fit: cover;
+            width: 60px;
+            height: 60px;     
+          }
+          img.sub-photo:hover {
+            filter: grayscale(0%);
+          }
         }
       }
       &__right-box {

@@ -7,25 +7,8 @@
         %div
           = image_tag @images[0].image, class: 'main-photo'
         .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')          
+          - @images.each_with_index do |image, index|
+            = image_tag @images[index].image, class:"sub-photo"         
       %table.product-details__main__item-main-content__right-box
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 出品者
