@@ -40,8 +40,7 @@ class ItemsController < ApplicationController
         :category,
         :price,
         :shipping_address,
-        :status,
-
+        :status
       )
   end
 end

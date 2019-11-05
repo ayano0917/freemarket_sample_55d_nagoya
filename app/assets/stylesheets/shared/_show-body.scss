@@ -37,13 +37,13 @@
           flex-wrap: wrap;
           img.sub-photo {
             display: block;
-            filter: grayscale(60%);
+            opacity: .4;
             object-fit: cover;
             width: 60px;
             height: 60px;     
           }
           img.sub-photo:hover {
-            filter: grayscale(0%);
+            opacity: 1;
           }
         }
       }
