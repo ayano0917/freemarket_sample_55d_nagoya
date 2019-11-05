@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images #一つのフォームで関連したテーブルにも保存させるため
   # validates :name, presence: true, length: { maximum: 40 }
   # validates :description, presence: true, length: { maximum: 1000 }
   # validates :condition_id, presence: true
