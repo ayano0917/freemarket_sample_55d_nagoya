@@ -5,9 +5,9 @@
     .product-details__main__item-main-content
       .product-details__main__item-main-content__left-box
         %div
-          = image_tag @images[0].image, class: 'main-photo'
+          = image_tag @images[0].image, class: "main-photo", id: "bigphoto"
         .photo
-          - @images.each_with_index do |image, index|
+          - @images.each_with_index do |image, index| next if index == 0
             = image_tag @images[index].image, class:"sub-photo"         
       %table.product-details__main__item-main-content__right-box
         %tr.product-details__main__item-main-content__right-box__table-row
