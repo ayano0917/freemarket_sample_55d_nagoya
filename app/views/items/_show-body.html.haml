@@ -104,12 +104,8 @@
       %h2
         = link_to "#{@user.nickname}さんのその他の出品"
       .product-details__other-items__section__content
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'                  
+        - @items.each do |item|
+          = render partial: 'items/items-box', locals: { item: item }    
     %section.product-details__other-items__section
       %h2
         = link_to "#{@category} その他の商品"
