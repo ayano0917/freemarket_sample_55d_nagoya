@@ -64,7 +64,7 @@
       %span.product-details__main__price-box__shipping-fee 
         = @item.shipping_fee.name.delete'(出品者負担)'
     .product-details__main__buy-btn
-      = link_to '購入画面に進む', confirm_items_path(@item), class: 'btn product-details__main__buy-btn' 
+      = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
     .product-details__main__explanation
       %p.explanation__innner
         = @item.description
@@ -105,11 +105,14 @@
         = link_to "#{@user.nickname}さんのその他の出品"
       .product-details__other-items__section__content
         - @items.each_with_index do |item,i|
-          = render partial: 'items/items-box', locals: { items: item, images: @images[i] }    
-    %section.product-details__other-items__section
-      %h2
-        = link_to "#{@category} その他の商品"
-      .product-details__other-items__section__content      
+          = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+
+          -# ↓今後実装予定    
+    -# %section.product-details__other-items__section
+    -#   %h2
+    -#     = link_to "#{@category} その他の商品"
+    -#   .product-details__other-items__section__content
+
   .product-details__pos-bottom
     %ul
       %li

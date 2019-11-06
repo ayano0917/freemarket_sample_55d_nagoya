@@ -347,11 +347,11 @@
       &__content {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
         width: 700px;
         .items-box {
           width: 220px;
-          margin: 0 0 20px 0;
+          height: 330px;
+          margin: 0 20px 20px 0;
           a {
             display: block;
             color: #333;
@@ -360,6 +360,7 @@
               width: 220px;
               height: 220px;
               display: block;
+              object-fit: cover;
             }
             .items-box__body {
               padding: 16px;
@@ -395,6 +396,9 @@
               }
             }
           }
+        }
+        .items-box:nth-child(3n) {
+          margin-right: 0;
         }
       }
     }
