@@ -1,10 +1,12 @@
 %section.items-box
   = link_to '#' do
-    = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '220px', height: '220px')  
+    = image_tag images.image
     .items-box__body
-      %h3 名前
+      %h3
+        = items.name
       .items-box__body__num
-        .items-box__body__num__price ¥9,800
+        .items-box__body__num__price
+          = "¥#{items.price.to_s(:delimited, delimiter: ',')}" 
         .items-box__body__num__iine
           = fa_icon 'heart-o', class: 'item-heart'
           %span 10     
