@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('#card-image').on({
     click: function() {
       let p = $('div').hasClass('main-container__chapter__content__security-code__card-image');
@@ -14,7 +14,7 @@ $(function() {
     `;
     $('#card-image').append(html);
       }
-  }
-})
+    }
+  })
 });
 

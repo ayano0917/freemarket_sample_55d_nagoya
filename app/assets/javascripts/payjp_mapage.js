@@ -21,6 +21,9 @@ $(document).on('turbolinks:load', function() {
           );
           document.inputForm.submit();
         } else {
+          console.log(status);
+          console.log(response.error);
+          console.log(response.error.code);
           alert("カード情報が正しくありません。");
         }
       });
