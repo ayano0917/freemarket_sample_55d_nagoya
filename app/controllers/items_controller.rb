@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(1) #商品出品未実装のため仮idで対応
-    @user = User.find(1)
+    @user = User.find(@item.seller_id)
     @category = Category.find(@item.category_id).name
 
     # ユーザーの他の商品
