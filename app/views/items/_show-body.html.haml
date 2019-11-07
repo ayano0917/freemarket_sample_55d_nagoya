@@ -43,7 +43,7 @@
             = link_to @item.brand
         - if @item.size_id
           %tr.product-details__main__item-main-content__right-box__table-row
-            %th.product-details__main__item-main-content__right-box__table-row__header 商品サイズ
+            %th.product-details__main__item-main-content__right-box__table-row__header 商品のサイズ
             %td.product-details__main__item-main-content__right-box__table-row__data
               = @item.size.name    
         %tr.product-details__main__item-main-content__right-box__table-row
@@ -71,13 +71,13 @@
         = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
       %span.product-details__main__price-box__tax (税込)
       %span.product-details__main__price-box__shipping-fee 
-        = @item.shipping_fee.name.delete'(出品者負担)'
-    - if @item.buyer_id
-      .product-details__main__sold 
-        %p 売り切れました
-    - else    
+        = @item.shipping_fee.name.delete'(出品者負担)'   
+    - if current_user&.id != @item.seller_id && @item.buyer_id.nil?   
       .product-details__main__buy-btn
-        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn'     
+        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
+    - elsif current_user&.id != @item.seller_id && @item.buyer_id  
+      .product-details__main__sold 
+        %p 売り切れました   
     .product-details__main__explanation
       %p.explanation__innner
         = @item.description
@@ -98,7 +98,7 @@
   .product-details__comment
     .product-details__comment__container
       .product-details__comment__container__content
-        %form.product-details__comment__container__content__form{action: '#', method: 'POST'}
+        .product-details__comment__container__content__form
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea{name: 'body', type: 'text', value: ''}
           %button{type: 'submit'}
