@@ -41,6 +41,11 @@
           %th.product-details__main__item-main-content__right-box__table-row__header ブランド
           %td.product-details__main__item-main-content__right-box__table-row__data
             = link_to @item.brand
+        - if @item.size_id
+          %tr.product-details__main__item-main-content__right-box__table-row
+            %th.product-details__main__item-main-content__right-box__table-row__header 商品サイズ
+            %td.product-details__main__item-main-content__right-box__table-row__data
+              = @item.size.name    
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 商品の状態
           %td.product-details__main__item-main-content__right-box__table-row__data
@@ -72,7 +77,7 @@
         %p 売り切れました
     - else    
       .product-details__main__buy-btn
-        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
+        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn'     
     .product-details__main__explanation
       %p.explanation__innner
         = @item.description
