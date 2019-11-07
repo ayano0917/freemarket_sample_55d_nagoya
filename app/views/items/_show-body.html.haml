@@ -67,8 +67,12 @@
       %span.product-details__main__price-box__tax (税込)
       %span.product-details__main__price-box__shipping-fee 
         = @item.shipping_fee.name.delete'(出品者負担)'
-    .product-details__main__buy-btn
-      = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
+    - if @item.buyer_id
+      .product-details__main__sold 
+        %p 売り切れました
+    - else    
+      .product-details__main__buy-btn
+        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
     .product-details__main__explanation
       %p.explanation__innner
         = @item.description
