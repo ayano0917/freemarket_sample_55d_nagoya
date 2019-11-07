@@ -1,13 +1,13 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-
+  mount_uploader :image, ImageUploader
   belongs_to_active_hash :condition
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_form
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :days_before_shipping
   belongs_to_active_hash :size
-  belongs_to :brand
+  # belongs_to :brand #使用か不使用か未確認
   belongs_to :category
   belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id'
   belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
@@ -15,9 +15,9 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
-
-  validates :name, presence: true
-  validates :description, presence: true
+  accepts_nested_attributes_for :images #一つのフォームで関連したテーブルにも保存させるため
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :condition_id, presence: true
   validates :shipping_fee_id, presence: true
   validates :shipping_form_id, presence: true
@@ -26,5 +26,4 @@ class Item < ApplicationRecord
   validates :category_id, presence: true
   validates :name, presence: true
   validates :price, presence: true
-
-end
+ end
