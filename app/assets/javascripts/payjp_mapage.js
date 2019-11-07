@@ -21,10 +21,19 @@ $(document).on('turbolinks:load', function() {
           );
           document.inputForm.submit();
         } else {
-          console.log(status);
-          console.log(response.error);
-          console.log(response.error.code);
-          alert("カード情報が正しくありません。");
+          $('#card-error').remove();
+          let message = response.error.code
+          console.log(message);
+          if (message === "invalid_number") {
+            let error ='<p id="card-error">カード番号に誤りがあります。正しく入力してください。</p>'
+            $(".main-container__chapter__content").prepend(error);
+          } else if (message === "expired_card") {
+            let error ='<p id="card-error">有効期限に誤りがあります。正しく入力してください。</p>'
+            $(".main-container__chapter__content").prepend(error);
+          } else if (message === "invalid_cvc") {
+            let error ='<p id="card-error">セキュリティコードに誤りがあります。正しく入力してください。</p>'
+            $(".main-container__chapter__content").prepend(error);
+          }
         }
       });
     });
