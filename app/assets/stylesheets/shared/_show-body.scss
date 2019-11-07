@@ -26,12 +26,32 @@
         max-height: 420px;     
         display: table;
         background: #fafafa;
-        img.main-photo {
-          display: block;
-          object-fit: cover;
+        &__soldout{
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          background:linear-gradient(-45deg,transparent 0%,transparent 50%,#EA352D 50%,#EA352D 100%);
+          &__text{
+            position: absolute;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            transform: rotate(-45deg);
+            top: 20px;
+          }
+        }
+        &__m-photo {
           width: 300px;
           height: 300px;
-        }
+          position: relative;  
+          img.main-photo {
+            position: absolute;
+            display: block;
+            object-fit: cover;
+            width: 300px;
+            height: 300px;
+          }
+        }  
         .photo {
           display: flex;
           flex-wrap: wrap;
@@ -46,7 +66,7 @@
             opacity: 1;
           }
         }
-      }
+      }  
       &__right-box {
         max-width: 300px;
         width: 100%;

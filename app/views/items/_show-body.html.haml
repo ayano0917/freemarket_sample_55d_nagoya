@@ -4,8 +4,12 @@
       = @item.name
     .product-details__main__item-main-content
       .product-details__main__item-main-content__left-box
-        %div
+        .product-details__main__item-main-content__left-box__m-photo
           = image_tag @item.images[0].image, class: "main-photo", id: "bigphoto"
+          - if @item.buyer_id
+            .product-details__main__item-main-content__left-box__soldout
+              .product-details__main__item-main-content__left-box__soldout__text
+                SOLD
         .photo
           - @item.images.each_with_index do |image, index| next if index == 0
             = image_tag @item.images[index].image, class:"sub-photo"         
