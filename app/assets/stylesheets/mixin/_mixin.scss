@@ -28,7 +28,7 @@
   &__pulldown {
     margin: 8px 0 0;
     position: relative;
-    &__choices {
+    &--choices {
       color: $pulldown-sentence;
       background: $pulldown-back;
       padding: 0 16px;
@@ -39,7 +39,7 @@
       cursor: pointer;
       -webkit-appearance: none;
     }
-    &__icon {
+    &--icon {
     position: absolute;
     right: 16px;
     top: 31%;

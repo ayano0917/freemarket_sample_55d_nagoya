@@ -1,132 +1,136 @@
 .display-main
   %section.display-main__container
-    .display-main__container__single-head 商品の情報を入力
+    .single-head 商品の情報を入力
     = form_for(@item, url: items_path, html:{method: :post}) do |f|
-      %form.display-main__container__information
-        .display-main__container__information__upload-box
-          %h3.display-main__container__information__upload-box__image
-            出品画像
-            %span.display-main__container__information__upload-box__image__require 必須
-          %p.display-main__container__information__upload-box__max 最大10枚までアップロードできます
-          .display-main__container__information__upload-box__dropbox.cleafix
-            .display-main__container__information__upload-box__dropbox__box
-              = f.label :image,class: "image-label" do
-                = f.file_field :image, {class: 'display-main__container__information__upload-box__dropbox__box__file', style: "display:none;"}
-              %pre.display-main__container__information__upload-box__dropbox__box__sentence 
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
-        .display-main__container__information__about
-          .display-main__container__information__about__group1
-            %label.display-main__container__information__about__group1__label
-              商品名
-              %span.display-main__container__information__about__group1__label__require 必須
-            = f.text_field :name, {class: 'display-main__container__information__about__group1__name',placeholder: "商品名 （必須 40文字まで）"}
-          .display-main__container__information__about__group2
-            %label.display-main__container__information__about__group2__label
-              商品の説明
-              %span.display-main__container__information__about__group2__label__require 必須
-            = f.text_area :description, {class: 'display-main__container__information__about__group2__text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
-        .display-main__container__information__detail.cleafix
-          %h3.display-main__container__information__detail__data 商品の詳細
-          .display-main__container__information__detail__box
-            .display-main__container__information__detail__box__group1
-              %label.display-main__container__information__detail__box__group1__label
-                カテゴリー
-              %span.display-main__container__information__detail__box__group1__require 必須
-              .display-main__container__information__detail__box__group1__pulldown
-                %select.display-main__container__information__detail__box__group1__pulldown__choices
-                  %option{value: ""} ---
-                  %option{value: "1"} レディース
-                  %option{value: "2"} メンズ
-                  %option{value: "3"} ベビー・キッズ
-                  %option{value: "4"} インテリア・住まい・小物
-                  %option{value: "5"} 本・音楽・ゲーム
-                  %option{value: "6"} おもちゃ・ホビー・グッズ
-                  %option{value: "7"}コスメ・香水・美容
-                  %option{value: "8"} 家電・スマホ・カメラ 
-                  %option{value: "9"} スポーツ・レジャー 
-                  %option{value: "10"} ハンドメイド
-                  %option{value: "11"} チケット
-                  %option{value: "12"} 自動車・オートバイ
-                  %option{value: "13"} その他
-                =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
-            .display-main__container__information__detail__box__group2
-              %label.display-main__container__information__detail__box__group2__label
-                商品の状態
-              %span.display-main__container__information__detail__box__group2__require 必須
-              .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
-                =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
-        .display-main__container__information__detail.cleafix
-          %h3.display-main__container__information__detail__data 配送について
-          =link_to '#', class: 'display-main__container__information__detail__question' do
-            =fa_icon 'question-circle'
-          .display-main__container__information__detail__box
-            .display-main__container__information__detail__box__group1
-              %label.display-main__container__information__detail__box__group1__label
-                配送料の負担
-              %span.display-main__container__information__detail__box__group1__require 必須
-              .display-main__container__information__detail__box__group1__pulldown
-                = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group1__pulldown__choices'}
-                =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
-            .display-main__container__information__detail__box__group2
-              %label.display-main__container__information__detail__box__group2__label
-                配送の方法
-              %span.display-main__container__information__detail__box__group2__require 必須
-              .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
-                =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
-            .display-main__container__information__detail__box__group2
-              %label.display-main__container__information__detail__box__group2__label
-                発送元の地域
-              %span.display-main__container__information__detail__box__group2__require 必須
-              .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
-                =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
-            .display-main__container__information__detail__box__group2
-              %label.display-main__container__information__detail__box__group2__label
-                発送までの日数
-              %span.display-main__container__information__detail__box__group2__require 必須
-              .display-main__container__information__detail__box__group2__pulldown
-                = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, {class: 'display-main__container__information__detail__box__group2__pulldown__choices'}
-                =fa_icon 'chevron-down', class: 'display-main__container__information__detail__box__group1__pulldown__icon'
-        .display-main__container__information__detail.cleafix
-          %h3.display-main__container__information__detail__data 販売価格(300〜9,999,999)
-          =link_to '#', class: 'display-main__container__information__detail__question' do
-            =fa_icon 'question-circle'
-          .display-main__container__information__detail__box
-            %ul.display-main__container__information__detail__box__sell
-              %li.display-main__container__information__detail__box__sell__price
-                .display-main__container__information__detail__box__sell__price__clear.clearfix
-                %label.display-main__container__information__detail__box__sell__price__clear__label
-                  価格
-                  %span.display-main__container__information__detail__box__sell__price__clear__label__require 必須
-                .display-main__container__information__detail__box__sell__price__clear__yen
-                  ¥
-                  .display-main__container__information__detail__box__sell__price__clear__yen__box
-                    = f.text_field :price, { class: 'display-main__container__information__detail__box__sell__price__clear__yen__box__input',placeholder: "例）300"}
-              %li.display-main__container__information__detail__box__sell__clear.clearfix
-                .display-main__container__information__detail__box__sell__clear__sentence
-                  販売手数料 (10%)
-                .display-main__container__information__detail__box__sell__clear__fee -
-              %li.display-main__container__information__detail__box__sell__clear.clearfix
-                .display-main__container__information__detail__box__sell__clear__bold
-                  販売利益
-                .display-main__container__information__detail__box__sell__clear__gain -
-        .display-main__container__information__display
-          .display-main__container__information__display__points
-            %p
-              =link_to "禁止されている出品", '#'
-              、
-              =link_to "行為", '#'
-              を必ずご確認ください。
-            %p
-              またブランド品でシリアルナンバー等がある場合はご記載ください。
-              =link_to "偽ブランドの販売", '#'
-              は犯罪であり処罰される可能性があります。
-            %p
-              また、出品をもちまして
-              =link_to "加盟店規約",'#'
-              に同意したことになります。
-          = f.submit "出品する", {class: 'display-main__container__information__display__btn'}
-          =link_to "もどる", root_path, class: 'display-main__container__information__display__return'
+      .upload-box
+        %h3.upload-box__sub-head
+          出品画像
+          %span.form-require 必須
+        %p.max 最大10枚までアップロードできます
+        .upload-box__dropbox.cleafix
+          .upload-container{data: {num: 0}}
+            = f.fields_for :image do |i|
+              = i.label :image, class: "image-label" do
+                %ul.upload-container__items#item-preview1
+                %ul.upload-container__items#item-preview2.hide
+                .upload-container__file-box{data:{i: 1}}
+                  = i.file_field :image, class: 'upload-container__file'
+                %pre.upload-container--sentence 
+                  クリックしてファイルをアップロード
+            -# .upload-images
+            -#   %ul
+      .item-base
+        .item-name
+          %label.form-label
+            商品名
+            %span.form-require 必須
+          = f.text_field :name, {class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）"}
+        .item-introduction
+          %label.form-label
+            商品名
+            %span.form-require 必須
+          = f.text_area :description, {class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+      .item-content.cleafix
+        %h3.sub-head 商品の詳細
+        .detail-box
+          .form-group1
+            %label.form-group1__label
+              カテゴリー
+            %span.form-group1__require 必須
+            .form-group1__pulldown
+              %select.form-group1__pulldown--choices
+                %option{value: ""} ---
+                %option{value: "1"} レディース
+                %option{value: "2"} メンズ
+                %option{value: "3"} ベビー・キッズ
+                %option{value: "4"} インテリア・住まい・小物
+                %option{value: "5"} 本・音楽・ゲーム
+                %option{value: "6"} おもちゃ・ホビー・グッズ
+                %option{value: "7"}コスメ・香水・美容
+                %option{value: "8"} 家電・スマホ・カメラ 
+                %option{value: "9"} スポーツ・レジャー 
+                %option{value: "10"} ハンドメイド
+                %option{value: "11"} チケット
+                %option{value: "12"} 自動車・オートバイ
+                %option{value: "13"} その他
+              =fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
+          .form-group2
+            %label.form-group2__label
+              商品の状態
+            %span.form-group2__require 必須
+            .form-group2__pulldown
+              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, {class: 'form-group2__pulldown--choices'}
+              =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+      .item-content.cleafix
+        %h3.sub-head 配送について
+        =link_to '#', class: 'sub-head--question' do
+          =fa_icon 'question-circle'
+        .detail-box
+          .form-group1
+            %label.form-group1__label
+              配送料の負担
+            %span.form-group1__require 必須
+            .form-group1__pulldown
+              = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, {class: 'form-group1__pulldown--choices'}
+              =fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
+          .form-group2
+            %label.form-group2__label
+              配送の方法
+            %span.form-group2__require 必須
+            .form-group2__pulldown
+              = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, {class: 'form-group2__pulldown--choices'}
+              =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+          .form-group2
+            %label.form-group2__label
+              発送元の地域
+            %span.form-group2__require 必須
+            .form-group1__pulldown
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'form-group2__pulldown--choices'}
+              =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+          .form-group2
+            %label.form-group2__label
+              発送までの日数
+            %span.form-group2__require 必須
+            .form-group1__pulldown
+              = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, {class: 'form-group2__pulldown--choices'}
+              =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+      .item-content.cleafix
+        %h3.sub-head 販売価格(300〜9,999,999)
+        =link_to '#', class: 'sub-head--question' do
+          =fa_icon 'question-circle'
+        .detail-box
+          %ul.ul-box
+            %li.price-form
+              %label.form-label
+                価格
+                %span.form-require 必須
+              .yen
+                ¥
+                .yen__box
+                  = f.text_field :price, { class: 'price-input',placeholder: "例）300"}
+            %li.sell-form.clearfix
+              .sell-form__sentence
+                販売手数料 (10%)
+              .sell-form__fee -
+            %li.sell-form.clearfix
+              .sell-form__bold
+                販売利益
+              .sell-form__gain -
+      .sell-Prohibited
+        .sell-Prohibited__points
+          %p
+            =link_to "禁止されている出品", '#'
+            、
+            =link_to "行為", '#'
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            =link_to "偽ブランドの販売", '#'
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            =link_to "加盟店規約",'#'
+            に同意したことになります。
+        = f.submit "出品する", {class: 'item-sell-btn'}
+        =link_to "もどる", root_path, class: 'top-return-btn'
+
