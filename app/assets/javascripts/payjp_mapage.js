@@ -21,11 +21,13 @@ $(document).on('turbolinks:load', function() {
           );
           document.inputForm.submit();
         } else {
+          console.log(response);
           let message = response.error.code
           if (message === "invalid_number") {
             $('#card-error').remove();
             let error ='<p id="card-error">カード番号に誤りがあります。正しく入力してください。</p>'
             $(".main-container__chapter__content").prepend(error);
+            
           } else if (message === "expired_card") {
             $('#card-error').remove();
             let error ='<p id="card-error">有効期限に誤りがあります。正しく入力してください。</p>'
