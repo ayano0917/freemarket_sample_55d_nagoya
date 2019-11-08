@@ -1,6 +1,11 @@
 %section.items-box
-  = link_to '#' do
-    = image_tag images.image
+  = link_to '#', class: 'items-box__link' do
+    .items-box__link__gazo 
+      = image_tag images.image 
+      - if items.buyer_id
+        .minisoldout
+          .minitext
+            SOLD
     .items-box__body
       %h3
         = items.name
