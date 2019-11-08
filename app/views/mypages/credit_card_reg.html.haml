@@ -10,8 +10,9 @@
         .main-container__chapter__content__registration-number
           %label.main-container__chapter__content__registration-number__label カード番号
           %span.main-container__chapter__content__registration-number__require  必須
-          = text_field_tag "number", "", class: "main-container__chapter__content__registration-number__field", placeholder: "半角数字のみ" ,maxlength: "19", type: "text", id: "card_number"
+          = text_field_tag "number", "", class: "main-container__chapter__content__registration-number__field", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
           %br
+          #message
           %ul.main-container__chapter__content__registration-number__card-list
             %li.main-container__chapter__content__registration-number__card-list__first
               = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615", width: '49px', height: '20px')
@@ -72,5 +73,11 @@
             カード裏面の番号とは？
         .main-container__chapter__content__submit
           = submit_tag "追加する", class: "main-container__chapter__content__submit__token", id: "token_submit_mypage"
+        
+      %form#form1{:action => "/regist", :method => "post"}
+        %input{:name => "firstname", :type => "text"}/
+        %input{:name => "lastname", :type => "text"}/
+        %input{:type => "submit"}/
+
 = render 'shared/app-banner'
 = render 'shared/footer'

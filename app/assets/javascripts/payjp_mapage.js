@@ -21,19 +21,56 @@ $(document).on('turbolinks:load', function() {
           );
           document.inputForm.submit();
         } else {
-          $('#card-error').remove();
           let message = response.error.code
-          console.log(message);
           if (message === "invalid_number") {
+            $('#card-error').remove();
             let error ='<p id="card-error">カード番号に誤りがあります。正しく入力してください。</p>'
             $(".main-container__chapter__content").prepend(error);
           } else if (message === "expired_card") {
+            $('#card-error').remove();
             let error ='<p id="card-error">有効期限に誤りがあります。正しく入力してください。</p>'
             $(".main-container__chapter__content").prepend(error);
           } else if (message === "invalid_cvc") {
+            $('#card-error').remove();
             let error ='<p id="card-error">セキュリティコードに誤りがあります。正しく入力してください。</p>'
             $(".main-container__chapter__content").prepend(error);
           }
+          $("#add-card").validate(
+            {
+              rules: {
+                  number : {
+                      required: true
+                  }
+              },
+              messages: {
+                  number: {
+                      required: "必須項目です。"
+                  }
+              },
+              errorPlacement: function(error, element) {
+                //指定タグの中に出したい場合はappendTo()
+                error.appendTo($('#message'));
+              }
+           }
+        );
+        $('#form1').validate({
+          rules: {
+              firstname: {
+                  required: true
+              },
+              lastname: {
+                  required: true
+              }
+          },
+          messages: {
+              firstname: {
+                  required: '名を入力して下さい。'
+              },
+              lastname: {
+                  required: '姓を入力して下さい。'
+              }
+          }
+      });
         }
       });
     });
