@@ -73,11 +73,8 @@
             カード裏面の番号とは？
         .main-container__chapter__content__submit
           = submit_tag "追加する", class: "main-container__chapter__content__submit__token", id: "token_submit_mypage"
-        
-      %form#form1{:action => "/regist", :method => "post"}
-        %input{:name => "firstname", :type => "text"}/
-        %input{:name => "lastname", :type => "text"}/
-        %input{:type => "submit"}/
+          %input.main-container__chapter__content__submit__token#token_submit_mypage{:type => "submit", :value => "追加する"}/
+      
 
 = render 'shared/app-banner'
 = render 'shared/footer'
