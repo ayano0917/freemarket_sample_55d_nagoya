@@ -21,13 +21,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
-    @item.save!
-    # params[:item_images][:image].each do |i|
-    # params[:image].each do |i|
-    #   @item.images.create(image: image, item_id: @item.id)
-      # item.images.create!(name: image, item_id: item.id)
+    @item.save
     redirect_to root_path 
     # end
   end
