@@ -60,7 +60,7 @@ class MypagesController < ApplicationController
       )
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "credit_card_show"  #クレジットカード表示画面
+        redirect_to action: "credit_card_show"  #クレジットカード確認画面
       else
         redirect_to action: "payment"   #クレジットカード追加画面に戻る
       end
