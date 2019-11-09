@@ -4,7 +4,6 @@ $(function(){
 
 // プレビューBOXの生成
   function buildPreviewHTML(e, image_count) {
-    console.log(7)
     var html =`<li class='upload-item'>
                 <div class='upload-item__square'>
                   <img src='${e.target.result}' class='image-preview' data-image=${image_count}>
@@ -19,7 +18,6 @@ $(function(){
 
   // アップロードBOXの生成
   function buildInputImageBox(image_count){
-    console.log(6)
     var html = `<div class='upload-container__file-box.have-item-${$('.upload-item').length+1}' data-image=${image_count}>
                   <input class='upload-container__file${image_count}' type="file">
                   <pre class='upload-container--sentence'>
@@ -32,27 +30,22 @@ $(function(){
   // 画像のプレビュー表示
   function readURL(input) {
     if (input.files && input.files[0]) {
-      console.log(1)
       var reader = new FileReader();
       reader.onload = function (e) {
         var insertHTML = buildPreviewHTML(e, image_count);
         if (($('#item-container1').children().length) < 5) {
-          console.log(2)
           $('#item-container1').append(insertHTML);
         } else {
           $('#item-container2').removeClass('hide');
-          console.log(3)
           $('#item-container2').append(insertHTML);
         }
         image_count += 1;
       }
-      reader.readAsDataURL(input.files[0]);
+      reader.readAsDataURL(input.files[0]);  
       
       $(input).parent().addClass('hide');
-      console.log(4)
       $('.upload-item').append(buildInputImageBox(image_count+input.files.length));
       if ($('#item-container2').children().length == 4) {
-        console.log(5)
         $('.upload-container__file-box').last().addClass('hide');
       }
     }
