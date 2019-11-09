@@ -1,17 +1,30 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+%header.sign-up
+  %h1.sign-up__content
+    = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567', class: 'sign-up__content--link'), root_path
+.main
+  .login-panel
+    .login-no-account
+      %p アカウントをお持ちでない方はこちら
+      = link_to new_sign_up_path do
+        新規会員登録
+    .login-form-inner
+      = link_to(user_facebook_omniauth_authorize_path, class: 'login-form-inner__btn1') do
+        = fa_icon 'facebook-official', class: 'login-form-inner__btn1__icon'
+        Facebookでログイン
+      = link_to(user_google_oauth2_omniauth_authorize_path, class: 'login-form-inner__btn2') do
+        = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: 'login-form-inner__btn2__icon') 
+        Googleでログイン
+    %form
+      .login-form-inner
+        .form-group1
+          %input{placeholder: "メールアドレス", class: "form-group1__text"}
+        .form-group2
+          %input{placeholder: "パスワード", class: "form-group2__text"}
+        .form-group3
+          %script{async: "", defer: "", src: "https://www.google.com/recaptcha/api.js"}
+          %form{action: "./verify.php", method: "POST"}
+            .g-recaptcha{"data-sitekey" => "6LfItL0UAAAAADbmj0JHEFPkR7y5EOwZFUI1Q6-c"}
+        = link_to('/', class: 'login-form-inner__btn') do
+          ログイン
+        = link_to 'パスワードをお忘れの方', '/', class: 'login-form-inner__link'
+= render 'shared/exhibition-page-footer'

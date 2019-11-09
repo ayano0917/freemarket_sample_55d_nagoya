@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def new
   end
 
+  def create
+  end
+
   def show
   end
 
@@ -13,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def identification
+    # @user_address = UserAddress.find_by(user_id: current_user.id)
   end
 
   def logout

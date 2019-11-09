@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  mount_uploader :image, ImageUploader
   belongs_to_active_hash :condition
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_form

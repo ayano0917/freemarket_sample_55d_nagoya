@@ -1,35 +1,23 @@
 .product-details
   %section.product-details__main
-    %h1.product-details__main__header アイテム名
+    %h1.product-details__main__header
+      = @item.name
     .product-details__main__item-main-content
       .product-details__main__item-main-content__left-box
-        %div
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '300px', height: '300px')
+        .product-details__main__item-main-content__left-box__m-photo
+          = image_tag @item.images[0].image, class: "main-photo", id: "bigphoto"
+          - if @item.buyer_id
+            .product-details__main__item-main-content__left-box__soldout
+              .product-details__main__item-main-content__left-box__soldout__text
+                SOLD
         .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')
-        .photo
-          = image_tag("https://static.mercdn.net/thumb/photos/m45469538741_1.jpg?1569668416", width: '60px', height: '60px')          
+          - @item.images.each_with_index do |image, index| next if index == 0
+            = image_tag @item.images[index].image, class:"sub-photo"         
       %table.product-details__main__item-main-content__right-box
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 出品者
           %td.product-details__main__item-main-content__right-box__table-row__data
-            =link_to '出品者名' ,'#'
+            = link_to @user.nickname
             .product-details__main__item-main-content__right-box__table-row__data__list
               %div
                 = fa_icon 'smile-o', class: "good"
@@ -52,35 +40,48 @@
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header ブランド
           %td.product-details__main__item-main-content__right-box__table-row__data
-            = link_to 'ブランド名', '#'
+            = link_to @item.brand
+        - if @item.size_id
+          %tr.product-details__main__item-main-content__right-box__table-row
+            %th.product-details__main__item-main-content__right-box__table-row__header 商品のサイズ
+            %td.product-details__main__item-main-content__right-box__table-row__data
+              = @item.size.name    
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 商品の状態
           %td.product-details__main__item-main-content__right-box__table-row__data
-            新品、未使用
+            = @item.condition.name
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 配送料の負担
           %td.product-details__main__item-main-content__right-box__table-row__data
-            送料込み(出品者負担)  
+            = @item.shipping_fee.name  
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 配送の方法
           %td.product-details__main__item-main-content__right-box__table-row__data
-            ゆうメール
+            = @item.shipping_form.name
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 配送元地域
           %td.product-details__main__item-main-content__right-box__table-row__data
-            = link_to '愛知県', '#'
+            = link_to @item.prefecture.name
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 発送日の目安
           %td.product-details__main__item-main-content__right-box__table-row__data
-            2~3日で発送
+            = @item.days_before_shipping.name
     .product-details__main__price-box
-      %span.product-details__main__price-box__price ¥3,200
+      %span.product-details__main__price-box__price
+        = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
       %span.product-details__main__price-box__tax (税込)
-      %span.product-details__main__price-box__shipping-fee 送料込み
-    .product-details__main__buy-btn
-      = link_to '購入画面に進む', '#', class: 'btn product-details__main__buy-btn' 
+      %span.product-details__main__price-box__shipping-fee 
+        = @item.shipping_fee.name.delete'(出品者負担)'   
+    - if current_user&.id != @item.seller_id && @item.buyer_id.nil?   
+      .product-details__main__buy-btn
+        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
+    - elsif current_user&.id != @item.seller_id && @item.buyer_id  
+      .product-details__main__sold 
+        %p 売り切れました   
     .product-details__main__explanation
-      %p.explanation__innner ああああああああああああああああああああああああああああああああああああああああああああああああああ<br>あああああああああああああああああああああああああああああああああ
+      %p.explanation__innner
+        = @item.description
+
     .product-details__main__button
       .product-details__main__button__button-left
         %button.product-details__main__button__button-left__item-button{type: 'button'}
@@ -97,7 +98,7 @@
   .product-details__comment
     .product-details__comment__container
       .product-details__comment__container__content
-        %form.product-details__comment__container__content__form{action: '#', method: 'POST'}
+        .product-details__comment__container__content__form
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea{name: 'body', type: 'text', value: ''}
           %button{type: 'submit'}
@@ -114,29 +115,22 @@
   .product-details__other-items
     %section.product-details__other-items__section
       %h2
-        = link_to '出品ユーザーのページへ', '#' 
+        = link_to "#{@user.nickname}さんのその他の出品"
       .product-details__other-items__section__content
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'                  
-    %section.product-details__other-items__section
-      %h2
-        = link_to '同孫カテゴリーの商品ページへ', '#'
-      .product-details__other-items__section__content
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box'
-        = render 'items/items-box' 
-      
+        - @items.each_with_index do |item,i|
+          = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+
+          -# 当ページ、孫カテゴリその他アイテム一覧のビュー。カテゴリ分け未実装のため実装後まで一旦保留
+    -# %section.product-details__other-items__section
+    -#   %h2
+    -#     = link_to "#{@category} その他の商品"
+    -#   .product-details__other-items__section__content
+
   .product-details__pos-bottom
     %ul
       %li
-        = link_to 'メルカリ', '#'
+        = link_to 'メルカリ', root_path
         = fa_icon 'chevron-right'
       %li
-        %span アイテム名
+        %span
+          = @item.name

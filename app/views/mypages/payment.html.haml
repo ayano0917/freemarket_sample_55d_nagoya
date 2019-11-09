@@ -1,6 +1,7 @@
+-# マイページの クレジットカード一覧クレジットカードを追加する支払い方法についてのビューの作成
 = render 'shared/login-header'
 .main-container
-  = render partial: "users/mypage-sidebar"
+  = render partial: "mypages/mypage-sidebar"
   .main-container__chapter
     .main-container__chapter__header
       支払い方法
@@ -10,7 +11,7 @@
           クレジットカード一覧
         %ul.main-container__chapter__content-befoe__section__list
       .main-container__chapter__content-before__sub-content
-        = link_to '#',class: 'main-container__chapter__content-before__sub-content__credit-add' do
+        = link_to credit_card_reg_user_mypage_path ,class: 'main-container__chapter__content-before__sub-content__credit-add' do
           %button.main-container__chapter__content-before__sub-content__credit-add__botton{:type => "button"}
             = fa_icon'credit-card', class: 'main-container__chapter__content-before__sub-content__credit-add__botton__icon'
             %span.main-container__chapter__content-before__sub-content__credit-add__botton__add クレジットカードを追加する

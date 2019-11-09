@@ -1,0 +1,142 @@
+// 後でmixinは別ファイルに格納
+@mixin progress-font {
+  margin: 0 40px 0 0;
+  min-width: 60px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: 12px;
+}
+
+@mixin progress-btn {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+}
+
+@mixin progress-line-after {
+  left: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+}
+
+@mixin progress-line-before {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+}
+
+
+.single-conteiner {
+  padding: 0 0 220px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  color: #333;
+  .single-header {
+    height: 128px;
+    text-align: center;
+    h1 {
+      margin: 40px 0 0;
+      display: inline-block;
+      a {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        display: inline-block;
+        margin: 0 8px 0 0;
+      }
+    }
+    .progress-bar {
+      padding: 40px 0 0 44px;
+      border: 0;
+      display: inline-block;
+      vertical-align: top;
+      text-align: top;
+      .clearfix {
+        .btn1-3 {
+          color: #888;
+          @include progress-font;
+          .status1-3 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status1-3::after {
+            background: #ea352d;
+            @include progress-line-after;
+          }
+        }
+        .btn2-3 {
+          color: #888;
+          @include progress-font;
+          .status2-3 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status2-3::before {
+            background: #ea352d;
+            @include progress-line-before;
+          }
+          .status2-3::after {
+            @include progress-line-after;
+            background: #ea352d;
+          }
+        }
+        .btn3-3 {
+          font-weight: 600;
+          color: #ea352d;
+          @include progress-font;
+          .status3-3 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status3-3::before {
+            @include progress-line-before;
+            background: #ea352d;
+          }
+          .status3-3::after {
+            @include progress-line-after;
+            background: #ccc;
+          }
+        }
+        .btn4-3 {
+          color: #888;
+          @include progress-font;
+          .status4-3 {
+            background: #ccc;
+            @include progress-btn;
+          }
+          .status4-3::before {
+            @include progress-line-before;
+            background: #ccc;
+          }
+          .status4-3::after {
+            @include progress-line-after;
+            background: #ccc;
+          }
+        }
+        .btn5-3 {
+          color: #888;
+          @include progress-font;
+          .status5-3 {
+            background: #ccc;
+            @include progress-btn;
+          }
+          .status5-3::before {
+            @include progress-line-before;
+            background: #ccc;
+          }
+        }
+      }
+    }
+  }
+}

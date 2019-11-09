@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191026093235) do
+ActiveRecord::Schema.define(version: 20191028083824) do
+
+  create_table "birth_years", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -35,9 +40,11 @@ ActiveRecord::Schema.define(version: 20191026093235) do
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "customer_id", null: false
-    t.string  "card_id",     null: false
-    t.integer "user_id",     null: false
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
@@ -77,8 +84,8 @@ ActiveRecord::Schema.define(version: 20191026093235) do
     t.string   "shipping_first_name",      null: false
     t.string   "shipping_last_name_kana",  null: false
     t.string   "shipping_first_name_kana", null: false
-    t.string   "Postal_code",              null: false
-    t.integer  "prefecture",               null: false
+    t.string   "postal_code",              null: false
+    t.integer  "prefecture_id",            null: false
     t.string   "city",                     null: false
     t.string   "house_number",             null: false
     t.string   "building"
@@ -105,7 +112,7 @@ ActiveRecord::Schema.define(version: 20191026093235) do
   end
 
   create_table "user_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "Postal_code"
+    t.string   "postal_code"
     t.integer  "prefecture"
     t.string   "city"
     t.string   "house_number"
@@ -130,7 +137,7 @@ ActiveRecord::Schema.define(version: 20191026093235) do
     t.string   "first_name",                          null: false
     t.string   "last_name_kana",                      null: false
     t.string   "first_name_kana",                     null: false
-    t.integer  "birth_year",                          null: false
+    t.integer  "birth_year_id",                       null: false
     t.integer  "birth_month",                         null: false
     t.integer  "birth_day",                           null: false
     t.string   "phone",                               null: false

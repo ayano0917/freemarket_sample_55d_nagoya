@@ -1,259 +1,212 @@
-@mixin text-content {
-  display: block;
-  color: #888888;
-  text-align: center;
+// 後でmixinは別ファイルに格納
+@mixin progress-font {
+  margin: 0 40px 0 0;
+  min-width: 60px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
   font-size: 12px;
-  margin-right: 47px;
 }
-@mixin dot-content {
+
+@mixin progress-btn {
   width: 12px;
   height: 12px;
   margin: 8px auto 0;
-  background: #ccc;
   border-radius: 50%;
 }
 
+@mixin progress-line-after {
+  left: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+}
 
-.payment-page {
+@mixin progress-line-before {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+}
+
+
+.single-conteiner {
+  padding: 0 0 220px;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  background-color: #F5F5F5;
-  &__header {
+  color: #333;
+  .single-header {
     height: 128px;
-    width: 100vw;
-    display: flex;
-    position: relative;
-    img {
-      position: absolute;
-      top: 41px;
-      left: 346px;
+    text-align: center;
+    h1 {
+      margin: 40px 0 0;
+      display: inline-block;
+      a {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        display: inline-block;
+        margin: 0 8px 0 0;
+      }
     }
-    &__process-bar {
-      height: 32px;
-      position: absolute;
-      top: 40px;
-      right: 315px;
-      &__inner {
-        display: flex;
-        .text1 {
-          @include text-content;
-          color: #A4A4A4;
+    .progress-bar {
+      padding: 40px 0 0 44px;
+      border: 0;
+      display: inline-block;
+      vertical-align: top;
+      text-align: top;
+      .clearfix {
+        .btn1-4 {
+          color: #888;
+          @include progress-font;
+          .status1-4 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status1-4::after {
+            background: #ea352d;
+            @include progress-line-after;
+          }
         }
-        .dot1 {
-          @include dot-content;
-          background-color: #E9352D;
+        .btn2-4 {
+          color: #888;
+          @include progress-font;
+          .status2-4 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status2-4::before {
+            background: #ea352d;
+            @include progress-line-before;
+          }
+          .status2-4::after {
+            @include progress-line-after;
+            background: #ea352d;
+          }
         }
-        .line1 {
-          height: 2px;
-          background-color: #E9352D;
-          width: 95px;
-          border: none;
-          position: absolute;
-          top: 20px;
-          left: 30px;
+        .btn3-4 {
+          color: #888;
+          @include progress-font;
+          .status3-4 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status3-4::before {
+            @include progress-line-before;
+            background: #ea352d;
+          }
+          .status3-4::after {
+            @include progress-line-after;
+            background: #ea352d;
+          }
         }
-        .text2 {
-          @include text-content;
-          color: #A4A4A4;
+        .btn4-4 {
+          font-weight: 600;
+          color: #ea352d;
+          @include progress-font;
+          .status4-4 {
+            background: #ea352d;
+            @include progress-btn;
+          }
+          .status4-4::before {
+            @include progress-line-before;
+            background: #ea352d;
+          }
+          .status4-4::after {
+            @include progress-line-after;
+            background: #ccc;
+          }
         }
-        .dot2 {
-          @include dot-content;
-          background-color: #E9352D;
-        }
-        .line2 {
-          height: 2px;
-          background-color: #E9352D;
-          width: 120px;
-          border: none;
-          position: absolute;
-          top: 20px;
-          left: 136px;
-        }
-        .text3 {
-          @include text-content;
-        }
-        .dot3 {
-          @include dot-content;
-          background-color: #E9352D;
-        }
-        .line3 {
-          height: 2px;
-          background-color: #E9352D;
-          width: 112px;
-          border: none;
-          position: absolute;
-          top: 20px;
-          left: 268px;
-        }
-        .text4 {
-          @include text-content;
-          color: #E9352D;
-          font-weight: bold;
-        }
-        .dot4 {
-          @include dot-content;
-          background-color: #E9352D;
-        }
-        .line4 {
-          height: 2px;
-          background-color: #CCCCCC;
-          width: 78px;
-          border: none;
-          position: absolute;
-          top: 20px;
-          left: 393px;
-        }
-        .text5 {
-          @include text-content;
-        }
-        .dot5 {
-          @include dot-content;
+        .btn5-4 {
+          color: #888;
+          @include progress-font;
+          .status5-4 {
+            background: #ccc;
+            @include progress-btn;
+          }
+          .status5-4::before {
+            @include progress-line-before;
+            background: #ccc;
+          }
         }
       }
     }
   }
-  &__main {
-    background-color: white;
-    width: 700px;
-    margin: 0 auto;
-    &__title {
-      text-align: center;
-      font-size: 22px;
-      line-height: 1.5;
-      padding: 32px;
-      font-weight: bold;
-      color: #333;
-      margin: 0;
-      border-bottom: solid;
-      border-color: #F5F5F5;
-      border-width: 0.5px;
-    }
-    &__input-field {
-      width: 700px;
-      height: 600px;
-    }
-      .payment-page__main__box {
-        width: 343px;
-        margin: 0 auto;
-        input:focus {
-          border-color: #1E90FF;
-          outline: none;
-        }
-        &__form {
-         display: flex;
-         align-items: baseline;
-          &__title {
-            font-weight: bold;
-            font-size: 14px;
-            margin-right: 10px;
-            margin-top: 40px;
-          }
-          &__red-label {
-            width: 32px;
-            height: 19px;
-            background-color: #ea352d;
-            color: white;
-            font-size: 12px;
-            text-align: center;
-            vertical-align: middle;
-            line-height: 19px;
-            border-radius: 3px;
-          }
-        }
-        .enter-text {
-          margin-top: 6px;
-          width: 326px;
-          height: 48px;
-          border-radius: 4px;
-          border: solid 1px #DADADA;
-          padding-left: 15px;
-          font-size: 15px;
-        }
-        &__credit-logo {
-          margin-top: 10px;
-        }
-        &__month {
-          position: relative;
-          .select-month {
-            margin-top: 6px;
-            width: 120px;
-            height: 48px;
-            padding-left: 10px;
-            background-color: white;
-            border: solid 1px #DADADA;
-            cursor: pointer;
-            &__down {
-              position: absolute;
-              left: 90px;
-              top: 20px;
-              color: #9A9A9A;
-              pointer-events: none;
-              font-size: 18px;
-            }
-          }
-          
-          select {
-            -webkit-appearance: none;
-          }   
-          select:focus {
-            border-color: #1E90FF;
-            outline: none;
-          }
-        }
-          .select-year {
-            margin-top: 6px;
-            width: 120px;
-            height: 48px;
-            padding-left: 10px;
-            background-color: white;
-            border: solid 1px #DADADA;
-            cursor: pointer;
-            &__down {
-              position: absolute;
-              left: 230px;
-              top: 20px;
-              color: #9A9A9A;
-              pointer-events: none;
-              font-size: 18px;
-            }
-          }
-          
-          select:focus {
-            border-color: #1E90FF;
-            outline: none;
-          }
-        .payment-page__main__box__form__note {
-          color: #0099e8;
-          text-align: right;
-          font-size: 14px;
-          margin-top: 10px;
-          .question {
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #0099e8;
-            color: #fff;
-            line-height: 14px;
-            font-size: 12px;
-            text-align: center;
-          }
-        }
-        &__next-button {
-          margin-top: 50px;
-          width: 343px;
-          height: 50px;
-          background-color: #EA352D;
-          color: white;
-          font-size: 14px;
-          text-align: center;
-          a {
-            position: relative;
-            top: 18px;
-            text-decoration: none;
-            color: white;
-          }
-        }
+  .single-main {
+    .form-group__image {
+      margin-top: 10px;
+      &__images {
+        margin-right: 10px;
       }
     }
-        
+    .expiration-date-wrap {
+      position: relative;
+      &__year {
+        width: 35%;
+        position: relative;
+        display: inline-block;
+        &__btn {
+          position: absolute;
+          top: 23px;
+          right: 25px;
+        }
+        &__input {
+          width: 50%;
+          margin: 8px 0 0;
+          height: 46px;
+          padding: 0 30px 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          min-height: 1.5em;
+        }
+      }
+      &__month {
+        width: 35%;
+        position: relative;
+        &__btn {
+          position: absolute;
+          top: 23px;
+          right: 25px;
+        }
+        &__input {
+          width: 50%;
+          margin: 8px 0 0;
+          height: 46px;
+          padding: 0 30px 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          min-height: 1.5em;
+        }
+      }
+      &__month-font {
+        position: absolute;
+        top: 80px;
+        left: 123px;
+      }
+    }
+    .form-group5 {
+      margin-top: 5px;
+      text-align: right;
+      &__pay-link {
+        font-size: 14px;
+        color: #0099e8;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: right;
+      }
+    }
+  }
 }
