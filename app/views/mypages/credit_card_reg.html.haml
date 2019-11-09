@@ -10,8 +10,9 @@
         .main-container__chapter__content__registration-number
           %label.main-container__chapter__content__registration-number__label カード番号
           %span.main-container__chapter__content__registration-number__require  必須
-          = text_field_tag "number", "", class: "main-container__chapter__content__registration-number__field", placeholder: "半角数字のみ" ,maxlength: "19", type: "text", id: "card_number"
+          = text_field_tag "number", "", class: "main-container__chapter__content__registration-number__field", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
           %br
+          #message
           %ul.main-container__chapter__content__registration-number__card-list
             %li.main-container__chapter__content__registration-number__card-list__first
               = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615", width: '49px', height: '20px')
@@ -67,7 +68,7 @@
           %span.main-container__chapter__content__security-code__require  必須
           = text_field_tag "cvc", "", class: "main-container__chapter__content__security-code__cvc", placeholder: "カード背面４行もしくは３行の番号", maxlength: "4", id: "cvc"
           #card_token_mypage
-          .main-container__chapter__content__security-code__seqcode
+          .main-container__chapter__content__security-code__seqcode#card-image
             %span.main-container__chapter__content__security-code__seqcode__question ?
             カード裏面の番号とは？
         .main-container__chapter__content__submit

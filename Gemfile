@@ -70,7 +70,7 @@ gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'gretel'
-
+gem 'ancestry'
 group :production do
   gem 'unicorn', '5.4.1'
 end

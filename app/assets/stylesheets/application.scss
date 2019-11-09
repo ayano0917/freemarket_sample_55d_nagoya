@@ -21,9 +21,9 @@
 @import "users/logout";
 @import "sign_ups/authentication";
 @import "sign_ups/pay";
-@import "credit_cards/index.scss";
-@import "credit_cards/new.scss";
-@import "credit_cards/show.scss";
+@import "credit_cards/payment.scss";
+@import "credit_cards/credit_card_reg.scss";
+@import "credit_cards/credit_card_show.scss";
 @import "sign_ups/shipping-address";
 @import "shared/item-new";
 @import "sign_ups/complete";
