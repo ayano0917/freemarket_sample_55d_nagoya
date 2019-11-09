@@ -22,7 +22,6 @@ $(document).on('turbolinks:load', function() {
           document.inputForm.submit();
         } else {
           let message = response.error.code
-          console.log(response);
           if (message === "invalid_number") {
             $('#card-error').remove();
             let error ='<p id="card-error">カード番号に誤りがあります。正しく入力してください。</p>'
