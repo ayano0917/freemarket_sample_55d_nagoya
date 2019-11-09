@@ -31,10 +31,12 @@ $(function(){
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
+      console.log(1)
       reader.onload = function (e) {
         var insertHTML = buildPreviewHTML(e, image_count);
         if (($('#item-container1').children().length) < 5) {
           $('#item-container1').append(insertHTML);
+          console.log(2)
         } else {
           $('#item-container2').removeClass('hide');
           $('#item-container2').append(insertHTML);

@@ -9,7 +9,7 @@
         %p.max 最大10枚までアップロードできます
         .upload-box__dropbox.cleafix
           .upload-container{data: {num: 0}}
-            = f.fields_for :image do |i|
+            = f.fields_for :images do |i|
               = i.label :image, class: "image-label" do
                 %ul.upload-container__items#item-preview1
                 %ul.upload-container__items#item-preview2.hide

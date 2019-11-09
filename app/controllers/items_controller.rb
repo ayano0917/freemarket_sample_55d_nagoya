@@ -16,18 +16,20 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     # @image = Image.new
-    @item.item_images.build
+    @item.images.build
+    # @item.build_image
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     @item.save!
     # params[:item_images][:image].each do |i|
-    params[:image].each do |i|
-      @item.item_images.create(image: image, item_id: @item.id)
+    # params[:image].each do |i|
+    #   @item.images.create(image: image, item_id: @item.id)
       # item.images.create!(name: image, item_id: item.id)
     redirect_to root_path 
-    end
+    # end
   end
 
   def confirm
@@ -53,9 +55,9 @@ class ItemsController < ApplicationController
       :shipping_address, 
       :status,
       # :image,
-      # images_attributes: [:image]
-      item_images_attributes: [:image]
-
+      images_attributes: [:image]
+      # images_attributes: {images: []}
+      # image_attributes:[:image]
       # image:[]
     )
   end
