@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
       :brand,
       # :category,
       :price,
-      :buyer_id,
       :shipping_address,
       :status,
       images_attributes: [:image]
