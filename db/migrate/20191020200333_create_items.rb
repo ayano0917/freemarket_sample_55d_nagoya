@@ -1,7 +1,6 @@
 class CreateItems < ActiveRecord::Migration[5.0]
   def change
     create_table :items do |t|
-      # t.references :user,                             foreign_key: true      
       t.string     :name,                 null: false
       t.text       :description,          null: false
       t.integer    :condition_id            #null: false
@@ -13,9 +12,8 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string     :brand
       t.string     :category             #null: false
       t.integer    :price                #null: false 
-      t.references :buyer                             #foreign_key: {to_table: :users}
-      t.references :seller                            #foreign_key: {to_table: :users}
-      t.references :shipping_address                  #foreign_key: true
+      t.references :seller,                            foreign_key: {to_table: :users}
+      # t.references :buyer,                             foreign_key: {to_table: :users}
       t.string     :status               #null: false, default: ""
       t.timestamps
     end
