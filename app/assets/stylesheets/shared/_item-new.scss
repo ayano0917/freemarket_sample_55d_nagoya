@@ -1,5 +1,4 @@
 .display-main {
-  text-align: center;
   font-family: 'Source Sans Pro';
   font-size: 14px;
   color: $base-font;
@@ -8,228 +7,284 @@
     width: 700px;
     margin: 0 auto;
     background: $base-background;
-    &__single-head {
+    .single-head {
       padding: 32px 16px;
       font-size: 22px;
       line-height: 1.5;
       text-align: center;
       font-weight: bold;
+      border-bottom: 1px solid #eee;
     }
-    &__information {
-      border-top: 1px solid #eee;
-      text-align: left;
-      &__upload-box {
+    // &__information {
+    //   border-top: 1px solid #eee;
+    //   text-align: left;
+    .upload-box {
+      padding: 40px 2.5%;
+      &__sub-head {
+        font-weight: bold;
+        font-size: 16px;
+        .form-require {
+          @include require;
+        }
+      }
+      .max {
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+      &__dropbox {
         width: 620px;
-        padding: 40px;
-        &__image {
-          font-weight: bold;
-          font-size: 16px;
-          &__require {
-            @include require;
+        margin: 16px auto 0;
+        @include clearfix;
+        .upload-container {
+          float: right;
+          width: 100%;
+          position: relative;
+          min-height: 160px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          font-size: 0;
+          transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+          &--sentence {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            right: 16px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            pointer-events: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+          }
+          &__file {
+            display: none;
+          }
+          .image-label{
+            height:100%;
+            width: 100%;
+            position: absolute;
+            cursor: pointer;
+          }
+          .upload-images {
+            display: inline;
+            ul {
+              width: 100%;
+              li:first-child {
+                margin: 0;
+              }
+              .upload-item {
+                position: relative;
+                display: inline-block;
+                width: 18%;
+                margin: 0 0 2% 2%;
+                border: 1px solid $separator;
+                vertical-align: top;
+                &__square {
+                  position: relative;
+                  overflow: hidden;
+                  width: 100%;
+                  height: 0;
+                  padding: 0 0 100%;
+                  background: #f5f5f5;
+                  img {
+                    width: 100%;
+                  }
+                }
+                &__btn-box {
+                  font-size: 14px;
+                  a {
+                    color: #0099e8;
+                    text-decoration: none;
+                  }
+                  &--edit {
+                    display: inline-block;
+                    width: 50%;
+                    background: #f5f5f5;
+                    line-height: 44px;
+                    text-align: center;
+                  }
+                  &--delete {
+                    float: right;
+                    width: 49%;
+                    background: #f5f5f5;
+                    line-height: 44px;
+                    text-align: center;
+                    border-left: 1px solid $separator;
+                  }
+                }
+              }
+            }
           }
         }
-        &__max {
+      }
+      .have-item-1 {
+        width: calc(100% - 134px);
+      }
+      .have-item-2 {
+        width: calc(100% - 129px * 2);
+      }
+      .have-item-3 {
+        width: calc(100% - 128px * 2);
+      }
+      .have-item-4 {
+        width: calc(100% - 127px * 4);
+      }
+    }
+    .item-base {
+      padding: 40px;
+      border-top: 1px solid $separator;
+      .form-label {
+        display: inline-block;
+        font-weight: 600;
+        .form-require {
+          @include require;
+        }
+      }  
+      .item-name {
+        margin: 0;        
+        &__f-name {
+          width: 586px;
           margin: 8px 0 0;
+          height: 28px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: $base-background;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      } 
+      .item-introduction {
+        margin: 40px 0 0;
+        &__f-text {
+          margin: 8px 0 0;
+          display: block;
+          width: 598px;
+          max-width: 100%;
+          min-height: 104px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: $base-background;
+          font-size: 16px;
           line-height: 1.5;
         }
-        &__dropbox {
-          display: block;
-          width: 620px;
-          margin: 16px auto 0;
-          @include clearfix;
-          &__box {
-            float: right;
-            width: 620px;
-            position: relative;
-            min-height: 162px;
-            background: #f5f5f5;
-            border: 1px dashed #ccc;
-            font-size: 0;
-            text-align: center;
-            transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
-            cursor: pointer;
-            margin-left: 2%;
-            &__sentence {
-              position: absolute;
-              top: 50%;
-              left: 16px;
-              right: 16px;
-              text-align: center;
-              font-size: 14px;
-              line-height: 1.5;
-              -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%);
-              pointer-events: none;
-              white-space: pre-wrap;
-              word-wrap: break-word;
-            }
-          }
-        }
       }
-      &__about {
-        padding: 40px;
-        border-top: 1px solid $separator;
-        &__group1 {
-          margin: 0;
-          &__label {
-            display: inline-block;
-            font-weight: 600;
-            &__require {
-              @include require;
-            }
-          }
-          &__name {
-            width: 586px;
-            margin: 8px 0 0;
-            height: 28px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: $base-background;
-            line-height: 1.5;
-            font-size: 16px;
-          }
-        }
-        &__group2 {
-          margin: 40px 0 0;
-          &__label {
-            display: inline-block;
-            font-weight: 600;
-            &__require {
-              @include require;
-            }
-          }
-          &__text {
-            margin: 8px 0 0;
-            display: block;
-            width: 598px;
-            max-width: 100%;
-            min-height: 104px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: $base-background;
-            font-size: 16px;
-            line-height: 1.5;
-          }
-        }
-      }
-      &__detail {
-        padding: 40px;
-        border-top: 1px solid $separator;
-        @include clearfix;
-        &__data {
-          float: left;
-          color: #888;
-          font-weight: bold;
-          font-size: 14px;
-        }
-        &__question {
+    }
+    .item-content {
+      padding: 40px;
+      border-top: 1px solid $separator;
+      @include clearfix;
+      .sub-head {
+        float: left;
+        color: #888;
+        font-weight: bold;
+        font-size: 14px;
+        &--question {
           color: #0099e8;
           line-height: 14px;
         }
-        &__box {
-          float: right;
-          width: 400px;
+      }
+      .detail-box {
+        float: right;
+        width: 400px;
+        margin: 0;
+        .form-group1 {
           margin: 0;
-          &__group1 {
-            margin: 0;
-            @include pulldown;
-            }
-          &__group2 {
-            margin: 40px 0 0;
-            @include pulldown;
+          @include pulldown;
           }
-          &__sell {
-            list-style: none;
-            &__price {
-              padding: 0 0 72px;
-              border: 0;
-              &__clear {
-                @include clearfix;
-                &__label {
-                  width: 40%;
-                  line-height: 48px;
-                  font-weight: 600;
-                  float: left;
-                  &__require {
-                    @include require;
-                  }
-                }
-                &__yen {
-                  width: 50%;
-                  text-align: right;
-                  float: left;
-                  &__box {
-                    display: inline-block;
-                    width: 80%;
-                    margin: 0 0 0 5%;
-                    &__input {
-                      margin: 0;
-                      text-align: right;
-                      width: 100%;
-                      height: 28px;
-                      padding: 10px 16px 8px;
-                      border-radius: 4px;
-                      border: 1px solid #ccc;
-                      background: $base-background;
-                      line-height: 1.5;
-                      font-size: 16px;
-                    }
-                  }
-                }
-              }
+        .form-group2 {
+          margin: 40px 0 0;
+          @include pulldown;
+        }
+      }
+      .ul-box {
+        list-style: none;
+        .price-form {
+          padding: 0 0 72px;
+          border: 0;
+          .form-label {
+            width: 40%;
+            line-height: 48px;
+            font-weight: 600;
+            float: left;
+            .form-require {
+              @include require;
             }
-            &__clear {
-              padding: 24px 0;
-              border-top: 1px solid #ccc;
-              @include clearfix;
-              &__sentence {
-                float: left;
-              }
-              &__fee {
-                float: right;
-              }
-              &__bold {
+          }
+          .yen {
+            width: 50%;
+            text-align: right;
+            float: left;
+            &__box {
+              display: inline-block;
+              width: 80%;
+              margin: 0 0 0 5%;
+              .price-input {
+                margin: 0;
+                text-align: right;
+                width: 100%;
+                height: 28px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: $base-background;
+                line-height: 1.5;
                 font-size: 16px;
-                font-weight: 600;
-                float: left;
-              }
-              &__gain {
-                font-size: 34px;
-                float: right;
               }
             }
+          }
+        }
+        .sell-form {
+          padding: 24px 0;
+          border-top: 1px solid #ccc;
+          @include clearfix;
+          &__sentence {
+            float: left;
+          }
+          &__fee {
+            float: right;
+          }
+          &__bold {
+            font-size: 16px;
+            font-weight: 600;
+            float: left;
+          }
+          &__gain {
+            font-size: 34px;
+            float: right;
           }
         }
       }
-      &__display {
-        padding: 40px;
-        border-top: 1px solid #eee;
-        &__points{
-          & p {    
-            line-height: 1.5;
-            & a {
-              color: #0099e8;
-              text-decoration: none;
-            }
+    }
+    .sell-Prohibited {
+      padding: 40px;
+      border-top: 1px solid #eee;
+      &__points{
+        p {    
+          line-height: 1.5;
+          a {
+            color: #0099e8;
+            text-decoration: none;
           }
         }
-        &__btn {
-          margin: 40px 0 0;
-          background: $item-sell-btn;
-          border: 1px solid $item-sell-btn;
-          color: $item-sell-btn-font;
-          width: 100%;
-          @include btn;
-        }
-        &__return {
-          text-decoration: none;
-          width: 45%;
-          margin: 24px auto 0;
-          background: #aaa;
-          color: $item-sell-btn-font;
-          @include btn;
-        }
+      }
+      .item-sell-btn {
+        margin: 40px 0 0;
+        background: $item-sell-btn;
+        border: 1px solid $item-sell-btn;
+        color: $item-sell-btn-font;
+        width: 100%;
+        @include item-new-btn;
+      }
+      .top-return-btn {
+        text-decoration: none;
+        width: 45%;
+        margin: 24px auto 0;
+        background: #aaa;
+        color: $item-sell-btn-font;
+        @include item-new-btn;
       }
     }
   }
