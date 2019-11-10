@@ -117,19 +117,19 @@
               }
             }
           }
+          .have-item-1 {
+            width: calc(100% - 134px);
+          }
+          .have-item-2 {
+            width: calc(100% - 129px * 2);
+          }
+          .have-item-3 {
+            width: calc(100% - 128px * 2);
+          }
+          .have-item-4 {
+            width: calc(100% - 127px * 4);
+          }
         }
-      }
-      .have-item-1 {
-        width: calc(100% - 134px);
-      }
-      .have-item-2 {
-        width: calc(100% - 129px * 2);
-      }
-      .have-item-3 {
-        width: calc(100% - 128px * 2);
-      }
-      .have-item-4 {
-        width: calc(100% - 127px * 4);
       }
     }
     .item-base {
