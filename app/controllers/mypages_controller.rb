@@ -19,7 +19,6 @@ class MypagesController < ApplicationController
   end
 
   def credit_card_reg  #クレジットカード入力画面
-    
   end
 
   def credit_card_show  #クレジットカード登録カード表示
@@ -45,7 +44,6 @@ class MypagesController < ApplicationController
       when "Discover"
         @card_src = "discover.svg"
       end
-      @card_src
     end
   end
 

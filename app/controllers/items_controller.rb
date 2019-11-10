@@ -28,16 +28,36 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    @item = Item.find(params[:id])
+    #アイテム情報の表示
+    # @item = Item.find(params[:id])
+    @item = Item.find(1)
+    @image = @item.images.first
+    #配送先住所の表示
+    @shipping_addresses = current_user.shipping_address 
+    #クレジットカード情報の表示
     card = CreditCard.find_by(user_id: current_user.id)
-    if card.bank?
-      #登録された情報がない場合にカード登録画面に移動
-      redirect_to create_credit_card_user_mypage_path
+    if card.blank?
+      #フラッシュメッセージを表示させる「カードが登録されていません。」
+      redirect_to payment_user_mypage_path(current_user) #登録された情報がない場合にカード登録画面に移動
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
-      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand  
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 
