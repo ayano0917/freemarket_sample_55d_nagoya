@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
       :price,
       :shipping_address,
       :status,
+      :buyer_id,
       images_attributes: [:image]
       # images_attributes: {images: []}
     ).merge(seller_id: current_user.id)
