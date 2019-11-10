@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   # belongs_to :brand
   # belongs_to :category
   belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
-  # belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id' fkをつけているためnillが許されない。中間テーブル(userとitem間)作成
+  belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id', optional: true
   # belongs_to :shipping_address
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
