@@ -15,15 +15,17 @@ class ItemsController < ApplicationController
   def new
     redirect_to new_user_session_path unless user_signed_in?
     @item = Item.new
-    # @image = Image.new
     @item.images.build
-    # @item.build_image
   end
 
   def create
-    Item.create(item_params)
-    redirect_to root_path 
-    # end
+    @item = Item.new(item_params)
+    if 
+      @item.save
+      redirect_to root_path 
+    else
+      render :new
+    end
   end
 
   def confirm
