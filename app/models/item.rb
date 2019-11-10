@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # mount_uploader :image, ImageUploader
   belongs_to_active_hash :condition
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_form
@@ -9,23 +8,22 @@ class Item < ApplicationRecord
   belongs_to_active_hash :size
   # belongs_to :brand
   # belongs_to :category
-  # belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id'
-  # belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
+  belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
+  # belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id' fkをつけているためnillが許されない。中間テーブル(userとitem間)作成
   # belongs_to :shipping_address
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   has_many :likes, dependent: :destroy
 
-  # validates :name, presence: true, length: { maximum: 40 }
-  # validates :description, presence: true, length: { maximum: 1000 }
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 1000 }
   # validates :condition_id, presence: true
   # validates :shipping_fee_id, presence: true
   # validates :shipping_form_id, presence: true
   # validates :prefecture_id, presence: true
   # validates :days_before_shipping_id, presence: true
   # # validates :category_id, presence: true
-  # validates :name, presence: true
   # validates :price, presence: true
 
 end
