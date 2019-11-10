@@ -28,6 +28,36 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+    @item = Item.find(params[:id])
+    card = CreditCard.find_by(user_id: current_user.id)
+    if card.bank?
+      #登録された情報がない場合にカード登録画面に移動
+      redirect_to create_credit_card_user_mypage_path
+    else
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def purchase
+    @item = Item.find(params[:id])
+    card = CreditCard.find_by(user_id: current_user.id)
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
+      @item.buyer_id = current_user.id
+      item.status = "売却済み"
+      if @item.save
+        redirect_to #決済完了画面
+      else
+        redirect_to #商品詳細画面
+      end
+      
   end
   
   private
