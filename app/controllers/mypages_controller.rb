@@ -19,7 +19,6 @@ class MypagesController < ApplicationController
   end
 
   def credit_card_reg  #クレジットカード入力画面
-    
   end
 
   def credit_card_show  #クレジットカード登録カード表示
@@ -68,22 +67,22 @@ class MypagesController < ApplicationController
   end
   # ここまで
 
-  def listing_product
-  end
-
   def shipping_address
   end
 
-  def during_trade
+  def items_selling
   end
 
-  def sold
+  def items_during_trading
   end
 
-  def bought_product
+  def items_sold
   end
 
-  def past_trade
+  def bought_during_trading
+  end
+
+  def bought_past_trade
   end
 
 end

@@ -24,12 +24,12 @@ Rails.application.routes.draw do
         get 'credit_card_reg'
         get 'credit_card_show'
         post 'create_credit_card'
-        get 'listing_product'
+        get 'items_selling'
+        get 'items_during_trading'
+        get 'items_sold'
+        get 'bought_during_trading'
+        get 'bought_past_trade'
         get 'shipping_address'
-        get 'during_trade'
-        get 'sold'
-        get 'bought_product'
-        get 'past_trade'
       end
     end
   end
