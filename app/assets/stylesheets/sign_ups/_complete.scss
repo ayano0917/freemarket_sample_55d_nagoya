@@ -139,9 +139,14 @@
       }
     }
   }
-  .form-group__top--inline {
+  .form-group__top {
     line-height: 2;
     text-align: center;
+    font-weight: 600;
+  }
+  .next-btn__link {
+    color: white;
+    text-decoration: none;
   }
   .single-main-bottom {
     margin: 80px;

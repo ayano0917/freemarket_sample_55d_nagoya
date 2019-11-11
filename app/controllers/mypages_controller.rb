@@ -66,22 +66,22 @@ class MypagesController < ApplicationController
   end
   # ここまで
 
-  def listing_product
-  end
-
   def shipping_address
   end
 
-  def during_trade
+  def items_selling
   end
 
-  def sold
+  def items_during_trading
   end
 
-  def bought_product
+  def items_sold
   end
 
-  def past_trade
+  def bought_during_trading
+  end
+
+  def bought_past_trade
   end
 
 end
