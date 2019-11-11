@@ -77,9 +77,10 @@ class ItemsController < ApplicationController
   
   private
 
-  def ser_card
-    @card = current_user.card 
+  def set_card
+    @card = current_user.card
   end
+  
   def set_item
     @item = Item.find(params[:id])
   end
