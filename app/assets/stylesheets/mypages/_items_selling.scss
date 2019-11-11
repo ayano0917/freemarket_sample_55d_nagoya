@@ -1,0 +1,69 @@
+.left-content {
+  float: right;
+  width: 700px;
+  .mypage-tab-container {
+    margin: 0;
+    background: #fff;
+    .mypage-tab-head {
+      padding: 0 16px;
+      background: #fafafa;
+      font-size: 16px;
+      line-height: 72px;
+      font-weight: bold;
+    }
+    .listing-tabs {
+      background: #eee;
+      display: flex;
+      .non-active {
+        width: 33.3%;
+        display: inline-block;
+        text-align: center;
+        .font {
+          font-weight: bold;
+          vertical-align: top;
+          &__link {
+            position: relative;
+            display: block;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            color: #333;
+          }
+        }
+      }
+      .active {
+        width: 33.3%;
+        display: inline-block;
+        text-align: center;
+        background: #fff;
+        .font {
+          font-weight: bold;
+          &__link {
+            position: relative;
+            display: block;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+            color: #333;
+            border-top: 2px solid #ea352d;
+          }
+        }
+      }
+    }
+    .tab-content {
+      .mypage-item-list {
+        .mypage-item-not-found {
+          padding: 160px 0 60px;
+          background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?2870273);
+          background-repeat: no-repeat;
+          background-position: center 40px;
+          background-size: 78px 85px;
+          text-align: center;
+          font-size: 16px;
+          color: #ccc;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
