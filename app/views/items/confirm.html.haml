@@ -7,12 +7,13 @@
       .purchase-confirmation-page__main__item__inner
         .purchase-confirmation-page__main__item__inner__box
           .purchase-confirmation-page__main__item__inner__box__image
-            = image_tag('https://static.mercdn.net/thumb/photos/m86437090205_1.jpg?1570370167', width: '64px', height: '64px' )
+            = image_tag "#{@image.image}"
+            -# = image_tag('https://static.mercdn.net/thumb/photos/m86437090205_1.jpg?1570370167', width: '64px', height: '64px' )
           .purchase-confirmation-page__main__item__inner__box__name
-            APCショルダーバッグ 長い文章をうっています。
+            = @item.name
         .purchase-confirmation-page__main__item__inner__price
           .purchase-confirmation-page__main__item__inner__price__cost
-            ¥1,300
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
           .purchase-confirmation-page__main__item__inner__price__postage
             送料込み
         .purchase-confirmation-page__main__item__inner__point
@@ -22,11 +23,17 @@
           .purchase-confirmation-page__main__item__inner__payment-amount__title
             支払い金額
           .purchase-confirmation-page__main__item__inner__payment-amount__number
-            ¥1,300
-        .purchase-confirmation-page__main__item__inner__purchase-button
-          = link_to '#' do
-            .purchase-confirmation-page__main__item__inner__purchase-button__text
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+        - if @shipping_addresses.nil? || @card.blank?
+          .purchase-confirmation-page__main__item__inner__error-text
+            配送先と支払い方法の入力を完了してください。
+          .purchase-confirmation-page__main__item__inner__body-payment
+            .purchase-confirmation-page__main__item__inner__body-payment__btn--not
               購入する
+        - else
+          .purchase-confirmation-page__main__item__inner__purchase-button
+            = form_tag(action: :purchase, method: :post) do
+              %button.purchase-confirmation-page__main__item__inner__purchase-button__text 購入する
     .purchase-confirmation-page__main__address
       .purchase-confirmation-page__main__address__shipping
         %h3 配送先

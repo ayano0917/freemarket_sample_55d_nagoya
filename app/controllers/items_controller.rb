@@ -59,12 +59,13 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: @item.price,
-    customer: @card.customer_id,
-    currency: 'jpy',
-    )
+      @item.update(buyer_id: current_user.id)
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      charge = Payjp::Charge.create(
+      amount: @item.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
       @item.buyer_id = current_user.id
       @item.status = "売却済み"
       if @item.save
@@ -82,7 +83,8 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
+    @item = Item.find(1)
   end
 
   def item_params
