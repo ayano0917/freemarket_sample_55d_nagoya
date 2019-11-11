@@ -3,10 +3,9 @@
   = render 'mypages/mypage-sidebar2'
   .wrapper__contents
     .wrapper__contents__inner
-      %form{action: '/', method: 'post', novalidate: 'novalidate',class: 'wrapper__contents__inner__form'}
-        .wrapper__contents__inner__form__box
-          %button{type: 'submit'} ログアウト
-          %input{type: 'hidden', name: '/', value: '/'}
+      .wrapper__contents__inner__box
+        .wrapper__contents__inner__box__content
+          = link_to('ログアウト', destroy_user_session_path, method: :delete, class: 'wrapper__contents__inner__box__content__link')
 = render 'shared/exhibition-button'
 = render 'shared/app-banner'
 = render 'shared/footer'
