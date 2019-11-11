@@ -14,17 +14,16 @@
       = link_to(user_google_oauth2_omniauth_authorize_path, class: 'login-form-inner__btn2') do
         = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: 'login-form-inner__btn2__icon') 
         Googleでログイン
-    %form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login-form-inner
         .form-group1
-          %input{placeholder: "メールアドレス", class: "form-group1__text"}
+          = f.email_field :email, placeholder: "メールアドレス", class: "form-group1__text"
         .form-group2
-          %input{placeholder: "パスワード", class: "form-group2__text"}
+          = f.password_field :password, placeholder: "パスワード", class: "form-group2__text"
         .form-group3
           %script{async: "", defer: "", src: "https://www.google.com/recaptcha/api.js"}
           %form{action: "./verify.php", method: "POST"}
             .g-recaptcha{"data-sitekey" => "6LfItL0UAAAAADbmj0JHEFPkR7y5EOwZFUI1Q6-c"}
-        = link_to('/', class: 'login-form-inner__btn') do
-          ログイン
-        = link_to 'パスワードをお忘れの方', '/', class: 'login-form-inner__link'
+        = f.submit "ログイン", class: "login-form-inner__btn"
+        = link_to 'パスワードをお忘れの方', '#', class: 'login-form-inner__link'
 = render 'shared/exhibition-page-footer'
