@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only:[:purchase]
+  before_action :set_card, only:[:purchase, :confirm]
   def index
   end
 
@@ -28,15 +30,10 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    #アイテム情報の表示
-    # @item = Item.find(params[:id])
-    @item = Item.find(1)
+    @item = Item.find(1) #商品出品未実装のため仮idで対応
     @image = @item.images.first
-    #配送先住所の表示
-    @shipping_addresses = current_user.shipping_address 
-    #クレジットカード情報の表示
-    card = CreditCard.find_by(user_id: current_user.id)
-    if card.blank?
+    @shipping_addresses = current_user.shipping_address
+    if @card.blank?
       #フラッシュメッセージを表示させる「カードが登録されていません。」
       redirect_to payment_user_mypage_path(current_user) #登録された情報がない場合にカード登録画面に移動
     else
@@ -62,16 +59,14 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
-    card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
     amount: @item.price,
-    customer: card.customer_id,
+    customer: @card.customer_id,
     currency: 'jpy',
     )
       @item.buyer_id = current_user.id
-      item.status = "売却済み"
+      @item.status = "売却済み"
       if @item.save
         redirect_to #決済完了画面
       else
@@ -81,6 +76,14 @@ class ItemsController < ApplicationController
   end
   
   private
+
+  def ser_card
+    @card = current_user.card 
+  end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(
       :name,
