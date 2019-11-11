@@ -38,8 +38,8 @@ class ItemsController < ApplicationController
       redirect_to payment_user_mypage_path(current_user) #登録された情報がない場合にカード登録画面に移動
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
       @card_brand = @default_card_information.brand  
       case @card_brand
       when "Visa"
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
       @item.buyer_id = current_user.id
       @item.status = "売却済み"
       if @item.save
-        redirect_to #決済完了画面
+        redirect_to done_items_path #決済完了画面
       else
         redirect_to #商品詳細画面
       end
@@ -78,9 +78,9 @@ class ItemsController < ApplicationController
   private
 
   def set_card
-    @card = current_user.card
+    @card = CreditCard.find_by(user_id: current_user.id)
   end
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
