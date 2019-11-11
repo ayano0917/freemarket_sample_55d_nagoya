@@ -1,0 +1,20 @@
+= render 'shared/login-header'
+.wrapper
+  = render 'mypages/mypage-sidebar2'
+  .left-content
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.listing-tabs
+        %li.bought__active
+          %h3.font
+            = link_to('取引中', '#', class: 'font__link')
+        %li.bought__non-active
+          %h3.font
+            = link_to('過去の取引', '#', class: 'font__link')
+      .tab-content
+        %ul.mypage-item-list
+          %li.mypage-item-not-found
+            取引中の商品がありません
+= render 'shared/exhibition-button'
+= render 'shared/app-banner'
+= render 'shared/footer'
