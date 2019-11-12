@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_before_shipping
   belongs_to_active_hash :size
   # belongs_to :brand
-  # belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
   belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id', optional: true
   # belongs_to :shipping_address
