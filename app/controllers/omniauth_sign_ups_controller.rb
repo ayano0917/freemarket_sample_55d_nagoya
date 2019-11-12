@@ -1,10 +1,12 @@
 class OmniauthSignUpsController < ApplicationController
 
+  # 会員情報入力
   def omniauth_register
     @user = User.new
   end
 
-  def omniouth_authentication
+  # 電話番号入力
+  def omniauth_authentication
     session[:nickname] = omniauth_user_params[:nickname]
     session[:email] = omniauth_user_params[:email]
     session[:password] = omniauth_user_params[:password]
@@ -41,10 +43,13 @@ class OmniauthSignUpsController < ApplicationController
         provider: session[:provider],
         user_id: @user.id
       )
-      sign_in(@user)
-      redirect_to new_shipping_address_path
-    rescue
-      redirect_to new_signup_path
+      if @user.save
+        sign_in(@user)
+        redirect_to new_shipping_address_path
+      else
+        redirect_to omniauth_authentication_omniauth_sign_ups
+      end
+
   end
 
   private

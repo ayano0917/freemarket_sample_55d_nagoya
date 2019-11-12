@@ -1,16 +1,16 @@
 class SignUpsController < ApplicationController
 
+  # メアド・google・facebookでのログイン画面
   def new
-    # メアド・google・facebookでのログイン画面
   end
-
+  
+  # 会員情報入力
   def register
-    # 会員情報入力
     @user = User.new
   end
 
+  # 電話番号入力
   def authentication
-    # 電話番号入力
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -25,14 +25,13 @@ class SignUpsController < ApplicationController
     @user = User.new
   end
 
+  # 支払い方法入力
   def pay
-    # 支払い方法入力
     @credit_card = CreditCard.new
   end
 
-
+  # 登録完了
   def complete
-    # 登録完了
   end
 
   def create

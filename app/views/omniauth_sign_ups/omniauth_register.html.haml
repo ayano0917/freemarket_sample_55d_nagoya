@@ -24,7 +24,7 @@
     %section.container
       %h2.single-head
         会員情報入力
-      = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get}) do |f|
+      = form_for(@user, local: true, url: omniauth_authentication_omniauth_sign_ups_path, html: {method: :get}) do |f|
         .single-content
           .form-group__top
             %label
