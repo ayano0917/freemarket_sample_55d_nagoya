@@ -66,9 +66,6 @@ class MypagesController < ApplicationController
   end
   # ここまで
 
-  def shipping_address
-  end
-
   def items_selling
   end
 
@@ -84,4 +81,22 @@ class MypagesController < ApplicationController
   def bought_past_trade
   end
 
+  def shipping_address
+  end
+
+  def notice
+  end
+
+  def todo_list
+  end
+
+  def like_list
+  end
+
+  def upodate_email_pass
+  end
+
+  def confirm_phone
+  end
+  
 end

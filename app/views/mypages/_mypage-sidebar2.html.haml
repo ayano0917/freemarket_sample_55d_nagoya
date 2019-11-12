@@ -6,15 +6,15 @@
           マイページ
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to(notice_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
           お知らせ
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to(todo_list_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
           やることリスト
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to(like_list_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
           いいね！一覧
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
@@ -42,29 +42,29 @@
           購入した商品-過去の取引
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to('#', onclick: 'return false', class: 'wrapper__sidebar__nav__list__1__link') do
           ニュース一覧
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to('#', onclick: 'return false', class: 'wrapper__sidebar__nav__list__1__link') do
           評価一覧
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to('#', onclick: 'return false', class: 'wrapper__sidebar__nav__list__1__link') do
           ガイド
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
       %li.wrapper__sidebar__nav__list__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list__1__link') do
+        = link_to('#', onclick: 'return false', class: 'wrapper__sidebar__nav__list__1__link') do
           お問い合わせ
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list__1__link__icon'
     %h3.wrapper__sidebar__nav__title メルペイ
     %ul.wrapper__sidebar__nav__list2
       %li.wrapper__sidebar__nav__list2__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list2__1__link') do
+        = link_to('#', onclick: 'return false', class: 'wrapper__sidebar__nav__list2__1__link') do
           売上・振込申請
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list2__1__link__icon'
       %li.main-container__side-bar__nav__list2__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list2__1__link') do
+        = link_to('#', onclick: 'return false', class: 'wrapper__sidebar__nav__list2__1__link') do
           ポイント
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list2__1__link__icon'
     %h3.wrapper__sidebar__nav__title 設定
@@ -82,7 +82,7 @@
           支払い方法
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
+        = link_to(update_email_pass_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
           メール/パスワード
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
@@ -90,7 +90,7 @@
           本人情報
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
-        = link_to(root_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
+        = link_to(confirm_phone_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
           電話番号の確認
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1

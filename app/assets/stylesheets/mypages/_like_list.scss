@@ -1,0 +1,35 @@
+.left-container {
+  background: #fff;
+  &__head {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  &__text-center {
+    padding: 64px;
+    border-top: 1px solid #f5f5f5;
+    text-align: center;
+    &--font {
+      margin: 8px 0 0;
+      line-height: 1.5;
+      font-size: 14px;
+      color: rgb(51, 51, 51)
+    }
+  }
+  .mypage-item-list {
+    &__1 {
+      padding: 160px 0 60px;
+      background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?2870273);
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size: 78px 85px;
+      text-align: center;
+      font-size: 16px;
+      color: #ccc;
+      font-weight: 600;
+    }
+  }
+}
