@@ -1,4 +1,16 @@
 $(document).on('turbolinks:load', function() {
+// カテゴリーボックスのオプションを作成
+  function appendOption(category){
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+    return html;
+  }
+
+  function disapperGrandchild(){
+    $('#category-child-2').addClass('hide');
+    $('#grandchild_category option:selected').val('');
+    $('#grandchild_category').removeAttr('required');
+  }
+
   $('#parent_category').change(function () {
     var parent_id = $('#parent_category option:selected').val();
     if (parent_id.length != 0){
@@ -22,6 +34,36 @@ $(document).on('turbolinks:load', function() {
       })
     } else {
       $('#category-child-1').addClass('hide');
+      disapperGrandchild();
+    }
+  });
+
+  // 子カテゴリー選択で孫カテゴリー生成
+  $('#child_category').change(function () {
+    var child_id = $('#child_category option:selected').val();
+    if (child_id.length != 0){
+      $('#category-child-2').removeClass('hide');
+      $.ajax({
+        url: '/items/get_category_grandchildren',
+        type: 'Get',
+        data: {child_id: child_id},
+        dataType: 'json'
+      }).done(function(grandchildren){
+        if (grandchildren.length != 0) {
+          $('#category-child-2 option').remove();
+          var insertHTML = `<option value="">---</option>`;
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          })
+          $('#grandchild_category').append(insertHTML);
+          $('#grandchild_category').attr('required', 'required');
+        } else {   
+          disapperGrandchild();
+        }
+      }).fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    } else {
       disapperGrandchild();
     }
   });
