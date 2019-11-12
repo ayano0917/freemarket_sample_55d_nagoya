@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer    :days_before_shipping_id #null: false #発送までの日数
       t.integer    :size_id
       t.string     :brand
-      t.integer    :category_id,          index: true #孫カテゴリーに該当するため(孫カテゴリーない場合あり)、「null: false」はつけない。 by長谷部
+      t.integer    :category_id,          foreign_key: true, index: true #孫カテゴリーに該当するため(孫カテゴリーない場合あり)、「null: false」はつけない。 by長谷部
       t.integer    :price                #null: false 
       t.references :seller,                            foreign_key: {to_table: :users}
       t.references :buyer,                             foreign_key: {to_table: :users}

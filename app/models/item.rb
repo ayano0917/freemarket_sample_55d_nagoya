@@ -18,6 +18,8 @@ class Item < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
+  validates :parent_id, presence: true, numericality: { only_integer: true}
+  validates :child_id, presence: true, numericality: { only_integer: true}
   # validates :condition_id, presence: true
   # validates :shipping_fee_id, presence: true
   # validates :shipping_form_id, presence: true
