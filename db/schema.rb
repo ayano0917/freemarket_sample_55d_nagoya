@@ -70,9 +70,11 @@ ActiveRecord::Schema.define(version: 20191028083824) do
     t.string   "category"
     t.integer  "price"
     t.integer  "seller_id"
+    t.integer  "buyer_id"
     t.string   "status"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
   end
 
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 20191028083824) do
   add_foreign_key "comments", "users"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "shipping_addresses", "users"
   add_foreign_key "sns_credentials", "users"
