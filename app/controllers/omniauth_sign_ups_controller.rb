@@ -3,6 +3,7 @@ class OmniauthSignUpsController < ApplicationController
   # 会員情報入力
   def omniauth_register
     @user = User.new
+    @snscredential = SnsCredential.new
   end
 
   # 電話番号入力
@@ -38,12 +39,12 @@ class OmniauthSignUpsController < ApplicationController
         birth_day: session[:birth_day], 
         phone: omniauth_user_params[:phone]
       )
-      SnsCredential.create!(
+      @snscredential = SnsCredential.create!(
         uid: session[:uid],
         provider: session[:provider],
         user_id: @user.id
       )
-      if @user.save
+      if @user.save && @snscredential.save
         sign_in(@user)
         redirect_to new_shipping_address_path
       else
