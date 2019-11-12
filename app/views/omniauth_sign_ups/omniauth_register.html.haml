@@ -25,6 +25,9 @@
       %h2.single-head
         会員情報入力
       = form_for(@user, local: true, url: omniauth_authentication_omniauth_sign_ups_path, html: {method: :get}) do |f|
+        = f.hidden_field :password, value: Devise.friendly_token[0, 20]
+        = f.hidden_field :uid, value: @snscredential.uid
+        = f.hidden_field :provider, value: @snscredential.provider
         .single-content
           .form-group__top
             %label
