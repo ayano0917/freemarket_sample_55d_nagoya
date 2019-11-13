@@ -21,6 +21,12 @@
           font-weight: 600;
           display: inline-block;
         }
+        // メール/パスワード変更のページ
+        .change-mail {
+          font-weight: 600;
+          display: inline-block;
+          font-size: 14px;
+        }
         .form-require {
           background: #ea352d;
           margin: 0 0 0 8px;
@@ -31,7 +37,7 @@
           vertical-align: top;
         }
         .input-default {
-          width: calc(100% - 32px);
+          width: calc(100% - 34px);
           margin: 8px 0 0;
           height: 28px;
           padding: 10px 16px 8px;
@@ -41,12 +47,23 @@
           line-height: 1,5;
           font-size: 16px;
         }
+        .form-info-text {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: #888;
+          font-size: 14px;
+        }
       }
       .form-group {
         margin-top: 32px;
         label {
           font-weight: 600;
           display: inline-block;
+        }
+        .change-pass {
+          font-weight: 600;
+          display: inline-block;
+          font-size: 14px;
         }
         .form-require {
           background: #ea352d;
@@ -67,7 +84,7 @@
           vertical-align: top;
         }
         .input-default {
-          width: calc(100% - 32px);
+          width: calc(100% - 34px);
           margin: 8px 0 0;
           height: 28px;
           padding: 10px 16px 8px;
@@ -76,6 +93,12 @@
           background: #fff;
           line-height: 1,5;
           font-size: 16px;
+        }
+        .form-info-text {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: #888;
+          font-size: 14px;
         }
       }
       .btn-default {
