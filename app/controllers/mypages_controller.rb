@@ -81,7 +81,7 @@ class MypagesController < ApplicationController
   def bought_past_trade
   end
 
-  def shipping_address
+  def change_shipping_address
   end
 
   def notice
