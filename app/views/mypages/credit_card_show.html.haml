@@ -1,5 +1,7 @@
 -# マイページのクレジットカードを追加した後のビュー 削除するボタン等があるように
 = render 'shared/login-header'
+- breadcrumb :credit_card
+= render 'layouts/breadcrumbs'
 .main-container
   = render partial: "mypages/mypage-sidebar"
   .main-container__chapter
