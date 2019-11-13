@@ -1,0 +1,2 @@
+class PurhaseController < ApplicationController
+end
