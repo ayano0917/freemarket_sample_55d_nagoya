@@ -26,14 +26,15 @@
             text-decoration: none;
             border-top: 1px solid #eee;
             &__icon {
-              color: #333;
+              color: #ccc;
               position: absolute;
+              top: 11px;
               right: 16px;
               display: inline-block;
-              font-weight: 400;
+              font-weight: 600;
               line-height: 1;
-              font-size: 8.59 14
-            }
+              font-size: 24px;
+              }
           }
         }
       }
@@ -50,14 +51,15 @@
             text-decoration: none;
             border-top: 1px solid #eee;
             &__icon {
-              color: #333;
+              color: #ccc;
               position: absolute;
+              top: 11px;
               right: 16px;
               display: inline-block;
-              font-weight: 400;
+              font-weight: 600;
               line-height: 1;
-              font-size: 8.59 14
-            }
+              font-size: 24px;
+              }
           }
         }
       }

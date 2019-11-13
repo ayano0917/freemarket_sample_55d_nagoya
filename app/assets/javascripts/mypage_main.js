@@ -1,26 +1,25 @@
 $(function() {
   let $todo = $('.main-container__contents__notification-todo__tabs1__todo__1');
-  let $todo_font = $('.main-container__contents__notification-todo__tabs1__todo__1');
   let $notice = $('.main-container__contents__notification-todo__tabs1__notice__1');
-  let $notice_font = $('.main-container__contents__notification-todo__tabs1__notice__1'); 
   let main = {
     "background-color":"#fff",
     "border-top":"2px solid #ea352d"
-$(function() {
+  }
+  let sub = {
+    "background-color":"#EEEEEE",
+    "border-top":"none"
+  }
 
   $todo.click(function() {
-    $todo.css(main);
     $(this).css(main);
     $notice.css(sub);
   });
   $notice.click(function() {
-    $notice.css(main);
     $(this).css(main);
     $todo.css(sub);
   });
 
   $todo.hover(function() {
-    $todo.css('opacity','0.5');
     $(this).css('opacity','0.5');
   },(function() {
     $(this).css('opacity','1');
@@ -30,19 +29,18 @@ $(function() {
   $notice.hover(function() {
     $(this).css('opacity', '0.5');
   },(function() {
-    $todo.css('opacity','1');
     $(this).css('opacity', '1');
     })
   );
 
-  let $transaction = $('.main-container__contents__purchaced__tabs2__notice');
-  let $past = $('.main-container__contents__purchaced__tabs2__todo');
   let $transaction = $('.main-container__contents__purchaced__tabs2__notice__1');
   let $past = $('.main-container__contents__purchaced__tabs2__todo__1');
 
   $transaction.click(function() {
     $(this).css(main);
-  $(function() {
+    $past.css(sub);
+  });
+  $past.click(function() {
     $(this).css(main);
     $transaction.css(sub);
   });

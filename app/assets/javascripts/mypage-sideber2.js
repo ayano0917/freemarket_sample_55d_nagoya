@@ -1,8 +1,8 @@
 $(function() {
-  let focus1 = $('.main-container__side-bar__nav__list__1__link');
-  let focus2 = $('.main-container__side-bar__nav__list2__1__link');
-  let focus3 = $('.main-container__side-bar__nav__list3__1__link');
-  let icon1 = $('.main-container__side-bar__nav__list__1__link__icon');
+  let focus1 = $('.wrapper__sidebar__nav__list__1__link');
+  let focus2 = $('.wrapper__sidebar__nav__list2__1__link');
+  let focus3 = $('.wrapper__sidebar__nav__list3__1__link');
+  let icon1 = $('.wrapper__sidebar__nav__list__1__link__icon');
 
   focus1.add(focus2).add(focus3).hover(function() {
     $(this).css('background-color', '#FAFAFA');
