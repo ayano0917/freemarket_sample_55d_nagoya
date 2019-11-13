@@ -1,0 +1,23 @@
+.breadcrumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+  background: #fff;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  color: #333;
+  font-size: 14px;
+  &__list {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+    a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 5px;
+    }
+    .current {
+      font-weight: bold;
+      margin-left: 5px;
+    }
+  }
+}
