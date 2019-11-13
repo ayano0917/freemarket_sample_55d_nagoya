@@ -20,15 +20,15 @@
         - if user_signed_in?
           .main-header__inner__nav__menu
             .main-header__inner__nav__menu__like
-              =link_to '#', class: 'main-header__inner__nav__menu__like__link' do
+              =link_to like_list_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__like__link' do
                 = fa_icon "heart-o", class: 'main-header__inner__nav__menu__like__link__icon'
                 %span いいね！ 一覧
             .main-header__inner__nav__menu__notification
-              =link_to '#', class: 'main-header__inner__nav__menu__notification__link' do
+              =link_to notice_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__notification__link' do
                 = fa_icon 'bell-o', class: 'main-header__inner__nav__menu__notification__link__icon'
                 %span お知らせ
             .main-header__inner__nav__menu__todo
-              =link_to '#', class: 'main-header__inner__nav__menu__todo__link' do
+              =link_to todo_list_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__todo__link' do
                 = fa_icon 'check', class: 'main-header__inner__nav__menu__todo__link__icon'
                 %span やることリスト
             .main-header__inner__nav__menu__mypage

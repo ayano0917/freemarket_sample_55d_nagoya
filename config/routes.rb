@@ -29,7 +29,12 @@ Rails.application.routes.draw do
         get 'items_sold'
         get 'bought_during_trading'
         get 'bought_past_trade'
-        get 'shipping_address'
+        get 'change_shipping_address'
+        get 'notice'
+        get 'todo_list'
+        get 'like_list'
+        get 'update_email_pass'
+        get 'confirm_phone'
       end
     end
   end
