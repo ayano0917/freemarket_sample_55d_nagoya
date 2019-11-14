@@ -1,2 +1,69 @@
-%h1 Purchases#new
-%p Find me in app/views/purchases/new.html.haml
+.purchase-confirmation-page
+  = render 'shared/exhibition-page-header'
+  %main.purchase-confirmation-page__main
+    %h2.purchase-confirmation-page__main__title
+      購入内容の確認
+    .purchase-confirmation-page__main__item
+      .purchase-confirmation-page__main__item__inner
+        .purchase-confirmation-page__main__item__inner__box
+          .purchase-confirmation-page__main__item__inner__box__image
+            = image_tag "#{@image.image}", class: "purchase-confirmation-page__main__item__inner__box__image__photo"
+          .purchase-confirmation-page__main__item__inner__box__name
+            = @item.name
+        .purchase-confirmation-page__main__item__inner__price
+          .purchase-confirmation-page__main__item__inner__price__cost
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+          .purchase-confirmation-page__main__item__inner__price__postage
+            送料込み
+        .purchase-confirmation-page__main__item__inner__point
+          .purchase-confirmation-page__main__item__inner__point__numbers
+            ポイントはありません
+        .purchase-confirmation-page__main__item__inner__payment-amount
+          .purchase-confirmation-page__main__item__inner__payment-amount__title
+            支払い金額
+          .purchase-confirmation-page__main__item__inner__payment-amount__number
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+        - if @shipping_addresses.nil? || @card.blank?
+          .purchase-confirmation-page__main__item__inner__error-text
+            配送先と支払い方法の入力を完了してください。
+          .purchase-confirmation-page__main__item__inner__body-payment
+            .purchase-confirmation-page__main__item__inner__body-payment__btn--not
+              購入する
+        - else
+          .purchase-confirmation-page__main__item__inner__purchase-button
+            = link_to buy_item_purchase_index_path(@item) do
+              .purchase-confirmation-page__main__item__inner__purchase-button__text
+                購入する
+    .purchase-confirmation-page__main__address
+      .purchase-confirmation-page__main__address__shipping
+        %h3 配送先
+        .purchase-confirmation-page__main__address__postal-code
+        - if @shipping_addresses.nil?
+          〒-
+        - else
+          = "〒#{@shipping_addresses.postal_code}"
+          %br
+          = @shipping_addresses.prefecture.name
+          = @shipping_addresses.city
+          = @shipping_addresses.house_number
+          %br
+          = @shipping_addresses.building
+        .purchase-confirmation-page__main__address__user-name
+        = @shipping_addresses.shipping_last_name
+        = @shipping_addresses.shipping_first_name
+        .purchase-confirmation-page__main__address__change
+          = link_to '変更する >', '#' 
+    .purchase-confirmation-page__main__payment
+      .purchase-confirmation-page__main__payment__way
+        %h3 支払い方法
+        .purchase-confirmation-page__main__payment__logo
+          = image_tag "credit_cards/#{@card_src}", width: '49', height: '20', alt: @card_brand
+        .purchase-confirmation-page__main__payment__number
+        = "**** **** **** " + @default_card_information.last4
+        .purchase-confirmation-page__main__payment__date
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+        .purchase-confirmation-page__main__payment__change
+          = link_to '変更する >',  payment_user_mypage_path(current_user)
+  = render 'shared/exhibition-page-footer' 
