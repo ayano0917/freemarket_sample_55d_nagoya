@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # redirect_to new_user_session_path unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
     @category_parents = Category.where(ancestry: nil)
     @item = Item.new
     @item.images.build
