@@ -34,9 +34,9 @@ class PurchasesController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     if current_user.id != @item.seller_id
       charge = Payjp::Charge.create(
-      amount: @item.price,
-      customer: @card.customer_id,
-      currency: 'jpy',
+        amount:   @item.price,
+        customer: @card.customer_id,
+        currency: 'jpy',
       )
       @item.status = "売却済み"
       @item.buyer_id = current_user.id
