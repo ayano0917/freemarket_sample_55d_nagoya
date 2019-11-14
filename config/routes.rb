@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'purchases/new'
+
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks",
     sessions: 'users/sessions'
@@ -43,8 +45,12 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get :confirm
       get :done
+    end
+    resources :purchases, only: [:new] do
+      collection do
+        get 'buy'
+      end
     end
   end
 
