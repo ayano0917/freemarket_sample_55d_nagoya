@@ -7,8 +7,7 @@
       .purchase-confirmation-page__main__item__inner
         .purchase-confirmation-page__main__item__inner__box
           .purchase-confirmation-page__main__item__inner__box__image
-            = image_tag "#{@image.image}"
-            -# = image_tag('https://static.mercdn.net/thumb/photos/m86437090205_1.jpg?1570370167', width: '64px', height: '64px' )
+            = image_tag "#{@image.image}", class: "purchase-confirmation-page__main__item__inner__box__image__photo"
           .purchase-confirmation-page__main__item__inner__box__name
             = @item.name
         .purchase-confirmation-page__main__item__inner__price
@@ -32,8 +31,9 @@
               購入する
         - else
           .purchase-confirmation-page__main__item__inner__purchase-button
-            = form_tag(action: :purchase, method: :post) do
-              %button.purchase-confirmation-page__main__item__inner__purchase-button__text 購入する
+            = link_to buy_item_purchase_index_path(@item) do
+              .purchase-confirmation-page__main__item__inner__purchase-button__text
+                購入する
     .purchase-confirmation-page__main__address
       .purchase-confirmation-page__main__address__shipping
         %h3 配送先
@@ -49,8 +49,8 @@
           %br
           = @shipping_addresses.building
         .purchase-confirmation-page__main__address__user-name
-        = @shipping_addresses.shipping_first_name
         = @shipping_addresses.shipping_last_name
+        = @shipping_addresses.shipping_first_name
         .purchase-confirmation-page__main__address__change
           = link_to '変更する >', '#' 
     .purchase-confirmation-page__main__payment
@@ -67,4 +67,3 @@
         .purchase-confirmation-page__main__payment__change
           = link_to '変更する >',  payment_user_mypage_path(current_user)
   = render 'shared/exhibition-page-footer' 
-  

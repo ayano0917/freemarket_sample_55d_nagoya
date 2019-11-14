@@ -74,7 +74,7 @@
         = @item.shipping_fee.name.delete'(出品者負担)'   
     - if current_user&.id != @item.seller_id && @item.buyer_id.nil?   
       .product-details__main__buy-btn
-        = link_to '購入画面に進む', confirm_items_path, class: 'btn product-details__main__buy-btn' 
+        = link_to '購入画面に進む', new_item_purchase_path(@item), class: 'btn product-details__main__buy-btn' 
     - elsif current_user&.id != @item.seller_id && @item.buyer_id  
       .product-details__main__sold 
         %p 売り切れました   

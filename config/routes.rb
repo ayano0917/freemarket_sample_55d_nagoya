@@ -36,9 +36,12 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new ,:index, :show, :create] do
     collection do
-      get 'confirm'
-      post 'purchase'
       get 'done'
+    end
+    resources :purchase, only: [:new] do
+      collection do
+        get 'buy'
+      end
     end
   end
 
