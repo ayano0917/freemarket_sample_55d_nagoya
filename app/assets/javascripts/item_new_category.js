@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function() {
     $('#grandchild_category').removeAttr('required');
   }
 
+  // 親カテゴリー選択で子カテゴリー生成
   $('#parent_category').change(function () {
     var parent_id = $('#parent_category option:selected').val();
     if (parent_id.length != 0){
@@ -24,7 +25,7 @@ $(document).on('turbolinks:load', function() {
       }).done(function(children){
         $('#category-child-1 option').remove();
         $('#category-child-2 option').remove();
-        var insertHTML = `<option value="">---</option>`;
+        var insertHTML = `<option value="">--</option>`;
         children.forEach(function(child){
           insertHTML += appendOption(child);
         })
@@ -51,7 +52,7 @@ $(document).on('turbolinks:load', function() {
       }).done(function(grandchildren){
         if (grandchildren.length != 0) {
           $('#category-child-2 option').remove();
-          var insertHTML = `<option value="">---</option>`;
+          var insertHTML = `<option value="">--</option>`;
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
           })
