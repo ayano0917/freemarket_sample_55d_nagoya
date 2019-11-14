@@ -31,16 +31,22 @@
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header カテゴリー
           %td.product-details__main__item-main-content__right-box__table-row__data
-            = link_to '親カテゴリー', '#'
+            = link_to @category_parent, '#'
             %br/
-            = link_to '>子カテゴリー', '#'
-            %br/
-            = link_to '>孫カテゴリー', '#'
-            %br/
-        %tr.product-details__main__item-main-content__right-box__table-row
-          %th.product-details__main__item-main-content__right-box__table-row__header ブランド
-          %td.product-details__main__item-main-content__right-box__table-row__data
-            = link_to @item.brand
+            = link_to @category_child, '#'
+            - if @item.category
+              %br/
+              = link_to @item.category.name, '#'
+              %br/
+        - if @item.brand.nil?
+          %tr.product-details__main__item-main-content__right-box__table-row
+            %th.product-details__main__item-main-content__right-box__table-row__header ブランド
+            %td.product-details__main__item-main-content__right-box__table-row__data
+        - else     
+          %tr.product-details__main__item-main-content__right-box__table-row
+            %th.product-details__main__item-main-content__right-box__table-row__header ブランド
+            %td.product-details__main__item-main-content__right-box__table-row__data
+              = link_to @item.brand
         - if @item.size_id
           %tr.product-details__main__item-main-content__right-box__table-row
             %th.product-details__main__item-main-content__right-box__table-row__header 商品のサイズ
