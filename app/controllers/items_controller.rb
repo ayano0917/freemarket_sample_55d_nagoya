@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
   def new
     redirect_to new_user_session_path unless user_signed_in?
+    @category_parents = Category.where(ancestry: nil)
     @item = Item.new
     @item.images.build
   end
@@ -74,6 +75,16 @@ class ItemsController < ApplicationController
       end
       
   end
+
+  # 親カテゴリーが選択された後に動くアクションAjax
+  def get_category_children
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクションAjax
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
   
   private
 
@@ -96,7 +107,9 @@ class ItemsController < ApplicationController
       :days_before_shipping_id, 
       :size_id,
       :brand,
-      # :category,
+      :category_id,
+      :parent_id,
+      :child_id,
       :price,
       :shipping_address,
       :status,
