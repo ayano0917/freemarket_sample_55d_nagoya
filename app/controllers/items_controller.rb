@@ -32,52 +32,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def confirm
-    @item = Item.find(1) #商品出品未実装のため仮idで対応
-    @image = @item.images.first
-    @shipping_addresses = current_user.shipping_address
-    if @card.blank?
-      #フラッシュメッセージを表示させる「カードが登録されていません。」
-      redirect_to payment_user_mypage_path(current_user) #登録された情報がない場合にカード登録画面に移動
-    else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
-      @card_brand = @default_card_information.brand  
-      case @card_brand
-      when "Visa"
-        @card_src = "visa.svg"
-      when "JCB"
-        @card_src = "jcb.svg"
-      when "MasterCard"
-        @card_src = "master-card.svg"
-      when "American Express"
-        @card_src = "american_express.svg"
-      when "Diners Club"
-        @card_src = "dinersclub.svg"
-      when "Discover"
-        @card_src = "discover.svg"
-      end
-    end
-  end
-
-  def purchase
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: @item.price,
-    customer: @card.customer_id,
-    currency: 'jpy',
-    )
-      @item.buyer_id = current_user.id
-      @item.status = "売却済み"
-      if @item.save
-        redirect_to done_items_path #決済完了画面
-      else
-        redirect_to #商品詳細画面
-      end
-      
-  end
-
   # 親カテゴリーが選択された後に動くアクションAjax
   def get_category_children
     @category_children = Category.find(params[:parent_id]).children
