@@ -194,6 +194,9 @@
         .form-group1 {
           margin: 0;
           @include pulldown;
+          .hide {
+            display: none;
+          }
           }
         .form-group2 {
           margin: 40px 0 0;

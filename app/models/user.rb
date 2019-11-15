@@ -14,7 +14,6 @@ class User < ApplicationRecord
     else
       user = User.where(email: auth.info.email).first
       if user.present?
-        # 存在していたら？ということ。
         SnsCredential.create(
           uid: uid,
           provider: provider,
@@ -35,12 +34,13 @@ has_one :credit_cards, dependent: :destroy
 has_one :shipping_address, dependent: :destroy
 belongs_to_active_hash :birth_year
 
-# validates :nickname, presence: true
-# validates :email, presence: true, uniqueness: true
-# validates :last_name, presence: true
-# validates :first_name, presence: true
-# validates :last_name_kana, presence: true
-# validates :first_name_kana, presence: true
+# validates :nickname, presence: true, length: { maximum: 20 }
+# validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+# validates :encrypted_password, presence: true, length: { in: 7..128 }, format: { with: /\A[a-z0-9]+\z/i }
+# validates :last_name, presence: true, length: { maximum: 35 }
+# validates :first_name, presence: true, length: { maximum: 35 }
+# validates :last_name_kana, presence: true, length: { maximum: 35 }, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/}
+# validates :first_name_kana, presence: true, length: { maximum: 35 }, format: {with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/}
 # validates :birth_year_id, presence: true
 # validates :birth_month, presence: true
 # validates :birth_day, presence: true

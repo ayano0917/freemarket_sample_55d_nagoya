@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20191028083824) do
     t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,14 +68,19 @@ ActiveRecord::Schema.define(version: 20191028083824) do
     t.integer  "days_before_shipping_id"
     t.integer  "size_id"
     t.string   "brand"
-    t.string   "category"
+    t.integer  "category_id"
     t.integer  "price"
     t.integer  "seller_id"
     t.integer  "buyer_id"
     t.string   "status"
+    t.integer  "parent_id",                             null: false
+    t.integer  "child_id",                              null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["child_id"], name: "index_items_on_child_id", using: :btree
+    t.index ["parent_id"], name: "index_items_on_parent_id", using: :btree
     t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
   end
 

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'purchases/new'
+
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks",
     sessions: 'users/sessions'
@@ -24,20 +26,31 @@ Rails.application.routes.draw do
         get 'credit_card_reg'
         get 'credit_card_show'
         post 'create_credit_card'
-        get 'listing_product'
-        get 'shipping_address'
-        get 'during_trade'
-        get 'sold'
-        get 'bought_product'
-        get 'past_trade'
+        get 'items_selling'
+        get 'items_during_trading'
+        get 'items_sold'
+        get 'bought_during_trading'
+        get 'bought_past_trade'
+        get 'change_shipping_address'
+        get 'notice'
+        get 'todo_list'
+        get 'like_list'
+        get 'update_email_pass'
+        get 'confirm_phone'
       end
     end
   end
 
   resources :items, only: [:new ,:index, :show, :create] do
     collection do
-      get :confirm
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
       get :done
+    end
+    resources :purchases, only: [:new] do
+      collection do
+        get 'buy'
+      end
     end
   end
 
