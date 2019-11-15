@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only:[:purchase]
-  before_action :set_card, only:[:purchase, :confirm]
   before_action :set_category, only:[:new, :create, :edit, :update]
 
   def index
@@ -27,9 +26,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path 
+      redirect_to root_path , notice: '商品が出品できました。'
     else
-      render :new
+      redirect_to new_item_path, alert: '出品に失敗しました。'
     end
   end
 
