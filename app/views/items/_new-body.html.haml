@@ -39,10 +39,10 @@
             %span.form-group1__require 必須
             .form-group1__pulldown
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, {class: 'form-group1__pulldown--choices', id: 'parent_category', required: true}
+              = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, {class: 'form-group1__pulldown--choices', id: 'parent_category'}
             .form-group1__pulldown.hide#category-child-1
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, {class:'form-group1__pulldown--choices', id: 'child_category', required: true}
+              = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, {class:'form-group1__pulldown--choices', id: 'child_category'}
             .form-group1__pulldown.hide#category-child-2
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
               = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, {class:'form-group1__pulldown--choices', id: 'grandchild_category'}  
