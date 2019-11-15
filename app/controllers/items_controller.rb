@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only:[:purchase]
   before_action :set_card, only:[:purchase, :confirm]
+  before_action :set_category, only:[:new, :create, :edit, :update]
+
   def index
   end
 
@@ -18,7 +20,6 @@ class ItemsController < ApplicationController
 
   def new
     redirect_to new_user_session_path unless user_signed_in?
-    @category_parents = Category.where(ancestry: nil)
     @item = Item.new
     @item.images.build
   end
@@ -97,6 +98,11 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_category
+    @category_parents = Category.where(ancestry: nil)
+  end
+
 
   def item_params
     params.require(:item).permit(
