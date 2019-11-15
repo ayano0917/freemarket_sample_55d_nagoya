@@ -58,9 +58,7 @@
             word-wrap: break-word;
           }
           &__items {
-            float: left;
-            // display: flex;
-            flex-wrap: wrap;
+            display: flex;
             max-width: 620px;
           }
           &__file {
@@ -76,7 +74,7 @@
             display: inline;
               .upload-item {
                 position: relative;
-                display: inline-block;
+                float: right;
                 width: 114px;
                 margin: 0 0 2% 2%;
                 border: 1px solid $separator;
