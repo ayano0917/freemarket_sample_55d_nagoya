@@ -1,10 +1,7 @@
--unless type.nil?
-  .top-page__category-box
-    - items.each do |item|
-      = link_to item_path(:id) do
-        = image_tag item.images[0].image, class: 'aaa'
-        .top-page__price
-          ¥
-          = item.price.to_s(:delimited, delimiter: ',')
-          .top-page__product-name
-            = item.name
+.top-page__category-box
+  = link_to item_path(:id) do
+    = image_tag item.images[0].image, class: 'top-new-item'
+    .top-page__price
+      = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
+      .top-page__product-name
+        = item.name

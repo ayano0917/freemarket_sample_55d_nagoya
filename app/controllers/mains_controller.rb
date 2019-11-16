@@ -7,13 +7,13 @@ class MainsController < ApplicationController
     @items1 = @publishing_item.where(parent_id: ranking1[0]).order('id DESC').limit(4)
     
     @category2 = Category.find_by(id: ranking1[1])
-    @item2 = @publishing_item.where(parent_id: ranking1[1]).order('id DESC').limit(4)
+    @items2 = @publishing_item.where(parent_id: ranking1[1]).order('id DESC').limit(4)
     
     @category3 = Category.find_by(id: ranking1[2])
-    @item3 = @publishing_item.where(parent_id: ranking1[2]).order('id DESC').limit(4)
+    @items3 = @publishing_item.where(parent_id: ranking1[2]).order('id DESC').limit(4)
 
     @category4 = Category.find_by(id: ranking1[3])
-    @item4 = @publishing_item.where(parent_id: ranking1[3]).order('id DESC').limit(4)
+    @items4 = @publishing_item.where(parent_id: ranking1[3]).order('id DESC').limit(4)
   end
 
   def get_publishing_item

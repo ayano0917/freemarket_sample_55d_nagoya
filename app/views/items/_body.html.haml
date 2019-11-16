@@ -49,7 +49,8 @@
           .top-page__category__new-items__more
             = link_to 'もっと見る ＞', '#' 
         .top-page__category__largebox
-          = render partial: 'items/categorybox', locals: { type: @category1, items: @items1 }
+          - @items1.each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
     -unless @category2.nil?   
       .top-page__category
         .top-page__category__new-items
@@ -57,7 +58,8 @@
           .top-page__category__new-items__more
             = link_to 'もっと見る ＞', '#' 
         .top-page__category__largebox
-          = render partial: 'items/categorybox', locals: { type: @category2, items: @items2 }
+          - @items2.each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
 
     -unless @category3.nil?
       .top-page__category
@@ -66,7 +68,8 @@
           .top-page__category__new-items__more
             = link_to 'もっと見る ＞', '#'
         .top-page__category__largebox
-          = render partial: 'items/categorybox', locals: { type: @category3, items: @items3 }
+          - @items3.each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
     -unless @category4.nil?
       .top-page__category
         .top-page__category__new-items
@@ -74,7 +77,8 @@
           .top-page__category__new-items__more
             = link_to 'もっと見る ＞', '#'
         .top-page__category__largebox
-          = render partial: 'items/categorybox', locals: { type: @category4, items: @items4 }
+          - @items4.each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
   .top-page__popular-categories
     .top-page__heading-line
       人気のブランド
