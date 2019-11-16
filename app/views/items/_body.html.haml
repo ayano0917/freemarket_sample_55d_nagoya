@@ -48,17 +48,8 @@
         .top-page__category__new-items__more
           = link_to 'もっと見る ＞', '#' 
       .top-page__category__largebox
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-        = render 'items/categorybox'
-      -# とりあえず部分テンプレートで出力をしたけどレディース、メンズ、とかに分ける必要がありそう。
+        = render partial: 'items/categorybox', locals: { type: @category1, products: @products1 }
+        
     .top-page__category
       .top-page__category__new-items
         メンズ新着アイテム
