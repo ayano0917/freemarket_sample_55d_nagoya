@@ -4,6 +4,7 @@ class MypagesController < ApplicationController
   end
 
   def profile
+    @user = User.new
   end
 
   def logout
