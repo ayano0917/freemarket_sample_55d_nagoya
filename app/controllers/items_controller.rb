@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
       :parent_id,
       :child_id,
       :price,
-      :shipping_address,
+      :buyer_id,
       :status,
       :buyer_id,
       images_attributes: [:image]
