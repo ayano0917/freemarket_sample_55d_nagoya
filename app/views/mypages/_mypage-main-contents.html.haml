@@ -1,6 +1,6 @@
 .main-container__contents
   %section.main-container__contents__user-icon
-    = link_to('root_path' , class: 'main-container__contents__user-icon__link') do
+    = link_to('#', onclick: 'return false', class: 'main-container__contents__user-icon__link') do
       %figure.main-container__contents__user-icon__link__icon
         = image_tag('member_photo_no-image.png', :width => '60', :height => '60', class: 'main-container__contents__user-icon__link__icon__img' )
       %h2.main-container__contents__user-icon__link__name テスト
