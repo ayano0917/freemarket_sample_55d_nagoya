@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   # belongs_to :shipping_address
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, allow_destroy: true
   has_many :likes, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 40 }

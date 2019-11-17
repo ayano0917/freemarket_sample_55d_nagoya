@@ -7,22 +7,47 @@
           出品画像
           %span.form-require 必須
         %p.max 最大10枚までアップロードできます
+        -# .upload-box__dropbox.cleafix
+        -#   = f.fields_for :images do |i|
+        -#     %ul.upload-container__items#item-preview1
+        -#     %ul.upload-container__items#item-preview2.hide
+        -#     .upload-container__file-box{data:{i: 1}}
+        -#       = i.file_field :image, class: 'upload-container__file'
+        -#     = i.label :image, class: "image-label" do
+        -#   .upload-container{data: {num: 0}}
+        -#     %pre.upload-container--sentence 
+        -#       クリックしてファイルをアップロード
+
+        -# .upload-box__dropbox.cleafix
+        -#   = f.fields_for :images do |i|
+        -#     %ul.upload-box__dropbox__items#item-preview1
+        -#     %ul.upload-box__dropbox__items#item-preview2.hide
+        -#     .upload-box__dropbox__file-box{data:{i: 1}}
+        -#       = i.label :image, class: "image-label" do
+        -#         = i.file_field :image, class: 'upload-box__dropbox__file'     
+        -#         .upload-container{data: {num: 0}}
+        -#           %pre.upload-container--sentence
+        -#             クリックしてファイルをアップロード
+
         .upload-box__dropbox.cleafix
           .upload-container{data: {num: 0}}
             = f.fields_for :images do |i|
-              = i.label :image, class: "image-label" do
-                %ul.upload-container__items#item-preview1
-                %ul.upload-container__items#item-preview2.hide
-                .upload-container__file-box{data:{i: 1}}
-                  = i.file_field :image, class: 'upload-container__file'
-                %pre.upload-container--sentence 
-                  クリックしてファイルをアップロード
+              = i.label :image, class: 'image-label form-mask-image' do
+                .form-mask-image
+                  .upload-container__file-box{data:{i: 1}}
+                    = i.file_field :image, class: 'upload-container__file'
+                  %pre.upload-container--sentence 
+                    クリックしてファイルをアップロード
+          .upload-images
+          .upload-images2
+
+
       .item-base
         .item-name
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_field :name, {class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）"}
+          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）"
         .item-introduction
           %label.form-label
             商品名
