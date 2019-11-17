@@ -11,10 +11,10 @@
         .wrapper__main-container__contents__profile__icon
           %figure
             = image_tag('member_photo_no-image.png', width: '60', height: '60', class: "wrapper__main-container__contents__profile__icon__img")
-          = f.text_field :nickname, placeholder: "例)AYA☆セール中", class: 'input'
+          = f.text_field :nickname, value: current_user.nickname, placeholder: "例)AYA☆セール中", class: 'input'
       .wrapper__main-container__contents__inner
-        = f.text_area :profile, placeholder: "例)こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめのオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品の発送方法などご質問がありましたらお気軽にどうぞ♪"
-        = f.submit "変更する", class: 'button'
+        = f.text_area :profile, value: current_user.profile, placeholder: "例)こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめのオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品の発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = f.submit "変更する", class: 'wrapper__main-container__contents__inner__btn'
 = render 'shared/exhibition-button'
 = render 'shared/app-banner'
 = render 'shared/footer'
