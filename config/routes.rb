@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    sessions: 'users/sessions'
-  }
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks",　sessions: 'users/sessions'}
   
   devise_scope :user do
-    get '/uses/sign_out' => 'devise_sessions#destroy'
+    get '/users/sign_out' => 'devise_sessions#destroy'
   end
 
   root 'mains#index'
@@ -39,6 +36,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :sign_ups, only: [:new, :create] do
+    collection do
+      get 'register'
+      get 'authentication'
+      get 'complete'
+    end
+  end
+
   resources :items, only: [:new ,:index, :show, :create] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -58,13 +63,6 @@ Rails.application.routes.draw do
   resources :credit_cards, only: [:new, :create, :show] do
     collection do
       post :delete
-    end
-  end
-  resources :sign_ups, only: [:new, :create] do
-    collection do
-      get :register
-      get :authentication
-      get :complete
     end
   end
 end
