@@ -14,7 +14,7 @@
                 %ul.upload-container__items#item-preview1
                 %ul.upload-container__items#item-preview2.hide
                 .upload-container__file-box{data:{i: 1}}
-                  = i.file_field :image, class: 'upload-container__file', required: true, maxlength: 40
+                  = i.file_field :image, class: 'upload-container__file'
                 %pre.upload-container--sentence 
                   クリックしてファイルをアップロード
       .item-base
@@ -22,12 +22,12 @@
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 1000
+          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
         .item-introduction
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", required: true
+          = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", required: true, maxlength: 40
       .item-content.cleafix
         %h3.sub-head 商品の詳細
         .detail-box

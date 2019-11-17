@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id', optional: true
   # belongs_to :shipping_address
   has_many :comments, dependent: :destroy
-  has_many :images, dependent: :destroy
+  has_many :images
   accepts_nested_attributes_for :images
   has_many :likes, dependent: :destroy
 
