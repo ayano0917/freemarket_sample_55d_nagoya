@@ -11,18 +11,8 @@ class MypagesController < ApplicationController
   end
 
   def personal_info
-    @user_address = UserAddress.new
+    @user_address = UserAddress.find_by(user_id: current_user.id)
   end
-
-  # def create_personal_info
-  #   @user_address = UserAddress.new(personal_info_params)
-
-  #   if @user_address.save
-  #     redirect_to personal_info_user_mypage_path(current_user), notice: '変更しました。'
-  #   else
-  #     render personal_info_user_mypage_path(current_user), alert: '変更できませんでした。'
-  #   end
-  # end
 
   # ここからクレジットカード関連
   def payment  #クレジットカード追加画面
@@ -94,6 +84,7 @@ class MypagesController < ApplicationController
   end
 
   def change_shipping_address
+    @shipping_address = ShippingAddress.find_by(user_id: current_user.id)
   end
 
   def notice
@@ -110,18 +101,5 @@ class MypagesController < ApplicationController
 
   def confirm_phone
   end
-
-  # private
-
-  # def personal_info_params
-  #   params.require(:user_address).permit(
-  #     :postal_code,
-  #     :prefecture_id,
-  #     :city,
-  #     :house_number,
-  #     :building,
-  #     :phone
-  #   ).merge(user_id: current_user.id)
-  # end
 
 end
