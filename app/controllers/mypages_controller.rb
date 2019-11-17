@@ -101,7 +101,6 @@ class MypagesController < ApplicationController
   end
 
   def update_email_pass
-    @user = User.find(current_user.id)
   end
 
   def confirm_phone
