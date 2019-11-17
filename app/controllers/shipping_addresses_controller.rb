@@ -19,6 +19,12 @@ class ShippingAddressesController < ApplicationController
   end
 
   def update
+    @shipping_address = ShippingAddress.find(params[:id])
+    if @shipping_address.update(shipping_address_params)
+      redirect_to change_shipping_address_user_mypage_path(current_user), notice: '変更しました。'
+    else
+      render change_shipping_address_user_mypage_path(current_user), alert: '変更出来ませんでした。'
+    end
   end
 
   def destroy

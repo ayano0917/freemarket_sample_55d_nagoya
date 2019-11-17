@@ -1,12 +1,14 @@
 = render 'shared/login-header'
 - breadcrumb :personal_info
 = render 'layouts/breadcrumbs'
+= render 'layouts/notifications'
+
 .wrapper
   = render 'mypages/mypage-sidebar2'
   .wrapper__contents
     %section.wrapper__contents__container
       %h2.wrapper__contents__container__head 本人情報の登録
-      %form{action: '/', method: 'post' ,class: 'wrapper__contents__container__inner'}
+      = form_for(@user_address, url: user_address_path(current_user), html: {method: 'patch', class: 'wrapper__contents__container__inner'}) do |f|
         .wrapper__contents__container__inner__top
           %p
             お客様の本人情報をご登録ください。
@@ -18,34 +20,40 @@
               = fa_icon 'angle-right', class: 'text-right__link__icon'
         .wrapper__contents__container__inner__form
           %label お名前
-          %p 次郎丸
+          %p
+            = current_user.last_name
+            = current_user.first_name
         .wrapper__contents__container__inner__form
           %label お名前カナ
-          %p ジロウマル
+          %p 
+            = current_user.last_name_kana 
+            = current_user.first_name_kana
         .wrapper__contents__container__inner__form
           %label 生年月日
-          %p 1900/01/01
+          %p
+            #{current_user.birth_year.name}/0#{current_user.birth_month}/0#{current_user.birth_day}
         .wrapper__contents__container__inner__form
           %label 郵便番号
           %span 任意
-          %input{type: 'text', value: '', placeholder: '例)1234567'}
+          = f.text_field :postal_code, placeholder: '例)1234567'
         .wrapper__contents__container__inner__form
           %label 都道府県
           %span 任意
-          %input{type: 'text', value: '', placeholder: '--'}
+          = fa_icon 'chevron-down', class: 'prefecture-icon'
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: '--'}
         .wrapper__contents__container__inner__form
           %label 市区町村
           %span 任意
-          %input{type: 'text', value: '', placeholder: '例)横浜市緑区'}
+          = f.text_field :city, placeholder: '例)横浜市緑区'
         .wrapper__contents__container__inner__form
           %label 番地
           %span 任意
-          %input{type: 'text', value: '', placeholder: '例)青山1-1-1'}
+          = f.text_field :house_number, placeholder: '例)青山1-1-1'
         .wrapper__contents__container__inner__form
           %label 建物名
           %span 任意
-          %input{type: 'text', value: '', placeholder: '例)柳ビル103'}
-        %button.btn-red 登録する
+          = f.text_field :building, placeholder: '例)柳ビル103'
+        = f.submit "登録する", class: "btn-red"
         .wrapper__contents__container__inner__bottom
           %p.text-right
             = link_to('/',class: 'text-right__link') do

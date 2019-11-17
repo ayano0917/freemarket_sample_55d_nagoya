@@ -1,19 +1,20 @@
 = render 'shared/login-header'
 - breadcrumb :plofile
 = render 'layouts/breadcrumbs'
+= render 'layouts/notifications'
 .wrapper
   = render 'mypages/mypage-sidebar2'
   .wrapper__main-container
     %h2.wrapper__main-container__head プロフィール
-    = form_tag('#', class: 'wrapper__main-container__contents') do
+    = form_for(@user, url: user_path(current_user), html: {method: "patch"}, class: 'wrapper__main-container__contents') do |f|
       .wrapper__main-container__contents__profile
         .wrapper__main-container__contents__profile__icon
           %figure
             = image_tag('member_photo_no-image.png', width: '60', height: '60', class: "wrapper__main-container__contents__profile__icon__img")
-          %input{placeholder: "例)AYA☆セール中"}
+          = f.text_field :nickname, value: current_user.nickname, placeholder: "例)AYA☆セール中", class: 'input'
       .wrapper__main-container__contents__inner
-        %textarea{name: "introduction", placeholder: "例)こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめのオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品の発送方法などご質問がありましたらお気軽にどうぞ♪"}
-        %button{type: "submit"} 変更する
+        = f.text_area :profile, value: current_user.profile, placeholder: "例)こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめのオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品の発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = f.submit "変更する", class: 'wrapper__main-container__contents__inner__btn'
 = render 'shared/exhibition-button'
 = render 'shared/app-banner'
 = render 'shared/footer'

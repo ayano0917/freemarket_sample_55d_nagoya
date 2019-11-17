@@ -29,8 +29,7 @@
             ありがとうございます。
             %br
             会員登録が完了しました。
-          %button.next-btn
-            = link_to('メルカリをはじめる', mains_path(current_user), class: 'next-btn__link')
+          = link_to('メルカリをはじめる', mains_path(current_user), class: 'complete-btn')
   .single-main-bottom
   = render 'shared/app-banner'
   = render 'shared/exhibition-page-footer'

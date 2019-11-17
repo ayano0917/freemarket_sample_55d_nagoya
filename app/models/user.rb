@@ -46,4 +46,5 @@ belongs_to_active_hash :birth_year
 # validates :birth_day, presence: true
 # validates :phone, presence: true, uniqueness: true
 
+validates :profile, length: { maximum: 1000 }
 end
