@@ -6,11 +6,15 @@ class SignUpsController < ApplicationController
   
   # 会員情報入力
   def register
+    session[:provider]
+    session[:uid]
     @user = User.new
   end
 
   # 電話番号入力
   def authentication
+    session[:provider]
+    session[:uid]
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -36,6 +40,8 @@ class SignUpsController < ApplicationController
 
   def create
     @user = User.new(
+      provider: session[:provider],
+      uid: session[:uid],
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
