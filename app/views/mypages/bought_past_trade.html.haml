@@ -1,4 +1,6 @@
 = render 'shared/login-header'
+- breadcrumb :bought_past_trade
+= render 'layouts/breadcrumbs'
 .wrapper
   = render 'mypages/mypage-sidebar2'
   .left-content
@@ -7,10 +9,10 @@
       %ul.listing-tabs
         %li.bought__non-active
           %h3.font
-            = link_to('取引中', '#', class: 'font__link')
+            = link_to('取引中', bought_during_trading_user_mypage_path(current_user), class: 'font__link')
         %li.bought__active
           %h3.font
-            = link_to('過去の取引', '#', class: 'font__link')
+            = link_to('過去の取引', bought_past_trade_user_mypage_path(current_user), class: 'font__link')
       .tab-content
         %ul.mypage-item-list
           %li.mypage-item-not-found

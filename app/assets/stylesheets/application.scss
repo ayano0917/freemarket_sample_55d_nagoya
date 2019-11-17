@@ -16,7 +16,7 @@
 @import "users/edit";
 @import "users/mypage-sidebar2";
 @import "purchase-confirm";
-@import "users/identificaiton";
+@import "mypages/personal_info";
 @import "sign_up";
 @import "users/logout";
 @import "sign_ups/authentication";
@@ -30,4 +30,8 @@
 @import "shared/item-create";
 @import "devise/sessions/sign-in";
 @import "mypages/items_selling";
-
+@import "mypages/like_list";
+@import "mypages/change_shipping_address";
+@import "mypages/profile";
+@import "shared/breadcrumbs";
+@import "flash.scss";

@@ -1,5 +1,7 @@
 -# マイページの実際にカード情報を入力するビュー
 = render 'shared/login-header'
+- breadcrumb :credit_card 
+= render 'layouts/breadcrumbs'
 .main-container
   = render partial: "mypages/mypage-sidebar"
   .main-container__chapter

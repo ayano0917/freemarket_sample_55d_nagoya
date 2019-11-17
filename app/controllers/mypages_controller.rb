@@ -4,12 +4,18 @@ class MypagesController < ApplicationController
   end
 
   def profile
+    @user = User.new
   end
 
   def logout
   end
 
   def personal_info
+    if current_user.user_address.present?
+      @user_address = UserAddress.find_by(user_id: current_user.id)
+    else
+      @user_address = UserAddress.new
+    end
   end
 
   # ここからクレジットカード関連
@@ -24,7 +30,7 @@ class MypagesController < ApplicationController
   def credit_card_show  #クレジットカード登録カード表示
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
-      redirect_to action: "create_credit_card" 
+      redirect_to action: "payment" 
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -58,16 +64,13 @@ class MypagesController < ApplicationController
       )
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "credit_card_show"  #クレジットカード確認画面
+        redirect_to credit_card_show_user_mypage_path, notice: 'クレジットカードが登録できました。' #クレジットカード確認画面
       else
-        redirect_to action: "payment"   #クレジットカード追加画面に戻る
+        redirect_to payment_user_mypage_path, alert: 'クレジットカードの登録に失敗しました。'  #クレジットカード追加画面に戻る
       end
     end
   end
   # ここまで
-
-  def shipping_address
-  end
 
   def items_selling
   end
@@ -82,6 +85,25 @@ class MypagesController < ApplicationController
   end
 
   def bought_past_trade
+  end
+
+  def change_shipping_address
+    @shipping_address = ShippingAddress.find_by(user_id: current_user.id)
+  end
+
+  def notice
+  end
+
+  def todo_list
+  end
+
+  def like_list
+  end
+
+  def update_email_pass
+  end
+
+  def confirm_phone
   end
 
 end

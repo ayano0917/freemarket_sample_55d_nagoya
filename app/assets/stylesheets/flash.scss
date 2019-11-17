@@ -1,0 +1,22 @@
+.notification {
+  position: absolute;
+  top: 100px;
+  z-index: 3000;
+  width: 100%;
+  .notice {
+    background-color: #dff0d8;
+    color: #468847;
+    text-align: center;
+    height: 69px;
+    line-height: 69px;
+    font-size: 14px;
+  }
+  .alert {
+    background-color: rgb(211, 41, 32);
+    color: #FFFFFF;
+    text-align: center;
+    height: 69px;
+    line-height: 69px;
+    font-size: 14px;
+  }
+}
