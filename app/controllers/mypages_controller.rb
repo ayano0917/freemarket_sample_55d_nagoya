@@ -11,7 +11,11 @@ class MypagesController < ApplicationController
   end
 
   def personal_info
-    @user_address = UserAddress.find_by(user_id: current_user.id)
+    if current_user.user_address.present?
+      @user_address = UserAddress.find_by(user_id: current_user.id)
+    else
+      @user_address = UserAddress.new
+    end
   end
 
   # ここからクレジットカード関連
@@ -96,7 +100,8 @@ class MypagesController < ApplicationController
   def like_list
   end
 
-  def upodate_email_pass
+  def update_email_pass
+    @user = User.find(current_user.id)
   end
 
   def confirm_phone
