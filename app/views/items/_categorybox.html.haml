@@ -1,5 +1,5 @@
 .top-page__category-box
-  = link_to item_path(:id) do
+  = link_to item_path(item.id) do
     = image_tag item.images[0].image, class: 'top-new-item'
     .top-page__price
       = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
