@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      shipping_address: 配送先住所
     attributes:
       user:
         nickname: ""
@@ -12,4 +13,15 @@ ja:
         birth_year_id: ""
         birth_month: ""
         birth_day: ""
+        phone: ""
+      shipping_address:
+        shipping_last_name: ""
+        shipping_first_name: ""
+        shipping_last_name_kana: ""
+        shipping_first_name_kana: ""
+        postal_code: ""
+        prefecture_id: ""
+        city: ""
+        house_number: ""
+        building: ""
         phone: ""
