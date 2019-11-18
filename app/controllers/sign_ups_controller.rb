@@ -8,7 +8,7 @@ class SignUpsController < ApplicationController
   def register
     session[:provider]
     session[:uid]
-    @user = User.new      
+    @user = User.new
   end
 
   # 電話番号入力
