@@ -33,7 +33,6 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
             $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
 
             var previewCount = $('.img').length; //previewの数によってdropboxのwidthを変更
-            console.log($('.img').length)
             if  (previewCount == 1 || previewCount == 6){
               $('.form-mask-image').width(480);
             } else if (previewCount == 2 || previewCount == 7){
