@@ -25,7 +25,7 @@
         会員情報入力
       = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get, id: :user_form}) do |f|
         .single-content
-          .form-group__top
+          .form-group
             %label
               ニックネーム
             %span.absolute
@@ -79,7 +79,7 @@
             .birthday-select-wrap
               .birthday-select-wrap__year
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__year__btn'
-                = f.collection_select :birth_year_id, BirthYear.all, :id, :name,{include_blank:'--'},required:true, class: "birthday-select-wrap__year__btn__select"
+                = f.collection_select :birth_year_id, BirthYear.all, :id, :name,{include_blank:'--'}, class: "birthday-select-wrap__year__btn__select"
               %span.birthday-select-wrap__font 年
               .birthday-select-wrap__month
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__month__btn'
