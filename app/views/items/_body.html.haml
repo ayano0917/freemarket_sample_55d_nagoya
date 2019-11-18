@@ -28,19 +28,15 @@
             ●
           .top-page__trendy-box__article__dot-right
             ○
-  .top-page__popular-categories
-    .top-page__heading-line
-      人気のカテゴリー
-    %ul.top-page__menu
-      %li.top-page__menu__item
-        = link_to 'レディース', '#'
-      %li.top-page__menu__item
-        = link_to 'メンズ', '#'
-      %li.top-page__menu__item
-        = link_to '家電・スマホ・カメラ', '#'
-      %li.top-page__menu__item
-        = link_to 'おもちゃ・ホビー・グッズ', '#'
-    
+  -unless @publishing_item.blank?          
+    .top-page__popular-categories
+      .top-page__heading-line
+        人気のカテゴリー 
+      %ul.top-page__menu
+        - @categories.each do |category| 
+          %li.top-page__menu__item
+            = link_to category.name, '#'
+
   .top-page__new-items
     -unless @category1.nil?
       .top-page__category
@@ -83,21 +79,23 @@
         .top-page__category__largebox
           - @items4.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
-  .top-page__popular-categories
-    .top-page__heading-line
-      人気のブランド
-    %ul.top-page__menu
-      %li.top-page__menu__item
-        = link_to 'シャネル', '#'
-      %li.top-page__menu__item
-        = link_to 'ルイヴィトン', '#'
-      %li.top-page__menu__item
-        = link_to 'シュプリーム', '#'
-      %li.top-page__menu__item
-        = link_to 'ナイキ', '#'
 
 = render 'shared/exhibition-button'
+
 -# 以下、出品画面でブランド入力可能になった後に実装します
+  -# .top-page__popular-categories
+  -#   .top-page__heading-line
+  -#     人気のブランド
+  -#   %ul.top-page__menu
+  -#     %li.top-page__menu__item
+  -#       = link_to 'シャネル', '#'
+  -#     %li.top-page__menu__item
+  -#       = link_to 'ルイヴィトン', '#'
+  -#     %li.top-page__menu__item
+  -#       = link_to 'シュプリーム', '#'
+  -#     %li.top-page__menu__item
+  -#       = link_to 'ナイキ', '#'
+
   -# .top-page__new-items
   -#   .top-page__category
   -#     .top-page__category__new-items

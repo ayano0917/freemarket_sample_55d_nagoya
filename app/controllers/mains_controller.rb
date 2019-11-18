@@ -1,7 +1,9 @@
 class MainsController < ApplicationController
   before_action :get_publishing_item, only: [:index]
   def index
-    ranking1 = @publishing_item.group(:parent_id).order('count_parent_id DESC').limit(6).count(:parent_id).keys
+    ranking1 = @publishing_item.group(:parent_id).order('count_parent_id DESC').limit(4).count(:parent_id).keys
+
+    @categories = Category.where(id: ranking1)
     
     @category1 = Category.find_by(id: ranking1[0])
     @items1 = @publishing_item.where(parent_id: ranking1[0]).order('id DESC').limit(6)
