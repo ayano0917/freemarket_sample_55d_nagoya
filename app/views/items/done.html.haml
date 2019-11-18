@@ -4,6 +4,6 @@
       %h1.complete 出品が完了しました。
     .item-create__box__message
       あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
-    =link_to"続けて出品する","new_item",class: 'item-create__box__btn'
+    =link_to "続けて出品する", new_item_path(current_user), class: 'item-create__box__btn'
     %p.item-create__box__share
-      =link_to "商品ページへ行ってシェアする", '#'
+      =link_to "商品ページへ行ってシェアする",  root_path

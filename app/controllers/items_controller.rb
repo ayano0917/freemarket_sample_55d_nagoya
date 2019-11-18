@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only:[:purchase]
+  before_action :set_item, only:[:show, :purchase]
   before_action :set_card, only:[:purchase, :confirm]
   before_action :set_category, only:[:new, :create, :edit, :update]
 
@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(1) #商品出品未実装のため仮idで対応
     @user = User.find(@item.seller_id)
     @categorys = Category.where(ancestry: nil)
     @category_parent = Category.find(@item.parent_id).name
@@ -28,7 +27,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path 
+      redirect_to done_items_path
     else
       redirect_to new_item_path
     end

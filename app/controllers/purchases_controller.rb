@@ -43,7 +43,7 @@ class PurchasesController < ApplicationController
       @item.save
       redirect_to user_mypage_path(current_user), notice: '購入が完了しました'
     else
-      redirect_to item_purchase_path, alert: '購入に失敗しました。'
+      redirect_to new_item_purchase_path, alert: '購入に失敗しました。'
     end
   end
 

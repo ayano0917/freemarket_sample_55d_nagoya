@@ -1,21 +1,22 @@
 .notification {
-  position: fixed;
+  position: absolute;
   top: 100px;
-  z-index: 3;
+  z-index: 3000;
   width: 100%;
   .notice {
-    background-color: #92f36b;
-    color: #fff;
+    background-color: #dff0d8;
+    color: #468847;
     text-align: center;
     height: 69px;
     line-height: 69px;
+    font-size: 14px;
   }
-
   .alert {
-    background-color: #EA352D;
+    background-color: rgb(211, 41, 32);
     color: #FFFFFF;
     text-align: center;
     height: 69px;
     line-height: 69px;
+    font-size: 14px;
   }
 }
