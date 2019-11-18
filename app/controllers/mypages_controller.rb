@@ -87,10 +87,6 @@ class MypagesController < ApplicationController
   def bought_past_trade
   end
 
-  def change_shipping_address
-    @shipping_address = ShippingAddress.find_by(user_id: current_user.id)
-  end
-
   def notice
   end
 

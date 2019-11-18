@@ -26,7 +26,6 @@ Rails.application.routes.draw do
         get 'items_sold'
         get 'bought_during_trading'
         get 'bought_past_trade'
-        get 'change_shipping_address'
         get 'notice'
         get 'todo_list'
         get 'like_list'
