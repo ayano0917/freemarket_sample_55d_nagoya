@@ -23,7 +23,9 @@ class ApplicationController < ActionController::Base
        :image,
        :profile,
        :sales_amount,
-       :points
+       :points,
+       :provider,
+       :uid
        ])
   end
 
