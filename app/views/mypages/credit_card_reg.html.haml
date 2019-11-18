@@ -65,10 +65,12 @@
                 %option{value: "2029"}29
               = fa_icon 'chevron-down', class: 'main-container__chapter__content__expiration-date__month__icon'
               %span.main-container__chapter__content__expiration-date__month__span 年
+          #message_expired
         .main-container__chapter__content__security-code
           %label.main-container__chapter__content__security-code__label セキュリティコード
           %span.main-container__chapter__content__security-code__require  必須
           = text_field_tag "cvc", "", class: "main-container__chapter__content__security-code__cvc", placeholder: "カード背面４行もしくは３行の番号", maxlength: "4", id: "cvc"
+          #message_cvc
           #card_token_mypage
           .main-container__chapter__content__security-code__seqcode#card-image
             %span.main-container__chapter__content__security-code__seqcode__question ?
