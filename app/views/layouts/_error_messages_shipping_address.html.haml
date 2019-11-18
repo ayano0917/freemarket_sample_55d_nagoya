@@ -1,0 +1,6 @@
+- if @shipping_address.errors.any?
+  - unless @shipping_address.valid?
+    - if errors = @shipping_address.errors.full_messages_for(column.to_sym)
+      %ul.has-error-text
+        - errors.each do |error|
+          %li=error
