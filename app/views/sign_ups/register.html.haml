@@ -19,7 +19,6 @@
         %li.end
           完了
           .progress-status__end
-  -# 上記がヘッダーの記述
   .single-main
     %section.container
       %h2.single-head
@@ -32,6 +31,7 @@
             %span.absolute
               必須
             = f.text_field :nickname, placeholder: "例) メルカリ太郎", class: "input-default"
+            = render 'layouts/error_messages', model: f.object
           .form-group
             %label
               メールアドレス
