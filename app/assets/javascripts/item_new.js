@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
 //           $('.upload-box__dropbox').removeClass('hide');
 //           $('.upload').append(insertHTML);
 //         }
-//         $('.image-label').attr(buildPreviewHTML)
+//         $('.label-hide').attr(buildPreviewHTML)
 //         // $('.upload-container__file-box').append(`<input class ='upload-container__file''name ='item[images_attributes][${image_count}][image]' type ='file'>`)
 //         // $('.upload-container__file-box').append(`<input class ='upload-container__file''name ='image[][name]' type ='file'>`)
 
@@ -134,12 +134,12 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
   var path = location.pathname;
   if (path == "/items/new"){
     // 最初以外のform-mask-imageを非表示
-    $('.form-mask-image:first').removeClass('image-label')
+    $('.form-mask-image:first').removeClass('label-hide')
       $(document).on('change', 'input[type="file"]', function(event){
         $preview_new = $(this).parent();
         previewfile(event,$preview_new)
-        $(this).parent().parent().parent().addClass("image-label");
-        $(this).parent().parent().parent().next('.form-mask-image').removeClass("image-label");
+        $(this).parent().parent().parent().addClass("label-hide");
+        $(this).parent().parent().parent().next('.form-mask-image').removeClass("label-hide");
       })
       function previewfile(e,$preview_new) {
         var file = e.target.files[0],
@@ -150,29 +150,23 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
 
         reader.onload = (function(file) {
           return function(e){
-            var buildPreviewHTML =`<ul>
-                                    <li class='upload-item'>
-                                      <div class='upload-item__square'>
-                                        <img src='${e.target.result}' class='image-preview'>
-                                      </div>
-                                      <div class='upload-item__btn-box'>
-                                        <span class='upload-item__btn-box--edit'>編集</span>
-                                        <span class='upload-item__btn-box--delete'>削除</span>
-                                      </div>
-                                    </li>
-                                  </ul>`;
+            var buildPreviewHTML =`<div class='upload-item' style='display:inline-block'>
+                                    <div class='upload-item__square'>
+                                      <img class='img'>
+                                    </div>
+                                    <div class='upload-item__btn-box'>
+                                      <span class='upload-item__btn-box--edit'>編集</span>
+                                      <span class='upload-item__btn-box--delete'>削除</span>
+                                    </div>
+                                  </div>`;
             // $('.upload-images').attr(buildPreviewHTML)
             $preview_new.parent().parent().after(buildPreviewHTML)
-            $preview_new.parent().parent().next().children().children('image-preview').attr({
-              // src: e.target.result,
-              width: "100%",
-              height: "100%",
-              class: "preview"
-            })
+            $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
 
-            var previewCount = $('.preview').length; //previewの数によってdropboxのwidthを変更
+            var previewCount = $('.img').length; //previewの数によってdropboxのwidthを変更
+            console.log($('.img').length)
             if  (previewCount == 1 || previewCount == 6){
-              $('.form-mask-image').width(490);
+              $('.form-mask-image').width(480);
             } else if (previewCount == 2 || previewCount == 7){
               $('.form-mask-image').width(360);
             } else if (previewCount == 3 || previewCount == 8){
@@ -182,26 +176,11 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
             } else if (previewCount == 5){
               $('.form-mask-image').width(620);
             } else if (previewCount == 10){
-              $('.form-mask-image').addClass('image-label');
-        }
-    L// // プレビューBOXの生成
-//   function buildPreviewHTML(e, image_count) {
-//     var html =`<ul>
-//                   <li class='upload-item'>
-//                     <div class='upload-item__square'>
-//                       <img src='${e.target.result}' class='image-preview' data-image=${image_count}>
-//                     </div>
-//                     <div class='upload-item__btn-box'>
-//                       <span class='upload-item__btn-box--edit'>編集</span>
-//                       <span class='upload-item__btn-box--delete' data-image=${image_count}>削除</span>
-//                     </div>
-//                   </li>
-//                 </ul>`;
-//     return html;
-//   }
+              $('.form-mask-image').addClass('label-hide');
+            }
           }
         })(file);
-        reader.readAsDataURL(file);
-      }
+      reader.readAsDataURL(file);
+    }
   }
 })

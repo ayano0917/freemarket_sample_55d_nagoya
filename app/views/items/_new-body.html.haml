@@ -30,14 +30,14 @@
         -#             クリックしてファイルをアップロード
 
         .upload-box__dropbox.cleafix
-          .upload-container{data: {num: 0}}
-            = f.fields_for :images do |i|
-              = i.label :image, class: 'image-label form-mask-image' do
-                .form-mask-image
-                  .upload-container__file-box{data:{i: 1}}
-                    = i.file_field :image, class: 'upload-container__file'
-                  %pre.upload-container--sentence 
-                    クリックしてファイルをアップロード
+          -# .upload-container{data: {num: 0}}
+          = f.fields_for :images do |i|
+            = i.label :image, class: 'label-hide form-mask-image' do
+              .form-mask-image
+                .upload-container__file-box{data:{i: 1}}
+                  = i.file_field :image, class: 'upload-container__file'
+                %pre.upload-container--sentence 
+                  クリックしてファイルをアップロード
           .upload-images
           .upload-images2
 
