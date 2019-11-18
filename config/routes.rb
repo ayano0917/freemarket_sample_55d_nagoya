@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   root 'mains#index'
 
-  resources :mains, only: [:index]
-
+  resources :mains, only: [:index] do
+    collection do
+      get 'get_publishing_item'
+    end  
+  end
   resources :users, only: [:update] do
     resource :mypage, only: [:show] do
       collection do

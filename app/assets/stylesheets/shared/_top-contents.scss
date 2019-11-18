@@ -53,7 +53,7 @@
       }
     }
     &__article2 { /*切り替わる画面*/
-      background: url('https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-892151cc75b1f6a1285bf7943c9b933c.jpg');
+      background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-892151cc75b1f6a1285bf7943c9b933c.jpg');
       display: flex;
       &__contents{
         height: 390px;
@@ -136,7 +136,6 @@
     letter-spacing: 1px;
     .top-page__category {
       width: 1000px;
-      height: 650px;
       margin: 0 auto;
       &__new-items {
         display: flex;
@@ -155,23 +154,26 @@
       }
       .top-page__category__largebox {
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
         .top-page__category-box {
           position: relative;
           width: 185px;
           height: 250px;
-          margin: 20px 0px 10px 0px;
-          background-color: white;
+          margin: 20px 18.75px 10px 0px;
           box-shadow: 2px 2px 4px gray;
+          background-color: white;
           &:hover {
             outline: 1.5px solid #6091d3;
           }
-            a{
+            a {
               position: absolute;
               height: 100%;
               width: 100%;
             }
+              img.top-new-item {
+                width: 185px;
+                height: 185px;
+              }
               .top-page__price {
                 position: absolute;
                 left: 0px;
@@ -199,6 +201,9 @@
                   overflow: hidden;
                 }
               }
+        }
+        .top-page__category-box:last-child {
+          margin: 20px 0px 10px 0px;
         }
       }
     }

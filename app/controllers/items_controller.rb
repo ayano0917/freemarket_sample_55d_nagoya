@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def show #商品出品未実装のため仮idで対応
+  def show
     @user = User.find(@item.seller_id)
     @categorys = Category.where(ancestry: nil)
     @category_parent = Category.find(@item.parent_id).name
