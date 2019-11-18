@@ -3,7 +3,7 @@ class MainsController < ApplicationController
   def index
     ranking1 = @publishing_item.group(:parent_id).order('count_parent_id DESC').limit(4).count(:parent_id).keys
 
-    @categories = Category.where(id: ranking1)
+    @categories = Category.where(id: ranking1).order("FIELD(id, #{ranking1.join(',')})")
     
     @category1 = Category.find_by(id: ranking1[0])
     @items1 = @publishing_item.where(parent_id: ranking1[0]).order('id DESC').limit(6)
