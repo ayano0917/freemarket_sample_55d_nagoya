@@ -136,7 +136,6 @@
     letter-spacing: 1px;
     .top-page__category {
       width: 1000px;
-      height: 650px;
       margin: 0 auto;
       &__new-items {
         display: flex;
@@ -202,6 +201,9 @@
                   overflow: hidden;
                 }
               }
+        }
+        .top-page__category-box:last-child {
+          margin: 20px 0px 10px 0px;
         }
       }
     }
