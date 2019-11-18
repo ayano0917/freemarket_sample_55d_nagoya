@@ -23,7 +23,7 @@
     %section.container
       %h2.single-head
         会員情報入力
-      = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get}) do |f|
+      = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get}, html: {id: :user_form}) do |f|
         .single-content
           .form-group__top
             %label
@@ -31,7 +31,6 @@
             %span.absolute
               必須
             = f.text_field :nickname, placeholder: "例) メルカリ太郎", class: "input-default"
-            = render 'layouts/error_messages', model: f.object
           .form-group
             %label
               メールアドレス
