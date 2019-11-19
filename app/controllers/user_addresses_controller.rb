@@ -12,7 +12,7 @@ class UserAddressesController < ApplicationController
       )
       redirect_to personal_info_user_mypage_path(current_user), notice: '変更しました。'
     else
-      render_to user_mypage_path(current_user), alert: '変更出来ませんでした。'
+      render_to user_mypage_path(current_user)
     end
       
   end

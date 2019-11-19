@@ -38,7 +38,8 @@ format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: 'フォーマッ�
 validates :password,
 presence: {message: 'パスワードを入力してください'},
 length: {in: 7..128, message: 'パスワードは7文字以上128文字以下で入力してください'},
-format: { with: /\A[a-z0-9]+\z/i, message: '英字と数字両方を含むパスワードを設定してください'}
+format: { with: /\A[a-z0-9]+\z/i, message: '英字と数字両方を含むパスワードを設定してください'},
+on: :create
 validates :last_name,
 presence: {message: '姓を入力してください'},
 length: { maximum: 35, message: '姓は35文字までです', allow_blank: true},

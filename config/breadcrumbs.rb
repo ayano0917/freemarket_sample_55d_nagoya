@@ -47,7 +47,7 @@ crumb :bought_past_trade do
 end
 
 crumb :plofile do
-  link "プロフィール", profile_user_mypage_path
+  link "プロフィール", user_path(current_user)
   parent :mypage
 end
 

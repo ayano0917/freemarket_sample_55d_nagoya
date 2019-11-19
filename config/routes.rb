@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :mains, only: [:index]
 
-  resources :users, only: [:update] do
+  resources :users, only: [:show, :update] do
     resource :mypage, only: [:show] do
       collection do
         get 'profile'

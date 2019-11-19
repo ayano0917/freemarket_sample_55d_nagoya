@@ -25,7 +25,7 @@ class ShippingAddressesController < ApplicationController
     if @shipping_address.update(shipping_address_params)
       redirect_to shipping_address_path(current_user), notice: '変更しました。'
     else
-      render action: "show", alert: '変更出来ませんでした。'
+      render action: "show"
     end
   end
 
