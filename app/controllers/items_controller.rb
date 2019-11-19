@@ -25,7 +25,8 @@ class ItemsController < ApplicationController
   def new
     redirect_to new_user_session_path unless user_signed_in?
     @item = Item.new
-    @item.images.build
+    # @item.images.build
+    10.times{@item.images.build}
   end
 
   def create
@@ -81,7 +82,6 @@ class ItemsController < ApplicationController
       :status,
       :buyer_id,
       images_attributes: [:image]
-      # images_attributes: {images: []}
     ).merge(seller_id: current_user.id)
   end
 

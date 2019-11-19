@@ -8,13 +8,11 @@
           %span.form-require 必須
         %p.max 最大10枚までアップロードできます
         .upload-box__dropbox.cleafix
-          .upload-container{data: {num: 0}}
-            = f.fields_for :images do |i|
-              = i.label :image, class: "image-label" do
-                %ul.upload-container__items#item-preview1
-                %ul.upload-container__items#item-preview2.hide
-                .upload-container__file-box{data:{i: 1}}
-                  = i.file_field :image, class: 'upload-container__file', required: true
+          = f.fields_for :images do |i|
+            = i.label :image, class: 'label-hide form-mask-image' do
+              .form-mask-image
+                .upload-container__file-box
+                  = i.file_field :image, class: 'upload-container__file'
                 %pre.upload-container--sentence 
                   クリックしてファイルをアップロード
       .item-base
@@ -43,7 +41,7 @@
               = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
             .form-group1__pulldown.hide#category-child-2
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category', required: true 
+              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category', required: true
           .form-group2
             %label.form-group2__label
               商品の状態
