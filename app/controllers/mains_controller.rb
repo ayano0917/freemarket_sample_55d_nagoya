@@ -1,18 +1,16 @@
 class MainsController < ApplicationController
   before_action :get_publishing_item, only: [:index]
   def index
-    ranking1 = @publishing_item.group(:parent_id).order('count_parent_id DESC').limit(6).count(:parent_id).keys
+    ranking1 = @publishing_item.group(:parent_id).order('count_parent_id DESC').limit(4).count(:parent_id).keys
+
+    @categories = Category.where(id: ranking1).order("FIELD(id, #{ranking1.join(',')})")
     
-    @category1 = Category.find_by(id: ranking1[0])
     @items1 = @publishing_item.where(parent_id: ranking1[0]).order('id DESC').limit(6)
     
-    @category2 = Category.find_by(id: ranking1[1])
     @items2 = @publishing_item.where(parent_id: ranking1[1]).order('id DESC').limit(6)
     
-    @category3 = Category.find_by(id: ranking1[2])
     @items3 = @publishing_item.where(parent_id: ranking1[2]).order('id DESC').limit(6)
 
-    @category4 = Category.find_by(id: ranking1[3])
     @items4 = @publishing_item.where(parent_id: ranking1[3]).order('id DESC').limit(6)
   end
 
