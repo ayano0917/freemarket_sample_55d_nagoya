@@ -123,18 +123,20 @@
   .product-details__icon
     = render 'shared/icon-box' 
   .product-details__other-items
-    %section.product-details__other-items__section
-      %h2
-        = link_to "#{@user.nickname}さんのその他の出品"
-      .product-details__other-items__section__content
-        - @items.each_with_index do |item,i|
-          = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
-
-          -# 当ページ、孫カテゴリその他アイテム一覧のビュー。カテゴリ分け未実装のため実装後まで一旦保留
-    -# %section.product-details__other-items__section
-    -#   %h2
-    -#     = link_to "#{@category} その他の商品"
-    -#   .product-details__other-items__section__content
+    - unless @items.blank?
+      %section.product-details__other-items__section
+        %h2
+          = link_to "#{@user.nickname}さんのその他の出品"
+        .product-details__other-items__section__content
+          - @items.each_with_index do |item,i|
+            = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+    - unless @otheritems.blank?        
+      %section.product-details__other-items__section
+        %h2
+          = link_to "#{@item.category.name} その他の商品"
+        .product-details__other-items__section__content
+          - @otheritems.each_with_index do |item,i|
+            = render partial: 'items/items-box', locals: { items: item, images: @otherimages[i] }
 
   .product-details__pos-bottom
     %ul
