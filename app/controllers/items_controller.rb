@@ -30,8 +30,12 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
+      params[:images][:image].each do |image|
+        item.images.create!(name: image, item_id: item.id)
+      end
       redirect_to done_items_path
     else
       redirect_to new_item_path
