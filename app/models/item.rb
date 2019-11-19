@@ -26,4 +26,13 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :days_before_shipping_id, presence: true
   validates :price, presence: true, numericality: { only_integer: true , greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+
+  def previous
+    Item.where("id < ?",id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", id).order("id ASC").first
+  end
+
 end
