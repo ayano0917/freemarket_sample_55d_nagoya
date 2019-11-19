@@ -33,10 +33,10 @@
           %td.product-details__main__item-main-content__right-box__table-row__data
             = link_to @category_parent, '#'
             %br/
-            = link_to @category_child, '#'
+            = link_to "＞#{@category_child}", '#'
             - if @item.category
               %br/
-              = link_to @item.category.name, '#'
+              = link_to "＞#{@item.category.name}", '#'
               %br/
         - if @item.brand.nil?
           %tr.product-details__main__item-main-content__right-box__table-row
