@@ -10,15 +10,6 @@ class MypagesController < ApplicationController
   def logout
   end
 
-  def personal_info
-    if current_user.user_address.present?
-      @user_address = UserAddress.find_by(user_id: current_user.id)
-    else
-      @user_address = UserAddress.new
-    end
-  end
-
-  # ここからクレジットカード関連
   def payment  #クレジットカード追加画面
     card = CreditCard.find_by(user_id: current_user.id)
     redirect_to action: "credit_card_show" if card.present?
@@ -70,7 +61,6 @@ class MypagesController < ApplicationController
       end
     end
   end
-  # ここまで
 
   def items_selling
   end

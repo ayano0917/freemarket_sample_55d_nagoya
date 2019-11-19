@@ -67,7 +67,7 @@ crumb :update_email_pass do
 end
 
 crumb :personal_info do
-  link "本人情報", personal_info_user_mypage_path
+  link "本人情報", user_address_path(current_user)
   parent :mypage
 end
 

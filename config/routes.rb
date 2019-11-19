@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       collection do
         get 'profile'
         get 'logout'
-        get 'personal_info'
         post 'create_personal_info'
         get 'payment'
         get 'credit_card_reg'
@@ -56,7 +55,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_addresses, only: [:update, :create]
+  resources :user_addresses, only: [:show, :update, :create]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
   resources :credit_cards, only: [:new, :create, :show] do

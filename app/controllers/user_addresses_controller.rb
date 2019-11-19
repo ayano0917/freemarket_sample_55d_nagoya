@@ -1,18 +1,20 @@
 class UserAddressesController < ApplicationController
 
+  def show
+    if current_user.user_address.present?
+      @user_address = UserAddress.find_by(user_id: current_user.id)
+    else
+      @user_address = UserAddress.new
+    end
+  end
+
   def update
     @user_address = UserAddress.find_or_initialize_by(user_id: current_user.id)
 
-    if @user_address.update(
-      postal_code: user_address_params[:postal_code],
-      prefecture_id: user_address_params[:prefecture_id],
-      city: user_address_params[:city],
-      house_number: user_address_params[:house_number],
-      building: user_address_params[:building]
-      )
-      redirect_to personal_info_user_mypage_path(current_user), notice: '変更しました。'
+    if @user_address.update(user_address_params)
+      redirect_to user_address_path(current_user), notice: '変更しました。'
     else
-      render_to user_mypage_path(current_user)
+      render action: "show"
     end
       
   end

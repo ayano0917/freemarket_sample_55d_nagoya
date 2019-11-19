@@ -3,8 +3,8 @@ class UserAddress < ApplicationRecord
   belongs_to :user, optional: true
 
   validates :postal_code,
-  length: {is: 7},
-  numericality: {only_integer: true, message: 'フォーマットが不適切です'}
+  length: {is: 7, message: 'ハイフン抜き半角数字7文字で入力してください', allow_blank: true},
+  numericality: {only_integer: true, message: 'フォーマットが不適切です', allow_blank: true}
   validates :city,
   length: {maximum: 50, message: '50文字以下で入力してください'}
   validates :house_number,

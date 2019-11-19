@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       shipping_address: 配送先住所
+      user_address: 本人情報の登録
     attributes:
       user:
         nickname: ""
@@ -25,3 +26,10 @@ ja:
         house_number: ""
         building: ""
         phone: ""
+      user_address:
+        postal_code: ""
+        prefecture_id: ""
+        city: ""
+        house_number: ""
+        building: ""
+
