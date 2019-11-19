@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!, only:[:new]
   before_action :set_item, only:[:buy, :new]
   before_action :set_card, only:[:buy, :new]
 

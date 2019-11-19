@@ -33,10 +33,10 @@
           %td.product-details__main__item-main-content__right-box__table-row__data
             = link_to @category_parent, '#'
             %br/
-            = link_to @category_child, '#'
+            = link_to "＞#{@category_child}", '#'
             - if @item.category
               %br/
-              = link_to @item.category.name, '#'
+              = link_to "＞#{@item.category.name}", '#'
               %br/
         - if @item.brand.nil?
           %tr.product-details__main__item-main-content__right-box__table-row
@@ -108,29 +108,35 @@
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea{name: 'body', type: 'text', value: ''}
           %button{type: 'submit'}
-            %span コメントする
+            %span コメントする          
   .product-details__link
-    = link_to '#', class: 'link__left' do
-      = fa_icon 'chevron-left', class: 'arrow-left'
-      %span.link-left 前の商品
-    = link_to '#', class: 'link__right' do
-      %span.link-right 次の商品
-      = fa_icon 'chevron-right', class: 'arrow-right'   
+    - if @item.previous.present?
+      = link_to item_path(@item.previous.id), class: 'link__left' do
+        = fa_icon 'chevron-left', class: 'arrow-left'
+        %span.link-left 前の商品
+    - else
+      .hide
+    - if @item.next.present?      
+      = link_to item_path(@item.next.id), class: 'link__right' do
+        %span.link-right 次の商品
+        = fa_icon 'chevron-right', class: 'arrow-right'   
   .product-details__icon
     = render 'shared/icon-box' 
   .product-details__other-items
-    %section.product-details__other-items__section
-      %h2
-        = link_to "#{@user.nickname}さんのその他の出品"
-      .product-details__other-items__section__content
-        - @items.each_with_index do |item,i|
-          = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
-
-          -# 当ページ、孫カテゴリその他アイテム一覧のビュー。カテゴリ分け未実装のため実装後まで一旦保留
-    -# %section.product-details__other-items__section
-    -#   %h2
-    -#     = link_to "#{@category} その他の商品"
-    -#   .product-details__other-items__section__content
+    - unless @items.blank?
+      %section.product-details__other-items__section
+        %h2
+          = link_to "#{@user.nickname}さんのその他の出品"
+        .product-details__other-items__section__content
+          - @items.each_with_index do |item,i|
+            = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+    - unless @otheritems.blank?        
+      %section.product-details__other-items__section
+        %h2
+          = link_to "#{@item.category.name} その他の商品"
+        .product-details__other-items__section__content
+          - @otheritems.each_with_index do |item,i|
+            = render partial: 'items/items-box', locals: { items: item, images: @otherimages[i] }
 
   .product-details__pos-bottom
     %ul
