@@ -110,43 +110,44 @@
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea{name: 'body', type: 'text', value: ''}
           %button{type: 'submit'}
-            %span コメントする          
-  .product-details__link
-    - if @item.previous.present?
-      = link_to item_path(@item.previous.id), class: 'link__left' do
-        = fa_icon 'chevron-left', class: 'arrow-left'
-        %span.link-left
-          = @item.previous.name
-    - else
-      .hide
-    - if @item.next.present?      
-      = link_to item_path(@item.next.id), class: 'link__right' do
-        %span.link-right
-          = @item.next.name
-        = fa_icon 'chevron-right', class: 'arrow-right'   
-  .product-details__icon
-    = render 'shared/icon-box' 
-  .product-details__other-items
-    - unless @items.blank?
-      %section.product-details__other-items__section
-        %h2
-          = link_to "#{@user.nickname}さんのその他の出品"
-        .product-details__other-items__section__content
-          - @items.each_with_index do |item,i|
-            = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
-    - unless @otheritems.blank?        
-      %section.product-details__other-items__section
-        %h2
-          = link_to "#{@item.category.name} その他の商品"
-        .product-details__other-items__section__content
-          - @otheritems.each_with_index do |item,i|
-            = render partial: 'items/items-box', locals: { items: item, images: @otherimages[i] }
+            %span コメントする
+  -if current_user&.id != @item.seller_id                    
+    .product-details__link
+      - if @item.previous.present?
+        = link_to item_path(@item.previous.id), class: 'link__left' do
+          = fa_icon 'chevron-left', class: 'arrow-left'
+          %span.link-left
+            = @item.previous.name
+      - else
+        .hide
+      - if @item.next.present?      
+        = link_to item_path(@item.next.id), class: 'link__right' do
+          %span.link-right
+            = @item.next.name
+          = fa_icon 'chevron-right', class: 'arrow-right'   
+    .product-details__icon
+      = render 'shared/icon-box' 
+    .product-details__other-items
+      - unless @items.blank?
+        %section.product-details__other-items__section
+          %h2
+            = link_to "#{@user.nickname}さんのその他の出品"
+          .product-details__other-items__section__content
+            - @items.each_with_index do |item,i|
+              = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+      - unless @otheritems.blank?        
+        %section.product-details__other-items__section
+          %h2
+            = link_to "#{@item.category.name} その他の商品"
+          .product-details__other-items__section__content
+            - @otheritems.each_with_index do |item,i|
+              = render partial: 'items/items-box', locals: { items: item, images: @otherimages[i] }
 
-  .product-details__pos-bottom
-    %ul
-      %li
-        = link_to 'メルカリ', root_path
-        = fa_icon 'chevron-right'
-      %li
-        %span
-          = @item.name
+    .product-details__pos-bottom
+      %ul
+        %li
+          = link_to 'メルカリ', root_path
+          = fa_icon 'chevron-right'
+        %li
+          %span
+            = @item.name
