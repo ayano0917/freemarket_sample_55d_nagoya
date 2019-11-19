@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @images = @items.map{|item| item.images[0]}
     
     #孫カテゴリーその他の商品
-    @otheritems = Item.where(category_id: @item.category.id).where.not(id: @item.id).limit(6).order("id ASC")
+    @otheritems = Item.where(category_id: @item.category.id).where.not(id: @item.id).where.not(id: @items.ids).limit(6).order("id ASC")
     @otherimages = @otheritems.map{|item| item.images[0]}
 
   end
