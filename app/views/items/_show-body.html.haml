@@ -100,7 +100,9 @@
       .product-details__main__button__button-right
         = link_to '#', class: 'product-details__main__button__button-right__anzen' do
           = fa_icon 'lock', class: 'lock-icon' 
-          %span あんしん・あんぜんへの取り組み                           
+          %span あんしん・あんぜんへの取り組み
+  -if current_user&.id == @item.seller_id       
+    = render partial: 'items/listing-item-change-box', locals: {item: @item}                        
   .product-details__comment
     .product-details__comment__container
       .product-details__comment__container__content
