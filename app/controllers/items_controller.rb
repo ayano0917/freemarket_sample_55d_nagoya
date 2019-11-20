@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only:[:show, :purchase]
+  before_action :set_item, only:[:show, :destroy]
   before_action :set_card, only:[:purchase, :confirm]
   before_action :set_category, only:[:new, :create, :edit, :update]
 
@@ -30,15 +30,19 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     if @item.save
-      params[:images][:image].each do |image|
-        item.images.create!(name: image, item_id: item.id)
-      end
       redirect_to done_items_path
     else
       redirect_to new_item_path
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to items_selling_user_mypage_path(current_user), notice: '商品を削除しました'
+    else
+      redirect_to items_selling_user_mypage_path(current_user), alert: '商品を削除できませんでした。'
     end
   end
 

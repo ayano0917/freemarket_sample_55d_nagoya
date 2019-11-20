@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:new ,:index, :show, :create] do
+  resources :items, only: [:new ,:index, :show, :create, :edit, :update, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
