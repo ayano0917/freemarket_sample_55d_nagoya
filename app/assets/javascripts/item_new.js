@@ -1,5 +1,13 @@
 $(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
-
+  // $(document).ready( function(){
+  //   if (window.name != "test") {
+  //   alert("reload");
+  //   location.reload();
+  //   window.name = "test";
+  //   } else {
+  //   window.name = "";
+  //   }
+  //   });
   var path = location.pathname;
   if (path == "/items/new"){
     // 最初以外のform-mask-imageを非表示
@@ -52,3 +60,5 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
     }
   }
 })
+
+
