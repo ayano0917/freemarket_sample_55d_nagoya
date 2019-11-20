@@ -7,6 +7,5 @@ class CreateSizes < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     add_index :sizes, :ancestry
-    end
   end
 end
