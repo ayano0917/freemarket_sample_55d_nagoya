@@ -41,7 +41,7 @@
               = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
             .form-group1__pulldown.hide#category-child-2
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category', required: true
+              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
           .form-group2
             %label.form-group2__label
               商品の状態
