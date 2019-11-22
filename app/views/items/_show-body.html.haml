@@ -109,11 +109,13 @@
         .product-details__comment__container__messages__box
           あああああああ
       .product-details__comment__container__content
-        = form_for(@item, url: items_path, html:{method: :post}) do |f|.product-details__comment__container__content__form
+        = form_for(@comment, url: item_comments_path(@item), html:{class: "product-details__comment__container__content__form"}) do |f|
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %textarea{name: 'body', type: 'text', value: ''}
-          %button{type: 'submit'}
-            %span コメントする
+          = f.text_area :content
+          - unless @item.buyer_id
+            = f.submit "コメントする", class: "message-submit button-default"
+          -else
+            .message-submit.button-default.sold-button-comment 売り切れのためコメントできません
   -if current_user&.id != @item.seller_id                    
     .product-details__link
       - if @item.previous.present?
