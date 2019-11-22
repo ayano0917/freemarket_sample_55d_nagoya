@@ -80,52 +80,58 @@
           - @items4.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
 
-= render 'shared/exhibition-button'
+  -unless @brands.blank?          
+    .top-page__popular-categories
+      .top-page__heading-line
+        人気のブランド
+      %ul.top-page__menu
+        - @brands.each do |brand| 
+          %li.top-page__menu__item
+            = link_to brand.name, '#'
 
--# 以下、出品画面でブランド入力可能になった後に実装します
-  -# .top-page__popular-categories
-  -#   .top-page__heading-line
-  -#     人気のブランド
-  -#   %ul.top-page__menu
-  -#     %li.top-page__menu__item
-  -#       = link_to 'シャネル', '#'
-  -#     %li.top-page__menu__item
-  -#       = link_to 'ルイヴィトン', '#'
-  -#     %li.top-page__menu__item
-  -#       = link_to 'シュプリーム', '#'
-  -#     %li.top-page__menu__item
-  -#       = link_to 'ナイキ', '#'
+  .top-page__new-items
+    -unless @brands[0].nil?
+      .top-page__category
+        .top-page__category__new-items
+          = "#{@brands[0].name}新着アイテム"
+          -if @items5.length >= 6
+            .top-page__category__new-items__more
+              = link_to 'もっと見る ＞', '#' 
+        .top-page__category__largebox
+          - @items5.first(5).each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
 
-  -# .top-page__new-items
-  -#   .top-page__category
-  -#     .top-page__category__new-items
-  -#       シャネル新着アイテム
-  -#       .top-page__category__new-items__more
-  -#         = link_to 'もっと見る ＞', '#' 
-  -#     .top-page__category__largebox
-  -#       -# = render 'items/categorybox'
-        
-  -#   .top-page__category
-  -#     .top-page__category__new-items
-  -#       ルイヴィトン新着アイテム
-  -#       .top-page__category__new-items__more
-  -#         = link_to 'もっと見る ＞', '#' 
-  -#     .top-page__category__largebox
-  -#       -# = render 'items/categorybox'
+    -unless @brands[1].nil?
+      .top-page__category
+        .top-page__category__new-items
+          = "#{@brands[1].name}新着アイテム"
+          -if @items6.length >= 6
+            .top-page__category__new-items__more
+              = link_to 'もっと見る ＞', '#' 
+        .top-page__category__largebox
+          - @items6.first(5).each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
 
-  -#   .top-page__category
-  -#     .top-page__category__new-items
-  -#       シュプリーム新着アイテム
-  -#       .top-page__category__new-items__more
-  -#         = link_to 'もっと見る ＞', '#'
-  -#     .top-page__category__largebox
-  -#       -# = render 'items/categorybox'
+    -unless @brands[2].nil?
+      .top-page__category
+        .top-page__category__new-items
+          = "#{@brands[2].name}新着アイテム"
+          -if @items7.length >= 6
+            .top-page__category__new-items__more
+              = link_to 'もっと見る ＞', '#' 
+        .top-page__category__largebox
+          - @items7.first(5).each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }
 
-  -#   .top-page__category
-  -#     .top-page__category__new-items
-  -#       ナイキ新着アイテム
-  -#       .top-page__category__new-items__more
-  -#         = link_to 'もっと見る ＞', '#'
-  -#     .top-page__category__largebox
-  -#       -# = render 'items/categorybox'
-  
+    -unless @brands[3].nil?
+      .top-page__category
+        .top-page__category__new-items
+          = "#{@brands[3].name}新着アイテム"
+          -if @items8.length >= 6
+            .top-page__category__new-items__more
+              = link_to 'もっと見る ＞', '#' 
+        .top-page__category__largebox
+          - @items8.first(5).each do |item|
+            = render partial: 'items/categorybox', locals: { item: item }                                   
+
+  = render 'shared/exhibition-button'
