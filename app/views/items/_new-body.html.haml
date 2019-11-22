@@ -41,14 +41,20 @@
               = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
             .form-group1__pulldown.hide#category-child-2
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category', required: true
-          .form-group2
-            %label.form-group2__label
-              商品の状態
+              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
+          .form-group2.hide#item-size
+            %label.form-group2__label サイズ
             %span.form-group2__require 必須
             .form-group2__pulldown
-              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
-              =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+              = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+              = f.collection_select :size_id, {}, :id, :name, {prompt: "---"}, class:'form-group2__pulldown--choices', id: 'select-size'    
+          .form-group3
+            %label.form-group3__label
+              商品の状態
+            %span.form-group3__require 必須
+            .form-group3__pulldown
+              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group3__pulldown--choices', required: true
+              =fa_icon 'chevron-down', class: 'form-group3__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 配送について
         =link_to '#', class: 'sub-head--question' do

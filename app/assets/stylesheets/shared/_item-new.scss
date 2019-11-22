@@ -180,7 +180,7 @@
         width: 400px;
         margin: 0;
         .form-group1 {
-          margin: 0;
+          margin: 40px 0 0;
           @include pulldown;
           .hide {
             display: none;
@@ -188,9 +188,16 @@
           }
         .form-group2 {
           margin: 40px 0 0;
+          @include pulldown;     
+        }
+        .hide {
+          display: none;
+        }
+        .form-group3 {
+          margin: 40px 0 0;
           @include pulldown;
         }
-      }
+      }  
       .ul-box {
         list-style: none;
         .price-form {
