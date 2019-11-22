@@ -1,5 +1,5 @@
 class MainsController < ApplicationController
-  before_action :get_publishing_item, only: [:index]
+  before_action :get_publishing_item, only: [:index, :search]
   def index
     ranking1 = @publishing_item.group(:parent_id).order('count_parent_id DESC').limit(4).count(:parent_id).keys
 
@@ -16,6 +16,10 @@ class MainsController < ApplicationController
 
   def get_publishing_item
     @publishing_item = Item.where(buyer_id: nil)
+  end
+
+  def search
+    @item = @publishing_item.where('name  LIKE(?) OR description LIKE(?) ', "%#{params[:keyword]}%","%#{params[:keyword]}%").page(params[:page]).per(20)
   end
 
 end
