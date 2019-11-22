@@ -60,6 +60,7 @@ $(document).on('turbolinks:load', function() {
       $('#category-child-1').removeClass('hide');
       disappearSizeBox();
       disapperGrandchild();
+      $('#item-brand').removeClass('hide2');
       $.ajax({
         url: '/items/get_category_children',
         type: 'Get',
