@@ -1,8 +1,21 @@
 $(document).on('turbolinks:load', function() {
-// カテゴリーボックスのオプションを作成
+  // カテゴリーボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
+  }
+
+  // サイズセレクトボックスのオプションを作成
+  function appendSizeOption(size){
+   var html = `<option value="${size.id}">${size.name}</option>`;
+   return html;
+  }  
+
+  // サイズボックスを隠す・valを消す・バリデーションを消す
+  function disappearSizeBox() {
+    $('#item-size').addClass('hide');
+    $('#select-size option:selected').val('');
+    $('#select-size').removeAttr('required');
   }
 
   function disapperGrandchild(){
@@ -11,12 +24,43 @@ $(document).on('turbolinks:load', function() {
     $('#grandchild_category').removeAttr('required');
   }
 
+  // サイズボックスを表示させる
+  function appearSizeBox(category_id){
+    if (category_id != 0){
+      $.ajax({
+        url: '/items/get_size',
+        type: 'Get',
+        data: {category_id: category_id},
+        dataType: 'json'
+      }).done(function(sizes){
+        if (sizes.length != 0){
+          $('#select-size option').remove();
+          $('#item-size').removeClass('hide');
+          $('#select-size').attr('required', 'required');
+          var insertHTML = `<option value="">---</option>`;
+          sizes.forEach(function(size){
+            insertHTML += appendSizeOption(size);
+          })
+          $('#select-size').append(insertHTML);
+        } else {
+          disappearSizeBox();
+        }
+      }).fail(function(){
+        alert('サイズ取得に失敗しました');
+      })
+    } else {
+      disappearSizeBox();
+    }
+  }
+
   // 親カテゴリー選択で子カテゴリー生成
   $('#parent_category').change(function () {
     var parent_id = $('#parent_category option:selected').val();
     if (parent_id.length != 0){
       $('#category-child-1').removeClass('hide');
+      disappearSizeBox();
       disapperGrandchild();
+      $('#item-brand').removeClass('hide2');
       $.ajax({
         url: '/items/get_category_children',
         type: 'Get',
@@ -60,6 +104,7 @@ $(document).on('turbolinks:load', function() {
           $('#grandchild_category').attr('required', 'required');
         } else {   
           disapperGrandchild();
+          appearSizeBox(child_id);
         }
       }).fail(function(){
         alert('カテゴリー取得に失敗しました');
@@ -67,5 +112,11 @@ $(document).on('turbolinks:load', function() {
     } else {
       disapperGrandchild();
     }
+  });
+
+  // 孫カテゴリー選択でサイズレクトボックス生成
+  $('#grandchild_category').change(function(){
+    var grandchild_id = $('#grandchild_category option:selected').val();
+    appearSizeBox(grandchild_id);
   });
 });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191117073505) do
+ActiveRecord::Schema.define(version: 20191120114339) do
 
   create_table "birth_years", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20191117073505) do
   end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -29,6 +30,15 @@ ActiveRecord::Schema.define(version: 20191117073505) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
+
+  create_table "category_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "category_id", null: false
+    t.integer  "size_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_sizes_on_category_id", using: :btree
+    t.index ["size_id"], name: "index_category_sizes_on_size_id", using: :btree
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,7 +77,6 @@ ActiveRecord::Schema.define(version: 20191117073505) do
     t.integer  "prefecture_id"
     t.integer  "days_before_shipping_id"
     t.integer  "size_id"
-    t.string   "brand"
     t.integer  "category_id"
     t.integer  "price"
     t.integer  "seller_id"
@@ -77,6 +86,7 @@ ActiveRecord::Schema.define(version: 20191117073505) do
     t.integer  "child_id",                              null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["child_id"], name: "index_items_on_child_id", using: :btree
@@ -104,6 +114,14 @@ ActiveRecord::Schema.define(version: 20191117073505) do
   create_table "sign_ups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_sizes_on_ancestry", using: :btree
   end
 
   create_table "user_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

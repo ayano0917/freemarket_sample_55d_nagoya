@@ -27,12 +27,22 @@ class ItemsController < ApplicationController
     @item = Item.new
     # @item.images.build
     10.times{@item.images.build}
+    @brand = Brand.new
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
-      # redirect_to done_items_path
+      Brand.transaction do
+        if (brand_name = params[:item][:brand][:name]).present?
+          # 既に保存されているブランドは追加で登録しない。
+          unless (brand=Brand.find_by(name: brand_name)).present?
+            brand = Brand.create!(name: brand_name)
+          end
+          @item.update!(brand_id: brand.id)
+        end
+      end
+      redirect_to done_items_path
     else
       redirect_to new_item_path
     end
@@ -54,6 +64,16 @@ class ItemsController < ApplicationController
   # 子カテゴリーが選択された後に動くアクションAjax
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
+  end
+
+  # 孫カテゴリーが選択された後に動くアクションAjax
+  def get_size
+    selected_category = Category.find(params[:category_id])
+    if size_parent = selected_category.sizes[0]
+      @sizes = size_parent.children
+    elsif size_parent = selected_category.parent.sizes[0]
+      @sizes = size_parent.children
+    end
   end
   
   private
