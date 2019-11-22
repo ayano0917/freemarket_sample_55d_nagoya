@@ -105,8 +105,11 @@
     = render partial: 'items/listing-item-change-box', locals: {item: @item}                        
   .product-details__comment
     .product-details__comment__container
+      .product-details__comment__container__messages
+        .product-details__comment__container__messages__box
+          あああああああ
       .product-details__comment__container__content
-        .product-details__comment__container__content__form
+        = form_for(@item, url: items_path, html:{method: :post}) do |f|.product-details__comment__container__content__form
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea{name: 'body', type: 'text', value: ''}
           %button{type: 'submit'}

@@ -248,12 +248,18 @@
     }
   }
   &__comment {
+    width: 700px;
+    margin: 8px auto;
+    background-color: white;
     &__container {
+      &__messages {
+        padding: 24px;
+      }
       &__content {
-        padding: 24px 40px;
-        margin: 8px auto;
+        padding: 24px;
+        // margin: 8px auto;
         background-color: white;
-        width: 620px;
+        // width: 620px;
         &__form {       
           p {
             padding: 8px;
