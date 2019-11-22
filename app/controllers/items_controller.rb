@@ -47,6 +47,16 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
   end
+
+  # 孫カテゴリーが選択された後に動くアクションAjax
+  def get_size
+    selected_category = Category.find(params[:category_id])
+    if size_parent = selected_category.sizes[0]
+      @sizes = size_parent.children
+    elsif size_parent = selected_category.parent.sizes[0]
+      @sizes = size_parent.children
+    end
+  end
   
   private
 
