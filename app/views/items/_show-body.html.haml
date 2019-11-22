@@ -46,7 +46,7 @@
           %tr.product-details__main__item-main-content__right-box__table-row
             %th.product-details__main__item-main-content__right-box__table-row__header ブランド
             %td.product-details__main__item-main-content__right-box__table-row__data
-              = link_to @item.brand
+              = link_to @item.brand.name
         - if @item.size_id
           %tr.product-details__main__item-main-content__right-box__table-row
             %th.product-details__main__item-main-content__right-box__table-row__header 商品のサイズ
