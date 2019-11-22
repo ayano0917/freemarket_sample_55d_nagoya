@@ -1,4 +1,4 @@
-# bundle exec rake db:seed:size を実行する
+# bundle exec rails r db/seeds/size.rb を実行する
 
 # DBを全消去
 Size.delete_all

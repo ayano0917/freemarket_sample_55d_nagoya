@@ -1,4 +1,4 @@
-# bundle exec rake db:seed:category_size を実行する
+# bundle exec rails r db/seeds/category_size.rb を実行する
 
 CategorySize.delete_all
 

@@ -1,4 +1,4 @@
-# bundle exec rake db:seed:category を実行する
+# bundle exec rails r db/seeds/category.rb を実行する
 
 Category.delete_all
 
