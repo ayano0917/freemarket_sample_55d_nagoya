@@ -44,9 +44,6 @@
               = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
           .form-group2.hide#item-size
             %label.form-group2__label サイズ
-          .form-group2
-            %label.form-group2__label
-              商品の状態
             %span.form-group2__require 必須
             .form-group2__pulldown
               = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
