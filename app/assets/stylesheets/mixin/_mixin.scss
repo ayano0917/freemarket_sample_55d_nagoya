@@ -48,13 +48,20 @@
     }
   }
 }
-
+//商品出品画面 任意入力欄(ブランド)[長谷部]
 @mixin input-default {
   &__i-label {
     font-weight: 600;
   }
   &__i-require {
-    @include require;
+    background: #ccc;;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    font-weight: 600;
   }
   &__i-field {
     margin: 8px 0 0;
