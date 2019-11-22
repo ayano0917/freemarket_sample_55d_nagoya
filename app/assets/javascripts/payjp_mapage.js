@@ -24,15 +24,15 @@ $(document).on('turbolinks:load', function() {
           let message = response.error.code
           if (message === "invalid_number") {
             $('#card-error').remove();
-            let error ='<p id="card-error">カード番号に誤りがあります。</p>'
+            let error ='<p id="card-error">カード番号が正しくありません</p>'
             $("#message").append(error);
           } else if (message === "expired_card") {
             $('#card-error').remove();
-            let error ='<p id="card-error">有効期限に誤りがあります。</p>'
+            let error ='<p id="card-error">有効期限が正しくありません</p>'
             $("#message_expired").prepend(error);
           } else if (message === "invalid_cvc") {
             $('#card-error').remove();
-            let error ='<p id="card-error">セキュリティコードに誤りがあります。</p>'
+            let error ='<p id="card-error">セキュリティコードが正しくありません</p>'
             $("#message_cvc").prepend(error);
           }
         }

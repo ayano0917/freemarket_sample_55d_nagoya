@@ -44,6 +44,9 @@
               = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
           .form-group2.hide#item-size
             %label.form-group2__label サイズ
+          .form-group2
+            %label.form-group2__label
+              商品の状態
             %span.form-group2__require 必須
             .form-group2__pulldown
               = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
@@ -133,4 +136,12 @@
             に同意したことになります。
         = f.submit "出品する", {class: 'item-sell-btn'}
         =link_to "もどる", root_path, class: 'top-return-btn'
-
+  .item-create
+    .item-create__box
+      .item-create__box__head
+        %h1.complete 出品が完了しました。
+      .item-create__box__message
+        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+      =link_to "続けて出品する", new_item_path, class: 'item-create__box__btn'
+      %p.item-create__box__share
+        =link_to "商品ページへ行ってシェアする",  root_path

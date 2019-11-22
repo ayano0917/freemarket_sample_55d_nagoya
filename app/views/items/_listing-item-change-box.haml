@@ -5,4 +5,4 @@
     = link_to '出品を一旦停止する', '#', class: 'listing-item-change-box__stop-btn'
   -else
     = link_to '出品を再開する', '#', class: 'listing-item-change-box__restart-btn'
-  = link_to 'この商品を削除する', '#', class: 'listing-item-change-box__delete-btn'
+  = link_to 'この商品を削除する', item_path(item), class: 'listing-item-change-box__delete-btn', id: 'item_delete', method: :delete
