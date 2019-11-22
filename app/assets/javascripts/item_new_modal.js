@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
+// $(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
 // モーダルウィンドウ
   $(function(){
     $(".item-sell-btn").on('click',function(){
@@ -21,4 +21,4 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
       });
     }
   });
-});
+// });

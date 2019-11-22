@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+// $(document).on('turbolinks:load', function() {
 // カテゴリーボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -68,4 +68,4 @@ $(document).on('turbolinks:load', function() {
       disapperGrandchild();
     }
   });
-});
+// });
