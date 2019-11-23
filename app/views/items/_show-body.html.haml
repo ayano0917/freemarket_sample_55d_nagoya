@@ -106,8 +106,30 @@
   .product-details__comment
     .product-details__comment__container
       .product-details__comment__container__messages
-        .product-details__comment__container__messages__box
-          あああああああ
+        %ul.message-items
+          %li.message-item
+            - if @item.comment
+              - @comment.each do |comment|
+                .message-user
+                  %figure
+                    .message-user-unknown
+                      = image_tag("member_photo_noimage_thumb.png")
+
+                  .message-body-continer
+                    %p.user-name-string-nickname
+                      = comment.user.profile.nickname
+                      .message-body
+                        %p
+                        = comment.content
+                        .message-body__text
+                        .message-icons
+                          .message-icon-left
+                            %i.far.fa-clock
+                            %span.days-ago
+                              = comment.created_at.strftime("%Y/%m/%d %H:%M")
+                          .message-icon-right
+                            = link_to "" do
+                              %i.far.fa-flag
       .product-details__comment__container__content
         = form_for(@comment, url: item_comments_path(@item), html:{class: "product-details__comment__container__content__form"}) do |f|
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
