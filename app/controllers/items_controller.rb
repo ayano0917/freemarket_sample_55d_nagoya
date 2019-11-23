@@ -48,6 +48,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+
+
   def destroy
     if @item.destroy
       redirect_to items_selling_user_mypage_path(current_user), notice: '商品を削除しました'
