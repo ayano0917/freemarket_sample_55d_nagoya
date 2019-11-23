@@ -247,172 +247,56 @@
       }
     }
   }
-  .product-details__comment {
+  &__comment {
     width: 700px;
     margin: 8px auto;
     background-color: white;
-    .product-details__comment__container__messages {
-      padding: 24px;
-      .message-items {
-        margin: 0;
-        li:first-child {
-            margin: 1.5em 0 0;
-        }
-        .message-items li {
-          display: flex;
-        }
-        .message-item {
-          justify-content: space-between;
-          margin: 20px 0 0;
-        }
-        .message-user {
-          top: -20px;
-          display: inline-block;
-          color: #333;
-          &-unknown {
-            width: 40px;
-            height: 40px;
-            overflow: hidden;
-            border-radius: 50%;
-            background: #eee;
-            text-align: center;
-          }
-          &-unknown img {
-            width: 32px;
-            height: 32px;
-            margin: 10px 0 0;
-            vertical-align: bottom;
-          }
-          &-image {
-            margin: 10px 0 0;
-            vertical-align: bottom;
-            width: 40px;
-            height: 40px;
-            overflow: hidden;
-            border-radius: 50%;
-            display: inline-block;
-          }
-          &-image img {
-            width: 100%;
-          }
-        }
-        .message-items {
-
-          margin: 0;
-          li:first-child {
-              margin: 1.5em 0 0;
-          }
-          .message-items li {
-            display: flex;
-          }
-          .message-item {
-            justify-content: space-between;
-            margin: 20px 0 0;
-          }
-          .message-user {
-            top: -20px;
-            display: inline-block;
-            color: #333;
-            &-unknown {
-              width: 40px;
-              height: 40px;
-              overflow: hidden;
-              border-radius: 50%;
-              background: #eee;
-              text-align: center;
-            }
-            &-unknown img {
-              width: 32px;
-              height: 32px;
-              margin: 10px 0 0;
-              vertical-align: bottom;
-            }
-            &-image {
-              margin: 10px 0 0;
-              vertical-align: bottom;
-              width: 40px;
-              height: 40px;
-              overflow: hidden;
-              border-radius: 50%;
-              display: inline-block;
-            }
-            &-image img {
-              width: 100%;
-            }
-          }
-        }
-        .message-body {
-          margin: 6px 0 60px 50px;
-          padding: 16px;
-          background: #eef0f4;
-          border-radius: 15px;
-          line-height: 1.5;
-          word-wrap: break-word;        
-          &-continer {
-            width: 600px;
-          }
-          .message-icons {
-            display: flex;
-            justify-content: space-between;
-            margin: 8px 0 0;
-            .message-icon-left {
-              .fa-clock {
-                color: #aaa;
-              }
-              .days-ago {
-                background-color: transparent;
-                color: #aaa;
-                margin-left: 0;
-              }
-            }
-            .fa-flag {
-              color: #aaa;
-            }
-          }
-        }
+    &__container {
+      &__messages {
+        padding: 24px;
       }
-    }              
-    &__content {
-      padding: 24px;
-      // margin: 8px auto;
-      background-color: white;
-      // width: 620px;
-      &__form {       
-        p {
-          padding: 8px;
-          font-size: 14px;
-          background: #fff6de;
-          width: 605px;
-        }
-        textarea {
-          overflow: auto;
-          margin: 8px 0 0;
-          display: block;
-          width: 600px;
-          min-height: 104px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          background: #fff;
-          font-size: 16px;
-          line-height: 1.5;
-        }
-        button {
-          margin: 8px 0 0;
-          font-size: 0;
-          text-align: center;
-          width: 622px;
-          background: #aaa;
-          border: 1px solid #aaa;
-          color: #fff;
-          line-height: 48px;
-          cursor: pointer;
-          span {
+      &__content {
+        padding: 24px;
+        // margin: 8px auto;
+        background-color: white;
+        // width: 620px;
+        &__form {       
+          p {
+            padding: 8px;
             font-size: 14px;
-            vertical-align: middle;
+            background: #fff6de;
+            width: 605px;
+          }
+          textarea {
+            overflow: auto;
+            margin: 8px 0 0;
+            display: block;
+            width: 600px;
+            min-height: 104px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          button {
+            margin: 8px 0 0;
+            font-size: 0;
+            text-align: center;
+            width: 622px;
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+            line-height: 48px;
+            cursor: pointer;
+            span {
+              font-size: 14px;
+              vertical-align: middle;
+            }
           }
         }
       }
-    }  
+    }      
   }
   &__link {
     margin: 24px auto 0;
