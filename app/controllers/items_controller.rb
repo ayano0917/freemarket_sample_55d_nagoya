@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     @category_parent = Category.find(@item.parent_id).name
     @category_child = Category.find(@item.child_id).name
     @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     # ユーザーの他の商品
     @items = Item.where(seller_id: @user.id).where.not(id: @item.id).limit(6).order("id ASC")
     @images = @items.map{|item| item.images[0]}

@@ -108,8 +108,8 @@
       .product-details__comment__container__messages
         %ul.message-items
           %li.message-item
-            - if @item.comment
-              - @comment.each do |comment|
+            - if @item.comments
+              - @comments.each do |comment|
                 .message-user
                   %figure
                     .message-user-unknown
@@ -117,7 +117,7 @@
 
                   .message-body-continer
                     %p.user-name-string-nickname
-                      = comment.user.profile.nickname
+                      = comment.user.nickname
                       .message-body
                         %p
                         = comment.content
