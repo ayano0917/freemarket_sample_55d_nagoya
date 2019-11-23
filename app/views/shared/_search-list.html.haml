@@ -2,23 +2,23 @@
   %h2.result 
     = params[:keyword]+"の検索結果"
   %h2.case
-    =  (@products.offset_value+1).to_s + "-"+(@products.offset_value+@products.length).to_s+"件表示"
+    =  (@items.offset_value+1).to_s + "-"+(@items.offset_value+@items.length).to_s+"件表示"
   %section.picks
     %section.picks__container
-      -if @products.empty?
+      -if @items.empty?
         %h1.test 検索結果なし
       -else
         .picks__container--content
-          - @products.each do |product|
-            = link_to product_path(product.id) do
+          - @items.each do |item|
+            = link_to item_path(item.id) do
               %section.item
                 %figure.item__photo
-                  = image_tag product.images[0].name.url, alt: "実装その1", class: "lazyload"
+                  = image_tag item.images[0].image.url, alt: "実装その1", class: "lazyload"
                 .item__body
                   %h3.item__body--name.font-2 
-                    = product.name
+                    = item.name
                   .item__body--num
-                    .price.font-5 
+                    .price
                       ¥
-                      = product.price.to_s(:delimited, delimiter: ',')
-          = paginate @products
+                      = item.price.to_s(:delimited, delimiter: ',')
+          = paginate @items

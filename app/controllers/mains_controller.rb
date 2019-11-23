@@ -19,7 +19,7 @@ class MainsController < ApplicationController
   end
 
   def search
-    @item = @publishing_item.where('name  LIKE(?) OR description LIKE(?) ', "%#{params[:keyword]}%","%#{params[:keyword]}%").page(params[:page]).per(20)
+    @items = @publishing_item.where('name  LIKE(?) OR description LIKE(?) ', "%#{params[:keyword]}%","%#{params[:keyword]}%").page(params[:page]).per(20)
   end
 
 end
