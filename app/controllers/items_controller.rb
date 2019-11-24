@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   def new
     redirect_to new_user_session_path unless user_signed_in?
     @item = Item.new
-    # @item.images.build
     10.times{@item.images.build}
     @brand = Brand.new
   end
@@ -42,14 +41,23 @@ class ItemsController < ApplicationController
           @item.update!(brand_id: brand.id)
         end
       end
-      # redirect_to done_items_path
     else
       redirect_to new_item_path
     end
   end
 
   def edit
-    @item = Item.find(params[:id])
+    10.times{@item.images.build}
+  end
+
+  
+  def update
+    if @item.update(update_params)
+      redirect_to item_path(@item)
+    else
+      check_item_name(@item.name)
+    end
+    
   end
 
 

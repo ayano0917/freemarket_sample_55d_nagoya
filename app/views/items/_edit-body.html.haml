@@ -20,7 +20,7 @@
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
+          = f.text_field :name,@item :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
         .item-introduction
           %label.form-label
             商品名
