@@ -114,10 +114,11 @@
                   %figure
                     .message-user-unknown
                       = image_tag("member_photo_noimage_thumb.png")
-
                     .message-body-continer
                       %p.user-name-string-nickname
                         = comment.user.nickname
+                  - if @item.seller_id == comment.user_id
+                    %p 出品者      
                 .message-body
                   .message-body__text
                     = comment.content
