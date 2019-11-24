@@ -1,7 +1,7 @@
 .display-main
   %section.display-main__container
     .single-head 商品の情報を入力
-    = form_for(@item, url: items_path, html:{method: :post}) do |f|
+    = form_for @item, html:{method: :post} do |f|
       .upload-box
         %h3.upload-box__sub-head
           出品画像
@@ -20,10 +20,10 @@
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_field :name,@item :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
+          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
         .item-introduction
           %label.form-label
-            商品名
+            商品の説明
             %span.form-require 必須
           = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", required: true, maxlength: 1000
       .item-content.cleafix
@@ -117,14 +117,19 @@
                 販売利益
               .sell-form__gain -
       .sell-Prohibited
+        .sell-Prohibited__points
+          %p
+            =link_to "禁止されている出品", '#'
+            、
+            =link_to "行為", '#'
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            =link_to "偽ブランドの販売", '#'
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            =link_to "加盟店規約",'#'
+            に同意したことになります。
         = f.submit "変更する", {class: 'item-sell-btn'}
         =link_to "もどる", root_path, class: 'top-return-btn'
-  .item-create
-    .item-create__box
-      .item-create__box__head
-        %h1.complete 出品が完了しました。
-      .item-create__box__message
-        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
-      =link_to "続けて出品する", new_item_path, class: 'item-create__box__btn', data: {"turbolinks" => false}
-      %p.item-create__box__share
-        =link_to "商品ページへ行ってシェアする",  root_path
