@@ -303,11 +303,12 @@
               margin: 1.5em 0 0;
           }
           .message-items li {
-            display: flex;
+            
           }
-          .message-item {
+          li.message-item {
             justify-content: space-between;
             margin: 20px 0 0;
+            display: flex;
           }
           .message-user {
             top: -20px;
