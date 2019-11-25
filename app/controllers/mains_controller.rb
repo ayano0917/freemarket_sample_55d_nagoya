@@ -28,7 +28,7 @@ class MainsController < ApplicationController
   end
 
   def get_publishing_item
-    @publishing_item = Item.where(buyer_id: nil)
+    @publishing_item = Item.where(buyer_id: nil, status: nil)
   end
 
   def search
