@@ -1,5 +1,5 @@
 .listing-item-change-box
-  = link_to '商品を編集する', '#', class: 'listing-item-change-box__edit-btn'
+  = link_to '商品を編集する',edit_item_path(@item), class: 'listing-item-change-box__edit-btn'
   %p.listing-item-change-box__text or
   - if item.status.blank?
     = link_to '出品を一旦停止する', '#', class: 'listing-item-change-box__stop-btn'

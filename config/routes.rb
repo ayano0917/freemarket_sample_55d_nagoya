@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     collection do
       get 'get_publishing_item'
     end  
+    collection do
+      get 'search'
+    end
   end
   resources :users, only: [:update] do
     resource :mypage, only: [:show] do
