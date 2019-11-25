@@ -11,6 +11,10 @@
             .product-details__main__item-main-content__left-box__soldout
               .product-details__main__item-main-content__left-box__soldout__text
                 SOLD
+          - elsif @item.status
+            .product-details__main__item-main-content__left-box__stop
+              .product-details__main__item-main-content__left-box__stop__text
+                公開停止中      
         .photo
           - @item.images.each_with_index do |image, index| next if index == 0
             = image_tag @item.images[index].image, class:"sub-photo"         
