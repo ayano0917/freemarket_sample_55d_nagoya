@@ -56,6 +56,8 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get :done
+      patch ':id/stop_listing', to: 'items#stop_listing'
+      patch ':id/restart_listing', to: 'items#restart_listing'
     end
     resources :purchases, only: [:new] do
       collection do

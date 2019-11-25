@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only:[:show, :destroy]
+  before_action :set_item, only:[:show, :destroy, :stop_listing, :restart_listing]
   before_action :set_card, only:[:purchase, :confirm]
   before_action :set_category, only:[:new, :create, :edit, :update]
 
@@ -95,6 +95,16 @@ class ItemsController < ApplicationController
     end
   end
   
+  def stop_listing
+    @item.update(status: '出品停止中') 
+    redirect_to item_path(@item), notice: 'この商品の出品を停止しました'
+  end
+
+  def restart_listing
+    @item.update(status: nil)
+    redirect_to item_path(@item), notice: 'この商品の出品を再開しました'
+  end
+
   private
 
   def set_card
