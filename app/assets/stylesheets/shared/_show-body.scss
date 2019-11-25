@@ -248,24 +248,109 @@
     }
   }
   &__comment {
+    width: 700px;
+    margin: 8px auto;
+    background-color: white;
     &__container {
+      &__messages {
+        padding: 24px;
+        .message-items {
+          margin: 0;
+          li.message-item.clearfix:first-child {
+              margin: 1.5em 0 0;
+          }
+          li.message-item.clearfix{
+            margin: 60px 0 0;
+            a.message-user {
+              top: -20px;
+              display: inline-block;
+              color: #333;
+              position: relative;
+              text-decoration: none;
+              figure {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                .message-user-unknown {
+                  width: 40px;
+                  height: 40px;
+                  overflow: hidden;
+                  border-radius: 50%;
+                  img {
+                    vertical-align: middle;
+                    width: 100%;
+                  }
+                }
+                .message-user-nickname {
+                  overflow: hidden;
+                  position: absolute;
+                  top: 0;
+                  left: 56px;
+                  max-width: 100%;
+                  min-width: 214px;
+                  height: 1.2em;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  width: 600px;
+                  min-width: 600px;
+                }
+              }
+              .message-is-seller {
+                margin: 8px 0 0;
+                padding: 4px;
+                background: #eef0f4;
+                color: #000;
+                border-radius: 2px;
+                font-size: 12px;
+                vertical-align: top;
+              }
+            }
+            .message-body {
+              float: right;
+              width: 568px;
+              position: relative;
+              padding: 16px;
+              background: #eef0f4;
+              border-radius: 15px;
+              line-height: 1.5;
+              word-wrap: break-word;        
+              .message-icons {
+                display: flex;
+                justify-content: space-between;
+                margin: 8px 0 0;
+                .message-icon-left {
+                    background-color: transparent;
+                    color: #aaa;
+                    margin-left: 0;
+                  }
+                i {
+                  color: #aaa;
+                }
+              }
+            }
+          }
+          .clearfix:after{
+            content: "";
+            clear: both;
+            display: block;   
+          }
+        }       
+      }             
       &__content {
-        padding: 24px 40px;
-        margin: 8px auto;
+        padding: 24px;
         background-color: white;
-        width: 620px;
         &__form {       
           p {
             padding: 8px;
             font-size: 14px;
             background: #fff6de;
-            width: 605px;
           }
           textarea {
             overflow: auto;
             margin: 8px 0 0;
             display: block;
-            width: 600px;
+            width: 630px;
+            max-width: 100%;
             min-height: 104px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -273,24 +358,31 @@
             font-size: 16px;
             line-height: 1.5;
           }
-          button {
+          input {
             margin: 8px 0 0;
-            font-size: 0;
+            font-size: 14px;
             text-align: center;
-            width: 622px;
+            width: 100%;
             background: #aaa;
             border: 1px solid #aaa;
             color: #fff;
             line-height: 48px;
             cursor: pointer;
-            span {
-              font-size: 14px;
-              vertical-align: middle;
-            }
+          }
+          .sold-button-comment {
+            margin: 8px 0 0;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+            border: 1px solid #888;
+            background: #888;
+            color: #fff;
+            line-height: 48px;
+            cursor: not-allowed;
           }
         }
       }
-    }      
+    }  
   }
   &__link {
     margin: 24px auto 0;
