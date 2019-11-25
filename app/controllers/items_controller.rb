@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
   end
   
   def stop_listing
-    @item.update(status: '出品停止中') 
+    @item.update(status: '公開停止中') 
     redirect_to item_path(@item), notice: 'この商品の出品を停止しました'
   end
 
