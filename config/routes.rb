@@ -66,7 +66,6 @@ Rails.application.routes.draw do
   end
 
   resources :user_addresses, only: [:update, :create]
-  resources :comments, only: [:create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
   resources :credit_cards, only: [:new, :create, :show] do
     collection do
