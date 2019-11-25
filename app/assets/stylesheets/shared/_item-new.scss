@@ -106,7 +106,15 @@
               line-height: 44px;
               text-align: center;
               border-top: 1px solid $separator;
+              cursor: pointer;
+              color: $item-new-link;
             }
+              &--edit:hover {
+                background: #f8f8f8;
+                text-decoration: underline;
+                color: $item-new-link-hover;
+                text-decoration-color: $item-new-link-hover;
+              }
             &--delete {
               float: right;
               width: 49%;
@@ -115,7 +123,14 @@
               text-align: center;
               border-left: 1px solid $separator;
               border-top: 1px solid $separator;
-
+              cursor: pointer;
+              color: $item-new-link;
+            }
+            &--delete:hover {
+              background: #f8f8f8;
+              text-decoration: underline;
+              color: $item-new-link-hover;
+              text-decoration-color: $item-new-link-hover;
             }
           }
         }
