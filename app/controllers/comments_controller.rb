@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(content: comment_params[:content], item_id: comment_params[:item_id], user_id: current_user.id)
     Comment.transaction do
       if @comment.save
-        redirect_to item_path(comment_params[:item_id])
+        redirect_to item_path(comment_params[:item_id]), notice: 'コメントしました'
       else
-        redirect_to root_path
+        redirect_to item_path(comment_params[:item_id]), alert: 'コメント欄が空欄です'
       end 
     end   
   end
