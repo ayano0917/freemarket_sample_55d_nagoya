@@ -48,9 +48,9 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     10.times{@item.images.build}
-    @category = Category.where(ancestry: nil)
-    @category_parent = Category.where(ancestry: @item.parent_id)
-    @category_child = Category.where(ancestry: "#{@item.id}"+"/"+"#{@item.parent_id}")
+    @category_parents = Category.where(ancestry: nil)
+    @category_children = Category.where(ancestry: @item.parent_id)
+    @category_grandchildren = Category.where(ancestry: "#{@item.parent_id}"+"/"+"#{@item.child_id}")
     @sizes = Size.find(@item.size_id).siblings if @item.size_id.present?
     @brand = @item.brand.present? ? @item.brand : Brand.new
   end
