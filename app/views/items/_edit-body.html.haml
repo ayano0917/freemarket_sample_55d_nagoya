@@ -1,7 +1,7 @@
 .display-main
   %section.display-main__container
     .single-head 商品の情報を入力
-    = form_for @item, html:{method: :post} do |f|
+    = form_for @item, html:{method: :patch} do |f|
       .upload-box
         %h3.upload-box__sub-head
           出品画像
@@ -36,19 +36,32 @@
             .form-group1__pulldown
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
               = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', id: 'parent_category', required: true
-            .form-group1__pulldown.hide#category-child-1
+            .form-group1__pulldown#category-child-1
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
-            .form-group1__pulldown.hide#category-child-2
-              = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
-          .form-group2.hide#item-size
-            %label.form-group2__label サイズ
-            %span.form-group2__require 必須
-            .form-group2__pulldown
-              = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
-              = f.collection_select :size_id, {}, :id, :name, {prompt: "---"}, class:'form-group2__pulldown--choices', id: 'select-size'
-          .form-group3.hide2#item-brand
+              = f.collection_select :child_id, @category_children, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
+            - if @category_grandchildren.present?
+              .form-group1__pulldown#category-child-2
+                = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
+                = f.collection_select :category_id, @category_grandchildren, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category', required: true
+            - else  
+              .form-group1__pulldown#category-child-2.hide
+                = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
+                = f.collection_select :category_id, @category_grandchildren, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
+          - if @item.size_id.present?      
+            .form-group2#item-size
+              %label.form-group2__label サイズ
+              %span.form-group2__require 必須
+              .form-group2__pulldown
+                = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+                = f.collection_select :size_id, @sizes, :id, :name, {prompt: "---"}, class:'form-group2__pulldown--choices', id: 'select-size'
+          -else
+            .form-group2#item-size.hide
+              %label.form-group2__label サイズ
+              %span.form-group2__require 必須
+              .form-group2__pulldown
+                = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
+                = f.collection_select :size_id, {}, :id, :name, {prompt: "---"}, class:'form-group2__pulldown--choices', id: 'select-size'      
+          .form-group3#item-brand
             = f.fields_for @brand do |brand|
               %label.form-group3__i-label ブランド
               %span.form-group3__i-require 任意

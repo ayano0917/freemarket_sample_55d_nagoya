@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only:[:show, :destroy, :stop_listing, :restart_listing]
+  before_action :set_item, only:[:show, :destroy, :stop_listing, :restart_listing, :update]
   before_action :set_card, only:[:purchase, :confirm]
   before_action :set_category, only:[:new, :create, :edit, :update]
 
@@ -48,16 +48,27 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     10.times{@item.images.build}
-    @category = Category.where(ancestry: nil)
-    @category_parent = Category.where(ancestry: @item.parent_id)
-    @category_child = Category.where(ancestry: "#{@item.id}"+"/"+"#{@item.parent_id}")
+    @category_parents = Category.where(ancestry: nil)
+    @category_children = Category.where(ancestry: @item.parent_id)
+    @category_grandchildren = Category.where(ancestry: "#{@item.parent_id}"+"/"+"#{@item.child_id}")
     @sizes = Size.find(@item.size_id).siblings if @item.size_id.present?
     @brand = @item.brand.present? ? @item.brand : Brand.new
   end
 
   
   def update
+    
     if @item.update(update_item_params)
+      Brand.transaction do
+        if (brand_name = params[:item][:brand][:name]).present?
+          unless (brand=Brand.find_by(name: brand_name)).present?
+            brand = Brand.create!(name: brand_name)
+          end
+          @item.update!(brand_id: brand.id)
+        else
+          @item.update!(brand_id: "")
+        end
+      end
       redirect_to item_path(@item)
     else
       redirect_to edit_item_path(@item)
