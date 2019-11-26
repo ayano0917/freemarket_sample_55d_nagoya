@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :update]
 
   def show
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
 
     if @user.update(user_params)
       redirect_to user_path(current_user), notice: '変更しました。'
@@ -13,6 +12,12 @@ class UsersController < ApplicationController
       render action: "show"
     end
 
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def user_params
