@@ -64,14 +64,14 @@ class ItemsController < ApplicationController
           unless (brand=Brand.find_by(name: brand_name)).present?
             brand = Brand.create!(name: brand_name)
           end
-          @item.update!(brand_id: brand.id)
+          item.update!(brand_id: brand.id)
         else
-          @item.update!(brand_id: "")
+          item.update!(brand_id: "")
         end
       end
-      redirect_to item_path(@item)
+      redirect_to item_path(item)
     else
-      redirect_to edit_item_path(@item)
+      redirect_to edit_item_path(item)
     end
 
   end

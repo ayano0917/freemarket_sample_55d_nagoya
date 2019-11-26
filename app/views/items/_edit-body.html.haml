@@ -1,7 +1,7 @@
 .display-main
   %section.display-main__container
     .single-head 商品の情報を入力
-    = form_for @item, html:{method: :post} do |f|
+    = form_for @item, html:{method: :patch} do |f|
       .upload-box
         %h3.upload-box__sub-head
           出品画像
