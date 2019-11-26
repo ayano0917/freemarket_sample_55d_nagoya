@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only:[:show, :destroy, :stop_listing, :restart_listing]
+  before_action :set_item, only:[:show, :destroy, :stop_listing, :restart_listing, :update]
   before_action :set_card, only:[:purchase, :confirm]
   before_action :set_category, only:[:new, :create, :edit, :update]
 
@@ -57,21 +57,21 @@ class ItemsController < ApplicationController
 
   
   def update
-    item = current_user.seller_items.find_by(id: params[:id])
-    if item.update(update_item_params)
+    
+    if @item.update(update_item_params)
       Brand.transaction do
         if (brand_name = params[:item][:brand][:name]).present?
           unless (brand=Brand.find_by(name: brand_name)).present?
             brand = Brand.create!(name: brand_name)
           end
-          item.update!(brand_id: brand.id)
+          @item.update!(brand_id: brand.id)
         else
-          item.update!(brand_id: "")
+          @item.update!(brand_id: "")
         end
       end
-      redirect_to item_path(item)
+      redirect_to item_path(@item)
     else
-      redirect_to edit_item_path(item)
+      redirect_to edit_item_path(@item)
     end
 
   end
