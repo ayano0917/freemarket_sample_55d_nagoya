@@ -8,17 +8,16 @@ Rails.application.routes.draw do
 
   root 'mains#index'
 
-  resources :users, only: [:show, :update]
-  
   resources :mains, only: [:index] do
     collection do
       get 'get_publishing_item'
-    end  
+    end
     collection do
       get 'search'
     end
   end
 
+  resources :users, only: [:show, :update] do
     resource :mypage, only: [:show] do
       collection do
         get 'profile'
@@ -61,17 +60,19 @@ Rails.application.routes.draw do
       patch 'stop_listing'
       patch 'restart_listing'
     end
+  end
+
     resources :purchases, only: [:new] do
       collection do
         get 'buy'
       end
     end
     resources :comments, only: [:create]
-  end
 
   resources :user_addresses, only: [:show, :update, :create]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
+
   resources :credit_cards, only: [:new, :create, :show] do
     collection do
       post :delete
