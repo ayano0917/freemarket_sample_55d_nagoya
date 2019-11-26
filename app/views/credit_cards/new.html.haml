@@ -90,5 +90,5 @@
             = link_to('#', class: 'form-group5__pay-link') do
               = fa_icon('question-circle', class: 'pry-link__icon')
               カード裏面の番号とは？
-          %submit.next-btn#token_submit{type: "submit"} 次へ進む
+          %submit.next-btn#token_submit{type: "submit", name: "submit-btn"} 次へ進む
   = render 'shared/exhibition-page-footer'
