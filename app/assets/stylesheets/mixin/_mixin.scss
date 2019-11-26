@@ -108,3 +108,14 @@
   transition: all ease-out .3s;
   text-decoration: none;
 }
+
+// マイページ 出品中・公開停止中・売却済・購入済のマーク[長谷部]
+@mixin item-status-mark($bg-color) {
+  display: inline-block;
+  padding: 5px 8px;
+  background-color: $bg-color;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
