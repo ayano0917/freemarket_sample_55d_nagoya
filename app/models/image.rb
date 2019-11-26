@@ -1,8 +1,8 @@
 class Image < ApplicationRecord
   # アイテム用のイメージモデル
-  belongs_to :item, optional: true
   mount_uploader :image, ImageUploader
+  belongs_to :item, optional: true
 
-  # validates :content, presence: true
 
+  
 end

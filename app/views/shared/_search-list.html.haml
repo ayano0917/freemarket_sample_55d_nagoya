@@ -1,0 +1,24 @@
+.search-list
+  %h2.result 
+    = params[:keyword]+"の検索結果"
+  %h2.case
+    =  (@items.offset_value+1).to_s + "-"+(@items.offset_value+@items.length).to_s+"件表示"
+  %section.picks
+    %section.picks__container
+      -if @items.empty?
+        %h1.test 検索結果なし
+      -else
+        .picks__container--content
+          - @items.each do |item|
+            = link_to item_path(item.id) do
+              %section.item
+                %figure.item__photo
+                  = image_tag item.images[0].image.url, alt: "実装その1", class: "lazyload"
+                .item__body
+                  %h3.item__body--name.font-2 
+                    = item.name
+                  .item__body--num
+                    .price
+                      ¥
+                      = item.price.to_s(:delimited, delimiter: ',')
+          = paginate @items

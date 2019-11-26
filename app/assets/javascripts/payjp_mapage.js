@@ -20,21 +20,20 @@ $(document).on('turbolinks:load', function() {
             $('<input type="hidden" name="payjp-token_mypage">').val(response.id)
           );
           document.inputForm.submit();
-          
         } else {
           let message = response.error.code
           if (message === "invalid_number") {
             $('#card-error').remove();
-            let error ='<p id="card-error">カード番号に誤りがあります。正しく入力してください。</p>'
-            $(".main-container__chapter__content").prepend(error);
+            let error ='<p id="card-error">カード番号が正しくありません</p>'
+            $("#message").append(error);
           } else if (message === "expired_card") {
             $('#card-error').remove();
-            let error ='<p id="card-error">有効期限に誤りがあります。正しく入力してください。</p>'
-            $(".main-container__chapter__content").prepend(error);
+            let error ='<p id="card-error">有効期限が正しくありません</p>'
+            $("#message_expired").prepend(error);
           } else if (message === "invalid_cvc") {
             $('#card-error').remove();
-            let error ='<p id="card-error">セキュリティコードに誤りがあります。正しく入力してください。</p>'
-            $(".main-container__chapter__content").prepend(error);
+            let error ='<p id="card-error">セキュリティコードが正しくありません</p>'
+            $("#message_cvc").prepend(error);
           }
         }
       });

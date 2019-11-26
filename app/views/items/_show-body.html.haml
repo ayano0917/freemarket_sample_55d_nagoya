@@ -1,3 +1,4 @@
+= render 'layouts/notifications'
 .product-details
   %section.product-details__main
     %h1.product-details__main__header
@@ -10,6 +11,10 @@
             .product-details__main__item-main-content__left-box__soldout
               .product-details__main__item-main-content__left-box__soldout__text
                 SOLD
+          - elsif @item.status
+            .product-details__main__item-main-content__left-box__stop
+              .product-details__main__item-main-content__left-box__stop__text
+                公開停止中      
         .photo
           - @item.images.each_with_index do |image, index| next if index == 0
             = image_tag @item.images[index].image, class:"sub-photo"         
@@ -33,10 +38,10 @@
           %td.product-details__main__item-main-content__right-box__table-row__data
             = link_to @category_parent, '#'
             %br/
-            = link_to @category_child, '#'
+            = link_to "＞#{@category_child}", '#'
             - if @item.category
               %br/
-              = link_to @item.category.name, '#'
+              = link_to "＞#{@item.category.name}", '#'
               %br/
         - if @item.brand.nil?
           %tr.product-details__main__item-main-content__right-box__table-row
@@ -46,7 +51,7 @@
           %tr.product-details__main__item-main-content__right-box__table-row
             %th.product-details__main__item-main-content__right-box__table-row__header ブランド
             %td.product-details__main__item-main-content__right-box__table-row__data
-              = link_to @item.brand
+              = link_to @item.brand.name
         - if @item.size_id
           %tr.product-details__main__item-main-content__right-box__table-row
             %th.product-details__main__item-main-content__right-box__table-row__header 商品のサイズ
@@ -100,43 +105,78 @@
       .product-details__main__button__button-right
         = link_to '#', class: 'product-details__main__button__button-right__anzen' do
           = fa_icon 'lock', class: 'lock-icon' 
-          %span あんしん・あんぜんへの取り組み                           
+          %span あんしん・あんぜんへの取り組み
+  - if current_user&.id == @item.seller_id && @item.buyer_id.nil?   
+    = render partial: 'items/listing-item-change-box', locals: {item: @item}                  
   .product-details__comment
     .product-details__comment__container
+      .product-details__comment__container__messages
+        %ul.message-items
+          - if @item.comments
+            - @comments.each do |comment|
+              %li.message-item.clearfix
+                = link_to '#', class: 'message-user' do
+                  %figure
+                    .message-user-unknown
+                      = image_tag('member_photo_no-image.png')
+                    .message-user-nickname
+                      = comment.user.nickname
+                  - if @item.seller_id == comment.user_id
+                    .message-is-seller 出品者 
+                .message-body
+                  .message-body__text
+                    = simple_format(comment.content)
+                  .message-icons
+                    .message-icon-left
+                      = comment.created_at.strftime("%Y/%m/%d %H:%M")
+                    .message-icon-right
+                      = link_to "" do
+                        = fa_icon 'flag'
       .product-details__comment__container__content
-        .product-details__comment__container__content__form
+        = form_for(@comment, url: item_comments_path(@item), html:{class: "product-details__comment__container__content__form"}) do |f|
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %textarea{name: 'body', type: 'text', value: ''}
-          %button{type: 'submit'}
-            %span コメントする
-  .product-details__link
-    = link_to '#', class: 'link__left' do
-      = fa_icon 'chevron-left', class: 'arrow-left'
-      %span.link-left 前の商品
-    = link_to '#', class: 'link__right' do
-      %span.link-right 次の商品
-      = fa_icon 'chevron-right', class: 'arrow-right'   
-  .product-details__icon
-    = render 'shared/icon-box' 
-  .product-details__other-items
-    %section.product-details__other-items__section
-      %h2
-        = link_to "#{@user.nickname}さんのその他の出品"
-      .product-details__other-items__section__content
-        - @items.each_with_index do |item,i|
-          = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+          = f.text_area :content
+          - unless @item.buyer_id
+            = f.submit "コメントする", class: "message-submit"
+          -else
+            .sold-button-comment 売り切れのためコメントできません
+  -if current_user&.id != @item.seller_id                    
+    .product-details__link
+      - if @item.previous.present?
+        = link_to item_path(@item.previous.id), class: 'link__left' do
+          = fa_icon 'chevron-left', class: 'arrow-left'
+          %span.link-left
+            = @item.previous.name
+      - else
+        .hide
+      - if @item.next.present?      
+        = link_to item_path(@item.next.id), class: 'link__right' do
+          %span.link-right
+            = @item.next.name
+          = fa_icon 'chevron-right', class: 'arrow-right'   
+    .product-details__icon
+      = render 'shared/icon-box' 
+    .product-details__other-items
+      - unless @items.blank?
+        %section.product-details__other-items__section
+          %h2
+            = link_to "#{@user.nickname}さんのその他の出品"
+          .product-details__other-items__section__content
+            - @items.each_with_index do |item,i|
+              = render partial: 'items/items-box', locals: { items: item, images: @images[i] }
+      - unless @otheritems.blank?        
+        %section.product-details__other-items__section
+          %h2
+            = link_to "#{@item.category.name} その他の商品"
+          .product-details__other-items__section__content
+            - @otheritems.each_with_index do |item,i|
+              = render partial: 'items/items-box', locals: { items: item, images: @otherimages[i] }
 
-          -# 当ページ、孫カテゴリその他アイテム一覧のビュー。カテゴリ分け未実装のため実装後まで一旦保留
-    -# %section.product-details__other-items__section
-    -#   %h2
-    -#     = link_to "#{@category} その他の商品"
-    -#   .product-details__other-items__section__content
-
-  .product-details__pos-bottom
-    %ul
-      %li
-        = link_to 'メルカリ', root_path
-        = fa_icon 'chevron-right'
-      %li
-        %span
-          = @item.name
+    .product-details__pos-bottom
+      %ul
+        %li
+          = link_to 'メルカリ', root_path
+          = fa_icon 'chevron-right'
+        %li
+          %span
+            = @item.name

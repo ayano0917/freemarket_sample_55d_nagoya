@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks",　sessions: 'users/sessions'}
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks", sessions: 'users/sessions'}
   
   devise_scope :user do
     get '/users/sign_out' => 'devise_sessions#destroy'
@@ -8,9 +8,17 @@ Rails.application.routes.draw do
 
   root 'mains#index'
 
-  resources :mains, only: [:index]
+  resources :users, only: [:show, :update]
+  
+  resources :mains, only: [:index] do
+    collection do
+      get 'get_publishing_item'
+    end  
+    collection do
+      get 'search'
+    end
+  end
 
-  resources :users, only: [:show, :update] do
     resource :mypage, only: [:show] do
       collection do
         get 'profile'
@@ -42,17 +50,23 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:new ,:index, :show, :create] do
+  resources :items, only: [:new ,:index, :show, :create, :edit, :update, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
       get :done
+    end
+    member do
+      patch 'stop_listing'
+      patch 'restart_listing'
     end
     resources :purchases, only: [:new] do
       collection do
         get 'buy'
       end
     end
+    resources :comments, only: [:create]
   end
 
   resources :user_addresses, only: [:show, :update, :create]

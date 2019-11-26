@@ -67,7 +67,7 @@
       &__field {
         width: 343px;
         height: 48px;
-        margin: 8px 0 0;
+        margin: 8px 0 0 ;
         padding: 10px 16px 8px;
         border-radius: 4px;
         border: 1px solid #ccc;
@@ -250,15 +250,10 @@
   }
   #card-error {
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 8px auto 0;
     padding: 0 ;
     color: #ea352d;
     font-size: 14px;
-    height: 42px;
     width: 343px;
-  }
-  #message {
-    height: 14px;
-    width:  100px;
   }
 }

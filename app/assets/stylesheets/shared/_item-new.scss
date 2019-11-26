@@ -15,11 +15,8 @@
       font-weight: bold;
       border-bottom: 1px solid #eee;
     }
-    // &__information {
-    //   border-top: 1px solid #eee;
-    //   text-align: left;
     .upload-box {
-      padding: 40px 2.5%;
+      padding: 40px 5%;
       &__sub-head {
         font-weight: bold;
         font-size: 16px;
@@ -31,13 +28,42 @@
         margin: 8px 0 0;
         line-height: 1.5;
       }
-      .hide {
-        display: none;
-      }
       &__dropbox {
+        display: block;
         width: 620px;
-        margin: 16px auto 0;
         @include clearfix;
+        .label-hide{
+          display: none;
+        }
+        .form-mask-image {
+          position: relative;
+          min-height: 178px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          font-size: 0;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          margin: 0;
+          float: right;
+        }
+        pre {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.5;
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+        pre {
+          overflow: auto;
+          font-family: monospace,monospace;
+        }
         .upload-container {
           float: right;
           width: 100%;
@@ -45,90 +71,67 @@
           height: 160px;
           background: #f5f5f5;
           border: 1px dashed #ccc;
-          &--sentence {
-            position: absolute;
-            top: 45%;
-            left: 16px;
-            right: 16px;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.5;
-            pointer-events: none;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-          }
-          &__items {
-            display: flex;
-            max-width: 620px;
+          &__file-box {
+            display: none;
           }
           &__file {
             display: none;
           }
-          .image-label{
-            height:100%;
-            width: 100%;
-            position: absolute;
-            cursor: pointer;
+        }
+        .upload-item {
+          width: 116px;
+          height: 100%;
+          margin-left: 8px;
+          &__square {
+            width: 116px;
+            padding-top: 20px;
+            height: 116px;
+            margin-right: 10px;
+            background: #f5f5f5;
+            img {
+              height: 100px;
+              width:116px;
+            }
           }
-          .upload-images {
-            display: inline;
-              .upload-item {
-                position: relative;
-                float: right;
-                width: 114px;
-                margin: 0 0 2% 2%;
-                border: 1px solid $separator;
-                vertical-align: top;
-                &__square {
-                  position: relative;
-                  overflow: hidden;
-                  width: 100%;
-                  // line-height: 116px;
-                  padding: 0 0 100%;
-                  background: #f5f5f5;
-                  img {
-                    position: absolute;
-                    top: 20%;
-                    left: 0;
-                    width: 100%;
-                    // height: 80px;
-                  }
-                }
-                &__btn-box {
-                  font-size: 14px;
-                  a {
-                    color: #0099e8;
-                    text-decoration: none;
-                  }
-                  &--edit {
-                    display: inline-block;
-                    width: 50%;
-                    background: #f5f5f5;
-                    line-height: 44px;
-                    text-align: center;
-                  }
-                  &--delete {
-                    float: right;
-                    width: 49%;
-                    background: #f5f5f5;
-                    line-height: 44px;
-                    text-align: center;
-                    border-left: 1px solid $separator;
-                  }
-                }
+          &__btn-box {
+            font-size: 14px;
+            a {
+              color: #0099e8;
+              text-decoration: none;
+            }
+            &--edit {
+              display: inline-block;
+              width: 50%;
+              background: #f5f5f5;
+              line-height: 44px;
+              text-align: center;
+              border-top: 1px solid $separator;
+              cursor: pointer;
+              color: $item-new-link;
+            }
+              &--edit:hover {
+                background: #f8f8f8;
+                text-decoration: underline;
+                color: $item-new-link-hover;
+                text-decoration-color: $item-new-link-hover;
               }
-          }
-          #have-item-1 {
-            width: calc(100% - 129px);
-          }
-          #have-item-2 {
-            width: calc(100% - 129px * 2);
-          }
-          #have-item-3 {
-            width: calc(100% - 128px * 3);
-          }
-          #have-item-4 {
-            width: calc(100% - 127px * 4);
+            &--delete {
+              float: right;
+              width: 49%;
+              background: #f5f5f5;
+              line-height: 44px;
+              text-align: center;
+              border-left: 1px solid $separator;
+              border-top: 1px solid $separator;
+              cursor: pointer;
+              color: $item-new-link;
+            }
+            &--delete:hover {
+              background: #f8f8f8;
+              text-decoration: underline;
+              color: $item-new-link-hover;
+              text-decoration-color: $item-new-link-hover;
+            }
           }
         }
       }
@@ -192,7 +195,7 @@
         width: 400px;
         margin: 0;
         .form-group1 {
-          margin: 0;
+          margin: 40px 0 0;
           @include pulldown;
           .hide {
             display: none;
@@ -200,9 +203,23 @@
           }
         .form-group2 {
           margin: 40px 0 0;
+          @include pulldown;     
+        }
+        .hide {
+          display: none;
+        }
+        .form-group3 {
+          margin: 40px 0 0;
+          @include input-default;     
+        }
+        .hide2 {
+          display: none;
+        }
+        .form-group4 {
+          margin: 40px 0 0;
           @include pulldown;
         }
-      }
+      }  
       .ul-box {
         list-style: none;
         .price-form {

@@ -48,6 +48,39 @@
     }
   }
 }
+//商品出品画面 任意入力欄(ブランド)[長谷部]
+@mixin input-default {
+  &__i-label {
+    font-weight: 600;
+  }
+  &__i-require {
+    background: #ccc;;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    font-weight: 600;
+  }
+  &__i-field {
+    margin: 8px 0 0;
+    position: relative;
+    width: 400px;
+    &--complete {
+      box-sizing: border-box;
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 5px;
+      border: 1px solid $pulldown-frame;
+      background: $pulldown-back;
+      line-height: 1.5;
+      font-size: 16px;
+      -webkit-appearance: none;
+    }
+  }  
+}
 //商品出品画面[ayano]
 @mixin item-new-btn {
   display: block;
@@ -58,4 +91,20 @@
   transition: all ease-out .3s;
   cursor: pointer;
   text-align: center;
+}
+
+// ボタン/出品商品の編集・停止・削除へのビューにて使用[長谷部]
+@mixin submit-btn($margin, $b-color) {
+  display: block;
+  margin: $margin;
+  width: 622px;
+  background: $b-color;
+  border: 1px solid $b-color;
+  color:  #fff;
+  font-size: 14px;
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
+  transition: all ease-out .3s;
+  text-decoration: none;
 }
