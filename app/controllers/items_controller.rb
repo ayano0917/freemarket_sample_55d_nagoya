@@ -57,7 +57,18 @@ class ItemsController < ApplicationController
 
   
   def update
-    if @item.update(update_item_params)
+    item = current_user.seller_items.find_by(id: params[:id])
+    if item.update(update_item_params)
+      Brand.transaction do
+        if (brand_name = params[:item][:brand][:name]).present?
+          unless (brand=Brand.find_by(name: brand_name)).present?
+            brand = Brand.create!(name: brand_name)
+          end
+          @item.update!(brand_id: brand.id)
+        else
+          @item.update!(brand_id: "")
+        end
+      end
       redirect_to item_path(@item)
     else
       redirect_to edit_item_path(@item)
