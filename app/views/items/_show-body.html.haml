@@ -11,6 +11,10 @@
             .product-details__main__item-main-content__left-box__soldout
               .product-details__main__item-main-content__left-box__soldout__text
                 SOLD
+          - elsif @item.status
+            .product-details__main__item-main-content__left-box__stop
+              .product-details__main__item-main-content__left-box__stop__text
+                公開停止中      
         .photo
           - @item.images.each_with_index do |image, index| next if index == 0
             = image_tag @item.images[index].image, class:"sub-photo"         
@@ -102,8 +106,8 @@
         = link_to '#', class: 'product-details__main__button__button-right__anzen' do
           = fa_icon 'lock', class: 'lock-icon' 
           %span あんしん・あんぜんへの取り組み
-  -if current_user&.id == @item.seller_id       
-    = render partial: 'items/listing-item-change-box', locals: {item: @item}                        
+  - if current_user&.id == @item.seller_id && @item.buyer_id.nil?   
+    = render partial: 'items/listing-item-change-box', locals: {item: @item}                  
   .product-details__comment
     .product-details__comment__container
       .product-details__comment__container__messages

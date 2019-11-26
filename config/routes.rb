@@ -57,6 +57,10 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
       get :done
     end
+    member do
+      patch 'stop_listing'
+      patch 'restart_listing'
+    end
     resources :purchases, only: [:new] do
       collection do
         get 'buy'
