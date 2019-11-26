@@ -73,6 +73,7 @@ class MypagesController < ApplicationController
   # ここまで
 
   def items_selling
+    @items = current_user.seller_items.where(buyer_id: nil).order('id DESC').limit(10)
   end
 
   def items_during_trading

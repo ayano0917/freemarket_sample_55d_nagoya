@@ -1,5 +1,5 @@
 %li.mypage-item
-  = link_to item_path(item), class: 'mypage-item__link'
+  = link_to item_path(item), class: 'mypage-item__link' do
     .mypage-item__link__image-box
       = image_tag item.images[0], class: 'mypage-item__link__image-box__image'
     .mypage-item__link__body
@@ -24,4 +24,4 @@
         - elsif current.user.id == item.buyer_id    
           .mypage-item__link__body__icons__mark--traded
             購入済
-    = fa_icon'chevron-right', class: 'mypage-item__link__icon'
+  = fa_icon'chevron-right', class: 'mypage-item__link__icon'
