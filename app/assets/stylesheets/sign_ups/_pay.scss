@@ -140,6 +140,35 @@
     }
   }
   .single-main {
+    .form-group__card-top {
+      label {
+        font-weight: 600;
+        display: inline-block;
+        font-size: 14px;
+      }
+      .absolute {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .input-default {
+        width: calc(100% - 24px);
+        margin: 8px 0 0;
+        height: 46px;
+        padding: 0 8px 0px 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        min-height: 1.5em;
+        font-weight: 400;
+      }
+    }
     .form-group__image {
       margin-top: 10px;
       &__images {
@@ -147,7 +176,12 @@
       }
     }
     .expiration-date-wrap {
-      position: relative;
+      display: flex;
+      margin: 8px 0 0;
+      &__font {
+        margin: 14px 4px 0 4px;
+        align-items: center;
+      } 
       &__year {
         width: 35%;
         position: relative;

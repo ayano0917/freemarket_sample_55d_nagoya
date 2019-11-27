@@ -185,10 +185,12 @@
               line-height: 1.5;
               font-size: 16px;
               min-height: 1.5em;
+              font-weight: 400;
             }
           }
           .form-group {
             margin-top: 32px;
+            position: relative;
             h3{
               font-size: 16px;
               font-weight: bold;
@@ -223,6 +225,30 @@
               line-height: 1.5;
               font-size: 16px;
               min-height: 1.5em;
+            }
+            .prefecture__select-btn {
+              right: 12px;
+              position: absolute;
+              top: 55%;
+              z-index: 3;
+              color: #888;
+              font-size: 18px;
+            }
+            .prefecture__input {
+              -webkit-appearance: none;
+              appearance: none;
+              padding: 0 8px 0 16px;
+              margin: 8px 0 0;
+              width: 100.5%;
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              background: #fff;
             }
             .birthday-select-wrap {
               display: flex;
