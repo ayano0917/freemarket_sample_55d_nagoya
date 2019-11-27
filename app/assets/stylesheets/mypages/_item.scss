@@ -2,6 +2,7 @@
   position: relative;
   height: 80px;
   background-color: #ffffff;
+  border-bottom: 1px solid #eee;
   &__link {
     display: flex;
     position: absolute;
@@ -11,9 +12,8 @@
     height: 100%;
     padding: 16px;
     color: #333333;
-    &:hover {
-      background-color: #fafafa;
-    }
+    text-decoration: none;
+    
     &__image-box {
       width: 48px;
       height: 48px;
@@ -25,6 +25,9 @@
     }
     &__body {
       margin-left: 20px;
+      &__name {
+        font-size: 14px;
+      }
       &__icons {
         margin-top: 12px;
         color: #888888;
@@ -37,7 +40,7 @@
         &__mark--listing {
           @include item-status-mark(#0299E8);
         }
-        &__mark--stoping {
+        &__mark--stopping {
           @include item-status-mark(#EA342D);
         }
         &__mark--traded {
@@ -46,11 +49,19 @@
       }
     }
   }
+  &:hover {
+    background-color: #fafafa;
+  }
   .fa {
     position: absolute;
     top: 50%;
     right: 16px;
     transform: translate(0, -50%);
     pointer-events: none;
+    color: #333333;
   }
+}
+
+li:last-child {
+  border-bottom: none;
 }
