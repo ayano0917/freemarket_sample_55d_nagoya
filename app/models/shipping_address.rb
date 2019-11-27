@@ -7,7 +7,7 @@ class ShippingAddress < ApplicationRecord
   validates :shipping_last_name, :shipping_first_name,
   presence: {message: '入力してください'},
   length: {maximum: 35, message: '35文字以下で入力してください'}
-  validates :shipping_last_name_kana, :shipping_first_name_kana
+  validates :shipping_last_name_kana, :shipping_first_name_kana,
   presence: {message: '入力してください'},
   length: {maximum: 35, message: '35文字以下で入力してください'},
   format: {with: /\A([ァ-ン]|ー)+\z/, message: '全角カタカナ以外は使用出来ません。', allow_blank: true}
