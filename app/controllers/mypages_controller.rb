@@ -73,19 +73,21 @@ class MypagesController < ApplicationController
   # ここまで
 
   def items_selling
-    @items = current_user.seller_items.where(buyer_id: nil).order('id DESC').limit(10)
+    @items = current_user.seller_items.where(buyer_id: nil).order('id DESC').limit(13)
   end
 
   def items_during_trading
   end
 
   def items_sold
+    @items = current_user.seller_items.where.not(buyer_id: nil).order('id DESC').limit(13)
   end
 
   def bought_during_trading
   end
 
   def bought_past_trade
+    @items = current_user.buyer_items.where.not(buyer_id: nil).order('id DESC').limit(13)
   end
 
   def change_shipping_address

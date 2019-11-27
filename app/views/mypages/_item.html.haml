@@ -18,10 +18,10 @@
         - elsif item.status.present?    
           .mypage-item__link__body__icons__mark--stopping
             公開停止中
-        - elsif item.buyer_id.present?    
-          .mypage-item__link__body__icons__mark--traded
-            売却済
-        - elsif current.user.id == item.buyer_id    
+        - elsif current_user.id == item.buyer_id    
           .mypage-item__link__body__icons__mark--traded
             購入済
+        - else   
+          .mypage-item__link__body__icons__mark--traded
+            売却済    
   = fa_icon'chevron-right', class: 'mypage-item__icon'
