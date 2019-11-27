@@ -11,7 +11,7 @@
           .sell-upload-items-container
             .saved-upload-items
               %ul.pictures
-                - @item.images.each_with_index do |i,index|
+                - @item.images.each_with_index do |i,index|  #DB格納済みデータに番号 (index)をふる
                   - if i.image.present?
                     .saved-upload-item{id: "pre#{index}", style: "display:inline-block"}
                       .saved-upload-item__square
@@ -19,7 +19,6 @@
                       .saved-upload-item__btn-box
                         .saved-upload-item__btn-box--edit 編集
                         .saved-upload-item__btn-box--delete 削除
-
           = f.fields_for :images do |i|
             = i.label :image, class: 'label-hide form-mask-image' do
               .form-mask-image
