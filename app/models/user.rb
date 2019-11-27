@@ -33,12 +33,12 @@ presence: {message: 'ニックネームを入力してください'},
 length: {maximum: 20, message: '20文字以下で入力してください'}
 validates :email,
 presence: {message: 'メールアドレスを入力してください'},
-uniqueness: {message: 'そのメールアドレスは既に使われております'},
-format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: 'フォーマットが不適切です'}
+uniqueness: {message: 'そのメールアドレスは既に使われております'}
+# format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: 'フォーマットが不適切です'}
 validates :password,
 presence: {message: 'パスワードを入力してください'},
 length: {in: 7..128, message: 'パスワードは7文字以上128文字以下で入力してください'},
-format: { with: /\A[a-z0-9]+\z/i, message: '英字と数字両方を含むパスワードを設定してください'},
+format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i, message: '英字と数字両方を含むパスワードを設定してください'},
 on: :create
 validates :last_name,
 presence: {message: '姓を入力してください'},
@@ -51,11 +51,11 @@ format: {with: /\A[一-龥ぁ-ん]+\z/, message: '名に数字や特殊文字は
 validates :last_name_kana,
 presence: {message: '姓カナを入力してください'},
 length: {maximum: 35, message: '姓カナは35文字までです', allow_blank: true},
-format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/, message: '姓カナに数字や特殊文字は使用できません', allow_blank: true}
+format: { with: /\A([ァ-ン]|ー)+\z/, message: '姓カナに数字や特殊文字は使用できません', allow_blank: true}
 validates :first_name_kana,
 presence: {message: '名カナを入力してください'},
 length: { maximum: 35, message: '名カナは35文字までです', allow_blank: true},
-format: {with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/, message: '名カナに数字や特殊文字は使用できません', allow_blank: true}
+format: {with: /\A([ァ-ン]|ー)+\z/, message: '名カナに数字や特殊文字は使用できません', allow_blank: true}
 validates :birth_year_id,
 presence: {message: '生年月日を正しく入力してください'}
 validates :birth_month,
