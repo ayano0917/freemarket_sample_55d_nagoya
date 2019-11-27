@@ -56,11 +56,7 @@ validates :first_name_kana,
 presence: {message: '名カナを入力してください'},
 length: { maximum: 35, message: '名カナは35文字までです', allow_blank: true},
 format: {with: /\A([ァ-ン]|ー)+\z/, message: '名カナに数字や特殊文字は使用できません', allow_blank: true}
-validates :birth_year_id,
-presence: {message: '生年月日を正しく入力してください'}
-validates :birth_month,
-presence: {message: '生年月日を正しく入力してください'}
-validates :birth_day,
+validates :birth_year_id, :birth_month, :birth_day,
 presence: {message: '生年月日を正しく入力してください'}
 validates :phone,
 presence: { message: '会員登録できません' },
