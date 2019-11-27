@@ -39,7 +39,7 @@
         color: #888888;
         &__count {
           margin-right: 6px;
-          .far {
+          .fa {
             color: #ccc;
           }
         }
@@ -55,7 +55,7 @@
       }
     }
   }
-  .fa {
+  &__icon {
     position: absolute;
     top: 50%;
     right: 16px;

@@ -7,10 +7,10 @@
         = item.name
       .mypage-item__link__body__icons
         %span.mypage-item__link__body__icons__count
-          %i.far.fa-heart
+          = fa_icon 'heart-o'
           0
         %span.mypage-item__link__body__icons__count
-          %i.far.fa-comment-alt
+          = fa_icon 'comment-o'
           0
         - if item.buyer_id.blank? && item.status.blank?  
           .mypage-item__link__body__icons__mark--listing
@@ -24,4 +24,4 @@
         - elsif current.user.id == item.buyer_id    
           .mypage-item__link__body__icons__mark--traded
             購入済
-  = fa_icon'chevron-right', class: 'mypage-item__link__icon'
+  = fa_icon'chevron-right', class: 'mypage-item__icon'
