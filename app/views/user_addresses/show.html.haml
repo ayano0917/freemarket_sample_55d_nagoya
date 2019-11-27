@@ -1,0 +1,69 @@
+= render 'shared/login-header'
+- breadcrumb :personal_info
+= render 'layouts/breadcrumbs'
+= render 'layouts/notifications'
+
+.wrapper
+  = render 'mypages/mypage-sidebar2'
+  .wrapper__contents
+    %section.wrapper__contents__container
+      %h2.wrapper__contents__container__head 本人情報の登録
+      = form_for(@user_address, url: user_address_path(current_user), html: {method: 'patch', class: 'wrapper__contents__container__inner'}) do |f|
+        .wrapper__contents__container__inner__top
+          %p
+            お客様の本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.text-right
+            = link_to('/',class: 'text-right__link') do
+              本人確認書類のアップロードについて
+              = fa_icon 'angle-right', class: 'text-right__link__icon'
+        .wrapper__contents__container__inner__form
+          %label お名前
+          %p
+            = current_user.last_name
+            = current_user.first_name
+        .wrapper__contents__container__inner__form
+          %label お名前カナ
+          %p 
+            = current_user.last_name_kana 
+            = current_user.first_name_kana
+        .wrapper__contents__container__inner__form
+          %label 生年月日
+          %p
+            #{current_user.birth_year.name}/0#{current_user.birth_month}/0#{current_user.birth_day}
+        .wrapper__contents__container__inner__form
+          %label 郵便番号
+          %span 任意
+          = f.text_field :postal_code, placeholder: '例)1234567'
+          = render partial: 'layouts/error_messages_user_address', locals: {user_address: @user_address, column: "postal_code"}
+        .wrapper__contents__container__inner__form
+          %label 都道府県
+          %span 任意
+          = fa_icon 'chevron-down', class: 'prefecture-icon'
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: '--'}
+          = render partial: 'layouts/error_messages_user_address', locals: {user_address: @user_address, column: "prefecture_id"}
+        .wrapper__contents__container__inner__form
+          %label 市区町村
+          %span 任意
+          = f.text_field :city, placeholder: '例)横浜市緑区'
+          = render partial: 'layouts/error_messages_user_address', locals: {user_address: @user_address, column: "city"}
+        .wrapper__contents__container__inner__form
+          %label 番地
+          %span 任意
+          = f.text_field :house_number, placeholder: '例)青山1-1-1'
+          = render partial: 'layouts/error_messages_user_address', locals: {user_address: @user_address, column: "house_number"}
+        .wrapper__contents__container__inner__form
+          %label 建物名
+          %span 任意
+          = f.text_field :building, placeholder: '例)柳ビル103'
+          = render partial: 'layouts/error_messages_user_address', locals: {user_address: @user_address, column: "building"}
+        = f.submit "登録する", class: "btn-red"
+        .wrapper__contents__container__inner__bottom
+          %p.text-right
+            = link_to('/',class: 'text-right__link') do
+              本人情報の登録について
+              = fa_icon 'angle-right', class: 'text-right__link__icon'
+= render 'shared/exhibition-button'
+= render 'shared/app-banner'
+= render 'shared/footer'

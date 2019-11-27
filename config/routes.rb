@@ -11,17 +11,17 @@ Rails.application.routes.draw do
   resources :mains, only: [:index] do
     collection do
       get 'get_publishing_item'
-    end  
+    end
     collection do
       get 'search'
     end
   end
-  resources :users, only: [:update] do
+
+  resources :users, only: [:show, :update] do
     resource :mypage, only: [:show] do
       collection do
         get 'profile'
         get 'logout'
-        get 'personal_info'
         post 'create_personal_info'
         get 'payment'
         get 'credit_card_reg'
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
         get 'items_sold'
         get 'bought_during_trading'
         get 'bought_past_trade'
-        get 'change_shipping_address'
         get 'notice'
         get 'todo_list'
         get 'like_list'
@@ -61,16 +60,19 @@ Rails.application.routes.draw do
       patch 'stop_listing'
       patch 'restart_listing'
     end
+  end
+
     resources :purchases, only: [:new] do
       collection do
         get 'buy'
       end
     end
     resources :comments, only: [:create]
-  end
 
-  resources :user_addresses, only: [:update, :create]
+  resources :user_addresses, only: [:show, :update, :create]
+  resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
+
   resources :credit_cards, only: [:new, :create, :show] do
     collection do
       post :delete

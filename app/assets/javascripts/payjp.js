@@ -22,7 +22,6 @@ $(document).on('turbolinks:load', function() {
           document.inputForm.submit();
           
         } else {
-          alert("カード情報が正しくありません。");
         }
       });
     });

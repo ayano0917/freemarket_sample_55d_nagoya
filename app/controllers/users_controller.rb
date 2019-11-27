@@ -1,11 +1,30 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :update]
+
+  def show
+  end
 
   def update
-    if current_user.update_attributes(profile: params[:user][:profile], nickname: params[:user][:nickname])
-      redirect_to profile_user_mypage_path(current_user), notice: '変更しました。'
+
+    if @user.update(user_params)
+      redirect_to user_path(current_user), notice: '変更しました。'
     else
-      render profile_user_mypage_path(current_user), alert: '変更できませんでした。'
+      render action: "show"
     end
+
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :profile
+    )
   end
 
 end

@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", user_mypage_path
+  link "マイページ", user_mypage_path(current_user)
 end
 
 crumb :notice do
@@ -47,12 +47,12 @@ crumb :bought_past_trade do
 end
 
 crumb :plofile do
-  link "プロフィール", profile_user_mypage_path
+  link "プロフィール", user_path(current_user)
   parent :mypage
 end
 
 crumb :change_shipping_address do
-  link "発送元・お届け先住所変更", change_shipping_address_user_mypage_path
+  link "発送元・お届け先住所変更", shipping_address_path(current_user)
   parent :mypage
 end
 
@@ -67,7 +67,7 @@ crumb :update_email_pass do
 end
 
 crumb :personal_info do
-  link "本人情報", personal_info_user_mypage_path
+  link "本人情報", user_address_path(current_user)
   parent :mypage
 end
 
