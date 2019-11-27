@@ -3,6 +3,9 @@
   height: 80px;
   background-color: #ffffff;
   border-bottom: 1px solid #eee;
+  &:last-child {
+    border-bottom: none;
+  }
   &__link {
     display: flex;
     position: absolute;
@@ -14,6 +17,9 @@
     color: #333333;
     text-decoration: none;
     box-sizing: border-box;
+    &:hover {
+      background-color: #fafafa;
+    }
     &__image-box {
       width: 48px;
       height: 48px;
@@ -49,9 +55,6 @@
       }
     }
   }
-  &:hover {
-    background-color: #fafafa;
-  }
   .fa {
     position: absolute;
     top: 50%;
@@ -60,8 +63,4 @@
     pointer-events: none;
     color: #333333;
   }
-}
-
-li:last-child {
-  border-bottom: none;
 }
