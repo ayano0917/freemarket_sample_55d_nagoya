@@ -9,17 +9,17 @@
         %p.max 最大10枚までアップロードできます
         .sell-dropbox-container.clearfix.state-image-number-10
           .sell-upload-items-container
-            .sell-upload-items
+            .saved-upload-items
               %ul.pictures
                 - @item.images.each_with_index do |i,index|
                   - if i.image.present?
-                    %li.sell-upload-item{id: "pre#{index}"}
-                      %figure.sell-upload-figure.landscape
-                        = image_tag i.image,class: "preview"
-                      .sell-upload-button
-                        = link_to '編集','#', class: 'sell-upload-edit'
-                        = link_to '削除','#',id: "sell-upload-delete"
-        .upload-box__dropbox.cleafix
+                    .saved-upload-item{id: "pre#{index}", style: "display:inline-block"}
+                      .saved-upload-item__square
+                        = image_tag i.image,class: "saved-img"
+                      .saved-upload-item__btn-box
+                        .saved-upload-item__btn-box--edit 編集
+                        .saved-upload-item__btn-box--delete 削除
+
           = f.fields_for :images do |i|
             = i.label :image, class: 'label-hide form-mask-image' do
               .form-mask-image

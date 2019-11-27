@@ -35,7 +35,7 @@
         @include clearfix;
         .sell-upload-items-container {
           display: inline;
-          .sell-upload-items {
+          .saved-upload-items {
             display: inline;
             float: left;
             flex: 1;
@@ -49,49 +49,127 @@
               .sell-upload-item:nth-child(5n+1) {
                 margin: 0 0 10px 0;
               }
-              .sell-upload-item {
+              .saved-upload-item {
                 width: 116px;
-                margin: 0 0 10px 10px;
-                position: relative;
-                display: inline-block;
-                border: gray;
-                vertical-align: top;
-                .landscape {
-                  line-height: 116px;
-                  img {
-                    position: static;
-                    transform: none;
-                    top: 50%;
-                    left: 0;
-                    width: 100%;
-                    cursor: default;
-                    vertical-align: middle;
-                  }
+                height: 100%;
+                margin-left: 8px;
+                .saved-img {
+                  height: 100px;
+                  width:116px;
                 }
-                .sell-upload-figure {
-                  width: auto;
-                  padding: 0;
+                &__square {
+                  width: 116px;
+                  padding-top: 20px;
                   height: 116px;
-                  position: relative;
-                  overflow: hidden;
+                  margin-right: 10px;
                   background: #f5f5f5;
                 }
-                .sell-upload-button {
-                  font-size: 0;
-                  a {
+                &__btn-box {
+                  font-size: 14px;
+                  &--edit {
                     display: inline-block;
                     width: 50%;
                     background: #f5f5f5;
                     line-height: 44px;
                     text-align: center;
-                    font-size: 14px;
+                    border-top: 1px solid $separator;
+                    cursor: pointer;
+                    color: $item-new-link;
                   }
-                  a:last-child {
-                    border-left: gray;
+                  &--edit:hover {
+                    background: #f8f8f8;
+                    text-decoration: underline;
+                    color: $item-new-link-hover;
+                    text-decoration-color: $item-new-link-hover;
+                    }
+                  &--delete {
+                    float: right;
+                    width: 49%;
+                    background: #f5f5f5;
+                    line-height: 44px;
+                    text-align: center;
+                    border-left: 1px solid $separator;
+                    border-top: 1px solid $separator;
+                    cursor: pointer;
+                    color: $item-new-link;
+                  }
+                  &--delete:hover {
+                    background: #f8f8f8;
+                    text-decoration: underline;
+                    color: $item-new-link-hover;
+                    text-decoration-color: $item-new-link-hover;
                   }
                 }
               }
             }
+          }
+        }
+        .form-mask-image {
+          position: relative;
+          min-height: 178px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          font-size: 0;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          margin: 0;
+          float: right;
+        }
+        pre {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.5;
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+        pre {
+          overflow: auto;
+          font-family: monospace,monospace;
+        }
+        .upload-container {
+          float: right;
+          width: 100%;
+          position: relative;
+          height: 160px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          &__file-box {
+            display: none;
+          }
+          &__file {
+            display: none;
+          }
+        }
+        .sell-upload-drop-box {
+          float: right;
+          padding: 40px;
+          position: relative;
+          min-height: 162px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          text-align: center;
+          cursor: pointer;
+          width: 491px;
+          pre {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            right: 16px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+            transform: translate(0, -50%);
+            pointer-events: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            display: block;
           }
         }
       }
@@ -162,10 +240,6 @@
           }
           &__btn-box {
             font-size: 14px;
-            a {
-              color: #0099e8;
-              text-decoration: none;
-            }
             &--edit {
               display: inline-block;
               width: 50%;
