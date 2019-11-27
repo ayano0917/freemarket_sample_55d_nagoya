@@ -13,7 +13,7 @@
 @import "shared/exhibition-button";
 @import "purchase-confirm";
 @import "sign_ups/register";
-@import "users/edit";
+@import "users/profile";
 @import "users/mypage-sidebar2";
 @import "purchase-confirm";
 @import "mypages/personal_info";
@@ -35,5 +35,6 @@
 @import "mypages/profile";
 @import "shared/breadcrumbs";
 @import "flash.scss";
+@import "error.messages.scss";
 @import "shared/listing-item-change-box.scss";
 @import "mains/search";

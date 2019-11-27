@@ -16,14 +16,16 @@ class ShippingAddressesController < ApplicationController
   end
 
   def show
+    @shipping_address = ShippingAddress.find_by(user_id: current_user.id)
   end
 
   def update
     @shipping_address = ShippingAddress.find(params[:id])
+
     if @shipping_address.update(shipping_address_params)
-      redirect_to change_shipping_address_user_mypage_path(current_user), notice: '変更しました。'
+      redirect_to shipping_address_path(current_user), notice: '変更しました。'
     else
-      render change_shipping_address_user_mypage_path(current_user), alert: '変更出来ませんでした。'
+      render action: "show"
     end
   end
 

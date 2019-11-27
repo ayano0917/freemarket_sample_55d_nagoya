@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20191120114339) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_brands_on_name", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

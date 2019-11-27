@@ -70,11 +70,11 @@
     %h3.wrapper__sidebar__nav__title 設定
     %ul.wrapper__sidebar__nav__list3
       %li.wrapper__sidebar__nav__list3__1
-        = link_to(profile_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
+        = link_to(user_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
           プロフィール
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
-        = link_to(change_shipping_address_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
+        = link_to(shipping_address_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
           発送元・お届け先住所変更
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
@@ -86,7 +86,7 @@
           メール/パスワード
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
-        = link_to(personal_info_user_mypage_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
+        = link_to(user_address_path(current_user), class: 'wrapper__sidebar__nav__list3__1__link') do
           本人情報
           = fa_icon 'angle-right', class: 'wrapper__sidebar__nav__list3__1__link__icon'
       %li.main-container__side-bar__nav__list3__1
