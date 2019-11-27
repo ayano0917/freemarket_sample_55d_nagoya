@@ -22,6 +22,7 @@ $(document).on('turbolinks:load', function() {
           document.inputForm.submit();
           
         } else {
+          alert("入力に間違いがあります")
         }
       });
     });

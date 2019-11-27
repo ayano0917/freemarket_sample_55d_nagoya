@@ -1,33 +1,31 @@
 $(document).on('turbolinks:load', function() {
-  jQuery.validator.addMethod("test", function(value, element) {
+  jQuery.validator.addMethod("hansuuzi", function(value, element) {
     return this.optional(element) || /^[0-9]+$/.test(value);
-    }, "")  
+    }, ""
+  );
 
-  jQuery.validator.addMethod("SpaceOnlyNg",function (val, elem) {
-    return this.optional(elem) || val.trim().length > 0;
-    }, "必須入力です。");
+  jQuery.validator.addMethod("kana", function(value, element) {
+    return this.optional(element) || /^([ァ-ン]|ー)+$/.test(value);
+    }, ""
+  );
 
-  // 上記カスタムバリデーション
-
-  $("#add-card").validate({
+    $("#add-card").validate({
     rules: {
       "number": {
-        test: /^[0-9]+$/,
-        SpaceOnlyNg: true
+        hansuuzi: true,
+        required: true
       },
       "cvc": {
         required: true,
-        SpaceOnlyNg: true
       },
     },
     messages: {
       "number": {
-        test: "半角数字で入力してください",
-        SpaceOnlyNg: "必須"
+        hansuuzi: "半角数字で入力してください",
+        required: "必須項目です"
       },
       "cvc": {
         required: "必須項目です",
-        SpaceOnlyNg: "コメントは必ず入力してください。"
       },
     }
   });
