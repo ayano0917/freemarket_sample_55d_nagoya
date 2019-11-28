@@ -257,5 +257,10 @@ RSpec.describe User, type: :model do
       expect(user.errors[:profile]).to include("1000文字以下で入力してください")
     end
 
+    it "is valid with a profile that has less than 1000 characters " do
+      user = build(:user, profile: "aaaaaaaaaa")
+      expect(user).to be_valid
+    end
+    
   end
 end
