@@ -261,6 +261,6 @@ RSpec.describe User, type: :model do
       user = build(:user, profile: "aaaaaaaaaa")
       expect(user).to be_valid
     end
-    
+
   end
 end
