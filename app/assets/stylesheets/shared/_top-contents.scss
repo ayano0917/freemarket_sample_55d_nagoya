@@ -4,15 +4,80 @@
   &__trendy-box {
     position: relative;
     cursor: pointer;
-    &__a2 {
-      // display: block;
-      // text-decoration: none;
-      // position: absolute;
+    &__article {
+      &__a {
+        display: block;
+        text-decoration: none;
+        .camp {
+          display: block;
+          height: 390px;
+          width: 550px;
+          object-fit: cover;
+          margin: 0 auto;
+          
+        }
+      }
+    }    
+    &__article2 { /*切り替わる画面*/
+      background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-892151cc75b1f6a1285bf7943c9b933c.jpg');
+      display: flex;
+      &__a2 {
+        display: block;
+        display: flex;
+        text-decoration: none;
+        &__contents{
+          height: 390px;
+          width: 710px;
+          position: relative;
+          left: 325px;
+          top: 35px;
+          font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+          &__first-sentence  {
+            color: #313131;
+            width: 600px;
+            font-size: 60px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            line-height: 1.3;
+          }
+          &__second-sentence  {
+            color: black;
+            width: 400px;
+            margin-bottom: 24px;
+            line-height: 1.9;
+            font-size: 18px;
+          }
+          &__icons {
+            display: flex;
+            width: 350px;
+            height: 50px;
+            &__app-store {
+              .app-store {
+              height: 50px;
+              width: 170px;
+              }
+            }
+            &__google-play {
+            margin-left: 8px;
+              .google-play {
+              height: 50px;
+              width: 170px;
+              }
+            }
+          }  
+        }
+        .phone {
+          background-size: auto;
+          height: 390px;
+        }
+      }
+    }  
+  }    
+      
       // &__article {    
       //   // img { /*キャンプの画面*/      
-        //   height: 390px;
-        //   width: 550px;
-        //   object-fit: cover;
+        
         // }  
         // &__back-button {
         //   font-size: 37px;
@@ -45,49 +110,9 @@
         //   right: 705px;
         // }
       // }
-      &__article2 { /*切り替わる画面*/
-        background-image: url('https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-892151cc75b1f6a1285bf7943c9b933c.jpg');
-        display: flex;
-        &__contents{
-          height: 390px;
-          width: 710px;
-          position: relative;
-          left: 330px;
-          top: 30px;
-          font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
-          &__first-sentence  {
-            color: #313131;
-            width: 600px;
-            font-size: 60px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            line-height: 1.3;
-          }
-          &__second-sentence  {
-            color: black;
-            width: 400px;
-            margin-bottom: 20px;
-            line-height: 1.9;
-            font-size: 18px;
-          }
-          &__icons {
-            display: flex;
-            width: 270px;
-            height: 50px;
-            &__app-store  {
-            }
-            &__google-play {
-            margin-left: 10px;
-            }
-          }
-        &__contents__phone-img {
-          margin-right: 100px;
-        }
-      }
-      }
-    }
-  }
+      
+  
+  
   .top-page__popular-categories {
     position: relative;
     height: 170px;
