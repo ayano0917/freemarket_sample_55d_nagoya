@@ -60,7 +60,6 @@ Rails.application.routes.draw do
       patch 'stop_listing'
       patch 'restart_listing'
     end
-  end
 
     resources :purchases, only: [:new] do
       collection do
@@ -68,7 +67,7 @@ Rails.application.routes.draw do
       end
     end
     resources :comments, only: [:create]
-
+  end
   resources :user_addresses, only: [:show, :update, :create]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
