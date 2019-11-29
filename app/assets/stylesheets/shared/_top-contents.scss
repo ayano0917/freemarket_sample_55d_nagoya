@@ -202,3 +202,15 @@
   }
   
 }
+.slick-dots {
+  position: absolute !important;
+  margin-bottom: 20px !important;
+  li {
+    margin-bottom: 20px !important;
+    button:before {
+      content: "●" !important;
+      font-size: 10px !important;
+      color: black !important;
+    }
+  }
+}
