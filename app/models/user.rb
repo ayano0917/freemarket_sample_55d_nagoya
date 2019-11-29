@@ -63,6 +63,7 @@ presence: { message: '会員登録できません' },
 uniqueness: {message: 'その番号は既に使われております'},
 format: {with: /\A\d{10}$|^\d{11}\z/, message: '電話番号の書式を確認してください', allow_blank: true}
 
-validates :profile, length: { maximum: 1000 }
+validates :profile, 
+length: { maximum: 1000, message: '1000文字以下で入力してください' }
 
 end
