@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
           @item.update!(brand_id: brand.id)
         end
       end
+
     else
       redirect_to new_item_path
     end
@@ -48,7 +49,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    10.times{@item.images.build}
+    15.times{@item.images.build}
     @images = @item.images
     @category = Category.where(ancestry: nil)
     @category_parent = Category.where(ancestry: @item.parent_id)
