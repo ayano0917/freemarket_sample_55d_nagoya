@@ -1,8 +1,27 @@
 $(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
   $(function(){
+    function modalWindow(){
+      var modalHtml = `<div class="item-create">
+                        <div class="item-create__box">
+                          <div class="item-create__box__head">
+                            <h1 class="complete">出品が完了しました。</h1>
+                          </div>
+                          <div class="item-create__box__message">
+                            あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+                          </div>
+                          <a class="item-create__box__btn" data-turbolinks="false" href="/items/new">続けて出品する</a>
+                          <p class="item-create__box__share">
+                          <a href="/">トップページへ戻る</a>
+                          </p>
+                        </div>
+                      </div>`
+        return modalHtml
+          }
+
+
+
     $('#new_item').on('submit', function(eve){
       eve.preventDefault();
-      console.log("OK")
       var formData = new FormData(this);
       var url = $(this).attr('action');
       $.ajax({
@@ -12,6 +31,32 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
         dataType: 'json',
         processData: false,
         contentType: false
+      })
+      .done(function(){
+        var modal = modalWindow;
+        $(function(){
+          $(".display-main").append(modal);
+            $(".item-create,.item-create__box").fadeIn();
+          });
+          locateCenter();  // => モーダルウィンドウを中央配置するための初期値を設定する
+          $(window).resize(locateCenter);  // => ウィンドウのリサイズに合わせて、モーダルウィンドウの配置を変える
+        
+          // モーダルウィンドウを中央配置するための配置場所を計算する関数
+          function locateCenter() {
+            let w = $(window).width();
+            let h = $(window).height();
+            
+            let cw = $(".item-create__box").outerWidth();
+            let ch = $(".item-create__box").outerHeight();
+            
+            $(".item-create__box").css({
+              'left': ((w - cw) / 2) + 'px',
+              'top': ((h - ch) / 3.5) + 'px'
+            });
+          }
+        })
+      .fail(function(){
+        
       })
     })
   })
