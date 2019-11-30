@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       shipping_address: 配送先住所
       user_address: 本人情報の登録
+      item: アイテム
     attributes:
       user:
         nickname: ""
@@ -32,4 +33,16 @@ ja:
         city: ""
         house_number: ""
         building: ""
+      item:
+        name: ""
+        description: ""
+        parent_id: ""
+        child_id: ""
+        condition_id: ""
+        shipping_fee_id: ""
+        shipping_form_id: ""
+        prefecture_id: ""
+        days_before_shipping_id: ""
+        price: ""
+        numericality: ""
 

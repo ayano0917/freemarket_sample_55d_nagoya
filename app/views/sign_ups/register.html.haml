@@ -23,7 +23,7 @@
     %section.container
       %h2.single-head
         会員情報入力
-      = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get, id: :user_form}) do |f|
+      = form_for(@user, local: true, url: authentication_sign_ups_path, html: {method: :get}) do |f|
         .single-content
           .form-group
             %label
@@ -31,28 +31,24 @@
             %span.absolute
               必須
             = f.text_field :nickname, placeholder: "例) メルカリ太郎", class: "input-default"
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "nickname"}
           .form-group
             %label
               メールアドレス
             %span.absolute
               必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "input-default"
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "email"}
           .form-group
             %label
               パスワード
             %span.absolute
               必須
             = f.password_field :password, placeholder: "7文字以上", class: "input-default"
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "password"}
           .form-group
             %label
               パスワード(確認)
             %span.absolute
               必須
             = f.password_field :password_confirmation, placeholder: "7文字以上", class: "input-default"
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "password_confirmation"}
           .form-group
             %h3
               本人確認
@@ -65,9 +61,9 @@
               必須
             .form-group__box
               = f.text_field :last_name, placeholder: "例) 山田", class: "input-default-left"
-              = render partial: 'layouts/error_messages', locals: {user: @user, column: "last_name"}
               = f.text_field :first_name, placeholder: "例) 彩", class: "input-default-right"
-              = render partial: 'layouts/error_messages', locals: {user: @user, column: "first_name"}
+            #field1_error
+            #field2_error
           .form-group
             %label
               お名前カナ(全角)
@@ -75,9 +71,9 @@
               必須
             .form-group__box
               = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default-left"
-              = render partial: 'layouts/error_messages', locals: {user: @user, column: "last_name_kana"}
               = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default-right"
-              = render partial: 'layouts/error_messages', locals: {user: @user, column: "first_name_kana"}
+            #field3_error
+            #field4_error
           .form-group
             %label
               生年月日
@@ -88,18 +84,16 @@
               .birthday-select-wrap__year
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__year__btn'
                 = f.collection_select :birth_year_id, BirthYear.all, :id, :name,{include_blank:'--'}, class: "birthday-select-wrap__year__btn__select"
-                = render partial: 'layouts/error_messages', locals: {user: @user, column: "phone"}
               %span.birthday-select-wrap__font 年
               .birthday-select-wrap__month
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__month__btn'
                 = f.select :birth_month, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"]],{prompt: '--'}, class: "birthday-select-wrap__month__btn__select"
-                = render partial: 'layouts/error_messages', locals: {user: @user, column: "phone"}
               %span.birthday-select-wrap__font 月
               .birthday-select-wrap__day
                 = fa_icon 'chevron-down', class: 'birthday-select-wrap__day__btn'
                 = f.select :birth_day, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"],["15","15"],["16","16"],["17","17"],["18","18"],["19","19"],["20","20"],["21","21"],["22","22"],["23","23"],["24","24"],["25","25"],["26","26"],["27","27"],["28","28"],["29","29"],["30","30"],["31","31"]],{prompt: '--'}, class: "birthday-select-wrap__day__btn__select"
-                = render partial: 'layouts/error_messages', locals: {user: @user, column: "phone"}
               %span.birthday-select-wrap__font 日
+            #field5_error
           %p.form-info-text
             ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .single-content2

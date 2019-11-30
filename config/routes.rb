@@ -50,6 +50,13 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:new ,:index, :show, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:create]
+    resources :purchases, only: [:new] do
+      collection do
+        get 'buy'
+      end
+    end
+
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -60,14 +67,8 @@ Rails.application.routes.draw do
       patch 'stop_listing'
       patch 'restart_listing'
     end
-
-    resources :purchases, only: [:new] do
-      collection do
-        get 'buy'
-      end
-    end
-    resources :comments, only: [:create]
   end
+  
   resources :user_addresses, only: [:show, :update, :create]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]

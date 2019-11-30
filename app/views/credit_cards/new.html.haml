@@ -25,7 +25,7 @@
         支払い方法
       = form_tag(credit_cards_path, method: :post, id: "add-card", name: "inputForm") do
         .single-content
-          .form-group__top
+          .form-group__card-top
             %label
               カード番号
             %span.absolute
@@ -61,7 +61,7 @@
                   %option{value: "10"}10
                   %option{value: "11"}11
                   %option{value: "12"}12
-              %span.expiration-date-wrap__font 月
+              .expiration-date-wrap__font 月
 
               .expiration-date-wrap__month
                 = fa_icon 'chevron-down', class: 'expiration-date-wrap__month__btn'
@@ -77,7 +77,7 @@
                   %option{value: "2027"}27
                   %option{value: "2028"}28
                   %option{value: "2029"}29
-              %span.expiration-date-wrap__month-font 年
+              .expiration-date-wrap__font 年
 
           .form-group
             %label
