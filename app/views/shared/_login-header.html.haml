@@ -24,19 +24,19 @@
             .main-header__inner__nav__menu__like
               =link_to like_list_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__like__link' do
                 = fa_icon "heart-o", class: 'main-header__inner__nav__menu__like__link__icon'
-                %span いいね！ 一覧
+                %span.header3 いいね！ 一覧
             .main-header__inner__nav__menu__notification
               =link_to notice_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__notification__link' do
                 = fa_icon 'bell-o', class: 'main-header__inner__nav__menu__notification__link__icon'
-                %span お知らせ
+                %span.header4 お知らせ
             .main-header__inner__nav__menu__todo
               =link_to todo_list_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__todo__link' do
                 = fa_icon 'check', class: 'main-header__inner__nav__menu__todo__link__icon'
-                %span やることリスト
+                %span.header5 やることリスト
             .main-header__inner__nav__menu__mypage
               =link_to user_mypage_path(current_user), class: 'main-header__inner__nav__menu__mypage__link' do
                 = image_tag('member_photo_no-image.png' , class: 'main-header__inner__nav__menu__mypage__link__icon')
-                %span マイページ
+                %span.header6 マイページ
         - else
           .main-header__inner__nav__un-login
             .main-header__inner__nav__un-login__new
