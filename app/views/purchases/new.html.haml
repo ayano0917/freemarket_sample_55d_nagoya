@@ -52,7 +52,7 @@
         = @shipping_addresses.shipping_last_name
         = @shipping_addresses.shipping_first_name
         .purchase-confirmation-page__main__address__change
-          = link_to '変更する >', new_shipping_address_path(current_user)
+          = link_to '変更する >', shipping_address_path(current_user)
     .purchase-confirmation-page__main__payment
       .purchase-confirmation-page__main__payment__way
         %h3 支払い方法
