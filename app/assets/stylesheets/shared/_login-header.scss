@@ -70,13 +70,17 @@ body {
               display: block;
               font-size: 14px;
               font-weight: 600;
-              line-height: 36px;
               text-decoration: none;
               color: #333;
+              position: relative;
+              top: 11px;
               &__icon {
                 color: rgb(234, 53, 45);
                 height: 12px;
                 margin-right: 4px;
+              }
+              p {
+                display: inline;
               }
             }
           }
@@ -89,14 +93,18 @@ body {
               display: block;
               font-size: 14px;
               font-weight: 600;
-              line-height: 36px;
               text-decoration: none;
               color: #333;
+              position: relative;
+              top: 11px;
               &__icon {
                 color: rgb(234, 53, 45);
                 height: 12px;
                 margin-right: 4px;
                 transform: rotate(-45deg);
+              }
+              p {
+                display: inline;
               }
             }
           }
