@@ -22,7 +22,20 @@ $(document).on('turbolinks:load', function() {
           document.inputForm.submit();
           
         } else {
-          alert("入力に間違いがあります")
+          let message = response.error.code
+          if (message === "invalid_number") {
+            $('#card-error').remove();
+            let error ='<p id="card-error">カード番号が正しくありません</p>'
+            $("#message_new").append(error);
+          } else if (message === "expired_card") {
+            $('#card-error').remove();
+            let error ='<p id="card-error">有効期限が正しくありません</p>'
+            $("#message_expired_new").prepend(error);
+          } else if (message === "invalid_cvc") {
+            $('#card-error').remove();
+            let error ='<p id="card-error">セキュリティコードが正しくありません</p>'
+            $("#message_cvc_new").prepend(error);
+          }
         }
       });
     });
