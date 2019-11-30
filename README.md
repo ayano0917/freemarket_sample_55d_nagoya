@@ -42,7 +42,7 @@ belongs_to_active_hash :birth_year
 |city|string|
 |house_number|string|
 |building|string|
-|user|references|foreign_key: true|
+|user|references|foreign_key: true, null: false|
 ### Association
 belongs_to :user, optional: true
 
