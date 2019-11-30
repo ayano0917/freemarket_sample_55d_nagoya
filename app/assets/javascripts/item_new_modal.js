@@ -1,3 +1,4 @@
+// モーダルウィンドウ実装は一旦見送りのためコメントアウト
 // $(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
 // // モーダルウィンドウ
 //   $(function(){
