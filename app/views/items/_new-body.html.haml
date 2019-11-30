@@ -20,12 +20,14 @@
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
+          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", maxlength: 40
+          -# = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "name"}
         .item-introduction
           %label.form-label
             商品の説明
             %span.form-require 必須
-          = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", required: true, maxlength: 1000
+          = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", maxlength: 1000
+          -# = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "description"}
       .item-content.cleafix
         %h3.sub-head 商品の詳細
         .detail-box
@@ -35,10 +37,12 @@
             %span.form-group1__require 必須
             .form-group1__pulldown
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', id: 'parent_category', required: true
+              = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', id: 'parent_category'
+              -# = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "parent_id"}
             .form-group1__pulldown.hide#category-child-1
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
+              = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category'
+              -# = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "child_id"}
             .form-group1__pulldown.hide#category-child-2
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
               = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
@@ -59,7 +63,8 @@
               商品の状態
             %span.form-group4__require 必須
             .form-group4__pulldown
-              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices', required: true
+              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices'
+              -# = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "condition_id"}
               =fa_icon 'chevron-down', class: 'form-group4__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 配送について
@@ -133,12 +138,12 @@
             に同意したことになります。
         = f.submit "出品する", {class: 'item-sell-btn'}
         =link_to "もどる", root_path, class: 'top-return-btn'
-  .item-create
-    .item-create__box
-      .item-create__box__head
-        %h1.complete 出品が完了しました。
-      .item-create__box__message
-        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
-      =link_to "続けて出品する", new_item_path, class: 'item-create__box__btn', data: {"turbolinks" => false}
-      %p.item-create__box__share
-        =link_to "トップページへ戻る", root_path
+  -# .item-create
+  -#   .item-create__box
+  -#     .item-create__box__head
+  -#       %h1.complete 出品が完了しました。
+  -#     .item-create__box__message
+  -#       あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+  -#     =link_to "続けて出品する", new_item_path, class: 'item-create__box__btn', data: {"turbolinks" => false}
+  -#     %p.item-create__box__share
+  -#       =link_to "トップページへ戻る", root_path

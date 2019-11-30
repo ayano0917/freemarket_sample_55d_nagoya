@@ -40,8 +40,9 @@ class ItemsController < ApplicationController
           @item.update!(brand_id: brand.id)
         end
       end
+      redirect_to mains_path, notice: "出品しました"
     else
-      redirect_to new_item_path
+      render new_item_path, notice: "入力に誤りがあります。"
     end
   end
 
