@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
           @item.update!(brand_id: brand.id)
         end
       end
-      redirect_to mains_path, notice: '出品が完了しました'
+      # redirect_to mains_path, notice: '出品が完了しました'
     else
       redirect_to new_item_path
     end

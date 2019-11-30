@@ -1,8 +1,22 @@
 $(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
-
+  $(function(){
+    $('#new_item').on('submit', function(eve){
+      eve.preventDefault();
+      console.log("OK")
+      var formData = new FormData(this);
+      var url = $(this).attr('action');
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+    })
+  })
   var path = location.pathname;
   if (path == "/items/new"){
-    // $('.form-mask-image').empty();
     // 最初以外のform-mask-imageを非表示
     $('.form-mask-image:first').removeClass('label-hide')
       $(document).on('change', 'input[type="file"]', function(event){
@@ -29,7 +43,6 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
                                       <span class='upload-item__btn-box--delete'>削除</span>
                                     </div>
                                   </div>`;
-            // $('.upload-images').attr(buildPreviewHTML)
             $preview_new.parent().parent().after(buildPreviewHTML)
             $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
 
