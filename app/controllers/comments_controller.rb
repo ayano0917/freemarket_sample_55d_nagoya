@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       if @comment.save
         redirect_to item_path(comment_params[:item_id]), notice: 'コメントしました'
       else
-        redirect_to item_path(comment_params[:item_id]), alert: 'コメント欄が空欄です'
+        redirect_to item_path(comment_params[:item_id]), alert: 'コメントを入力してください'
       end 
     end   
   end

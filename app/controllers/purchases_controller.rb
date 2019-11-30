@@ -6,6 +6,11 @@ class PurchasesController < ApplicationController
   def new
     @image = @item.images.first
     @shipping_addresses = current_user.shipping_address
+    #出品者自身が出品アイテムの購入画面に行かないように詳細画面にリダイレクト
+    if current_user.id == @item.seller_id
+      redirect_to item_path(@item)
+    end
+
     if @card.blank?
       #フラッシュメッセージを表示させる「カードが登録されていません。」
       redirect_to payment_user_mypage_path(current_user) #登録された情報がない場合にカード登録画面に移動
