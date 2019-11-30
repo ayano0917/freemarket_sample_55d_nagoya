@@ -1,7 +1,10 @@
 @import "reset";
 @import "mixin/mixin";
 @import "variable/colors";
+@import "slick-theme"; 
+@import "slick";
 @import "font-awesome";
+@import "shared/top-contents";
 @import "shared/login-header";
 @import "shared/app-banner";
 @import "shared/footer";
@@ -38,7 +41,4 @@
 @import "shared/listing-item-change-box.scss";
 @import "mains/search";
 @import "mypages/item";
-@import "slick-theme"; 
-@import "slick";
-@import "shared/top-contents";
 

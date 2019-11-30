@@ -1,6 +1,5 @@
 class ShippingAddress < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  has_many :items
   belongs_to_active_hash :prefecture
   belongs_to :user, optional: true
 

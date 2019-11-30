@@ -3,5 +3,6 @@ $(document).on('turbolinks:load', function(){
     autoplay:true,  
     dots:true,
     autoplaySpeed: 4000,
+    pauseOnFocus: false,
   });
 });
