@@ -18,7 +18,6 @@ class User < ApplicationRecord
     end
   end
 
-has_many :sns_credentials, dependent: :destroy
 has_many :comments, dependent: :destroy
 has_many :seller_items, class_name: 'Item', foreign_key: 'seller_id', dependent: :destroy
 has_many :buyer_items, class_name: 'Item', foreign_key: 'buyer_id', dependent: :destroy
