@@ -48,7 +48,7 @@ class Item < ApplicationRecord
 
   validates :price,
   presence: {message: '販売価格を入力してください'},
-  numericality: { only_integer: true , greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  numericality: { only_integer: true , greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: '数値かつ300円以上にて入力してください'}
 
   def previous
     Item.where("id < ?",id).order("id DESC").first

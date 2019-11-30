@@ -33,6 +33,7 @@ ja:
         city: ""
         house_number: ""
         building: ""
+      item:
         name: ""
         description: ""
         parent_id: ""
@@ -43,4 +44,5 @@ ja:
         prefecture_id: ""
         days_before_shipping_id: ""
         price: ""
+        numericality: ""
 
