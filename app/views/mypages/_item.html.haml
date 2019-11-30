@@ -15,7 +15,7 @@
         - if item.buyer_id.blank? && item.status.blank?  
           .mypage-item__link__body__icons__mark--listing
             出品中
-        - elsif item.status.present?    
+        - elsif item.status == '公開停止中'  
           .mypage-item__link__body__icons__mark--stopping
             公開停止中
         - elsif current_user.id == item.buyer_id    
