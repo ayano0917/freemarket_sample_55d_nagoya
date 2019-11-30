@@ -7,29 +7,29 @@
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birth_year|integer|null: false|
+|birth_year_id|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|phone|string|null: false, unique:true|
+|phone|string|null: false|
 |image|string|
-|profile|text|
+|profile|string|
 |sales_amount|integer|
 |points|integer|
-|Postal_code|string
-|prefecture|string
-|city|string
-|house_number|string
+|Postal_code|string|
+|prefecture|string|
+|city|string|
+|house_number|string|
 |building|string|
 # devise機能にてデフォルト
-|email|string|null: false, unique: true| 
+|email|string|null: false, unique: true|
 
 ### Association
-has_one :credit_cards, dependent: :destroy
 has_many :sns_credentials, dependent: :destroy
-has_many :likes, dependent: :destroy
 has_many :comments, dependent: :destroy
-has_ many :buyers, class_name: ‘Item’, dependent: :destroy
-has_ many :sellers, class_name: ‘Item’, dependent: :destroy
+has_many :seller_items, class_name: 'Item', foreign_key: 'seller_id', dependent: :destroy
+has_many :buyer_items, class_name: 'Item', foreign_key: 'buyer_id', dependent: :destroy
+has_one :user_address, dependent: :destroy
+has_one :credit_cards, dependent: :destroy
 has_one :shipping_address, dependent: :destroy
 
 ## credit_cardsテーブル
