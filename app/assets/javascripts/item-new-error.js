@@ -1,6 +1,5 @@
   $(function(){
     $(".item-sell-btn").on('click',function(e){
-      console.log($("img").length)
       if(($("img").length) == 2){ 
         e.preventDefault();
         alert("商品画像は必須です")
