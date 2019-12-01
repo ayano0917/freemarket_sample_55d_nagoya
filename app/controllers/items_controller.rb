@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
       # redirect_to root_path, notice: '出品が完了しました'
       render 'item_new_modal'
     else
-      render new_item_path, notice: "入力に誤りがあります。"
+      redirect_to new_item_path, notice: "入力に誤りがあります。"
     end
   end
 

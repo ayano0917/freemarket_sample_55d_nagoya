@@ -5,6 +5,7 @@ $(window).on('load', function() { //出品ページに遷移後リロード
     // $('.form-mask-image').empty();
     // 最初以外のform-mask-imageを非表示
     $('.form-mask-image:first').removeClass('label-hide')
+
       $(document).on('change', 'input[type="file"]', function(event){
         $preview_new = $(this).parent();
         previewfile(event,$preview_new)

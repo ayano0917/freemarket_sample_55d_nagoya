@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :brand
 
+  validates :images, length: { minimum: 1, message: "is none"}
   # バリデーション重複のためコメントアウト
   # validates :name,
   # presence: {message: '商品名を入力してください'},
