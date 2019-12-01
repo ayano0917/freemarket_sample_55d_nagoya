@@ -9,8 +9,8 @@ $(window).on('load', function () {
       ItemProfit.text('-');
     } else {
       let SellingPrice = ItemPrice.val();
-      let SellingFee = Math.floor(SellingPrice * 0.1);
-      let SellingProfit = SellingPrice - SellingFee
+      let SellingFee = String(Math.floor(SellingPrice * 0.1)).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+      let SellingProfit = String(Math.ceil(SellingPrice * 0.9)).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
       ItemFee.text('¥' + SellingFee);
       ItemProfit.text('¥' + SellingProfit);
     }

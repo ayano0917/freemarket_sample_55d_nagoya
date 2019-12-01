@@ -1,34 +1,28 @@
 = render 'layouts/notifications'
 .top-page
-  .top-page__trendy-box
-    = link_to '#', class: 'top-page__trendy-box' do
-      .top-page__trendy-box__article
-        = image_tag('//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3296506464', width: '680px', height: '390px', class: 'top-page__trendy-box__article')
-      .top-page__trendy-box__article2
-        .top-page__trendy-box__article2__contents
-          .top-page__trendy-box__article2__contents__first-sentence 
+  .top-page__trendy-box.slick
+    .top-page__trendy-box__article
+      .top-page__trendy-box__article__i-box
+        = image_tag('//mercarinews.files.wordpress.com/2019/11/sns.jpg', class: 'news') 
+    .top-page__trendy-box__article2
+      .top-page__trendy-box__article2__ibox2
+        = image_tag('//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?1855818912', class: 'camp')
+    .top-page__trendy-box__article3
+      .top-page__trendy-box__article3__ibox3
+        .top-page__trendy-box__article3__ibox3__contents
+          .top-page__trendy-box__article3__ibox3__contents__first-sentence 
             %p スマホで かんたん 
             フリマアプリ
-          .top-page__trendy-box__article2__contents__second-sentence
+          .top-page__trendy-box__article3__ibox3__contents__second-sentence
             %p メルカリはスマホカメラからすぐに出品できる
             購入時も安心な独自システムのアプリです
-          .top-page__trendy-box__article2__contents__icons
-            .top-page__trendy-box__article2__contents__icons__app-store
-              = link_to '#' do
-                = image_tag('https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', width: '170', height: '50')
-            .top-page__trendy-box__article2__contents__icons__google-play
-              = link_to '#' do
-                = image_tag('https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', width: '170', height: '50')
-        .top-page__trendy-box__article2__contents__phone-img
-          = image_tag('https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png', width: '440', height: '390')
-          .top-page__trendy-box__article__back-button
-            ＜
-          .top-page__trendy-box__article__forward-button
-            ＞
-          .top-page__trendy-box__article__dot-left
-            ●
-          .top-page__trendy-box__article__dot-right
-            ○
+          .top-page__trendy-box__article3__ibox3__contents__icons
+            .top-page__trendy-box__article3__ibox3__contents__icons__app-store
+              = image_tag('//web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class: 'app-store')
+            .top-page__trendy-box__article3__ibox3__contents__icons__google-play
+              = image_tag('//web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class: 'google-play')
+        = image_tag('//web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png', class: 'phone')
+          
   -unless @publishing_item.blank?          
     .top-page__popular-categories
       .top-page__heading-line

@@ -269,9 +269,9 @@
     background-color: white;
     &__container {
       &__messages {
-        padding: 24px;
         .message-items {
           margin: 0;
+          padding: 24px;
           li.message-item.clearfix:first-child {
               margin: 1.5em 0 0;
           }

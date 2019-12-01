@@ -16,8 +16,8 @@
               .product-details__main__item-main-content__left-box__stop__text
                 公開停止中      
         .photo
-          - @item.images.each_with_index do |image, index| next if index == 0
-            = image_tag @item.images[index].image, class:"sub-photo"         
+          - @item.images.each do |image|
+            = image_tag image.image, class:"sub-photo"         
       %table.product-details__main__item-main-content__right-box
         %tr.product-details__main__item-main-content__right-box__table-row
           %th.product-details__main__item-main-content__right-box__table-row__header 出品者
@@ -110,9 +110,9 @@
     = render partial: 'items/listing-item-change-box', locals: {item: @item}                  
   .product-details__comment
     .product-details__comment__container
-      .product-details__comment__container__messages
-        %ul.message-items
-          - if @item.comments
+      - if @item.comments
+        .product-details__comment__container__messages
+          %ul.message-items
             - @comments.each do |comment|
               %li.message-item.clearfix
                 = link_to '#', class: 'message-user' do
@@ -132,14 +132,15 @@
                     .message-icon-right
                       = link_to "" do
                         = fa_icon 'flag'
-      .product-details__comment__container__content
-        = form_for(@comment, url: item_comments_path(@item), html:{class: "product-details__comment__container__content__form"}) do |f|
-          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = f.text_area :content
-          - unless @item.buyer_id
-            = f.submit "コメントする", class: "message-submit"
-          -else
-            .sold-button-comment 売り切れのためコメントできません
+      - if user_signed_in?                  
+        .product-details__comment__container__content
+          = form_for(@comment, url: item_comments_path(@item), html:{class: "product-details__comment__container__content__form"}) do |f|
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.text_area :content
+            - unless @item.buyer_id
+              = f.submit "コメントする", class: "message-submit"
+            -else
+              .sold-button-comment 売り切れのためコメントできません
   -if current_user&.id != @item.seller_id                    
     .product-details__link
       - if @item.previous.present?

@@ -68,7 +68,7 @@ Rails.application.routes.draw do
       patch 'restart_listing'
     end
   end
-
+  
   resources :user_addresses, only: [:show, :update, :create]
   resources :comments, only: [:new, :create]
   resources :shipping_addresses, only: [:new, :create, :show, :update, :destroy]
