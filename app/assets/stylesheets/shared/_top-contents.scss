@@ -4,16 +4,6 @@
   &__trendy-box {
     position: relative;
     cursor: pointer;
-    &__article {
-      background-color: #FBF77C;
-      .news {
-        display: block;
-        height: 390px;
-        width: 1437px;
-        object-fit: contain;
-        margin: 0 auto;        
-      }   
-    }    
     &__article2 {
       .camp {
         display: block;
