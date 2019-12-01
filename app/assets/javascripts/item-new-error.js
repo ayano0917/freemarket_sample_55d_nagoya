@@ -1,19 +1,11 @@
-// $(form).on('submit', function() {
-  // $(document).ready (function() { //出品ページに遷移後リロード
   $(function(){
     $(".item-sell-btn").on('click',function(e){
       console.log($("img").length)
-      // var itemFormData = e.target.files[0],
-      if((".img") < 2){ 
+      if(($("img").length) == 2){ 
         e.preventDefault();
         alert("商品画像は必須です")
         return false;
       }
-      jQuery.validator.addMethod("image-pass", function(value, element) {
-        return this.optional(element) || /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}$/i.test(value);
-        }, ""
-      );
-  
       $("#new_item").validate({
   
         rules: {
@@ -50,9 +42,6 @@
             required: true,
             number : true 
           },
-          "item[images_attributes][0][image]": {
-            required: true,
-          }
         },
         messages: {
           "item[name]": {
