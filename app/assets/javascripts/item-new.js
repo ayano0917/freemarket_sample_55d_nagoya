@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(window).on('load', function() {
   $("#new_item").validate({
     rules: {
       "item[name]": {
