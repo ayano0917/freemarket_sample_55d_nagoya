@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(window).on('load', function () {
   $("#user_sign_in").validate({
     rules: {
       "user[email]": {

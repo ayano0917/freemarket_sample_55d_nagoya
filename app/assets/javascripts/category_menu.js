@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(window).on('load', function () {
   $(function() {
     let category = $('.main-header__inner__nav__search__category');
     let header_category = $('.category__header');

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(window).on('load', function () {
   $("img.sub-photo").on("mouseover", function() {
     var ImgSrc = $(this).attr("src");
     $("img#bigphoto").attr({src:ImgSrc});
