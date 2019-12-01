@@ -1,7 +1,7 @@
 $(window).on('load', function() { //出品ページに遷移後リロード
 
-  var path = location.pathname;
-  if (path == "/items/new"){
+  // var path = location.pathname;
+  // if (path == "/items/"){
     // $('.form-mask-image').empty();
     // 最初以外のform-mask-imageを非表示
     $('.form-mask-image:first').removeClass('label-hide')
@@ -73,5 +73,5 @@ $(window).on('load', function() { //出品ページに遷移後リロード
         })(file);
       reader.readAsDataURL(file);
     }
-  }
+  // }
 });

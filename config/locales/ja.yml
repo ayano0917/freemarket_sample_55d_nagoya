@@ -5,6 +5,7 @@ ja:
       shipping_address: 配送先住所
       user_address: 本人情報の登録
       item: アイテム
+      image: 画像
     attributes:
       user:
         nickname: ""
@@ -45,4 +46,5 @@ ja:
         days_before_shipping_id: ""
         price: ""
         numericality: ""
-
+      image:
+        image: ""

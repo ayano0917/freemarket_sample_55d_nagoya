@@ -42,7 +42,7 @@ class Item < ApplicationRecord
   # presence: {message: '販売価格を入力してください'},
   # numericality: { only_integer: true , greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: '数値かつ300円以上にて入力してください'}
 
-  #上記バリデーションにするか下記バリデーションにするか次ブランチにて判断
+  # 上記バリデーションにするか下記バリデーションにするか次ブランチにて判断
   validates :name,  presence: true, length: { maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
   validates :parent_id, presence: true, numericality: { only_integer: true}
