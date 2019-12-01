@@ -33,8 +33,10 @@ $(window).on('load', function() {
       "item[price]": {
         required: true,
         number : true 
-
       },
+      "item[images_attributes][0][image]": {
+        required: true,
+      }
     },
     messages: {
       "item[name]": {
@@ -67,8 +69,11 @@ $(window).on('load', function() {
         required: "発送までの日数を選択してください",
       },
       "item[price]": {
-        required: true,
-        number : true 
+        required: "価格を入力してください",
+        number : "数字で入力してください"
+      },
+      "item[images_attributes][0][image]": {
+        required: "画像を入力してください",
       }
     }
   });
