@@ -3,7 +3,6 @@ class CreateSizes < ActiveRecord::Migration[5.0]
     create_table :sizes do |t|
       t.string :name, null: false
       t.string :ancestry
-
       t.timestamps
     end
     add_index :sizes, :ancestry
