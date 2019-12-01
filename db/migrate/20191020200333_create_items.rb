@@ -14,7 +14,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer    :price,                 null: false 
       t.references :seller,                            foreign_key: {to_table: :users}
       t.references :buyer,                             foreign_key: {to_table: :users}
-      t.string     :status,                null: false, default: ""
+      t.string     :status
       t.integer    :parent_id,            null: false, index: true
       t.integer    :child_id,             null: false, index: true
       t.timestamps
