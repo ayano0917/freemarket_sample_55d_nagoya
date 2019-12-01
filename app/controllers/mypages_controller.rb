@@ -1,6 +1,7 @@
 class MypagesController < ApplicationController
 
   def show
+    @items = current_user.seller_items
   end
 
   def profile
