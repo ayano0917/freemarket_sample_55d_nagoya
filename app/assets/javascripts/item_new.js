@@ -1,5 +1,4 @@
-$(document).on('turbolinks:load', function() { //出品ページに遷移後リロード
-
+$(window).on('load', function() { //出品ページに遷移後リロード
   var path = location.pathname;
   if (path == "/items/new"){
     // $('.form-mask-image').empty();
