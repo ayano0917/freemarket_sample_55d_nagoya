@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function () {
+$(window).on('load', function () {
   let ItemPrice = $("#item_price")
   let ItemFee = $(".sell-form__fee")
   let ItemProfit = $(".sell-form__gain")
