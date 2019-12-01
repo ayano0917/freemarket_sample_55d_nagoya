@@ -91,6 +91,7 @@ body {
               top: 44px;
               left: 0;
               &__list {
+                position: relative;
                 &__1{
                   display: block;
                   font-size: 14px;
@@ -98,6 +99,25 @@ body {
                   padding: 0px 16px;
                   text-decoration: none;
                   color: #333;
+                }
+              }
+              &__list2 {
+                position: absolute;
+                top: 0px;
+                left: 224px;
+                bottom: 0;
+                height: 100%;
+                background-color: #fff;
+                box-shadow: 1px 0 0 0 #eee;
+                &__1 {
+                  width: 224px;
+                  &__link {
+                    padding: 8px 16px;
+                    font-size: 14px;
+                    display: block;
+                    color: #333;    
+                    text-decoration: none;
+                  }
                 }
               }
             }
