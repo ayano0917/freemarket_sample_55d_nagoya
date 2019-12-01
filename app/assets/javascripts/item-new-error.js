@@ -1,4 +1,17 @@
 $(window).on('load', function() {
+
+  $(".item-sell-btn").on('click',function(e){
+    console.log($("img").length)
+    // var itemFormData = e.target.files[0],
+    if((".img") < 0){ 
+      e.preventDefault();
+      alert("商品画像は必須です")
+      return false;
+    }
+    jQuery.validator.addMethod("image-pass", function(value, element) {
+      return this.optional(element) || /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}$/i.test(value);
+      }, ""
+    );
   $("#new_item").validate({
     rules: {
       "item[name]": {
