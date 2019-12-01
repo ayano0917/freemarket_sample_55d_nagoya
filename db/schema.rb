@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20191120114339) do
 
-  create_table "birth_years", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -70,17 +65,17 @@ ActiveRecord::Schema.define(version: 20191120114339) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                  null: false
     t.text     "description",             limit: 65535, null: false
-    t.integer  "condition_id"
-    t.integer  "shipping_fee_id"
-    t.integer  "shipping_form_id"
-    t.integer  "prefecture_id"
-    t.integer  "days_before_shipping_id"
+    t.integer  "condition_id",                          null: false
+    t.integer  "shipping_fee_id",                       null: false
+    t.integer  "shipping_form_id",                      null: false
+    t.integer  "prefecture_id",                         null: false
+    t.integer  "days_before_shipping_id",               null: false
     t.integer  "size_id"
     t.integer  "category_id"
-    t.integer  "price"
+    t.integer  "price",                                 null: false
     t.integer  "seller_id"
     t.integer  "buyer_id"
-    t.string   "status"
+    t.string   "status",                                null: false
     t.integer  "parent_id",                             null: false
     t.integer  "child_id",                              null: false
     t.datetime "created_at",                            null: false
@@ -110,11 +105,6 @@ ActiveRecord::Schema.define(version: 20191120114339) do
     t.index ["user_id"], name: "index_shipping_addresses_on_user_id", using: :btree
   end
 
-  create_table "sign_ups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.string   "ancestry"
@@ -129,7 +119,7 @@ ActiveRecord::Schema.define(version: 20191120114339) do
     t.string   "city"
     t.string   "house_number"
     t.string   "building"
-    t.integer  "user_id"
+    t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_user_addresses_on_user_id", using: :btree
