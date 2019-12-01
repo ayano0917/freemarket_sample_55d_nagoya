@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function() {
+$(function() {
   $(function() {
     let $todo = $('.main-container__contents__notification-todo__tabs1__todo__1');
     let $notice = $('.main-container__contents__notification-todo__tabs1__notice__1');

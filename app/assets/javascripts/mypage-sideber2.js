@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function() {
+$(function() {
   $(function() {
     let focus1 = $('.wrapper__sidebar__nav__list__1__link');
     let focus2 = $('.wrapper__sidebar__nav__list2__1__link');

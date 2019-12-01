@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
 
   jQuery.validator.addMethod("pass", function(value, element) {
     return this.optional(element) || /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}$/i.test(value);
