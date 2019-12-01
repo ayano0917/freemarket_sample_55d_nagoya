@@ -70,13 +70,56 @@ body {
               display: block;
               font-size: 14px;
               font-weight: 600;
-              line-height: 36px;
               text-decoration: none;
               color: #333;
+              position: relative;
+              top: 11px;
               &__icon {
                 color: rgb(234, 53, 45);
                 height: 12px;
                 margin-right: 4px;
+              }
+              p {
+                display: inline;
+              }
+            }
+            .category__header {
+              background-color: rgb(255, 255, 255);
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, 0.18)0px 2px 4px;
+              position: absolute;
+              top: 44px;
+              left: 0;
+              &__list {
+                position: relative;
+                &__1{
+                  display: block;
+                  font-size: 14px;
+                  line-height: 44px;
+                  padding: 0px 16px;
+                  text-decoration: none;
+                  color: #333;
+                }
+              }
+              &__list2 {
+                position: absolute;
+                top: 0px;
+                left: 224px;
+                bottom: 0;
+                height: 100%;
+                background-color: #fff;
+                box-shadow: 1px 0 0 0 #eee;
+                border-left: solid 1px #f5f5f5;
+                &__1 {
+                  width: 224px;
+                  &__link {
+                    padding: 8px 16px;
+                    font-size: 14px;
+                    display: block;
+                    color: #333;    
+                    text-decoration: none;
+                  }
+                }
               }
             }
           }
@@ -89,14 +132,36 @@ body {
               display: block;
               font-size: 14px;
               font-weight: 600;
-              line-height: 36px;
               text-decoration: none;
               color: #333;
+              position: relative;
+              top: 11px;
               &__icon {
                 color: rgb(234, 53, 45);
                 height: 12px;
                 margin-right: 4px;
                 transform: rotate(-45deg);
+              }
+              p {
+                display: inline;
+              }
+            }
+            .brand__header {
+              background-color: rgb(255, 255, 255);
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, 0.18)0px 2px 4px;
+              position: absolute;
+              top: 44px;
+              left: 0;
+              &__list {
+                &__1{
+                  display: block;
+                  font-size: 14px;
+                  line-height: 44px;
+                  padding: 0px 16px;
+                  text-decoration: none;
+                  color: #333;
+                }
               }
             }
           }

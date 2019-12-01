@@ -175,6 +175,11 @@
         margin-right: 10px;
       }
     }
+    #message_new {
+      color: #ea352d;
+      font-size: 14px;
+      
+    }
     .expiration-date-wrap {
       display: flex;
       margin: 8px 0 0;
@@ -230,6 +235,14 @@
         top: 80px;
         left: 123px;
       }
+    }
+    #message_expired_new {
+      color: #ea352d;
+      font-size: 14px;
+    }
+    #message_cvc_new {
+      color: #ea352d;
+      font-size: 14px;
     }
     .form-group5 {
       margin-top: 5px;

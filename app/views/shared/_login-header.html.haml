@@ -10,31 +10,390 @@
       .main-header__inner__nav
         .main-header__inner__nav__search
           .main-header__inner__nav__search__category
-            =link_to '#', class: 'main-header__inner__nav__search__category__link' do
-              = fa_icon "list-ul", class: 'main-header__inner__nav__search__category__link__icon'
-              カテゴリーから探す
+            = link_to '#', class: 'main-header__inner__nav__search__category__link' do
+              = fa_icon "list-ul", class: 'main-header__inner__nav__search__category__link__icon' 
+              %p.header1
+                カテゴリーから探す
+            %ul.category__header{hidden: ""}
+              -# レディース
+              %li.category__header__list{hidden: ""} 
+                = link_to 'レディース', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'トップス', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ジャケット/アウター', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'パンツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スカート', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ワンピース', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '靴', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ルームウェア/パジャマ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'レッグウェア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'レディース', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'パジャマ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'レッグウェア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '帽子', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'バッグ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アクセサリー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ヘアアクセサリー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '小物', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '時計', '#', class: 'category__header__list2__1__link'
+              -# メンズ
+              %li.category__header__list{hidden: ""} 
+                = link_to 'メンズ', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'トップス', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ジャケット/アウター', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'パンツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '靴', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'バッグ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スーツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '帽子', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アクセサリー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '小物', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '時計', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '水着', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '帽子', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'レッグウェア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アンダーウェア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# ベビー・キッズ
+              %li.category__header__list{hidden: ""} 
+                = link_to 'ベビー・キッズ', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ベビー服(女の子用)~95cm', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ベビー服(男の子用)~95cm', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ベビー服(男女兼用)~95cm', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'キッズ服(女の子用)100cm~', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'キッズ服(男の子用)100cm~', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'キッズ服(男女兼用)100cm~', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'キッズ靴', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '子ども用ファッション子供', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'おむつ/トイレ/バス', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '外出/移動用品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '授乳/食事', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ベビー家具/寝具/室内用品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'おもちゃ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '行事/記念品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# インテリア・住まい・小物
+              %li.category__header__list{hidden: ""}
+                = link_to 'インテリア・住まい・小物', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'キッチン/食器', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ベッド/マットレス', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ソファ/ソファベッド', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '椅子/チェア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '机/テーブル', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '収納家具', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ラグ/カーペット/マット', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'カーテン/ブラインド', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ライト/照明', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '寝具', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'インテリア小物', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '季節/年中行事', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# 本・音楽・ゲーム
+              %li.category__header__list{hidden: ""}
+                = link_to '本・音楽・ゲーム', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '本', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '漫画', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '雑誌', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'CD', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'DVD/ブルーレイ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'レコード', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'テレビゲーム', '#', class: 'category__header__list2__1__link'
+              -# おもちゃ・ホビー・グッズ
+              %li.category__header__list{hidden: ""}
+                = link_to 'おもちゃ・ホビー・グッズ', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'おもちゃ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'タレントグッズ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'コミック/アニメグッズ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'トレーディングカード', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'フィギュア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '楽器/器材', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'コレクション', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ミリタリー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '美術品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アート用品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# コスメ・香水・美容
+              %li.category__header__list{hidden: ""} 
+                = link_to 'コスメ・香水・美容', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ベースメイク', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'メイクアップ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ネイルケア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '香水', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スキンケア/基礎化粧品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ヘアケア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ボディケア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'オーラルケア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'リラクゼーション', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ダイエット', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# 家電・スマホ・カメラ
+              %li.category__header__list{hidden: ""} 
+                = link_to '家電・スマホ・カメラ', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スマートフォン/携帯電話', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スマホアクセサリー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'PC/タブレット', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'カメラ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'テレビ/映像機器', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'オーディオ機器', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '美容/健康', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '冷暖房/空調', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '生活家電', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# スポーツ・レジャー
+              %li.category__header__list{hidden: ""}
+                = link_to 'スポーツ・レジャー', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ゴルフ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'フィッシング', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '自転車', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'トレーニング/エクササイズ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '野球', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'サッカー/フットサル', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'テニス', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スノーボード', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スキー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他スポーツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アウトドア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# ハンドメイド
+              %li.category__header__list{hidden: ""}
+                = link_to 'ハンドメイド', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アクセサリー(女性用)', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ファッション/小物', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アクセサリー/時計', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '日用品/インテリア', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '趣味/おもちゃ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'キッズ/ベビー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '素材/材料', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '二次創作物', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# チケット
+              %li.category__header__list{hidden: ""}
+                = link_to 'チケット', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '音楽', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'スポーツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '演劇/芸能', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'イベント', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '映画', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '施設利用券', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '優待券/割引券', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# 自動車・オートバイ
+              %li.category__header__list{hidden: ""}
+                = link_to '自動車・オートバイ', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '自動車本体', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '自動車タイヤ/ホイール', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '自動車パーツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '自動車アクセサリー', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'オートバイ本体', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'オートバイパーツ', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'オートバイアクセサリー', '#', class: 'category__header__list2__1__link'
+              -# その他
+              %li.category__header__list{hidden: ""}
+                = link_to 'その他', '#', class: 'category__header__list__1'
+              %ul.category__header__list2{hidden: ""}
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'まとめ売り', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'ペット用品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '食品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '飲料/酒', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '日用品/生活雑貨/旅行', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'アンティーク/コレクション', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '文房具/事務用品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to '事務/店舗用品', '#', class: 'category__header__list2__1__link'
+                %li.category__header__list2__1{hidden: ""}
+                  = link_to 'その他', '#', class: 'category__header__list2__1__link'
+              -# カテゴリー一覧
+              %li.category__header__list{hidden: ""}
+                = link_to 'カテゴリー一覧', '#', class: 'category__header__list__1'
           .main-header__inner__nav__search__brand
-            =link_to '#', class: 'main-header__inner__nav__search__brand__link' do
+            = link_to '#', class: 'main-header__inner__nav__search__brand__link' do
               %i.fa.fa-tag.main-header__inner__nav__search__brand__link__icon{"aria-hidden": "true"}
-              ブランドから探す
+              %p.header2
+                ブランドから探す
+            %ul.brand__header{hidden: ""}
+              %li.brand__header__list{hidden: ""} 
+                = link_to 'シャネル', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""} 
+                = link_to 'ナイキ', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""} 
+                = link_to 'ルイヴィトン', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""}
+                = link_to 'シュプリーム', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""}
+                = link_to 'アディダス', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""}
+                = link_to 'ブランド一覧', '#', class: 'brand__header__list__1'
         - if user_signed_in?
           .main-header__inner__nav__menu
             .main-header__inner__nav__menu__like
               =link_to like_list_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__like__link' do
                 = fa_icon "heart-o", class: 'main-header__inner__nav__menu__like__link__icon'
-                %span いいね！ 一覧
+                %span.header3 いいね！ 一覧
             .main-header__inner__nav__menu__notification
               =link_to notice_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__notification__link' do
                 = fa_icon 'bell-o', class: 'main-header__inner__nav__menu__notification__link__icon'
-                %span お知らせ
+                %span.header4 お知らせ
             .main-header__inner__nav__menu__todo
               =link_to todo_list_user_mypage_path(current_user), class: 'main-header__inner__nav__menu__todo__link' do
                 = fa_icon 'check', class: 'main-header__inner__nav__menu__todo__link__icon'
-                %span やることリスト
+                %span.header5 やることリスト
             .main-header__inner__nav__menu__mypage
               =link_to user_mypage_path(current_user), class: 'main-header__inner__nav__menu__mypage__link' do
                 = image_tag('member_photo_no-image.png' , class: 'main-header__inner__nav__menu__mypage__link__icon')
-                %span マイページ
+                %span.header6 マイページ
         - else
           .main-header__inner__nav__un-login
             .main-header__inner__nav__un-login__new
