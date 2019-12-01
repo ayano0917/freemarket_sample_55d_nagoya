@@ -2,7 +2,11 @@
   // $(document).ready (function() { //出品ページに遷移後リロード
 $(function(){
   $(".item-sell-btn").on('click',function(){
+
+
+
     $("#new_item").validate({
+
       rules: {
         "item[name]": {
           required: true,
