@@ -99,7 +99,7 @@ belongs_to :user
 |price|integer|null: false|
 |buyer_id|references|foreign_key:  { to_table: :users }|
 |seller_id|references|null: false, foreign_key: { to_table: :users }|
-|status|string|null:false, default: ""|
+|status|string|
 |parent_id|integer|null: false, index: true|
 |child_id|integer|null: false, index: true|
 
