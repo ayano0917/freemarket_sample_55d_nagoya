@@ -14,11 +14,55 @@
               = fa_icon "list-ul", class: 'main-header__inner__nav__search__category__link__icon' 
               %p.header1
                 カテゴリーから探す
+            %ul.category__header{hidden: ""}
+              %li.category__header__list{hidden: ""} 
+                = link_to 'レディース', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""} 
+                = link_to 'メンズ', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""} 
+                = link_to 'ベビー・キッズ', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'インテリア・住まい・小物', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to '本・音楽・ゲーム', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'おもちゃ・ホビー・グッズ', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""} 
+                = link_to 'コスメ・香水・美容', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""} 
+                = link_to '家電・スマホ・カメラ', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'スポーツ・レジャー', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'ハンドメイド', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'チケット', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to '自動車・オートバイ', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'その他', '#', class: 'category__header__list__1'
+              %li.category__header__list{hidden: ""}
+                = link_to 'カテゴリー一覧', '#', class: 'category__header__list__1'
+
+
           .main-header__inner__nav__search__brand
             = link_to '#', class: 'main-header__inner__nav__search__brand__link' do
               %i.fa.fa-tag.main-header__inner__nav__search__brand__link__icon{"aria-hidden": "true"}
               %p.header2
                 ブランドから探す
+            %ul.brand__header{hidden: ""}
+              %li.brand__header__list{hidden: ""} 
+                = link_to 'シャネル', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""} 
+                = link_to 'ナイキ', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""} 
+                = link_to 'ルイヴィトン', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""}
+                = link_to 'シュプリーム', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""}
+                = link_to 'アディダス', '#', class: 'brand__header__list__1'
+              %li.brand__header__list{hidden: ""}
+                = link_to 'ブランド一覧', '#', class: 'brand__header__list__1'
         - if user_signed_in?
           .main-header__inner__nav__menu
             .main-header__inner__nav__menu__like

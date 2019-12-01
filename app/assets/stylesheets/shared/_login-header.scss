@@ -83,6 +83,24 @@ body {
                 display: inline;
               }
             }
+            .category__header {
+              background-color: rgb(255, 255, 255);
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, 0.18)0px 2px 4px;
+              position: absolute;
+              top: 44px;
+              left: 0;
+              &__list {
+                &__1{
+                  display: block;
+                  font-size: 14px;
+                  line-height: 44px;
+                  padding: 0px 16px;
+                  text-decoration: none;
+                  color: #333;
+                }
+              }
+            }
           }
           &__brand {
             height: 44px;
@@ -105,6 +123,24 @@ body {
               }
               p {
                 display: inline;
+              }
+            }
+            .brand__header {
+              background-color: rgb(255, 255, 255);
+              width: 224px;
+              box-shadow: rgba(0, 0, 0, 0.18)0px 2px 4px;
+              position: absolute;
+              top: 44px;
+              left: 0;
+              &__list {
+                &__1{
+                  display: block;
+                  font-size: 14px;
+                  line-height: 44px;
+                  padding: 0px 16px;
+                  text-decoration: none;
+                  color: #333;
+                }
               }
             }
           }
