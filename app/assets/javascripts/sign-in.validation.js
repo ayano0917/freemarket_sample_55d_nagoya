@@ -1,4 +1,4 @@
-$(window).on('load', function () {
+$(function() {
   $("#user_sign_in").validate({
     rules: {
       "user[email]": {
