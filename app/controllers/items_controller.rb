@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       Brand.transaction do
         if (brand_name = params[:item][:brand][:name]).present?
           # 既に保存されているブランドは追加で登録しない。

@@ -56,7 +56,11 @@ $(document).on('turbolinks:load', function() { //出品ページに遷移後リ�
           }
         })
       .fail(function(){
-        
+        alert("失敗")
+
+
+
+
       })
     })
   })
