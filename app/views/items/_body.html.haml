@@ -20,7 +20,7 @@
               = image_tag('//web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class: 'google-play')
         = image_tag('//web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png', class: 'phone')
           
-  -unless @publishing_item.blank?          
+  -if @publishing_item.present?          
     .top-page__popular-categories
       .top-page__heading-line
         人気のカテゴリー 
@@ -30,7 +30,7 @@
             = link_to category.name, '#'
 
   .top-page__new-items
-    -unless @categories[0].nil?
+    -if @categories[0].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@categories[0].name}新着アイテム"
@@ -40,7 +40,7 @@
         .top-page__category__largebox
           - @items1.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
-    -unless @categories[1].nil?   
+    -if @categories[1].present?   
       .top-page__category
         .top-page__category__new-items
           = "#{@categories[1].name}新着アイテム"
@@ -51,7 +51,7 @@
           - @items2.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
 
-    -unless @categories[2].nil?
+    -if @categories[2].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@categories[2].name}新着アイテム"
@@ -61,7 +61,7 @@
         .top-page__category__largebox
           - @items3.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
-    -unless @categories[3].nil?
+    -if @categories[3].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@categories[3].name}新着アイテム"
@@ -72,7 +72,7 @@
           - @items4.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
 
-  -unless @brands.blank?          
+  -if @brands.present?          
     .top-page__popular-categories
       .top-page__heading-line
         人気のブランド
@@ -82,7 +82,7 @@
             = link_to brand.name, '#'
 
   .top-page__new-items 
-    -unless @brands[0].nil?
+    -if @brands[0].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@brands[0].name}新着アイテム"
@@ -93,7 +93,7 @@
           - @items5.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
 
-    -unless @brands[1].nil?
+    -if @brands[1].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@brands[1].name}新着アイテム"
@@ -104,7 +104,7 @@
           - @items6.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
 
-    -unless @brands[2].nil?
+    -if @brands[2].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@brands[2].name}新着アイテム"
@@ -115,7 +115,7 @@
           - @items7.first(5).each do |item|
             = render partial: 'items/categorybox', locals: { item: item }
 
-    -unless @brands[3].nil?
+    -if @brands[3].present?
       .top-page__category
         .top-page__category__new-items
           = "#{@brands[3].name}新着アイテム"
