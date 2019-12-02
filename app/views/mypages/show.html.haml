@@ -15,7 +15,8 @@
           .main-container__contents__user-icon__link__number__review 評価
           %span.main-container__contents__user-icon__link__number__review__number 0
           .main-container__contents__user-icon__link__number__sell 出品数
-          %span.main-container__contents__user-icon__link__number__sell__number 0
+          %span.main-container__contents__user-icon__link__number__sell__number
+            = @items.length.to_i
     %section.main-container__contents__notification-todo
       %ul.main-container__contents__notification-todo__tabs
         %li.main-container__contents__notification-todo__tabs__notice

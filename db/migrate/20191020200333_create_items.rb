@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
     create_table :items do |t|
       t.string     :name,                 null: false
       t.text       :description,          null: false
-      t.integer    :condition_id,            null: false
+      t.integer    :condition_id,           null: false
       t.integer    :shipping_fee_id,         null: false #配送料金の負担
       t.integer    :shipping_form_id,        null: false #配送方法
       t.integer    :prefecture_id,           null: false #配送地域

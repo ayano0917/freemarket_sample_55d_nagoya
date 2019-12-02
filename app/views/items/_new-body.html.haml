@@ -21,13 +21,11 @@
             商品名
             %span.form-require 必須
           = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", maxlength: 40
-          = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "name"}
         .item-introduction
           %label.form-label
             商品の説明
             %span.form-require 必須
           = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", maxlength: 1000
-          = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "description"}
       .item-content.cleafix
         %h3.sub-head 商品の詳細
         .detail-box
@@ -38,11 +36,10 @@
             .form-group1__pulldown
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
               = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', id: 'parent_category'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "parent_id"}
+              -# = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "parent_id"}
             .form-group1__pulldown.hide#category-child-1
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
               = f.collection_select :child_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "child_id"}
             .form-group1__pulldown.hide#category-child-2
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
               = f.collection_select :category_id, {}, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
@@ -65,7 +62,6 @@
             %span.form-group4__require 必須
             .form-group4__pulldown
               = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "condition_id"}
               =fa_icon 'chevron-down', class: 'form-group4__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 配送について
@@ -78,7 +74,6 @@
             %span.form-group1__require 必須
             .form-group1__pulldown
               = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "shipping_fee_id"}
               =fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
           .form-group2
             %label.form-group2__label
@@ -86,7 +81,6 @@
             %span.form-group2__require 必須
             .form-group2__pulldown
               = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "shipping_form_id"}
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
           .form-group2
             %label.form-group2__label
@@ -94,7 +88,6 @@
             %span.form-group2__require 必須
             .form-group1__pulldown
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "prefecture_id"}
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
           .form-group2
             %label.form-group2__label
@@ -102,7 +95,6 @@
             %span.form-group2__require 必須
             .form-group1__pulldown
               = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "days_before_shipping_id"}
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 販売価格(300〜9,999,999)
@@ -111,7 +103,6 @@
         .detail-box
           %ul.ul-box
             %li.price-form
-              = render partial: 'layouts/error_messages_item', locals: {item: @item, column: "price"}
 
               %label.form-label
                 価格
