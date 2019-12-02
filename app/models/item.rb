@@ -15,7 +15,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :brand
 
-  #上記バリデーションにするか下記バリデーションにするか次ブランチにて判断
   validates :name,  presence: true, length: { maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
   validates :parent_id, presence: true, numericality: { only_integer: true}
@@ -35,9 +34,4 @@ class Item < ApplicationRecord
   def next
     Item.where("id > ?", id).order("id ASC").first
   end
-
-
-
-
-
 end
