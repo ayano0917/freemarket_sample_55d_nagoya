@@ -110,7 +110,7 @@
     = render partial: 'items/listing-item-change-box', locals: {item: @item}                  
   .product-details__comment
     .product-details__comment__container
-      - if @item.comments
+      - if @item.comments.present?
         .product-details__comment__container__messages
           %ul.message-items
             - @comments.each do |comment|
