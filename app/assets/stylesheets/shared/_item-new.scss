@@ -32,7 +32,6 @@
         display: block;
         width: 620px;
         margin: 16px auto 0;
-        @include clearfix;
         .sell-upload-items-container {
           display: inline;
           .saved-upload-items {

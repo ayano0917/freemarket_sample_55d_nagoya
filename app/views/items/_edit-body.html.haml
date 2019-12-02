@@ -19,8 +19,8 @@
                       .saved-upload-item__btn-box
                         .saved-upload-item__btn-box--edit 編集
                         .saved-upload-item__btn-box--delete 削除
-        .upload-box__dropbox.cleafix
-          = f.fields_for :images do |i|
+        .upload-box__dropbox.cleafix-item
+          = f.fields_for :images, include_id: false do |i|
             = i.label :image, class: 'label-hide form-mask-image' do
               .form-mask-image
                 .upload-container__file-box

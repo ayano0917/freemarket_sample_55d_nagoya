@@ -1,6 +1,21 @@
 // $(window).on('load', function() { //出品ページに遷移後リロード
   $(function() {
+    var savedImg = $(".saved-img").length
+    if  (savedImg  == 1 || savedImg  == 6){
+      $('.form-mask-image').width(480);
+    } else if (savedImg == 2 || savedImg == 7){
+      $('.form-mask-image').width(360);
+    } else if (savedImg == 3 || savedImg == 8){
+      $('.form-mask-image').width(230);
+    } else if (savedImg == 4 || savedImg == 9){
+      $('.form-mask-image').width(100);
+    } else if (savedImg == 5){
+      $('.form-mask-image').width(620);
+    } else if (savedImg == 10){
+      $('.form-mask-image').addClass('label-hide');
+    }
 
+    console.log($('.saved-img').length)
   // var path = location.pathname;
   // if (path == "/items/new"){
     // $('.form-mask-image').empty();
@@ -32,7 +47,7 @@
                                   </div>`;
             $preview_new.parent().parent().after(buildPreviewHTML)
             $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
-            console.log($('img').length)
+            console.log($('.img').length)
 
             var previewCount = $('.img').length; //previewの数によってdropboxのwidthを変更
             if  (previewCount == 1 || previewCount == 6){
