@@ -1,4 +1,5 @@
-$(window).on('load', function() { //出品ページに遷移後リロード
+// $(window).on('load', function() { //出品ページに遷移後リロード
+  $(function() {
 
   // var path = location.pathname;
   // if (path == "/items/new"){
@@ -29,9 +30,9 @@ $(window).on('load', function() { //出品ページに遷移後リロード
                                       <span class='upload-item__btn-box--delete'>削除</span>
                                     </div>
                                   </div>`;
-            // $('.upload-images').attr(buildPreviewHTML)
             $preview_new.parent().parent().after(buildPreviewHTML)
             $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
+            console.log($('img').length)
 
             var previewCount = $('.img').length; //previewの数によってdropboxのwidthを変更
             if  (previewCount == 1 || previewCount == 6){
