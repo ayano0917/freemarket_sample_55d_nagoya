@@ -76,9 +76,6 @@
             required: "価格を入力してください",
             number : "数字で入力してください"
           },
-          "item[images_attributes][0][image]": {
-            required: "画像を入力してください",
-          }
         }
       });
     });
