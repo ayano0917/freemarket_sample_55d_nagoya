@@ -104,12 +104,15 @@
   .top-page__new-items {
     position: relative;
     width: 100%;
-    padding: 0px 0px 90px;
+    // padding: 0px 0px 90px;
     background-color: #EFEFEF;
     letter-spacing: 1px;
     .top-page__category {
       width: 1000px;
       margin: 0 auto;
+      &:last-child {
+        padding: 0px 0px 90px;
+      }
       &__new-items {
         display: flex;
         justify-content: space-between;

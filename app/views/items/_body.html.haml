@@ -29,8 +29,8 @@
           %li.top-page__menu__item
             = link_to category.name, '#'
 
-  -unless @categories[0].nil?
-    .top-page__new-items
+  .top-page__new-items
+    -unless @categories[0].nil?
       .top-page__category
         .top-page__category__new-items
           = "#{@categories[0].name}新着アイテム"
@@ -81,8 +81,8 @@
           %li.top-page__menu__item
             = link_to brand.name, '#'
 
-  -unless @brands[0].nil?
-    .top-page__new-items 
+  .top-page__new-items 
+    -unless @brands[0].nil?
       .top-page__category
         .top-page__category__new-items
           = "#{@brands[0].name}新着アイテム"
