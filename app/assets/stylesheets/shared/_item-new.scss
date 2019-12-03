@@ -35,11 +35,9 @@
         .sell-upload-items-container {
           display: inline;
           .saved-upload-items {
-            display: inline;
             float: left;
             flex: 1;
             ul {
-              display: inline;
               width: 100%;
               font-size: 0;
               .sell-upload-item:first-child {
@@ -106,7 +104,6 @@
       }
       &__dropbox {
         display: block;
-        width: 620px;
         @include clearfix;
         .label-hide{
           display: none;
