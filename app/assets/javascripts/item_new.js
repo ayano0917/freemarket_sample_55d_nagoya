@@ -56,30 +56,57 @@ $(function() {
           } else if (imgCount == 10){
             $('.form-mask-image').addClass('label-hide');
           }
-          $('.upload-item__btn-box--delete').on('click',function(){
-            var c = $(this).parent().parent().prev().children().children().children("").clone();//fileクローンをcに代入
-            c.val('');
-            $(this).parent().parent().prev().children().children().children("").replaceWith(c);//１つ前のfileにクローンを置き換える
-            c.remove() //クローンを削除
-            $(this).parent().parent().prev().appendTo('.upload-box__dropbox');
-            $(this).parent().parent().remove();
-            $(".upload-item:last").next(".form-mask-image").removeClass("label-hide'");//完全に消えたdropboxを復活させる
-            var previewCountD = $('.img').length; //previewの数によってdropboxのwidthを変更
-            var deleteCount = previewCountD + savedImg
-            if (deleteCount == 0 || deleteCount == 5){
-              $('.form-mask-image').width(618);
-            } else if (deleteCount == 1 || deleteCount == 6){
-              $('.form-mask-image').width(490);
-            } else if (deleteCount == 2 || deleteCount == 7){
-              $('.form-mask-image').width(360);
-            } else if (deleteCount == 3 || deleteCount == 8){
-              $('.form-mask-image').width(230);
-            } else if (deleteCount == 4 || deleteCount == 9){
-              $('.form-mask-image').width(100);
-            }
-          });
         };
       })(file);
     reader.readAsDataURL(file);
   }
+  
+  $('.upload-item__btn-box--delete').on('click',function(){
+    console.log("aaaa")
+    var c = $(this).parent().parent().prev().children().children().children("").clone();//fileクローンをcに代入
+    c.val('');
+    $(this).parent().parent().prev().children().children().children("").replaceWith(c);//１つ前のfileにクローンを置き換える
+    c.remove() //クローンを削除
+    $(this).parent().parent().prev().appendTo('.upload-box__dropbox');
+    $(this).parent().parent().remove();
+    $(".upload-item:last").next(".form-mask-image").removeClass("label-hide'");//完全に消えたdropboxを復活させる
+    var previewCountD = $('.img').length; //previewの数によってdropboxのwidthを変更
+    var deleteCount = previewCountD + savedImg
+    if (deleteCount == 0 || deleteCount == 5){
+      $('.form-mask-image').width(618);
+    } else if (deleteCount == 1 || deleteCount == 6){
+      $('.form-mask-image').width(490);
+    } else if (deleteCount == 2 || deleteCount == 7){
+      $('.form-mask-image').width(360);
+    } else if (deleteCount == 3 || deleteCount == 8){
+      $('.form-mask-image').width(230);
+    } else if (deleteCount == 4 || deleteCount == 9){
+      $('.form-mask-image').width(100);
+    }
+  });
+
+  $('.saved-upload-item__btn-box--delete').on('click',function(){
+    var c = $(".upload-box__dropbox").children().prev().prev().prev().prev().prev().prev().prev().prev().prev().children().children().children("").clone();//fileクローンをcに代入
+    c.val('');
+    $(this).parent().parent().prev().children().children().children("").replaceWith(c);//１つ前のfileにクローンを置き換える
+    c.remove() //クローンを削除
+    $(this).parent().parent().prev().appendTo('.upload-box__dropbox');
+    $(this).parent().parent().remove();
+    $(".upload-item:last").next(".form-mask-image").removeClass("label-hide'");//完全に消えたdropboxを復活させる
+    
+    var previewCountD = $('.img').length; //previewの数によってdropboxのwidthを変更
+    var deleteCount = previewCountD + savedImg
+    if (deleteCount == 0 || deleteCount == 5){
+      $('.form-mask-image').width(618);
+    } else if (deleteCount == 1 || deleteCount == 6){
+      $('.form-mask-image').width(490);
+    } else if (deleteCount == 2 || deleteCount == 7){
+      $('.form-mask-image').width(360);
+    } else if (deleteCount == 3 || deleteCount == 8){
+      $('.form-mask-image').width(230);
+    } else if (deleteCount == 4 || deleteCount == 9){
+      $('.form-mask-image').width(100);
+    }
+  });
+
 });

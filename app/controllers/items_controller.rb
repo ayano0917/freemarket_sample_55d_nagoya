@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   def new
     redirect_to new_user_session_path unless user_signed_in?
     @item = Item.new
-    10.times{@item.images.build}
+    20.times{@item.images.build}
     @brand = Brand.new
   end
 
