@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    10.times{@item.images.build}
+    # 9.times{@item.images.build}
     @category_parents = Category.where(ancestry: nil)
     @category_children = Category.where(ancestry: @item.parent_id)
     @category_grandchildren = Category.where(ancestry: "#{@item.parent_id}"+"/"+"#{@item.child_id}")
@@ -58,7 +58,6 @@ class ItemsController < ApplicationController
 
   
   def update
-    
     if @item.update(update_item_params)
       Brand.transaction do
         if (brand_name = params[:item][:brand][:name]).present?

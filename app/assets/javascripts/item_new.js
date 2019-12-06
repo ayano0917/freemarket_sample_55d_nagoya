@@ -27,7 +27,9 @@ $(function() {
       $preview_new = $(this).parent();
       previewfile(event,$preview_new)
       $(this).parent().parent().parent().addClass("label-hide");
-      $(this).parent().parent().parent().next('.form-mask-image').removeClass("label-hide");
+      $(this).parent().parent().parent().next().next('.form-mask-image').removeClass("label-hide");
+      // $(this).parent().parent().parent().next('.form-mask-image').removeClass("label-hide");
+
     })
     function previewfile(e,$preview_new) {
       var file = e.target.files[0],
@@ -49,7 +51,7 @@ $(function() {
                                 </div>`;
           $preview_new.parent().parent().after(buildPreviewHTML)
           $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
-          
+
           // プレビュー画像の削除ボタンを押した際の動作
           $('.upload-item__btn-box--delete').on('click',function(){
             $(this).parent().parent().remove();
@@ -61,6 +63,7 @@ $(function() {
   // 保存済み画像の削除ボタンを押した際の動作
   $('.saved-upload-item__btn-box--delete').on('click',function(){
     $(this).parent().parent().remove();
+    $(".destroy-item2").val('true');
   });
 
   // $(document).on('change', 'input[type="file"]', function(){
