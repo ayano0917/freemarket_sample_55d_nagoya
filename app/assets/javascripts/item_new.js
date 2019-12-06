@@ -114,6 +114,27 @@ $(function() {
       $(this).parent().parent().parent().addClass("label-hide");
       $(this).parent().parent().parent().next('.form-mask-image').removeClass("label-hide");
     })
+    // 保存済み画像の削除
+    $('.saved-upload-item__btn-box--delete').on('click',function(){
+      $(this).parent().parent().remove();
+      var preImage = ($(".saved-img").length) + ($(".img").length)
+      console.log(preImage)
+      if  (preImage  == 1 || preImage  == 6){
+        $('.form-mask-image').width(480);
+      } else if (preImage == 2 || preImage == 7){
+        $('.form-mask-image').width(360);
+      } else if (preImage == 3 || preImage == 8){
+        $('.form-mask-image').width(230);
+      } else if (preImage == 4 || preImage == 9){
+        $('.form-mask-image').width(100);
+      } else if (preImage == 5){
+        $('.form-mask-image').width(620);
+      } else if (preImage == 10){
+        $('.form-mask-image').addClass('label-hide');
+      }
+    });
+
+
     function previewfile(e,$preview_new) {
       var file = e.target.files[0],
         reader = new FileReader();
@@ -133,19 +154,18 @@ $(function() {
                                 </div>`;
           $preview_new.parent().parent().after(buildPreviewHTML)
           $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
-          var previewCount = $('.img').length; //previewの数によってdropboxのwidthを変更
-          var imgCount = previewCount + savedImg
-          if  (imgCount == 1 || imgCount == 6){
+          var previewCount = ($(".saved-img").length) + ($(".img").length)
+          if  (previewCount == 1 || previewCount == 6){
             $('.form-mask-image').width(480);
-          } else if (imgCount == 2 || imgCount == 7){
+          } else if (previewCount == 2 || previewCount == 7){
             $('.form-mask-image').width(360);
-          } else if (imgCount == 3 || imgCount == 8){
+          } else if (previewCount == 3 || previewCount == 8){
             $('.form-mask-image').width(230);
-          } else if (imgCount == 4 || imgCount == 9){
+          } else if (previewCount == 4 || previewCount == 9){
             $('.form-mask-image').width(100);
-          } else if (imgCount == 5){
+          } else if (previewCount == 5){
             $('.form-mask-image').width(620);
-          } else if (imgCount == 10){
+          } else if (previewCount == 10){
             $('.form-mask-image').addClass('label-hide');
           }
           $('.upload-item__btn-box--delete').on('click',function(){
@@ -156,20 +176,23 @@ $(function() {
             $(this).parent().parent().prev().appendTo('.upload-box__dropbox');
             $(this).parent().parent().remove();
             $(".upload-item:last").next(".form-mask-image").removeClass("label-hide'");//完全に消えたdropboxを復活させる
-            var previewCountD = $('.img').length; //previewの数によってdropboxのwidthを変更
-            var deleteCount = previewCountD + savedImg
-            if (deleteCount == 0 || deleteCount == 5){
+            var imageCount = ($(".saved-img").length) + ($(".img").length)
+            if (imageCount == 0 || imageCount == 5){
               $('.form-mask-image').width(618);
-            } else if (deleteCount == 1 || deleteCount == 6){
+            } else if (imageCount == 1 || imageCount == 6){
               $('.form-mask-image').width(490);
-            } else if (deleteCount == 2 || deleteCount == 7){
+            } else if (imageCount == 2 || imageCount == 7){
               $('.form-mask-image').width(360);
-            } else if (deleteCount == 3 || deleteCount == 8){
+            } else if (imageCount == 3 || imageCount == 8){
               $('.form-mask-image').width(230);
-            } else if (deleteCount == 4 || deleteCount == 9){
+            } else if (imageCount == 4 || imageCount == 9){
               $('.form-mask-image').width(100);
             }
           });
+          // $('.saved-upload-item__btn-box--delete').on('click',function(){
+          //   $(this).parent().parent().remove();
+          //   // $(".destroy-item2").val('true');
+          // });
         };
       })(file);
     reader.readAsDataURL(file);
