@@ -1,21 +1,19 @@
 $(function() {
   var savedImg = $('.saved-img').length;
-    console.log(savedImg)
   var previewCount = $('.img').length; //previewの数によってdropboxのwidthを変更
-    console.log(previewCount)
-  var ImgCount = previewCount + savedImg
+  var imgCount = previewCount + savedImg
 
 // 初回読み込み時のアップロードBOX操作
   $(window).on('load', function() {
-    if (ImgCount == 0 || ImgCount == 5){
+    if (imgCount == 0 || imgCount == 5){
       $('.form-mask-image').width(618);
-    } else if (ImgCount == 1 || ImgCount == 6){
+    } else if (imgCount == 1 || imgCount == 6){
       $('.form-mask-image').width(490);
-    } else if (ImgCount == 2 || ImgCount == 7){
+    } else if (imgCount == 2 || imgCount == 7){
       $('.form-mask-image').width(360);
-    } else if (ImgCount == 3 || ImgCount == 8){
+    } else if (imgCount == 3 || imgCount == 8){
       $('.form-mask-image').width(230);
-    } else if (ImgCount == 4 || ImgCount == 9){
+    } else if (imgCount == 4 || imgCount == 9){
       $('.form-mask-image').width(100);
     }
   });
@@ -63,21 +61,22 @@ $(function() {
   // 保存済み画像の削除ボタンを押した際の動作
   $('.saved-upload-item__btn-box--delete').on('click',function(){
     $(this).parent().parent().remove();
-    $(".destroy-item2").val('true');
+    $(this).next().val('true');
   });
 
   // $(document).on('change', 'input[type="file"]', function(){
   $('input[type="file"]').change (function(){
       // $(($('.img').length) && ($('.saved-img').length)).change (function() {
     console.log("aaa")
-    console.log($('.saved-img').length)
-    console.log($('.img').length)
+    console.log(savedImg)
+    console.log((".saved-img").length)
+    console.log(previewCount)
+    console.log((".img").length)
 
-    var savedImgChange = $('.saved-img').length;
-    console.log(savedImgChange)
-    var previewCountD = $('.img').length; //previewの数によってdropboxのwidthを変更
-    console.log(previewCountD)
-    var deleteCount = previewCountD + savedImg
+    var editImageCount = previewCount + 1
+    //previewの数によってdropboxのwidthを変更
+    var deleteCount = editImageCount + savedImg
+    console.log(deleteCount)
     if (deleteCount == 0 || deleteCount == 5){
       $('.form-mask-image').width(618);
     } else if (deleteCount == 1 || deleteCount == 6){
