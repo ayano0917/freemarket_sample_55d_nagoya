@@ -19,14 +19,14 @@
                       .saved-upload-item__btn-box
                         .saved-upload-item__btn-box--edit 編集
                         .saved-upload-item__btn-box--delete{data: {image:index}, id: "delete-btn#{index}"} 削除
-        .upload-box__dropbox.cleafix-item
-          = f.fields_for :images, include_id: false do |i|
-            = i.label :image, class: 'label-hide form-mask-image' do
-              .form-mask-image
-                .upload-container__file-box
-                  = i.file_field :image, class: 'upload-container__file'
-                %pre.upload-container--sentence 
-                  クリックしてファイルをアップロード
+                .upload-box__dropbox.cleafix-item
+                  = f.fields_for :images, include_id: false do |i|
+                    = i.label :image, class: 'label-hide form-mask-image' do
+                      .form-mask-image
+                        .upload-container__file-box
+                          = i.file_field :image, class: 'upload-container__file'
+                        %pre.upload-container--sentence 
+                          クリックしてファイルをアップロード
       .item-base
         .item-name
           %label.form-label

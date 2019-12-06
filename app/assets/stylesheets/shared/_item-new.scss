@@ -104,6 +104,7 @@
       }
       &__dropbox {
         display: block;
+        float: right;
         @include clearfix;
         .label-hide{
           display: none;
@@ -504,5 +505,3 @@
     padding: 0 0 5px;
   }
 }
-
-
