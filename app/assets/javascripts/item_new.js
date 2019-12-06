@@ -8,15 +8,15 @@ $(function() {
 // 初回読み込み時のアップロードBOX操作
   $(window).on('load', function() {
     if (ImgCount == 0 || ImgCount == 5){
-      $('.upload-box__dropbox').width(618);
+      $('.form-mask-image').width(618);
     } else if (ImgCount == 1 || ImgCount == 6){
-      $('.upload-box__dropbox').width(490);
+      $('.form-mask-image').width(490);
     } else if (ImgCount == 2 || ImgCount == 7){
-      $('.upload-box__dropbox').width(360);
+      $('.form-mask-image').width(360);
     } else if (ImgCount == 3 || ImgCount == 8){
-      $('.upload-box__dropbox').width(230);
+      $('.form-mask-image').width(230);
     } else if (ImgCount == 4 || ImgCount == 9){
-      $('.upload-box__dropbox').width(100);
+      $('.form-mask-image').width(100);
     }
   });
   
@@ -61,24 +61,29 @@ $(function() {
   $('.saved-upload-item__btn-box--delete').on('click',function(){
     $(this).parent().parent().remove();
   });
-  $(document).on('change', 'input[type="file"]', function(){
-  // $(($('.img').length) && ($('.saved-img').length)).change (function() {
+
+  // $(document).on('change', 'input[type="file"]', function(){
+  $('input[type="file"]').change (function(){
+      // $(($('.img').length) && ($('.saved-img').length)).change (function() {
     console.log("aaa")
+    console.log($('.saved-img').length)
+    console.log($('.img').length)
+
     var savedImgChange = $('.saved-img').length;
     console.log(savedImgChange)
     var previewCountD = $('.img').length; //previewの数によってdropboxのwidthを変更
     console.log(previewCountD)
     var deleteCount = previewCountD + savedImg
     if (deleteCount == 0 || deleteCount == 5){
-      $('.upload-box__dropbox').width(618);
+      $('.form-mask-image').width(618);
     } else if (deleteCount == 1 || deleteCount == 6){
-      $('.upload-box__dropbox').width(490);
+      $('.form-mask-image').width(490);
     } else if (deleteCount == 2 || deleteCount == 7){
-      $('.upload-box__dropbox').width(360);
+      $('.form-mask-image').width(360);
     } else if (deleteCount == 3 || deleteCount == 8){
-      $('.upload-box__dropbox').width(230);
+      $('.form-mask-image').width(230);
     } else if (deleteCount == 4 || deleteCount == 9){
-      $('.upload-box__dropbox').width(100);
+      $('.form-mask-image').width(100);
     }
   })
 });
