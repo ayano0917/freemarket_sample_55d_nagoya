@@ -57,6 +57,7 @@
               必須
             = fa_icon 'chevron-down', class: 'prefecture__select-btn'
             = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{include_blank:'--'}, class: "prefecture__input"
+            = render partial: 'layouts/error_messages_shipping_address', locals: {shipping_address: @shipping_address, column: "prefecture_id"}
           .form-group
             %label
               市区町村

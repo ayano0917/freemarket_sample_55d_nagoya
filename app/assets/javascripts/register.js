@@ -109,9 +109,7 @@ $(function() {
       "user[birth_day]": {
         required: ""
       },
-
     },
-
     errorPlacement: function(error, element) {
       switch(element.attr('name')) {
         case "user[last_name]":
