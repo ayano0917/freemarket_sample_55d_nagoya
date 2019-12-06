@@ -20,12 +20,12 @@
                         .saved-upload-item__btn-box
                           .saved-upload-item__btn-box--edit 編集
                           .saved-upload-item__btn-box--delete 削除
-                  = f.fields_for :images do |i,index|
+                  = f.fields_for :images, include_id: false do |i,index|
                     = i.label :image, class: 'label-hide form-mask-image' do
                       .form-mask-image
                         .upload-container__file-box
                           = i.file_field :image, class: 'upload-container__file'
-                          = i.hidden_field :_destroy, class: "destroy-item#{index}"
+                          -# = i.hidden_field :_destroy, class: "destroy-item#{index}"
                         %pre.upload-container--sentence 
                           クリックしてファイルをアップロード
       .item-base

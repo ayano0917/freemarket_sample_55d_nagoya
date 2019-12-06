@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    # 9.times{@item.images.build}
+    9.times{@item.images.build}
     @category_parents = Category.where(ancestry: nil)
     @category_children = Category.where(ancestry: @item.parent_id)
     @category_grandchildren = Category.where(ancestry: "#{@item.parent_id}"+"/"+"#{@item.child_id}")
