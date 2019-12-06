@@ -85,7 +85,7 @@
               商品の状態
             %span.form-group4__require 必須
             .form-group4__pulldown
-              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices', required: true
+              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group4__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 配送について
@@ -97,28 +97,28 @@
               配送料の負担
             %span.form-group1__require 必須
             .form-group1__pulldown
-              = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', required: true
+              = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
           .form-group2
             %label.form-group2__label
               配送の方法
             %span.form-group2__require 必須
             .form-group2__pulldown
-              = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
+              = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
           .form-group2
             %label.form-group2__label
               発送元の地域
             %span.form-group2__require 必須
             .form-group1__pulldown
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
           .form-group2
             %label.form-group2__label
               発送までの日数
             %span.form-group2__require 必須
             .form-group1__pulldown
-              = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
+              = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 販売価格(300〜9,999,999)
@@ -133,7 +133,7 @@
               .yen
                 ¥
                 .yen__box
-                  = f.text_field :price, class: 'price-input',placeholder: "例）300", required: true,  maxlength: 7
+                  = f.text_field :price, class: 'price-input',placeholder: "例）300",  maxlength: 7
             %li.sell-form.clearfix
               .sell-form__sentence
                 販売手数料 (10%)
