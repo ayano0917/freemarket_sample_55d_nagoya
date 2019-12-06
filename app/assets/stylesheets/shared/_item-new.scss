@@ -318,7 +318,7 @@
       }
     }
     .item-base {
-      padding-top: 350px;
+      padding-top: 200px;
       padding-bottom: 40px;
       padding-left: 40px;
       padding-right: 40px;
@@ -330,6 +330,22 @@
         }
       }  
       .item-name {
+        border-top: 1px solid $separator;
+        padding-top: 40px;
+        margin: 0;        
+        &__f-name {
+          width: 586px;
+          margin: 8px 0 0;
+          height: 28px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: $base-background;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      } 
+      .item-name-edit {
         border-top: 1px solid $separator;
         padding-top: 40px;
         margin: 0;        

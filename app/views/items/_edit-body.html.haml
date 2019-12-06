@@ -11,15 +11,15 @@
           .sell-upload-items-container
             .saved-upload-items
               %ul.pictures
-                - @item.images.each_with_index do |image,index|  #DB格納済みデータに番号 (index)をふる
-                  - if image.image.present?
-                    .saved-upload-item{id: "pre#{index}", style: "display:inline-block"}
-                      .saved-upload-item__square
-                        = image_tag image.image,class: "saved-img"
-                      .saved-upload-item__btn-box
-                        .saved-upload-item__btn-box--edit 編集
-                        .saved-upload-item__btn-box--delete{data: {image:index}, id: "delete-btn#{index}"} 削除
-                .upload-box__dropbox.cleafix-item
+                .upload-box__dropbox.cleafix
+                  - @item.images.each_with_index do |image,index|  #DB格納済みデータに番号 (index)をふる
+                    - if image.image.present?
+                      .saved-upload-item{id: "pre#{index}", style: "display:inline-block"}
+                        .saved-upload-item__square
+                          = image_tag image.image,class: "saved-img"
+                        .saved-upload-item__btn-box
+                          .saved-upload-item__btn-box--edit 編集
+                          .saved-upload-item__btn-box--delete{data: {image:index}, id: "delete-btn#{index}"} 削除
                   = f.fields_for :images, include_id: false do |i|
                     = i.label :image, class: 'label-hide form-mask-image' do
                       .form-mask-image
@@ -28,7 +28,7 @@
                         %pre.upload-container--sentence 
                           クリックしてファイルをアップロード
       .item-base
-        .item-name
+        .item-name-edit
           %label.form-label
             商品名
             %span.form-require 必須

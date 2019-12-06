@@ -49,6 +49,7 @@ $(function() {
                                 </div>`;
           $preview_new.parent().parent().after(buildPreviewHTML)
           $preview_new.parent().parent().next().children().children('img').attr({src: e.target.result})
+          
           // プレビュー画像の削除ボタンを押した際の動作
           $('.upload-item__btn-box--delete').on('click',function(){
             $(this).parent().parent().remove();
