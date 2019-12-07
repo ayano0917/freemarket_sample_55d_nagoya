@@ -22,7 +22,7 @@ class ShippingAddressesController < ApplicationController
     else
       @shipping_address = ShippingAddress.new
     end
-    # @shipping_address = ShippingAddress.find_by(user_id: current_user.id)
+    
   end
 
   def update
