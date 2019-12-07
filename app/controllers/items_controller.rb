@@ -31,15 +31,15 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      # Brand.transaction do
-      #   if (brand_name = params[:item][:brand][:name]).present?
-      #     # 既に保存されているブランドは追加で登録しない。
-      #     unless (brand=Brand.find_by(name: brand_name)).present?
-      #       brand = Brand.create!(name: brand_name)
-      #     end
-      #     @item.update!(brand_id: brand.id)
-      #   end
-      # end
+      Brand.transaction do
+        if (brand_name = params[:item][:brand][:name]).present?
+          # 既に保存されているブランドは追加で登録しない。
+          unless (brand=Brand.find_by(name: brand_name)).present?
+            brand = Brand.create!(name: brand_name)
+          end
+          @item.update!(brand_id: brand.id)
+        end
+      end
       redirect_to root_path, notice: '出品が完了しました'
     else
       render new_item_path, notice: "入力に誤りがあります。"
@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
           @item.update!(brand_id: "")
         end
       end
-      redirect_to item_path(@item)
+      redirect_to item_path(@item), notice: '編集が完了しました'
     else
       redirect_to edit_item_path(@item)
     end
