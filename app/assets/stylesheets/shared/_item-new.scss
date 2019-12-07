@@ -42,7 +42,6 @@
               font-size: 0;
               &__dropbox {
                 display: block;
-                // float: right;
                 @include clearfix;
                 .label-hide{
                   display: none;
@@ -211,7 +210,6 @@
       }
       &__dropbox {
         display: block;
-        // float: right;
         @include clearfix;
         .label-hide{
           display: none;
@@ -318,7 +316,6 @@
       }
     }
     .item-base {
-      // padding-top: 200px;
       padding-bottom: 40px;
       padding-left: 40px;
       padding-right: 40px;
