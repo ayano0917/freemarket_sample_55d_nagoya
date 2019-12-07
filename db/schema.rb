@@ -63,23 +63,23 @@ ActiveRecord::Schema.define(version: 20191120114339) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                               null: false
-    t.text     "description",             limit: 65535,              null: false
-    t.integer  "condition_id",                                       null: false
-    t.integer  "shipping_fee_id",                                    null: false
-    t.integer  "shipping_form_id",                                   null: false
-    t.integer  "prefecture_id",                                      null: false
-    t.integer  "days_before_shipping_id",                            null: false
+    t.string   "name",                                  null: false
+    t.text     "description",             limit: 65535, null: false
+    t.integer  "condition_id",                          null: false
+    t.integer  "shipping_fee_id",                       null: false
+    t.integer  "shipping_form_id",                      null: false
+    t.integer  "prefecture_id",                         null: false
+    t.integer  "days_before_shipping_id",               null: false
     t.integer  "size_id"
     t.integer  "category_id"
-    t.integer  "price",                                              null: false
+    t.integer  "price",                                 null: false
     t.integer  "seller_id"
     t.integer  "buyer_id"
-    t.string   "status",                                default: "", null: false
-    t.integer  "parent_id",                                          null: false
-    t.integer  "child_id",                                           null: false
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.string   "status"
+    t.integer  "parent_id",                             null: false
+    t.integer  "child_id",                              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
