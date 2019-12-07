@@ -6,8 +6,8 @@ class PurchasesController < ApplicationController
   def new
     @image = @item.images.first
     @shipping_addresses = current_user.shipping_address
-    #出品者自身が出品アイテムの購入画面に行かないように詳細画面にリダイレクト
-    if current_user.id == @item.seller_id
+    #ログイン中ユーザー＝出品者もしくは売り切れ・公開停止中の場合詳細画面にリダイレクト
+    if current_user.id == @item.seller_id || @item.status.present?
       redirect_to item_path(@item)
     end
 
