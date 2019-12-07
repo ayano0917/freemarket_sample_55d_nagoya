@@ -38,7 +38,8 @@
           },
           "item[price]": {
             required: true,
-            number : true 
+            number: true, 
+            min: 299,
           },
         },
         messages: {
@@ -73,7 +74,8 @@
           },
           "item[price]": {
             required: "価格を入力してください",
-            number : "数字で入力してください"
+            number : "数字で入力してください",
+            min : "¥300以上が必須です"
           },
         }
       });
