@@ -48,13 +48,12 @@
             .form-group2__pulldown
               = fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
               = f.collection_select :size_id, {}, :id, :name, {prompt: "---"}, class:'form-group2__pulldown--choices', id: 'select-size'
-          -# ブランド入力部分未実装のためコメントアウト
-          -# .form-group3.hide2#item-brand
-          -#   = f.fields_for @brand do |brand|
-          -#     %label.form-group3__i-label ブランド
-          -#     %span.form-group3__i-require 任意
-          -#     .form-group3__i-field
-          -#       = brand.text_field :name, class: 'form-group3__i-field--complete', placeholder: "例）シャネル"   
+          .form-group3.hide2#item-brand
+            = f.fields_for @brand do |brand|
+              %label.form-group3__i-label ブランド
+              %span.form-group3__i-require 任意
+              .form-group3__i-field
+                = brand.text_field :name, class: 'form-group3__i-field--complete', placeholder: "例）シャネル"   
           .form-group4
             %label.form-group4__label
               商品の状態
