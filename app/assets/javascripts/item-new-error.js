@@ -6,7 +6,6 @@
         return false;
       }
       $("#new_item").validate({
-  
         rules: {
           "item[name]": {
             required: true,

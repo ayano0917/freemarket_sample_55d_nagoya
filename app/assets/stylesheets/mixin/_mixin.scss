@@ -10,6 +10,13 @@
   font-weight: bold;
 }
 
+@mixin clearfix-item {
+  &::after {
+      content: "";
+      clear: both;
+  }
+}
+
 @mixin clearfix {
   &::after {
       content: "";

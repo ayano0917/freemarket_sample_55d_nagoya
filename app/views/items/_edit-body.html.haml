@@ -7,25 +7,38 @@
           出品画像
           %span.form-require 必須
         %p.max 最大10枚までアップロードできます
-        .upload-box__dropbox.cleafix
-          = f.fields_for :images do |i|
-            = i.label :image, class: 'label-hide form-mask-image' do
-              .form-mask-image
-                .upload-container__file-box
-                  = i.file_field :image, class: 'upload-container__file'
-                %pre.upload-container--sentence 
-                  クリックしてファイルをアップロード
+        .sell-dropbox-container.clearfix
+          .sell-upload-items-container
+            .saved-upload-items
+              %ul.pictures
+                .upload-box__dropbox.cleafix
+                  - @item.images.each_with_index do |image|  #DB格納済みデータに番号 (index)をふる
+                    - if image.image.present?
+                      .saved-upload-item{style: "display:inline-block"}
+                        .saved-upload-item__square
+                          = image_tag image.image,class: "saved-img"
+                        .saved-upload-item__btn-box
+                          .saved-upload-item__btn-box--edit 編集
+                          .saved-upload-item__btn-box--delete 削除
+                  = f.fields_for :images, include_id: false do |i,index|
+                    = i.label :image, class: 'label-hide form-mask-image' do
+                      .form-mask-image
+                        .upload-container__file-box
+                          = i.file_field :image, class: 'upload-container__file'
+                          -# = i.hidden_field :_destroy, class: "destroy-item#{index}"
+                        %pre.upload-container--sentence 
+                          クリックしてファイルをアップロード
       .item-base
-        .item-name
+        .item-name-edit
           %label.form-label
             商品名
             %span.form-require 必須
-          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", required: true, maxlength: 40
+          = f.text_field :name, class: 'item-name__f-name',placeholder: "商品名 （必須 40文字まで）", maxlength: 40
         .item-introduction
           %label.form-label
             商品の説明
             %span.form-require 必須
-          = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", required: true, maxlength: 1000
+          = f.text_area :description, class: 'item-introduction__f-text', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", maxlength: 1000
       .item-content.cleafix
         %h3.sub-head 商品の詳細
         .detail-box
@@ -35,14 +48,14 @@
             %span.form-group1__require 必須
             .form-group1__pulldown
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', id: 'parent_category', required: true
+              = f.collection_select :parent_id, @category_parents, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', id: 'parent_category'
             .form-group1__pulldown#category-child-1
               = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-              = f.collection_select :child_id, @category_children, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category', required: true
+              = f.collection_select :child_id, @category_children, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'child_category'
             - if @category_grandchildren.present?
               .form-group1__pulldown#category-child-2
                 = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
-                = f.collection_select :category_id, @category_grandchildren, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category', required: true
+                = f.collection_select :category_id, @category_grandchildren, :id, :name, {prompt: "--"}, class:'form-group1__pulldown--choices', id: 'grandchild_category'
             - else  
               .form-group1__pulldown#category-child-2.hide
                 = fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
@@ -72,7 +85,7 @@
               商品の状態
             %span.form-group4__require 必須
             .form-group4__pulldown
-              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices', required: true
+              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "--"}, class: 'form-group4__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group4__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 配送について
@@ -84,28 +97,28 @@
               配送料の負担
             %span.form-group1__require 必須
             .form-group1__pulldown
-              = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices', required: true
+              = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "--"}, class: 'form-group1__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group1__pulldown--icon'
           .form-group2
             %label.form-group2__label
               配送の方法
             %span.form-group2__require 必須
             .form-group2__pulldown
-              = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
+              = f.collection_select :shipping_form_id, ShippingForm.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
           .form-group2
             %label.form-group2__label
               発送元の地域
             %span.form-group2__require 必須
             .form-group1__pulldown
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
           .form-group2
             %label.form-group2__label
               発送までの日数
             %span.form-group2__require 必須
             .form-group1__pulldown
-              = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices', required: true
+              = f.collection_select :days_before_shipping_id, DaysBeforeShipping.all, :id, :name, {prompt: "--"}, class: 'form-group2__pulldown--choices'
               =fa_icon 'chevron-down', class: 'form-group2__pulldown--icon'
       .item-content.cleafix
         %h3.sub-head 販売価格(300〜9,999,999)
@@ -120,7 +133,7 @@
               .yen
                 ¥
                 .yen__box
-                  = f.text_field :price, class: 'price-input',placeholder: "例）300", required: true,  maxlength: 7
+                  = f.text_field :price, class: 'price-input',placeholder: "例）300",  maxlength: 7
             %li.sell-form.clearfix
               .sell-form__sentence
                 販売手数料 (10%)
