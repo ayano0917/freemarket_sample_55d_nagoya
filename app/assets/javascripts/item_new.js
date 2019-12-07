@@ -95,10 +95,6 @@ $(function() {
               $('.form-mask-image').width(100);
             }
           });
-          // $('.saved-upload-item__btn-box--delete').on('click',function(){
-          //   $(this).parent().parent().remove();
-          //   // $(".destroy-item2").val('true');
-          // });
         };
       })(file);
     reader.readAsDataURL(file);
